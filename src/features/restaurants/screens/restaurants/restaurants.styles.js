@@ -1,17 +1,16 @@
 import styled from "styled-components";
-import { SafeAreaView, View } from "react-native";
+import { SafeAreaView, View, StatusBar } from "react-native";
 
-export const Container = styled(SafeAreaView)`
+export const SafeArea = styled(SafeAreaView)`
   flex: 1;
-  margin-top: ${(props) => props.device};
+  ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px`};
 `;
 
-export const Search = styled(View)`
-  padding: 16px;
+export const SearchContainer = styled(View)`
+  padding: ${(props) => props.theme.space[3]};
 `;
 
 export const ListContainer = styled(View)`
   flex: 1;
-  padding: 16px;
-  background-color: blue;
+  padding: ${(props) => props.theme.space[3]};
 `;
