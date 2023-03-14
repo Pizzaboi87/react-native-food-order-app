@@ -1,9 +1,14 @@
 import React from "react";
 import {
+  Info,
   RestaurantCard,
   RestaurantCardCover,
-  RestaurantCardTitle,
+  Title,
+  Address,
+  SVG,
+  Rating,
 } from "./restaurant-info-card.styles";
+import star from "../../../../../assets/star";
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {
@@ -18,10 +23,20 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
     isClosedTemporarily = false,
   } = restaurant;
 
+  const ratingArray = Array.from(new Array(Math.floor(rating)));
+
   return (
     <RestaurantCard elevation={5}>
       <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
-      <RestaurantCardTitle>{name}</RestaurantCardTitle>
+      <Info>
+        <Title>{name}</Title>
+        <Rating>
+          {ratingArray.map((index) => (
+            <SVG xml={star} key={index} />
+          ))}
+        </Rating>
+        <Address>{address}</Address>
+      </Info>
     </RestaurantCard>
   );
 };
