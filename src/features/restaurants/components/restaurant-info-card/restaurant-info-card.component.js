@@ -5,15 +5,20 @@ import {
   RestaurantCardCover,
   Title,
   Address,
+  Section,
   SVG,
   Rating,
+  Closed,
+  Icon,
+  SectionEnd,
 } from "./restaurant-info-card.styles";
 import star from "../../../../../assets/star";
+import open from "../../../../../assets/open";
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {
     name = "Cake Mountain Restaurant",
-    icon = ["../../../assets/icon.png"],
+    icon = "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
     photos = [
       "https://chocolatestorras.com/wp-content/uploads/2019/06/chocolate-cake-torras-760x667.jpg",
     ],
@@ -30,11 +35,21 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
       <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
       <Info>
         <Title>{name}</Title>
-        <Rating>
-          {ratingArray.map((index) => (
-            <SVG xml={star} key={index} />
-          ))}
-        </Rating>
+        <Section>
+          <Rating>
+            {ratingArray.map(
+              (item, index) => (item = <SVG xml={star} key={index} />)
+            )}
+          </Rating>
+          <SectionEnd>
+            {isClosedTemporarily ? (
+              <Closed>CLOSED TEMPORARILY</Closed>
+            ) : (
+              isOpenNow && <SVG xml={open} />
+            )}
+            <Icon source={{ uri: icon }} />
+          </SectionEnd>
+        </Section>
         <Address>{address}</Address>
       </Info>
     </RestaurantCard>
