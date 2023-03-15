@@ -5,6 +5,7 @@ import { Restaurants } from "../../screens/restaurants/restaurants.screen";
 import { Map } from "../../screens/map/map.screen";
 import { Settings } from "../../screens/settings/settings.screen";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { theme } from "../../infrastructure/theme";
 
 const Navigator = () => {
   const Tab = createBottomTabNavigator();
@@ -22,8 +23,8 @@ const Navigator = () => {
         <Ionicons name={iconName} size={size} color={color} />
       ),
       headerShown: false,
-      tabBarActiveTintColor: "tomato",
-      tabBarInactiveTintColor: "gray",
+      tabBarActiveTintColor: theme.colors.ui.brand,
+      tabBarInactiveTintColor: theme.colors.ui.secondary,
     };
   };
 
