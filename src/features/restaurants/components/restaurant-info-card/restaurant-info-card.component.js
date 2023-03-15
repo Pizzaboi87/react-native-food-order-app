@@ -1,17 +1,15 @@
 import React from "react";
 import {
-  Info,
   RestaurantCard,
   RestaurantCardCover,
-  Title,
-  Address,
+  Info,
   Section,
-  SVG,
-  Rating,
-  Closed,
-  Icon,
   SectionEnd,
+  Rating,
+  Icon,
+  SVG,
 } from "./restaurant-info-card.styles";
+import { StyledText } from "../../../../helpers/typography/text.helper";
 import star from "../../../../../assets/star";
 import open from "../../../../../assets/open";
 
@@ -25,7 +23,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
     address = "100 Some Random Street",
     isOpenNow = true,
     rating = 4,
-    isClosedTemporarily = false,
+    isClosedTemporarily = true,
   } = restaurant;
 
   const ratingArray = Array.from(new Array(Math.floor(rating)));
@@ -34,7 +32,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
     <RestaurantCard elevation={5}>
       <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
       <Info>
-        <Title>{name}</Title>
+        <StyledText variant="label">{name}</StyledText>
         <Section>
           <Rating>
             {ratingArray.map(
@@ -43,14 +41,14 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
           </Rating>
           <SectionEnd>
             {isClosedTemporarily ? (
-              <Closed>CLOSED TEMPORARILY</Closed>
+              <StyledText variant="error">CLOSED TEMPORARILY</StyledText>
             ) : (
               isOpenNow && <SVG xml={open} />
             )}
             <Icon source={{ uri: icon }} />
           </SectionEnd>
         </Section>
-        <Address>{address}</Address>
+        <StyledText variant="lightCaption">{address}</StyledText>
       </Info>
     </RestaurantCard>
   );

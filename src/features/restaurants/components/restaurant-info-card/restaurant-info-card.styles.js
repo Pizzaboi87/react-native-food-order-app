@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Card } from "react-native-paper";
-import { Text, View, Image } from "react-native";
+import { View, Image } from "react-native";
 import { SvgXml } from "react-native-svg";
 
 export const RestaurantCard = styled(Card)`
@@ -16,17 +16,17 @@ export const Info = styled(View)`
   padding: ${(props) => props.theme.space[3]};
 `;
 
-export const Title = styled(Text)`
-  font-family: ${(props) => props.theme.fonts.heading};
-  font-size: ${(props) => props.theme.fontSizes.body};
-  color: ${(props) => props.theme.colors.ui.primary};
-`;
-
 export const Section = styled(View)`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding-right: ${(props) => props.theme.space[2]};
+`;
+
+export const SectionEnd = styled(View)`
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 export const Rating = styled(View)`
@@ -40,25 +40,9 @@ export const SVG = styled(SvgXml)`
   height: ${(props) => props.theme.sizes[2]};
 `;
 
-export const SectionEnd = styled(View)`
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-`;
-
-export const Closed = styled(Text)`
-  font-family: ${(props) => props.theme.fonts.heading};
-  font-size: ${(props) => props.theme.fontSizes.button};
-  color: ${(props) => props.theme.colors.ui.error};
-`;
-
 export const Icon = styled(Image)`
   width: ${(props) => props.theme.sizes[1]};
   height: ${(props) => props.theme.sizes[1]};
   margin-left: ${(props) => props.theme.space[2]};
-`;
-
-export const Address = styled(Text)`
-  font-family: ${(props) => props.theme.fonts.body};
-  font-size: ${(props) => props.theme.fontSizes.caption};
+  margin-bottom: -2.5px;
 `;
