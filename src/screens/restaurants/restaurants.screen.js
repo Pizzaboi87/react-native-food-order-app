@@ -1,14 +1,13 @@
 import React from "react";
 import { Searchbar } from "react-native-paper";
-import { RestaurantInfoCard } from "../../components/restaurant-info-card/restaurant-info-card.component";
+import { RestaurantInfoCard } from "../../components/restaurants/restaurant-info-card.component";
 import {
   SafeArea,
   SearchContainer,
   RestaurantList,
 } from "./restaurants.styles";
-import { Spacer } from "../../../../helpers/spacer/spacer.helper";
 
-export const RestaurantsScreen = () => (
+export const Restaurants = () => (
   <SafeArea>
     <SearchContainer>
       <Searchbar />
