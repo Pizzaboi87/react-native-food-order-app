@@ -13,7 +13,7 @@ import { StyledText } from "../../helpers/typography/text.helper";
 import star from "../../../assets/star";
 import open from "../../../assets/open";
 
-export const RestaurantInfoCard = ({ restaurant = {} }) => {
+export const RestaurantInfoCard = ({ restaurant }) => {
   const {
     name = "Cake Mountain Restaurant",
     icon = "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
