@@ -24,6 +24,7 @@ export const RestaurantInfoCard = ({ restaurant }) => {
     isOpenNow = true,
     rating = 4,
     isClosedTemporarily = true,
+    placeId,
   } = restaurant;
 
   const ratingArray = Array.from(new Array(Math.floor(rating)));
@@ -35,9 +36,9 @@ export const RestaurantInfoCard = ({ restaurant }) => {
         <StyledText variant="label">{name}</StyledText>
         <Section>
           <Rating>
-            {ratingArray.map(
-              (item, index) => (item = <SVG xml={star} key={index} />)
-            )}
+            {ratingArray.map((_, index) => (
+              <SVG xml={star} key={`star-${placeId}-${index}`} />
+            ))}
           </Rating>
           <SectionEnd>
             {isClosedTemporarily ? (

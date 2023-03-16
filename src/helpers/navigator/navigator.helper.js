@@ -7,26 +7,26 @@ import { Settings } from "../../screens/settings/settings.screen";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { theme } from "../../infrastructure/theme";
 
+const TAB_ICON = {
+  Restaurants: "md-restaurant",
+  Map: "md-map",
+  Settings: "md-settings",
+};
+
+const createScreenOptions = ({ route }) => {
+  const iconName = TAB_ICON[route.name];
+  return {
+    tabBarIcon: ({ size, color }) => (
+      <Ionicons name={iconName} size={size} color={color} />
+    ),
+    headerShown: false,
+    tabBarActiveTintColor: theme.colors.ui.brand,
+    tabBarInactiveTintColor: theme.colors.ui.secondary,
+  };
+};
+
 const Navigator = () => {
   const Tab = createBottomTabNavigator();
-
-  const TAB_ICON = {
-    Restaurants: "md-restaurant",
-    Map: "md-map",
-    Settings: "md-settings",
-  };
-
-  const createScreenOptions = ({ route }) => {
-    const iconName = TAB_ICON[route.name];
-    return {
-      tabBarIcon: ({ size, color }) => (
-        <Ionicons name={iconName} size={size} color={color} />
-      ),
-      headerShown: false,
-      tabBarActiveTintColor: theme.colors.ui.brand,
-      tabBarInactiveTintColor: theme.colors.ui.secondary,
-    };
-  };
 
   return (
     <NavigationContainer>

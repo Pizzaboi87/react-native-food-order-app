@@ -5,6 +5,7 @@ import { ThemeProvider } from "styled-components";
 import { theme } from "./src/infrastructure/theme";
 import { useCustomFonts } from "./src/helpers/typography/useCustomFonts.helper";
 import { RestaurantsContextProvider } from "./src/services/restaurants/restaurants.context";
+import { LocationContextProvider } from "./src/services/location/location.context";
 
 export default function App() {
   const fontsLoaded = useCustomFonts();
@@ -16,9 +17,11 @@ export default function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <RestaurantsContextProvider>
-          <Navigator />
-        </RestaurantsContextProvider>
+        <LocationContextProvider>
+          <RestaurantsContextProvider>
+            <Navigator />
+          </RestaurantsContextProvider>
+        </LocationContextProvider>
       </ThemeProvider>
       <ExpoStatusBar style="auto" />
     </>

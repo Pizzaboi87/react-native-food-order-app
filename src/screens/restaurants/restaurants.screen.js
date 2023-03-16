@@ -1,23 +1,18 @@
 import React, { useContext } from "react";
-import { Searchbar, ActivityIndicator } from "react-native-paper";
+import { ActivityIndicator } from "react-native-paper";
 import { RestaurantInfoCard } from "../../components/restaurants/restaurant-info-card.component";
-import {
-  SearchContainer,
-  RestaurantList,
-  IndicatorContainer,
-} from "./restaurants.styles";
+import { RestaurantList, IndicatorContainer } from "./restaurants.styles";
 import { SafeArea } from "../../helpers/safe-area/safe-area.helper";
 import { theme } from "../../infrastructure/theme";
 import { RestaurantsContext } from "../../services/restaurants/restaurants.context";
+import { Search } from "../../components/search/search.component";
 
 export const Restaurants = () => {
-  const { isLoading, error, restaurants } = useContext(RestaurantsContext);
+  const { isLoading, restaurants } = useContext(RestaurantsContext);
 
   return (
     <SafeArea>
-      <SearchContainer>
-        <Searchbar />
-      </SearchContainer>
+      <Search />
       {isLoading ? (
         <IndicatorContainer>
           <ActivityIndicator
