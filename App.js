@@ -1,5 +1,5 @@
 import React from "react";
-import Navigator from "./src/helpers/navigator/navigator.helper";
+import { Navigation } from "./src/infrastructure/navigation";
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./src/infrastructure/theme";
@@ -19,7 +19,7 @@ export default function App() {
       <ThemeProvider theme={theme}>
         <LocationContextProvider>
           <RestaurantsContextProvider>
-            <Navigator />
+            <Navigation />
           </RestaurantsContextProvider>
         </LocationContextProvider>
       </ThemeProvider>

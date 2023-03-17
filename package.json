@@ -16,6 +16,7 @@
     "@react-native-community/masked-view": "^0.1.11",
     "@react-navigation/bottom-tabs": "^6.5.7",
     "@react-navigation/native": "^6.1.6",
+    "@react-navigation/stack": "^6.3.16",
     "@types/styled-components-react-native": "^5.2.1",
     "camelize": "^1.0.1",
     "expo": "~48.0.6",
