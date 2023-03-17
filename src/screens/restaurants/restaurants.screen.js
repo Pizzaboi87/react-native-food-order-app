@@ -11,8 +11,10 @@ import { Search } from "../../components/search/search.component";
 export const RestaurantsScreen = ({ navigation }) => {
   const { isLoading, restaurants } = useContext(RestaurantsContext);
 
-  const openDetails = () => {
-    navigation.navigate("RestaurantDetail");
+  const openDetails = (item) => {
+    navigation.navigate("RestaurantDetail", {
+      restaurant: item,
+    });
   };
 
   return (
@@ -31,7 +33,10 @@ export const RestaurantsScreen = ({ navigation }) => {
           data={restaurants}
           renderItem={({ item }) => {
             return (
-              <TouchableOpacity onPress={openDetails} activeOpacity={0.8}>
+              <TouchableOpacity
+                onPress={() => openDetails(item)}
+                activeOpacity={0.8}
+              >
                 <RestaurantInfoCard restaurant={item} />
               </TouchableOpacity>
             );
