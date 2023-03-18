@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { ActivityIndicator } from "react-native-paper";
 import { TouchableOpacity } from "react-native";
 import { RestaurantInfoCard } from "../../components/restaurants/restaurant-info-card.component";
@@ -6,14 +6,13 @@ import { RestaurantList, IndicatorContainer } from "./restaurants.styles";
 import { SafeArea } from "../../helpers/safe-area/safe-area.helper";
 import { theme } from "../../infrastructure/theme";
 import { RestaurantsContext } from "../../services/restaurants/restaurants.context";
-import { FavouritesContext } from "../../services/favourites/favourites.context";
 import { Search } from "../../components/search/search.component";
 import { SearchContainerRestaurant } from "../../components/search/search.styles";
+import { FavouritesBar } from "../../components/favourites-bar/favourites-bar.component";
 
 export const RestaurantsScreen = ({ navigation }) => {
   const { isLoading, restaurants } = useContext(RestaurantsContext);
-  const { favourites, addFavourite, removeFavourite } =
-    useContext(FavouritesContext);
+  const [isToggled, setIsToggled] = useState(false);
 
   const openDetails = (item) => {
     navigation.navigate("RestaurantDetail", {
@@ -24,8 +23,13 @@ export const RestaurantsScreen = ({ navigation }) => {
   return (
     <SafeArea>
       <SearchContainerRestaurant>
-        <Search />
+        <Search
+          icon="heart"
+          onToggle={() => setIsToggled(!isToggled)}
+          isToggled={isToggled}
+        />
       </SearchContainerRestaurant>
+      {isToggled && <FavouritesBar onDetail={openDetails} />}
       {isLoading ? (
         <IndicatorContainer>
           <ActivityIndicator

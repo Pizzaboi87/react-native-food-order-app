@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import { theme } from "../../infrastructure/theme";
-import { StyledText } from "../../helpers/typography/text.helper";
 import { Marker, Callout } from "react-native-maps";
 import { LocationContext } from "../../services/location/location.context";
 import { RestaurantsContext } from "../../services/restaurants/restaurants.context";

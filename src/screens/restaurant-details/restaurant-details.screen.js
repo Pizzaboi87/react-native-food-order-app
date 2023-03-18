@@ -10,13 +10,19 @@ export const RestaurantDetailsScreen = ({ route }) => {
   const [dinnerExpanded, setDinnerExpanded] = useState(false);
   const [drinksExpanded, setDrinksExpanded] = useState(false);
   const { restaurant } = route.params;
+
+  const breakfast = (props) => <List.Icon {...props} icon="bread-slice" />;
+  const lunch = (props) => <List.Icon {...props} icon="hamburger" />;
+  const dinner = (props) => <List.Icon {...props} icon="food-variant" />;
+  const drinks = (props) => <List.Icon {...props} icon="cup" />;
+
   return (
     <SafeArea>
       <RestaurantInfoCard restaurant={restaurant} />
       <DetailsContainer>
         <List.Accordion
           title="Breakfast"
-          left={(props) => <List.Icon {...props} icon="bread-slice" />}
+          left={breakfast}
           expanded={breakfastExpanded}
           onPress={() => setBreakfastExpanded(!breakfastExpanded)}
         >
@@ -28,7 +34,7 @@ export const RestaurantDetailsScreen = ({ route }) => {
 
         <List.Accordion
           title="Lunch"
-          left={(props) => <List.Icon {...props} icon="hamburger" />}
+          left={lunch}
           expanded={lunchExpanded}
           onPress={() => setLunchExpanded(!lunchExpanded)}
         >
@@ -39,7 +45,7 @@ export const RestaurantDetailsScreen = ({ route }) => {
 
         <List.Accordion
           title="Dinner"
-          left={(props) => <List.Icon {...props} icon="food-variant" />}
+          left={dinner}
           expanded={dinnerExpanded}
           onPress={() => setDinnerExpanded(!dinnerExpanded)}
         >
@@ -51,7 +57,7 @@ export const RestaurantDetailsScreen = ({ route }) => {
 
         <List.Accordion
           title="Drinks"
-          left={(props) => <List.Icon {...props} icon="cup" />}
+          left={drinks}
           expanded={drinksExpanded}
           onPress={() => setDrinksExpanded(!drinksExpanded)}
         >

@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Searchbar } from "react-native-paper";
 import { LocationContext } from "../../services/location/location.context";
+import { SearchBarOrange } from "./search.styles";
 
-export const Search = ({ icon }) => {
+export const Search = ({ icon, isToggled, onToggle }) => {
   const { keyword, search } = useContext(LocationContext);
   const [searchKeyword, setSearchKeyword] = useState(keyword);
 
@@ -11,8 +11,9 @@ export const Search = ({ icon }) => {
   }, [keyword]);
 
   return (
-    <Searchbar
-      icon={icon === "map" ? "map" : null}
+    <SearchBarOrange
+      icon={icon === "map" ? "map" : isToggled ? "heart" : "heart-outline"}
+      onIconPress={icon === "heart" ? onToggle : null}
       placeholder="Search for a location"
       value={searchKeyword}
       onSubmitEditing={() => search(searchKeyword)}
