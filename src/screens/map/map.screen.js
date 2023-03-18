@@ -1,5 +1,6 @@
-import React, { useContext } from "react";
-import MapView from "react-native-maps";
+import React, { useContext, useEffect, useState } from "react";
+import { theme } from "../../infrastructure/theme";
+import { Marker } from "react-native-maps";
 import { LocationContext } from "../../services/location/location.context";
 import { RestaurantsContext } from "../../services/restaurants/restaurants.context";
 import { Map, MapContainer } from "./map.styles";
@@ -9,15 +10,42 @@ import { SearchContainerMap } from "../../components/search/search.styles";
 export const MapScreen = () => {
   const { location } = useContext(LocationContext);
   const { restaurants } = useContext(RestaurantsContext);
+  const { viewPort, lat, lng } = location;
+  const [latDelta, setLatDelta] = useState(0);
+
+  useEffect(() => {
+    const northeastLat = viewPort.northeast.lat;
+    const southwestLat = viewPort.southwest.lat;
+
+    const newLatDelta = northeastLat - southwestLat;
+    setLatDelta(newLatDelta);
+  }, [location, viewPort]);
 
   return (
     <MapContainer>
       <SearchContainerMap>
         <Search icon="map" />
       </SearchContainerMap>
-      <Map>
+      <Map
+        region={{
+          latitude: lat,
+          longitude: lng,
+          latitudeDelta: latDelta,
+          longitudeDelta: 0.02,
+        }}
+      >
         {restaurants.map((restaurant) => {
-          return null;
+          return (
+            <Marker
+              key={restaurant.name}
+              title={restaurant.name}
+              pinColor={theme.colors.ui.brand}
+              coordinate={{
+                latitude: restaurant.geometry.location.lat,
+                longitude: restaurant.geometry.location.lng,
+              }}
+            />
+          );
         })}
       </Map>
     </MapContainer>
