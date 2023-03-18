@@ -1,11 +1,23 @@
 import React, { useContext, useEffect, useState } from "react";
 import { theme } from "../../infrastructure/theme";
-import { Marker } from "react-native-maps";
+import { StyledText } from "../../helpers/typography/text.helper";
+import { Marker, Callout } from "react-native-maps";
 import { LocationContext } from "../../services/location/location.context";
 import { RestaurantsContext } from "../../services/restaurants/restaurants.context";
-import { Map, MapContainer } from "./map.styles";
+import {
+  Map,
+  MapContainer,
+  Item,
+  CompactImage,
+  CompactWebView,
+  Name,
+} from "./map.styles";
 import { Search } from "../../components/search/search.component";
 import { SearchContainerMap } from "../../components/search/search.styles";
+import { Platform } from "react-native";
+
+const isAndroid = Platform.OS === "android";
+const Image = isAndroid ? CompactWebView : CompactImage;
 
 export const MapScreen = () => {
   const { location } = useContext(LocationContext);
@@ -44,7 +56,16 @@ export const MapScreen = () => {
                 latitude: restaurant.geometry.location.lat,
                 longitude: restaurant.geometry.location.lng,
               }}
-            />
+            >
+              <Callout>
+                <Item>
+                  <Image source={{ uri: restaurant.photos[0] }} />
+                  <Name center variant="caption" numberOfLines={3}>
+                    {restaurant.name}
+                  </Name>
+                </Item>
+              </Callout>
+            </Marker>
           );
         })}
       </Map>
