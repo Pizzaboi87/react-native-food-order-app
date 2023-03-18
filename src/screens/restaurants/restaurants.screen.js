@@ -6,11 +6,14 @@ import { RestaurantList, IndicatorContainer } from "./restaurants.styles";
 import { SafeArea } from "../../helpers/safe-area/safe-area.helper";
 import { theme } from "../../infrastructure/theme";
 import { RestaurantsContext } from "../../services/restaurants/restaurants.context";
+import { FavouritesContext } from "../../services/favourites/favourites.context";
 import { Search } from "../../components/search/search.component";
 import { SearchContainerRestaurant } from "../../components/search/search.styles";
 
 export const RestaurantsScreen = ({ navigation }) => {
   const { isLoading, restaurants } = useContext(RestaurantsContext);
+  const { favourites, addFavourite, removeFavourite } =
+    useContext(FavouritesContext);
 
   const openDetails = (item) => {
     navigation.navigate("RestaurantDetail", {

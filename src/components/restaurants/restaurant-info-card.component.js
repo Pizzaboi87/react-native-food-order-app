@@ -12,6 +12,8 @@ import {
 import { StyledText } from "../../helpers/typography/text.helper";
 import star from "../../../assets/star";
 import open from "../../../assets/open";
+import { View } from "react-native";
+import { Favourite } from "../favourites/favourites.component";
 
 export const RestaurantInfoCard = ({ restaurant }) => {
   const {
@@ -31,7 +33,10 @@ export const RestaurantInfoCard = ({ restaurant }) => {
 
   return (
     <RestaurantCard elevation={5}>
-      <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
+      <View>
+        <Favourite restaurant={restaurant} />
+        <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
+      </View>
       <Info>
         <StyledText variant="label">{name}</StyledText>
         <Section>

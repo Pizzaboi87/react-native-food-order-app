@@ -19,7 +19,7 @@ import { Platform } from "react-native";
 const isAndroid = Platform.OS === "android";
 const Image = isAndroid ? CompactWebView : CompactImage;
 
-export const MapScreen = () => {
+export const MapScreen = ({ navigation }) => {
   const { location } = useContext(LocationContext);
   const { restaurants } = useContext(RestaurantsContext);
   const { viewPort, lat, lng } = location;
@@ -57,7 +57,13 @@ export const MapScreen = () => {
                 longitude: restaurant.geometry.location.lng,
               }}
             >
-              <Callout>
+              <Callout
+                onPress={() =>
+                  navigation.navigate("RestaurantDetail", {
+                    restaurant: restaurant,
+                  })
+                }
+              >
                 <Item>
                   <Image source={{ uri: restaurant.photos[0] }} />
                   <Name center variant="caption" numberOfLines={3}>
