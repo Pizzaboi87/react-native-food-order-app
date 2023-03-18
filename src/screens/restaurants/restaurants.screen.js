@@ -7,6 +7,7 @@ import { SafeArea } from "../../helpers/safe-area/safe-area.helper";
 import { theme } from "../../infrastructure/theme";
 import { RestaurantsContext } from "../../services/restaurants/restaurants.context";
 import { Search } from "../../components/search/search.component";
+import { SearchContainerRestaurant } from "../../components/search/search.styles";
 
 export const RestaurantsScreen = ({ navigation }) => {
   const { isLoading, restaurants } = useContext(RestaurantsContext);
@@ -19,7 +20,9 @@ export const RestaurantsScreen = ({ navigation }) => {
 
   return (
     <SafeArea>
-      <Search />
+      <SearchContainerRestaurant>
+        <Search />
+      </SearchContainerRestaurant>
       {isLoading ? (
         <IndicatorContainer>
           <ActivityIndicator
