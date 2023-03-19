@@ -10,11 +10,13 @@ const firebaseConfig = {
   appId: "1:1035111378933:web:32706dabfe671489033abc",
 };
 
-const firebaseApp = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
-export const auth = getAuth();
+export const auth = getAuth(app);
 
 export const signInAuthUserWithEmailAndPassword = async (email, password) => {
-  if (!email || !password) return;
+  if (!email || !password) {
+    return;
+  }
   return await signInWithEmailAndPassword(auth, email, password);
 };

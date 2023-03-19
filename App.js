@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Navigation } from "./src/infrastructure/navigation";
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
 import { ThemeProvider } from "styled-components";
@@ -11,7 +11,6 @@ import { AuthenticationContextProvider } from "./src/services/authentication/aut
 
 export default function App() {
   const fontsLoaded = useCustomFonts();
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   if (!fontsLoaded) {
     return null;
