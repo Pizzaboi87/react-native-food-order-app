@@ -13,13 +13,9 @@ import {
 import { StyledText } from "../../helpers/typography/text.helper";
 
 export const LoginScreen = ({ navigation }) => {
-  const { onLogin, error } = useContext(AuthenticationContext);
+  const { onLogin, error, setError } = useContext(AuthenticationContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const tryLogin = (email, password) => {
-    onLogin(email, password);
-  };
 
   return (
     <AccountBackground>
@@ -32,7 +28,10 @@ export const LoginScreen = ({ navigation }) => {
           textContentType="emailAddress"
           keyboardType="email-address"
           autoCapitalize="none"
-          onChangeText={(userEmail) => setEmail(userEmail)}
+          onChangeText={(userEmail) => {
+            setError(null);
+            setEmail(userEmail);
+          }}
         />
         <AuthInput
           label="password"
@@ -41,14 +40,17 @@ export const LoginScreen = ({ navigation }) => {
           secureTextEntry
           autoCapitalize="none"
           secure
-          onChangeText={(userPassword) => setPassword(userPassword)}
+          onChangeText={(userPassword) => {
+            setError(null);
+            setPassword(userPassword);
+          }}
         />
         {error && (
           <ErrorContainer>
             <StyledText variant="error">{error}</StyledText>
           </ErrorContainer>
         )}
-        <LoginButton onPress={tryLogin} mode="contained">
+        <LoginButton onPress={() => onLogin(email, password)} mode="contained">
           sign-in
         </LoginButton>
       </AccountContainer>
