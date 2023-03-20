@@ -19,42 +19,48 @@ export const LoginScreen = ({ navigation }) => {
 
   return (
     <AccountBackground>
-      <AccountCover />
-      <AccountContainer>
-        <Title variant="label">Sign-In To Your Account</Title>
-        <AuthInput
-          label="email address"
-          value={email}
-          textContentType="emailAddress"
-          keyboardType="email-address"
-          autoCapitalize="none"
-          onChangeText={(userEmail) => {
-            setError(null);
-            setEmail(userEmail);
-          }}
-        />
-        <AuthInput
-          label="password"
-          value={password}
-          textContentType="password"
-          secureTextEntry
-          autoCapitalize="none"
-          secure
-          onChangeText={(userPassword) => {
-            setError(null);
-            setPassword(userPassword);
-          }}
-        />
-        {error && (
-          <ErrorContainer>
-            <StyledText variant="error">{error}</StyledText>
-          </ErrorContainer>
-        )}
-        <LoginButton onPress={() => onLogin(email, password)} mode="contained">
-          sign-in
-        </LoginButton>
-      </AccountContainer>
-      <BackButton onPress={() => navigation.goBack()}>Back</BackButton>
+      <AccountCover>
+        <AccountContainer>
+          <Title variant="label">Sign-In To Your Account</Title>
+          <AuthInput
+            label="email address"
+            value={email}
+            textContentType="emailAddress"
+            autoCapitalize="none"
+            autoComplete="off"
+            keyboardType="email-address"
+            onChangeText={(userEmail) => {
+              setError(null);
+              setEmail(userEmail);
+            }}
+          />
+          <AuthInput
+            label="password"
+            value={password}
+            textContentType="password"
+            autoCapitalize="none"
+            autoComplete="off"
+            secureTextEntry
+            secure
+            onChangeText={(userPassword) => {
+              setError(null);
+              setPassword(userPassword);
+            }}
+          />
+          {error && (
+            <ErrorContainer>
+              <StyledText variant="error">{error}</StyledText>
+            </ErrorContainer>
+          )}
+          <LoginButton
+            onPress={() => onLogin(email, password)}
+            mode="contained"
+          >
+            sign-in
+          </LoginButton>
+        </AccountContainer>
+        <BackButton onPress={() => navigation.goBack()}>Back</BackButton>
+      </AccountCover>
     </AccountBackground>
   );
 };
