@@ -49,7 +49,10 @@ export const AuthButton = styled(Button).attrs({
   padding-top: ${(props) => props.theme.space[2]};
   padding-bottom: ${(props) => props.theme.space[2]};
   border-radius: ${(props) => props.theme.sizes[0]};
+  margin-top: ${(props) => props.theme.space[2]};
   width: 150px;
+  height: 60px;
+  justify-content: center;
 `;
 
 export const LoginButton = styled(AuthButton).attrs({
@@ -58,13 +61,13 @@ export const LoginButton = styled(AuthButton).attrs({
 
 export const RegisterButton = styled(AuthButton).attrs({
   icon: "account-plus-outline",
-})`
-  margin-top: ${(props) => props.theme.space[2]};
-`;
+})``;
 
-export const BackButton = styled(AuthButton)`
-  margin-top: ${(props) => props.theme.space[2]};
-  width: 100px;
+export const BackButton = styled(AuthButton).attrs({
+  buttonColor: theme.colors.ui.error,
+  icon: "step-backward",
+})`
+  width: 140px;
 `;
 
 export const AuthInput = styled(TextInput)`
@@ -78,4 +81,11 @@ export const ErrorContainer = styled.View`
   align-self: center;
   margin-top: ${(props) => props.theme.space[2]};
   margin-bottom: ${(props) => props.theme.space[2]};
+`;
+
+export const ButtonContainer = styled.View`
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 300px;
 `;

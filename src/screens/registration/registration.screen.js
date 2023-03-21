@@ -4,11 +4,12 @@ import {
   AccountBackground,
   AccountCover,
   AccountContainer,
-  LoginButton,
+  RegisterButton,
   AuthInput,
   Title,
   ErrorContainer,
   BackButton,
+  ButtonContainer,
 } from "../account/account.styles";
 import { StyledText } from "../../helpers/typography/text.helper";
 
@@ -64,14 +65,16 @@ export const RegistrationScreen = ({ navigation }) => {
               <StyledText variant="error">{error}</StyledText>
             </ErrorContainer>
           )}
-          <LoginButton
-            onPress={() => onRegister(email, password, repeatedPassword)}
-            mode="contained"
-          >
-            register
-          </LoginButton>
+          <ButtonContainer>
+            <BackButton onPress={() => navigation.goBack()}>back</BackButton>
+            <RegisterButton
+              onPress={() => onRegister(email, password, repeatedPassword)}
+              mode="contained"
+            >
+              register
+            </RegisterButton>
+          </ButtonContainer>
         </AccountContainer>
-        <BackButton onPress={() => navigation.goBack()}>Back</BackButton>
       </AccountCover>
     </AccountBackground>
   );

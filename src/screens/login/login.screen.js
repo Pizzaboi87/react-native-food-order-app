@@ -9,6 +9,7 @@ import {
   Title,
   ErrorContainer,
   BackButton,
+  ButtonContainer,
 } from "../account/account.styles";
 import { StyledText } from "../../helpers/typography/text.helper";
 
@@ -51,14 +52,16 @@ export const LoginScreen = ({ navigation }) => {
               <StyledText variant="error">{error}</StyledText>
             </ErrorContainer>
           )}
-          <LoginButton
-            onPress={() => onLogin(email, password)}
-            mode="contained"
-          >
-            sign-in
-          </LoginButton>
+          <ButtonContainer>
+            <BackButton onPress={() => navigation.goBack()}>back</BackButton>
+            <LoginButton
+              onPress={() => onLogin(email, password)}
+              mode="contained"
+            >
+              sign-in
+            </LoginButton>
+          </ButtonContainer>
         </AccountContainer>
-        <BackButton onPress={() => navigation.goBack()}>Back</BackButton>
       </AccountCover>
     </AccountBackground>
   );
