@@ -10,11 +10,14 @@ import {
   ErrorContainer,
   BackButton,
   ButtonContainer,
+  Loading,
 } from "../account/account.styles";
 import { StyledText } from "../../helpers/typography/text.helper";
 
 export const RegistrationScreen = ({ navigation }) => {
-  const { onRegister, error, setError } = useContext(AuthenticationContext);
+  const { onRegister, error, setError, isLoading } = useContext(
+    AuthenticationContext
+  );
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatedPassword, setRepeatedPassword] = useState("");
@@ -60,20 +63,26 @@ export const RegistrationScreen = ({ navigation }) => {
             </ErrorContainer>
           )}
           <ButtonContainer>
-            <BackButton
-              onPress={() => {
-                setError(null);
-                navigation.goBack();
-              }}
-            >
-              back
-            </BackButton>
-            <RegisterButton
-              onPress={() => onRegister(email, password, repeatedPassword)}
-              mode="contained"
-            >
-              register
-            </RegisterButton>
+            {!isLoading ? (
+              <>
+                <BackButton
+                  onPress={() => {
+                    setError(null);
+                    navigation.goBack();
+                  }}
+                >
+                  back
+                </BackButton>
+                <RegisterButton
+                  onPress={() => onRegister(email, password, repeatedPassword)}
+                  mode="contained"
+                >
+                  register
+                </RegisterButton>
+              </>
+            ) : (
+              <Loading />
+            )}
           </ButtonContainer>
         </AccountContainer>
       </AccountCover>

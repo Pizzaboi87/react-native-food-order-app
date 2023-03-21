@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import { Button, TextInput } from "react-native-paper";
+import { Button, TextInput, ActivityIndicator } from "react-native-paper";
 import { theme } from "../../infrastructure/theme";
 import { StyledText } from "../../helpers/typography/text.helper";
 
@@ -88,4 +88,12 @@ export const ButtonContainer = styled.View`
   align-items: flex-end;
   justify-content: space-between;
   width: 300px;
+`;
+
+export const Loading = styled(ActivityIndicator).attrs({
+  animating: true,
+  color: theme.colors.ui.brand,
+  size: 30,
+})`
+  margin: 0 auto;
 `;

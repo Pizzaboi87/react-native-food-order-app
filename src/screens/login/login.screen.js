@@ -1,4 +1,6 @@
 import React, { useContext, useState } from "react";
+import { ActivityIndicator } from "react-native-paper";
+import { theme } from "../../infrastructure/theme";
 import { AuthenticationContext } from "../../services/authentication/authentication.context";
 import {
   AccountBackground,
@@ -10,11 +12,14 @@ import {
   ErrorContainer,
   BackButton,
   ButtonContainer,
+  Loading,
 } from "../account/account.styles";
 import { StyledText } from "../../helpers/typography/text.helper";
 
 export const LoginScreen = ({ navigation }) => {
-  const { onLogin, error, setError } = useContext(AuthenticationContext);
+  const { onLogin, error, setError, isLoading } = useContext(
+    AuthenticationContext
+  );
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -49,20 +54,26 @@ export const LoginScreen = ({ navigation }) => {
             </ErrorContainer>
           )}
           <ButtonContainer>
-            <BackButton
-              onPress={() => {
-                setError(null);
-                navigation.goBack();
-              }}
-            >
-              back
-            </BackButton>
-            <LoginButton
-              onPress={() => onLogin(email, password)}
-              mode="contained"
-            >
-              sign-in
-            </LoginButton>
+            {!isLoading ? (
+              <>
+                <BackButton
+                  onPress={() => {
+                    setError(null);
+                    navigation.goBack();
+                  }}
+                >
+                  back
+                </BackButton>
+                <LoginButton
+                  onPress={() => onLogin(email, password)}
+                  mode="contained"
+                >
+                  sign-in
+                </LoginButton>
+              </>
+            ) : (
+              <Loading />
+            )}
           </ButtonContainer>
         </AccountContainer>
       </AccountCover>
