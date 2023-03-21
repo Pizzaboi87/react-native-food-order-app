@@ -1,7 +1,8 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useState } from "react";
 import {
   signInWithEmail,
   registerWithEmail,
+  signOutUser,
 } from "../firebase/firebase-config.service";
 
 export const AuthenticationContext = createContext();
@@ -49,6 +50,11 @@ export const AuthenticationContextProvider = ({ children }) => {
     }
   };
 
+  const onSignOut = () => {
+    setCurrentUser(null);
+    signOutUser();
+  };
+
   return (
     <AuthenticationContext.Provider
       value={{
@@ -59,6 +65,7 @@ export const AuthenticationContextProvider = ({ children }) => {
         setError,
         onLogin,
         onRegister,
+        onSignOut,
       }}
     >
       {children}

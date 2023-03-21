@@ -1,4 +1,7 @@
 import React from "react";
+import { FavouritesContextProvider } from "../../services/favourites/favourites.context";
+import { LocationContextProvider } from "../../services/location/location.context";
+import { RestaurantsContextProvider } from "../../services/restaurants/restaurants.context";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MapScreen } from "../../screens/map/map.screen";
 import { Settings } from "../../screens/settings/settings.screen";
@@ -28,10 +31,16 @@ export const AppNavigator = () => {
   const Tab = createBottomTabNavigator();
 
   return (
-    <Tab.Navigator screenOptions={createScreenOptions}>
-      <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
-      <Tab.Screen name="Map" component={MapScreen} />
-      <Tab.Screen name="Settings" component={Settings} />
-    </Tab.Navigator>
+    <FavouritesContextProvider>
+      <LocationContextProvider>
+        <RestaurantsContextProvider>
+          <Tab.Navigator screenOptions={createScreenOptions}>
+            <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
+            <Tab.Screen name="Map" component={MapScreen} />
+            <Tab.Screen name="Settings" component={Settings} />
+          </Tab.Navigator>
+        </RestaurantsContextProvider>
+      </LocationContextProvider>
+    </FavouritesContextProvider>
   );
 };
