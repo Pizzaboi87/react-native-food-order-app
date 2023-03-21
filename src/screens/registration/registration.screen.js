@@ -31,10 +31,8 @@ export const RegistrationScreen = ({ navigation }) => {
             autoCapitalize="none"
             autoComplete="off"
             keyboardType="email-address"
-            onChangeText={(userEmail) => {
-              setError(null);
-              setEmail(userEmail);
-            }}
+            onFocus={() => setError(null)}
+            onChangeText={(userEmail) => setEmail(userEmail)}
           />
           <AuthInput
             label="password"
@@ -43,10 +41,8 @@ export const RegistrationScreen = ({ navigation }) => {
             autoCapitalize="none"
             autoComplete="off"
             secureTextEntry
-            onChangeText={(userPassword) => {
-              setError(null);
-              setPassword(userPassword);
-            }}
+            onFocus={() => setError(null)}
+            onChangeText={(userPassword) => setPassword(userPassword)}
           />
           <AuthInput
             label="repeat password"
@@ -55,10 +51,8 @@ export const RegistrationScreen = ({ navigation }) => {
             autoCapitalize="none"
             autoComplete="off"
             secureTextEntry
-            onChangeText={(userPassword) => {
-              setError(null);
-              setRepeatedPassword(userPassword);
-            }}
+            onFocus={() => setError(null)}
+            onChangeText={(userPassword) => setRepeatedPassword(userPassword)}
           />
           {error && (
             <ErrorContainer>
@@ -66,7 +60,14 @@ export const RegistrationScreen = ({ navigation }) => {
             </ErrorContainer>
           )}
           <ButtonContainer>
-            <BackButton onPress={() => navigation.goBack()}>back</BackButton>
+            <BackButton
+              onPress={() => {
+                setError(null);
+                navigation.goBack();
+              }}
+            >
+              back
+            </BackButton>
             <RegisterButton
               onPress={() => onRegister(email, password, repeatedPassword)}
               mode="contained"

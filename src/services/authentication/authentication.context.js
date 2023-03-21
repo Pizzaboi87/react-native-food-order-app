@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import {
   signInWithEmail,
   registerWithEmail,
@@ -17,11 +17,13 @@ export const AuthenticationContextProvider = ({ children }) => {
         const user = userCredential.user;
         setCurrentUser(user);
         setIsLoading(false);
-        console.log(currentUser);
       })
       .catch((err) => {
         setIsLoading(false);
-        setError(err.code.toString());
+        const errorMessage = err.message
+          .slice(10, err.message.length)
+          .split("(");
+        setError(errorMessage[0].toString());
       });
   };
 
@@ -36,11 +38,13 @@ export const AuthenticationContextProvider = ({ children }) => {
           const user = userCredential.user;
           setCurrentUser(user);
           setIsLoading(false);
-          console.log(currentUser);
         })
         .catch((err) => {
           setIsLoading(false);
-          setError(err.code.toString());
+          const errorMessage = err.message
+            .slice(10, err.message.length)
+            .split("(");
+          setError(errorMessage[0].toString());
         });
     }
   };

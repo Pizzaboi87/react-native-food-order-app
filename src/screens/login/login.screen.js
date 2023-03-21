@@ -30,10 +30,8 @@ export const LoginScreen = ({ navigation }) => {
             autoCapitalize="none"
             autoComplete="off"
             keyboardType="email-address"
-            onChangeText={(userEmail) => {
-              setError(null);
-              setEmail(userEmail);
-            }}
+            onFocus={() => setError(null)}
+            onChangeText={(userEmail) => setEmail(userEmail)}
           />
           <AuthInput
             label="password"
@@ -42,10 +40,8 @@ export const LoginScreen = ({ navigation }) => {
             autoCapitalize="none"
             autoComplete="off"
             secureTextEntry
-            onChangeText={(userPassword) => {
-              setError(null);
-              setPassword(userPassword);
-            }}
+            onFocus={() => setError(null)}
+            onChangeText={(userPassword) => setPassword(userPassword)}
           />
           {error && (
             <ErrorContainer>
@@ -53,7 +49,14 @@ export const LoginScreen = ({ navigation }) => {
             </ErrorContainer>
           )}
           <ButtonContainer>
-            <BackButton onPress={() => navigation.goBack()}>back</BackButton>
+            <BackButton
+              onPress={() => {
+                setError(null);
+                navigation.goBack();
+              }}
+            >
+              back
+            </BackButton>
             <LoginButton
               onPress={() => onLogin(email, password)}
               mode="contained"
