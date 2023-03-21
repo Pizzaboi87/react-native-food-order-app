@@ -30,19 +30,20 @@ export const AnimationWrapper = styled.View`
 export const AccountContainer = styled.View`
   background-color: rgba(255, 255, 255, 0.7);
   padding: ${(props) => props.theme.space[4]};
-  margin-top: ${(props) => props.theme.space[2]};
   border-radius: ${(props) => props.theme.sizes[1]};
   align-items: center;
 `;
 
 export const MainTitle = styled(StyledText)`
   font-size: ${(props) => props.theme.fontSizes.h4};
-  margin-bottom: ${(props) => props.theme.space[2]};
+  margin-top: ${(props) => props.theme.space[5]};
+  margin-bottom: ${(props) => props.theme.space[4]};
 `;
 
 export const Title = styled(StyledText)`
   font-size: ${(props) => props.theme.fontSizes.h5};
-  margin-bottom: ${(props) => props.theme.space[4]};
+  margin-bottom: ${(props) => props.theme.space[3]};
+  padding-bottom: ${(props) => props.theme.space[2]};
 `;
 
 export const AuthButton = styled(Button).attrs({

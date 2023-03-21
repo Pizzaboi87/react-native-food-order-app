@@ -26,7 +26,7 @@ export const RegistrationScreen = ({ navigation }) => {
     <AccountBackground>
       <AccountCover>
         <AccountContainer>
-          <Title variant="label">Sign-Up Your New Account</Title>
+          <Title>Sign-Up Your New Account</Title>
           <AuthInput
             label="email address"
             value={email}
