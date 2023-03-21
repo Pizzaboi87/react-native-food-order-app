@@ -41,7 +41,6 @@ export const LoginScreen = ({ navigation }) => {
             autoCapitalize="none"
             autoComplete="off"
             secureTextEntry
-            secure
             onChangeText={(userPassword) => {
               setError(null);
               setPassword(userPassword);
