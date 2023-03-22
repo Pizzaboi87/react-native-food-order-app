@@ -21,12 +21,23 @@ export const RegistrationScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatedPassword, setRepeatedPassword] = useState("");
+  const [nickName, setNickName] = useState("");
 
   return (
     <AccountBackground>
       <AccountCover>
         <AccountContainer>
           <Title>Sign-Up Your New Account</Title>
+          <AuthInput
+            label="your nickname"
+            value={nickName}
+            textContentType="nickname"
+            autoCapitalize="none"
+            autoComplete="off"
+            keyboardType="email-address"
+            onFocus={() => setError(null)}
+            onChangeText={(userNickName) => setNickName(userNickName)}
+          />
           <AuthInput
             label="email address"
             value={email}
@@ -55,7 +66,9 @@ export const RegistrationScreen = ({ navigation }) => {
             autoComplete="off"
             secureTextEntry
             onFocus={() => setError(null)}
-            onChangeText={(userPassword) => setRepeatedPassword(userPassword)}
+            onChangeText={(userRepeatedPassword) =>
+              setRepeatedPassword(userRepeatedPassword)
+            }
           />
           {error && (
             <ErrorContainer>
@@ -74,7 +87,15 @@ export const RegistrationScreen = ({ navigation }) => {
                   back
                 </BackButton>
                 <RegisterButton
-                  onPress={() => onRegister(email, password, repeatedPassword)}
+                  onPress={() =>
+                    onRegister(
+                      nickName,
+                      email,
+                      password,
+                      repeatedPassword,
+                      navigation
+                    )
+                  }
                   mode="contained"
                 >
                   register

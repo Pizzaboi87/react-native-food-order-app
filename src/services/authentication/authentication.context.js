@@ -16,36 +16,45 @@ export const AuthenticationContextProvider = ({ children }) => {
     signInWithEmail(email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        setCurrentUser(user);
-        setIsLoading(false);
+        if (!userCredential.user.emailVerified) {
+          setError("Please verify your email address.");
+          setIsLoading(false);
+          return;
+        } else {
+          setCurrentUser(user);
+          setIsLoading(false);
+        }
       })
       .catch((err) => {
         setIsLoading(false);
-        const errorMessage = err.message
-          .slice(10, err.message.length)
-          .split("(");
-        setError(errorMessage[0].toString());
+        setError(err.messge);
       });
   };
 
-  const onRegister = (email, password, repeatedPassword) => {
+  const onRegister = (
+    nickName,
+    email,
+    password,
+    repeatedPassword,
+    navigation
+  ) => {
     setIsLoading(true);
     if (password !== repeatedPassword) {
       setError("Passwords do not match.");
+      setIsLoading(false);
       return;
     } else {
       registerWithEmail(email, password)
         .then((userCredential) => {
-          const user = userCredential.user;
-          setCurrentUser(user);
+          userCredential.user.displayName = nickName;
+          setCurrentUser(userCredential.user);
           setIsLoading(false);
         })
+        .then(alert("Please check your mailbox"))
+        .then(() => navigation.navigate("Main"))
         .catch((err) => {
           setIsLoading(false);
-          const errorMessage = err.message
-            .slice(10, err.message.length)
-            .split("(");
-          setError(errorMessage[0].toString());
+          setError(err.message);
         });
     }
   };
@@ -58,7 +67,7 @@ export const AuthenticationContextProvider = ({ children }) => {
   return (
     <AuthenticationContext.Provider
       value={{
-        isAuthenticated: !!currentUser,
+        isAuthenticated: currentUser && currentUser.emailVerified,
         currentUser,
         isLoading,
         error,
