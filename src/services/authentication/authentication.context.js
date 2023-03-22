@@ -1,4 +1,5 @@
 import React, { createContext, useState } from "react";
+import { Alert } from "react-native";
 import {
   signInWithEmail,
   registerWithEmail,
@@ -50,7 +51,11 @@ export const AuthenticationContextProvider = ({ children }) => {
           setCurrentUser(userCredential.user);
           setIsLoading(false);
         })
-        .then(alert("Please check your mailbox"))
+        .then(() =>
+          Alert.alert("Before we continue...", "Please check your mailbox", [
+            { text: "OK" },
+          ])
+        )
         .then(() => navigation.navigate("Main"))
         .catch((err) => {
           setIsLoading(false);
