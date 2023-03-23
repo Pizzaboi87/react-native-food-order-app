@@ -1,24 +1,15 @@
 import React, { useContext, useState } from "react";
-import { ActivityIndicator } from "react-native-paper";
-import { TouchableOpacity } from "react-native";
-import { RestaurantInfoCard } from "../../components/restaurants/restaurant-info-card.component";
-import { RestaurantList, IndicatorContainer } from "./restaurants.styles";
+import { IndicatorContainer, Loading } from "./restaurants.styles";
 import { SafeArea } from "../../helpers/safe-area/safe-area.helper";
-import { theme } from "../../infrastructure/theme";
 import { RestaurantsContext } from "../../services/restaurants/restaurants.context";
 import { Search } from "../../components/search/search.component";
 import { SearchContainerRestaurant } from "../../components/search/search.styles";
 import { FavouritesBar } from "../../components/favourites-bar/favourites-bar.component";
+import { ListOfRestaurants } from "../../components/restaurant-list/restaurant-list.component";
 
 export const RestaurantsScreen = ({ navigation }) => {
   const { isLoading, restaurants } = useContext(RestaurantsContext);
   const [isToggled, setIsToggled] = useState(false);
-
-  const openDetails = (item) => {
-    navigation.navigate("RestaurantDetail", {
-      restaurant: item,
-    });
-  };
 
   return (
     <SafeArea>
@@ -32,27 +23,10 @@ export const RestaurantsScreen = ({ navigation }) => {
       {isToggled && <FavouritesBar onDetail={openDetails} />}
       {isLoading ? (
         <IndicatorContainer>
-          <ActivityIndicator
-            animating={true}
-            color={theme.colors.ui.brand}
-            size={50}
-          />
+          <Loading />
         </IndicatorContainer>
       ) : (
-        <RestaurantList
-          data={restaurants}
-          renderItem={({ item }) => {
-            return (
-              <TouchableOpacity
-                onPress={() => openDetails(item)}
-                activeOpacity={0.8}
-              >
-                <RestaurantInfoCard restaurant={item} />
-              </TouchableOpacity>
-            );
-          }}
-          keyExtractor={(item) => item.name}
-        />
+        <ListOfRestaurants navigation={navigation} data={restaurants} />
       )}
     </SafeArea>
   );

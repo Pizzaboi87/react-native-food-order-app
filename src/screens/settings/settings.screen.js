@@ -8,6 +8,14 @@ import { SafeArea } from "../../helpers/safe-area/safe-area.helper";
 export const SettingsScreen = ({ navigation }) => {
   const { onSignOut, currentUser } = useContext(AuthenticationContext);
 
+  const heartIcon = (props) => {
+    return <List.Icon {...props} color="black" icon="heart" />;
+  };
+
+  const doorIcon = (props) => {
+    return <List.Icon {...props} color="black" icon="door" />;
+  };
+
   return (
     <SafeArea>
       <AvatarContainer>
@@ -18,14 +26,10 @@ export const SettingsScreen = ({ navigation }) => {
         <SettingsItem
           title="Favourites"
           description="Check your favourites"
-          left={(props) => <List.Icon {...props} color="black" icon="heart" />}
-          onPress={() => navigation.navigate("Favourites")}
+          left={heartIcon}
+          onPress={() => navigation.navigate("My Favourite Restaurants")}
         />
-        <SettingsItem
-          title="Logout"
-          left={(props) => <List.Icon {...props} color="black" icon="door" />}
-          onPress={onSignOut}
-        />
+        <SettingsItem title="Logout" left={doorIcon} onPress={onSignOut} />
       </List.Section>
     </SafeArea>
   );

@@ -1,6 +1,4 @@
 import React, { useContext, useState } from "react";
-import { ActivityIndicator } from "react-native-paper";
-import { theme } from "../../infrastructure/theme";
 import { AuthenticationContext } from "../../services/authentication/authentication.context";
 import {
   AccountBackground,
