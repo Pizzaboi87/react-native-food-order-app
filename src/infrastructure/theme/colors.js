@@ -13,6 +13,7 @@ export const colors = {
     error: "#D0421B",
     success: "#138000",
     brand: "#f65b1e",
+    background: "#faad8e",
   },
   bg: {
     primary: "#FFFFFF",

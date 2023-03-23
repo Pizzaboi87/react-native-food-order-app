@@ -1,9 +1,22 @@
 import styled from "styled-components/native";
 import { List, Avatar } from "react-native-paper";
 
-export const SettingsItem = styled(List.Item)`
+export const SettingsItem = styled(List.Item).attrs({
+  titleStyle: { color: "white" },
+  descriptionStyle: { color: "white" },
+})`
   padding: ${(props) => props.theme.space[3]};
 `;
+
+export const HeartIcon = styled(List.Icon).attrs({
+  icon: "heart",
+  color: "white",
+})``;
+
+export const DoorIcon = styled(List.Icon).attrs({
+  icon: "door",
+  color: "white",
+})``;
 
 export const AvatarContainer = styled.View`
   align-items: center;
