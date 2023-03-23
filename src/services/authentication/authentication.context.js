@@ -45,9 +45,9 @@ export const AuthenticationContextProvider = ({ children }) => {
       setIsLoading(false);
       return;
     } else {
-      registerWithEmail(email, password)
+      registerWithEmail(email, password, nickName)
         .then((userCredential) => {
-          userCredential.user.displayName = nickName;
+          //userCredential.user.displayName = nickName;
           setCurrentUser(userCredential.user);
           setIsLoading(false);
         })

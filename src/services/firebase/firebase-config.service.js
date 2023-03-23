@@ -5,6 +5,7 @@ import {
   createUserWithEmailAndPassword,
   signOut,
   sendEmailVerification,
+  updateProfile,
 } from "firebase/auth";
 
 const firebaseConfig = {
@@ -27,7 +28,7 @@ export const signInWithEmail = async (email, password) => {
   return await signInWithEmailAndPassword(auth, email, password);
 };
 
-export const registerWithEmail = async (email, password) => {
+export const registerWithEmail = async (email, password, nickName) => {
   if (!email || !password) {
     return;
   }
@@ -36,6 +37,7 @@ export const registerWithEmail = async (email, password) => {
     email,
     password
   );
+  await updateProfile(userCredential.user, { displayName: nickName });
   await sendEmailVerification(userCredential.user);
   return userCredential;
 };

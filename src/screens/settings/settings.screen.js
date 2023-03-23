@@ -1,22 +1,29 @@
 import React, { useContext } from "react";
 import { List } from "react-native-paper";
-import { ListItem } from "./settings.styles";
+import { StyledText } from "../../helpers/typography/text.helper";
+import { SettingsItem, AvatarContainer, UserAvatar } from "./settings.styles";
 import { AuthenticationContext } from "../../services/authentication/authentication.context";
 import { SafeArea } from "../../helpers/safe-area/safe-area.helper";
 
 export const SettingsScreen = ({ navigation }) => {
-  const { onSignOut } = useContext(AuthenticationContext);
+  const { onSignOut, currentUser } = useContext(AuthenticationContext);
+
+  console.log(currentUser);
 
   return (
     <SafeArea>
+      <AvatarContainer>
+        <UserAvatar />
+      </AvatarContainer>
+      <StyledText variant="caption">{currentUser.email}</StyledText>
       <List.Section>
-        <ListItem
+        <SettingsItem
           title="Favourites"
           description="Check your favourites"
           left={(props) => <List.Icon {...props} color="black" icon="heart" />}
           onPress={() => navigation.navigate("Favourites")}
         />
-        <ListItem
+        <SettingsItem
           title="Logout"
           left={(props) => <List.Icon {...props} color="black" icon="door" />}
           onPress={onSignOut}
