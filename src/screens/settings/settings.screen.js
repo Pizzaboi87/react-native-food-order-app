@@ -4,7 +4,7 @@ import { ListItem } from "./settings.styles";
 import { AuthenticationContext } from "../../services/authentication/authentication.context";
 import { SafeArea } from "../../helpers/safe-area/safe-area.helper";
 
-export const Settings = ({ navigation }) => {
+export const SettingsScreen = ({ navigation }) => {
   const { onSignOut } = useContext(AuthenticationContext);
 
   return (
