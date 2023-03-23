@@ -37,6 +37,13 @@ const lightCaption = (theme) => `
     font-size: ${theme.fontSizes.caption};
 `;
 
+const title = (theme) => `
+  font-family: ${theme.fonts.body};
+  font-size: ${theme.fontSizes.title};
+  font-weight: ${theme.fontWeights.bold};
+
+`;
+
 const variants = {
   body,
   label,
@@ -44,6 +51,7 @@ const variants = {
   lightCaption,
   error,
   hint,
+  title,
 };
 
 export const StyledText = styled.Text`

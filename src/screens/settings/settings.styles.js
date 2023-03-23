@@ -7,6 +7,7 @@ export const SettingsItem = styled(List.Item)`
 
 export const AvatarContainer = styled.View`
   align-items: center;
+  padding-top: ${(props) => props.theme.space[4]};
 `;
 
 export const UserAvatar = styled(Avatar.Icon).attrs({
@@ -15,4 +16,5 @@ export const UserAvatar = styled(Avatar.Icon).attrs({
   color: "white",
 })`
   background-color: ${(props) => props.theme.colors.ui.brand};
+  margin-bottom: ${(props) => props.theme.space[2]};
 `;

@@ -8,14 +8,12 @@ import { SafeArea } from "../../helpers/safe-area/safe-area.helper";
 export const SettingsScreen = ({ navigation }) => {
   const { onSignOut, currentUser } = useContext(AuthenticationContext);
 
-  console.log(currentUser);
-
   return (
     <SafeArea>
       <AvatarContainer>
         <UserAvatar />
+        <StyledText variant="title">{currentUser.displayName}</StyledText>
       </AvatarContainer>
-      <StyledText variant="caption">{currentUser.email}</StyledText>
       <List.Section>
         <SettingsItem
           title="Favourites"
