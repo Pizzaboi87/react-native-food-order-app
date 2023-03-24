@@ -1,7 +1,7 @@
 import styled from "styled-components/native";
 import { Camera } from "expo-camera";
 import { StyledText } from "../../helpers/typography/text.helper";
-import { Button, IconButton } from "react-native-paper";
+import { IconButton } from "react-native-paper";
 import { theme } from "../../infrastructure/theme";
 
 export const CameraContainer = styled.View`

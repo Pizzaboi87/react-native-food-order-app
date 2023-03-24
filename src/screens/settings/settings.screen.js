@@ -1,5 +1,6 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useCallback } from "react";
 import { List } from "react-native-paper";
+import { useFocusEffect } from "@react-navigation/native";
 import { TouchableOpacity } from "react-native";
 import {
   SettingsItem,
@@ -8,13 +9,16 @@ import {
   HeartIcon,
   DoorIcon,
   UserText,
+  UserPhoto,
 } from "./settings.styles";
 import { AuthenticationContext } from "../../services/authentication/authentication.context";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { SafeArea } from "../../helpers/safe-area/safe-area.helper";
 import { FadeInView } from "../../animations/fade.animation";
 
 export const SettingsScreen = ({ navigation }) => {
   const { onSignOut, currentUser } = useContext(AuthenticationContext);
+  const [photo, setPhoto] = useState(null);
 
   const heartIcon = (props) => {
     return <HeartIcon {...props} />;
@@ -24,6 +28,17 @@ export const SettingsScreen = ({ navigation }) => {
     return <DoorIcon {...props} />;
   };
 
+  const getProfilePicture = async (user) => {
+    const photoUri = await AsyncStorage.getItem(`${user.uid}-photo`);
+    setPhoto(photoUri);
+  };
+
+  useFocusEffect(
+    useCallback(() => {
+      getProfilePicture(currentUser);
+    }, [currentUser])
+  );
+
   return (
     <SafeArea>
       <AvatarContainer>
@@ -31,7 +46,7 @@ export const SettingsScreen = ({ navigation }) => {
           <TouchableOpacity
             onPress={() => navigation.navigate("Change Profile Picture")}
           >
-            <UserAvatar />
+            {photo ? <UserPhoto source={{ uri: photo }} /> : <UserAvatar />}
           </TouchableOpacity>
         </FadeInView>
         <UserText variant="title">{currentUser.displayName}</UserText>

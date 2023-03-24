@@ -39,6 +39,13 @@ export const UserAvatar = styled(Avatar.Icon).attrs({
   margin-bottom: ${(props) => props.theme.space[2]};
 `;
 
+export const UserPhoto = styled(Avatar.Image).attrs({
+  size: 150,
+})`
+  background-color: ${(props) => props.theme.colors.ui.brand};
+  margin-bottom: ${(props) => props.theme.space[2]};
+`;
+
 export const UserText = styled(StyledText)`
   color: ${(props) => props.theme.colors.ui.text};
 `;

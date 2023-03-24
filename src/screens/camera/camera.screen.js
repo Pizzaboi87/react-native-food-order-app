@@ -1,6 +1,8 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
+import { AuthenticationContext } from "../../services/authentication/authentication.context";
 import { TouchableOpacity } from "react-native";
-import { Camera, CameraType, takePictureAsync } from "expo-camera";
+import { Camera, CameraType } from "expo-camera";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
   ProfileCamera,
   FlipButton,
@@ -10,7 +12,8 @@ import {
   ButtonContainer,
 } from "./camera.styles";
 
-export const CameraScreen = () => {
+export const CameraScreen = ({ navigation }) => {
+  const { currentUser } = useContext(AuthenticationContext);
   const cameraRef = useRef();
   const [type, setType] = useState(CameraType.back);
   const [permission, requestPermission] = Camera.useCameraPermissions();
@@ -19,7 +22,7 @@ export const CameraScreen = () => {
     if (!permission || permission.status !== "granted") {
       requestPermission();
     }
-  }, [permission]);
+  }, [permission, requestPermission]);
 
   const toggleCameraType = () => {
     setType((current) =>
@@ -30,7 +33,8 @@ export const CameraScreen = () => {
   const takeAPicture = async () => {
     if (cameraRef) {
       const photo = await cameraRef.current.takePictureAsync();
-      console.log(photo);
+      AsyncStorage.setItem(`${currentUser.uid}-photo`, photo.uri);
+      navigation.goBack();
     }
   };
 
