@@ -5,6 +5,7 @@ import {
 } from "@react-navigation/stack";
 import { SettingsScreen } from "../../screens/settings/settings.screen";
 import { FavouritesScreen } from "../../screens/favourites/favourites.screen";
+import { CameraScreen } from "../../screens/camera/camera.screen";
 
 const SettingsStack = createStackNavigator();
 
@@ -25,6 +26,10 @@ export const SettingsNavigator = ({ route, navigator }) => {
       <SettingsStack.Screen
         name="My Favourite Restaurants"
         component={FavouritesScreen}
+      />
+      <SettingsStack.Screen
+        name="Change Profile Picture"
+        component={CameraScreen}
       />
     </SettingsStack.Navigator>
   );

@@ -11,6 +11,12 @@ export const RestaurantsScreen = ({ navigation }) => {
   const { isLoading, restaurants } = useContext(RestaurantsContext);
   const [isToggled, setIsToggled] = useState(false);
 
+  const openDetails = (item) => {
+    navigation.navigate("RestaurantDetail", {
+      restaurant: item,
+    });
+  };
+
   return (
     <SafeArea>
       <SearchContainerRestaurant>

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { List } from "react-native-paper";
-import { StyledText } from "../../helpers/typography/text.helper";
+import { TouchableOpacity } from "react-native";
 import {
   SettingsItem,
   AvatarContainer,
@@ -28,7 +28,11 @@ export const SettingsScreen = ({ navigation }) => {
     <SafeArea>
       <AvatarContainer>
         <FadeInView>
-          <UserAvatar />
+          <TouchableOpacity
+            onPress={() => navigation.navigate("Change Profile Picture")}
+          >
+            <UserAvatar />
+          </TouchableOpacity>
         </FadeInView>
         <UserText variant="title">{currentUser.displayName}</UserText>
       </AvatarContainer>
