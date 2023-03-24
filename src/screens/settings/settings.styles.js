@@ -1,21 +1,28 @@
 import styled from "styled-components/native";
+import { theme } from "../../infrastructure/theme";
 import { List, Avatar } from "react-native-paper";
+import { StyledText } from "../../helpers/typography/text.helper";
 
 export const SettingsItem = styled(List.Item).attrs({
-  titleStyle: { color: "white" },
-  descriptionStyle: { color: "white" },
+  titleStyle: {
+    color: theme.colors.ui.text,
+    fontWeight: theme.fontWeights.bold,
+  },
+  descriptionStyle: {
+    color: theme.colors.ui.text,
+  },
 })`
   padding: ${(props) => props.theme.space[3]};
 `;
 
 export const HeartIcon = styled(List.Icon).attrs({
   icon: "heart",
-  color: "white",
+  color: theme.colors.ui.text,
 })``;
 
 export const DoorIcon = styled(List.Icon).attrs({
   icon: "door",
-  color: "white",
+  color: theme.colors.ui.text,
 })``;
 
 export const AvatarContainer = styled.View`
@@ -30,4 +37,8 @@ export const UserAvatar = styled(Avatar.Icon).attrs({
 })`
   background-color: ${(props) => props.theme.colors.ui.brand};
   margin-bottom: ${(props) => props.theme.space[2]};
+`;
+
+export const UserText = styled(StyledText)`
+  color: ${(props) => props.theme.colors.ui.text};
 `;

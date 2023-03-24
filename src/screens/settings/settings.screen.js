@@ -7,6 +7,7 @@ import {
   UserAvatar,
   HeartIcon,
   DoorIcon,
+  UserText,
 } from "./settings.styles";
 import { AuthenticationContext } from "../../services/authentication/authentication.context";
 import { SafeArea } from "../../helpers/safe-area/safe-area.helper";
@@ -26,7 +27,7 @@ export const SettingsScreen = ({ navigation }) => {
     <SafeArea>
       <AvatarContainer>
         <UserAvatar />
-        <StyledText variant="title">{currentUser.displayName}</StyledText>
+        <UserText variant="title">{currentUser.displayName}</UserText>
       </AvatarContainer>
       <List.Section>
         <SettingsItem
