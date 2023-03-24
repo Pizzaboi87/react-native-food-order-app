@@ -11,6 +11,7 @@ import {
 } from "./settings.styles";
 import { AuthenticationContext } from "../../services/authentication/authentication.context";
 import { SafeArea } from "../../helpers/safe-area/safe-area.helper";
+import { FadeInView } from "../../animations/fade.animation";
 
 export const SettingsScreen = ({ navigation }) => {
   const { onSignOut, currentUser } = useContext(AuthenticationContext);
@@ -26,7 +27,9 @@ export const SettingsScreen = ({ navigation }) => {
   return (
     <SafeArea>
       <AvatarContainer>
-        <UserAvatar />
+        <FadeInView>
+          <UserAvatar />
+        </FadeInView>
         <UserText variant="title">{currentUser.displayName}</UserText>
       </AvatarContainer>
       <List.Section>

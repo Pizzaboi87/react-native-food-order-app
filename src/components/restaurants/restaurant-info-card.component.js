@@ -14,6 +14,7 @@ import star from "../../../assets/star";
 import open from "../../../assets/open";
 import { View } from "react-native";
 import { Favourite } from "../favourites/favourites.component";
+import { FadeInView } from "../../animations/fade.animation";
 
 export const RestaurantInfoCard = ({ restaurant }) => {
   const {
@@ -35,7 +36,9 @@ export const RestaurantInfoCard = ({ restaurant }) => {
     <RestaurantCard elevation={5}>
       <View>
         <Favourite restaurant={restaurant} />
-        <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
+        <FadeInView>
+          <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
+        </FadeInView>
       </View>
       <Info>
         <StyledText variant="label">{name}</StyledText>
