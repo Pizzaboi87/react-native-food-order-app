@@ -11,6 +11,7 @@ export const AuthenticationContextProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const [error, setError] = useState(null);
+  const [uid, setUid] = useState(null);
 
   const onLogin = (email, password) => {
     setIsLoading(true);
@@ -23,6 +24,7 @@ export const AuthenticationContextProvider = ({ children }) => {
           return;
         } else {
           setCurrentUser(user);
+          setUid(user.uid);
           setIsLoading(false);
         }
       })
@@ -48,6 +50,7 @@ export const AuthenticationContextProvider = ({ children }) => {
       registerWithEmail(email, password, nickName)
         .then((userCredential) => {
           setCurrentUser(userCredential.user);
+          setUid(userCredential.user.uid);
           setIsLoading(false);
         })
         .then(() =>
@@ -65,6 +68,7 @@ export const AuthenticationContextProvider = ({ children }) => {
 
   const onSignOut = () => {
     setCurrentUser(null);
+    setUid(null);
     signOutUser();
   };
 
@@ -73,6 +77,7 @@ export const AuthenticationContextProvider = ({ children }) => {
       value={{
         isAuthenticated: currentUser && currentUser.emailVerified,
         currentUser,
+        uid,
         isLoading,
         error,
         setError,

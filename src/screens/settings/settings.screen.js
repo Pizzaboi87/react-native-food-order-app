@@ -1,5 +1,5 @@
 import React, { useContext, useCallback } from "react";
-import { Button, List } from "react-native-paper";
+import { List } from "react-native-paper";
 import { useFocusEffect } from "@react-navigation/native";
 import { TouchableOpacity } from "react-native";
 import {
@@ -15,10 +15,9 @@ import { AuthenticationContext } from "../../services/authentication/authenticat
 import { UserImageContext } from "../../services/user-image/user-image.context";
 import { SafeArea } from "../../helpers/safe-area/safe-area.helper";
 import { FadeInView } from "../../animations/fade.animation";
-import { Text } from "react-native";
 
 export const SettingsScreen = ({ navigation }) => {
-  const { onSignOut, currentUser } = useContext(AuthenticationContext);
+  const { onSignOut, currentUser, uid } = useContext(AuthenticationContext);
   const { loadImage, userImage } = useContext(UserImageContext);
 
   const heartIcon = (props) => {
@@ -34,8 +33,8 @@ export const SettingsScreen = ({ navigation }) => {
       const getProfilePicture = async (user) => {
         await loadImage(user);
       };
-      getProfilePicture(currentUser);
-    }, [currentUser, loadImage])
+      getProfilePicture(uid);
+    }, [uid, loadImage])
   );
 
   return (

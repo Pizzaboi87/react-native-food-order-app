@@ -13,7 +13,7 @@ import {
 } from "./camera.styles";
 
 export const CameraScreen = ({ navigation }) => {
-  const { currentUser } = useContext(AuthenticationContext);
+  const { uid } = useContext(AuthenticationContext);
   const { saveImage } = useContext(UserImageContext);
   const cameraRef = useRef();
   const [type, setType] = useState(CameraType.back);
@@ -34,7 +34,7 @@ export const CameraScreen = ({ navigation }) => {
   const takeAPicture = async () => {
     if (cameraRef) {
       const photo = await cameraRef.current.takePictureAsync();
-      await saveImage(photo.uri, currentUser);
+      await saveImage(photo.uri, uid);
       navigation.navigate("My Settings");
     }
   };
