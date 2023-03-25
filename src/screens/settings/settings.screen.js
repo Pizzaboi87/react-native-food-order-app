@@ -62,9 +62,6 @@ export const SettingsScreen = ({ navigation }) => {
           onPress={() => navigation.navigate("My Favourite Restaurants")}
         />
         <SettingsItem title="Logout" left={doorIcon} onPress={onSignOut} />
-        <Button onPress={() => console.log(userImage)}>
-          <Text>Show</Text>
-        </Button>
       </List.Section>
     </SafeArea>
   );
