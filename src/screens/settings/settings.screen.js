@@ -44,7 +44,7 @@ export const SettingsScreen = ({ navigation }) => {
       <AvatarContainer>
         <FadeInView>
           <TouchableOpacity
-            onPress={() => navigation.navigate("Change Profile Picture")}
+            onPress={() => navigation.navigate("Change Profile Image")}
           >
             {photo ? <UserPhoto source={{ uri: photo }} /> : <UserAvatar />}
           </TouchableOpacity>

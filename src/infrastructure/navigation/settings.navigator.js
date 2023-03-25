@@ -5,11 +5,11 @@ import {
 } from "@react-navigation/stack";
 import { SettingsScreen } from "../../screens/settings/settings.screen";
 import { FavouritesScreen } from "../../screens/favourites/favourites.screen";
-import { CameraScreen } from "../../screens/camera/camera.screen";
+import { ChangePictureNavigator } from "./change-picture.navigator";
 
 const SettingsStack = createStackNavigator();
 
-export const SettingsNavigator = ({ route, navigator }) => {
+export const SettingsNavigator = () => {
   return (
     <SettingsStack.Navigator
       screenOptions={{
@@ -28,8 +28,8 @@ export const SettingsNavigator = ({ route, navigator }) => {
         component={FavouritesScreen}
       />
       <SettingsStack.Screen
-        name="Change Profile Picture"
-        component={CameraScreen}
+        name="Change Profile Image"
+        component={ChangePictureNavigator}
       />
     </SettingsStack.Navigator>
   );

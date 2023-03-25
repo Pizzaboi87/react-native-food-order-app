@@ -34,7 +34,7 @@ export const CameraScreen = ({ navigation }) => {
     if (cameraRef) {
       const photo = await cameraRef.current.takePictureAsync();
       AsyncStorage.setItem(`${currentUser.uid}-photo`, photo.uri);
-      navigation.goBack();
+      navigation.navigate("My Settings");
     }
   };
 
