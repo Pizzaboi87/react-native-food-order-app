@@ -1,12 +1,12 @@
 import React, { useState, useRef, useEffect, useContext } from "react";
 import { AuthenticationContext } from "../../services/authentication/authentication.context";
+import { UserImageContext } from "../../services/user-image/user-image.context";
 import { TouchableOpacity } from "react-native";
 import { Camera, CameraType } from "expo-camera";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
   ProfileCamera,
   FlipButton,
-  CameraContainer,
+  CameraScreenContainer,
   CameraText,
   TakeAPicButton,
   ButtonContainer,
@@ -14,6 +14,7 @@ import {
 
 export const CameraScreen = ({ navigation }) => {
   const { currentUser } = useContext(AuthenticationContext);
+  const { saveImage } = useContext(UserImageContext);
   const cameraRef = useRef();
   const [type, setType] = useState(CameraType.back);
   const [permission, requestPermission] = Camera.useCameraPermissions();
@@ -33,14 +34,14 @@ export const CameraScreen = ({ navigation }) => {
   const takeAPicture = async () => {
     if (cameraRef) {
       const photo = await cameraRef.current.takePictureAsync();
-      AsyncStorage.setItem(`${currentUser.uid}-photo`, photo.uri);
+      await saveImage(photo.uri, currentUser);
       navigation.navigate("My Settings");
     }
   };
 
   if (permission && permission.status === "granted") {
     return (
-      <CameraContainer>
+      <CameraScreenContainer>
         <ProfileCamera
           ref={(camera) => (cameraRef.current = camera)}
           type={type}
@@ -54,15 +55,15 @@ export const CameraScreen = ({ navigation }) => {
             </TouchableOpacity>
           </ButtonContainer>
         </ProfileCamera>
-      </CameraContainer>
+      </CameraScreenContainer>
     );
   } else {
     return (
-      <CameraContainer>
+      <CameraScreenContainer>
         <CameraText variant="title">
           Need your permission to use the camera.
         </CameraText>
-      </CameraContainer>
+      </CameraScreenContainer>
     );
   }
 };

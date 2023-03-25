@@ -1,6 +1,6 @@
+import styled from "styled-components/native";
 import { Button } from "react-native-paper";
 import { theme } from "../../infrastructure/theme";
-import styled from "styled-components/native";
 import { StyledText } from "../../helpers/typography/text.helper";
 
 export const PictureMenuContainer = styled.View`

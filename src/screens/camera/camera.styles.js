@@ -1,10 +1,10 @@
 import styled from "styled-components/native";
-import { Camera } from "expo-camera";
-import { StyledText } from "../../helpers/typography/text.helper";
-import { IconButton } from "react-native-paper";
 import { theme } from "../../infrastructure/theme";
+import { Camera } from "expo-camera";
+import { IconButton } from "react-native-paper";
+import { StyledText } from "../../helpers/typography/text.helper";
 
-export const CameraContainer = styled.View`
+export const CameraScreenContainer = styled.View`
   flex: 1;
   align-items: center;
   justify-content: center;

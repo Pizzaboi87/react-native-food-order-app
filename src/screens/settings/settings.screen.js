@@ -1,5 +1,5 @@
-import React, { useContext, useState, useCallback } from "react";
-import { List } from "react-native-paper";
+import React, { useContext, useCallback } from "react";
+import { Button, List } from "react-native-paper";
 import { useFocusEffect } from "@react-navigation/native";
 import { TouchableOpacity } from "react-native";
 import {
@@ -12,13 +12,14 @@ import {
   UserPhoto,
 } from "./settings.styles";
 import { AuthenticationContext } from "../../services/authentication/authentication.context";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import { UserImageContext } from "../../services/user-image/user-image.context";
 import { SafeArea } from "../../helpers/safe-area/safe-area.helper";
 import { FadeInView } from "../../animations/fade.animation";
+import { Text } from "react-native";
 
 export const SettingsScreen = ({ navigation }) => {
   const { onSignOut, currentUser } = useContext(AuthenticationContext);
-  const [photo, setPhoto] = useState(null);
+  const { loadImage, userImage } = useContext(UserImageContext);
 
   const heartIcon = (props) => {
     return <HeartIcon {...props} />;
@@ -28,15 +29,13 @@ export const SettingsScreen = ({ navigation }) => {
     return <DoorIcon {...props} />;
   };
 
-  const getProfilePicture = async (user) => {
-    const photoUri = await AsyncStorage.getItem(`${user.uid}-photo`);
-    setPhoto(photoUri);
-  };
-
   useFocusEffect(
     useCallback(() => {
+      const getProfilePicture = async (user) => {
+        await loadImage(user);
+      };
       getProfilePicture(currentUser);
-    }, [currentUser])
+    }, [currentUser, loadImage])
   );
 
   return (
@@ -46,7 +45,11 @@ export const SettingsScreen = ({ navigation }) => {
           <TouchableOpacity
             onPress={() => navigation.navigate("Change Profile Image")}
           >
-            {photo ? <UserPhoto source={{ uri: photo }} /> : <UserAvatar />}
+            {userImage ? (
+              <UserPhoto source={{ uri: userImage }} />
+            ) : (
+              <UserAvatar />
+            )}
           </TouchableOpacity>
         </FadeInView>
         <UserText variant="title">{currentUser.displayName}</UserText>
@@ -59,6 +62,9 @@ export const SettingsScreen = ({ navigation }) => {
           onPress={() => navigation.navigate("My Favourite Restaurants")}
         />
         <SettingsItem title="Logout" left={doorIcon} onPress={onSignOut} />
+        <Button onPress={() => console.log(userImage)}>
+          <Text>Show</Text>
+        </Button>
       </List.Section>
     </SafeArea>
   );

@@ -1,4 +1,5 @@
 import React from "react";
+import { UserImageContextProvider } from "../../services/user-image/user-image.context";
 import {
   createStackNavigator,
   CardStyleInterpolators,
@@ -11,26 +12,28 @@ const SettingsStack = createStackNavigator();
 
 export const SettingsNavigator = () => {
   return (
-    <SettingsStack.Navigator
-      screenOptions={{
-        headerShown: true,
-        headerMode: "screen",
-        CardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
-      }}
-    >
-      <SettingsStack.Screen
-        options={{ header: () => null }}
-        name="My Settings"
-        component={SettingsScreen}
-      />
-      <SettingsStack.Screen
-        name="My Favourite Restaurants"
-        component={FavouritesScreen}
-      />
-      <SettingsStack.Screen
-        name="Change Profile Image"
-        component={ChangePictureNavigator}
-      />
-    </SettingsStack.Navigator>
+    <UserImageContextProvider>
+      <SettingsStack.Navigator
+        screenOptions={{
+          headerShown: true,
+          headerMode: "screen",
+          CardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+      >
+        <SettingsStack.Screen
+          options={{ header: () => null }}
+          name="My Settings"
+          component={SettingsScreen}
+        />
+        <SettingsStack.Screen
+          name="My Favourite Restaurants"
+          component={FavouritesScreen}
+        />
+        <SettingsStack.Screen
+          name="Change Profile Image"
+          component={ChangePictureNavigator}
+        />
+      </SettingsStack.Navigator>
+    </UserImageContextProvider>
   );
 };
