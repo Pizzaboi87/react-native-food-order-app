@@ -11,8 +11,8 @@ export const FavouritesBar = ({ onDetail }) => {
     <FavouritesWrapper>
       <Title variant="caption">
         {favourites.length
-          ? `My Favourite Restaurants`
-          : `You don't have favourites yet.`}
+          ? "My Favourite Restaurants"
+          : "You don't have favourites yet."}
       </Title>
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         {favourites.map((restaurant) => {

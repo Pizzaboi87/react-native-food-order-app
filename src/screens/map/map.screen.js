@@ -18,7 +18,7 @@ import { Platform } from "react-native";
 const isAndroid = Platform.OS === "android";
 const Image = isAndroid ? CompactWebView : CompactImage;
 
-export const MapScreen = ({ navigation }) => {
+const RestaurantMap = ({ navigation }) => {
   const { location } = useContext(LocationContext);
   const { restaurants } = useContext(RestaurantsContext);
   const { viewPort, lat, lng } = location;
@@ -76,4 +76,23 @@ export const MapScreen = ({ navigation }) => {
       </Map>
     </MapContainer>
   );
+};
+
+export const MapScreen = ({ navigation }) => {
+  const { error } = useContext(LocationContext);
+  if (error) {
+    return (
+      <MapContainer>
+        <SearchContainerMap>
+          <Search icon="map" />
+        </SearchContainerMap>
+        <Map
+          region={{
+            latitude: 0,
+            longitude: 0,
+          }}
+        />
+      </MapContainer>
+    );
+  } else return <RestaurantMap navigation={navigation} />;
 };
