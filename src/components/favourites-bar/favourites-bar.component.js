@@ -9,7 +9,11 @@ export const FavouritesBar = ({ onDetail }) => {
 
   return (
     <FavouritesWrapper>
-      <Title variant="caption">My Favourite Restaurants</Title>
+      <Title variant="caption">
+        {favourites.length
+          ? `My Favourite Restaurants`
+          : `You don't have favourites yet.`}
+      </Title>
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         {favourites.map((restaurant) => {
           const key = restaurant.name.split(" ").join("");

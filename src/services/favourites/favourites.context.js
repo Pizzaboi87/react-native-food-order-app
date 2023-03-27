@@ -1,4 +1,10 @@
-import React, { createContext, useEffect, useState, useContext } from "react";
+import React, {
+  createContext,
+  useEffect,
+  useState,
+  useContext,
+  useCallback,
+} from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { AuthenticationContext } from "../authentication/authentication.context";
 
@@ -28,16 +34,17 @@ export const FavouritesContextProvider = ({ children }) => {
     }
   };
 
-  const addFavourite = (restaurant) => {
-    setFavourites([...favourites, restaurant]);
-  };
+  const addFavourite = useCallback((restaurant) => {
+    setFavourites((prevFavourites) => [...prevFavourites, restaurant]);
+  }, []);
 
-  const removeFavourite = (restaurant) => {
-    const newFavourites = favourites.filter(
-      (favourite) => favourite.placeId !== restaurant.placeId
+  const removeFavourite = useCallback((restaurant) => {
+    setFavourites((prevFavourites) =>
+      prevFavourites.filter(
+        (favourite) => favourite.placeId !== restaurant.placeId
+      )
     );
-    setFavourites(newFavourites);
-  };
+  }, []);
 
   useEffect(() => {
     if (currentUser) {
