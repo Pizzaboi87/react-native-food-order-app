@@ -111,5 +111,7 @@ export const MapScreen = ({ navigation }) => {
         />
       </MapContainer>
     );
-  } else return <RestaurantMap navigation={navigation} />;
+  } else {
+    return <RestaurantMap navigation={navigation} />;
+  }
 };

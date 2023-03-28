@@ -8,6 +8,7 @@ import { SafeArea } from "../../helpers/safe-area/safe-area.helper";
 import { FadeInView } from "../../animations/fade.animation";
 import { AvatarImage } from "../../components/user-avatar/user-avatar.component";
 import {
+  createIcon,
   SettingsItem,
   AvatarContainer,
   HeartIcon,
@@ -21,10 +22,6 @@ import {
 export const SettingsScreen = ({ navigation }) => {
   const { onSignOut, currentUser, uid } = useContext(AuthenticationContext);
   const { loadImage } = useContext(UserImageContext);
-
-  const createIcon = (IconComponent) => (props) => {
-    return <IconComponent {...props} />;
-  };
 
   const heartIcon = createIcon(HeartIcon);
   const doorIcon = createIcon(DoorIcon);
@@ -75,12 +72,7 @@ export const SettingsScreen = ({ navigation }) => {
           title="Personal Data"
           description="Edit your personal data"
           left={personalIcon}
-          onPress={() =>
-            Alert.alert(
-              "Under Progress",
-              "This will be the Personal Data menu."
-            )
-          }
+          onPress={() => navigation.navigate("Personal Data")}
         />
         <SettingsItem
           title="Previous Orders"

@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components/native";
 import { theme } from "../../infrastructure/theme";
 import { List } from "react-native-paper";
@@ -14,6 +15,10 @@ export const SettingsItem = styled(List.Item).attrs({
 })`
   padding: ${(props) => props.theme.space[3]};
 `;
+
+export const createIcon = (IconComponent) => (props) => {
+  return <IconComponent {...props} />;
+};
 
 export const MenuIcon = styled(List.Icon).attrs({
   color: theme.colors.ui.text,

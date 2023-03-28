@@ -59,7 +59,7 @@ export const RestaurantsScreen = ({ navigation }) => {
           <ErrorMessage variant="error">
             Oops... Something went wrong.
           </ErrorMessage>
-          <ErrorImage source={require("../../../assets/error.png")} />
+          <ErrorImage source={require("../../../assets/error.gif")} />
         </>
       ) : (
         <ListOfRestaurants navigation={navigation} data={restaurants} />
