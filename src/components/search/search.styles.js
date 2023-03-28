@@ -3,6 +3,9 @@ import styled from "styled-components/native";
 
 export const SearchContainerRestaurant = styled.View`
   padding: ${(props) => props.theme.space[3]};
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 export const SearchContainerMap = styled(SearchContainerRestaurant)`
@@ -15,4 +18,5 @@ export const SearchContainerMap = styled(SearchContainerRestaurant)`
 export const SearchBarOrange = styled(Searchbar)`
   border-color: ${(props) => props.theme.colors.ui.brand};
   border-width: 1px;
+  width: 83%;
 `;

@@ -8,6 +8,7 @@ import { RestaurantsNavigator } from "./restaurants.navigator";
 import { SettingsNavigator } from "./settings.navigator";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { theme } from "../theme";
+import { UserImageContextProvider } from "../../services/user-image/user-image.context";
 
 const TAB_ICON = {
   Restaurants: "md-restaurant",
@@ -31,16 +32,18 @@ export const AppNavigator = () => {
   const Tab = createBottomTabNavigator();
 
   return (
-    <FavouritesContextProvider>
-      <LocationContextProvider>
-        <RestaurantsContextProvider>
-          <Tab.Navigator screenOptions={createScreenOptions}>
-            <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
-            <Tab.Screen name="Map" component={MapScreen} />
-            <Tab.Screen name="Settings" component={SettingsNavigator} />
-          </Tab.Navigator>
-        </RestaurantsContextProvider>
-      </LocationContextProvider>
-    </FavouritesContextProvider>
+    <UserImageContextProvider>
+      <FavouritesContextProvider>
+        <LocationContextProvider>
+          <RestaurantsContextProvider>
+            <Tab.Navigator screenOptions={createScreenOptions}>
+              <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
+              <Tab.Screen name="Map" component={MapScreen} />
+              <Tab.Screen name="Settings" component={SettingsNavigator} />
+            </Tab.Navigator>
+          </RestaurantsContextProvider>
+        </LocationContextProvider>
+      </FavouritesContextProvider>
+    </UserImageContextProvider>
   );
 };

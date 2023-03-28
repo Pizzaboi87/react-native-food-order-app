@@ -15,10 +15,11 @@ import { AuthenticationContext } from "../../services/authentication/authenticat
 import { UserImageContext } from "../../services/user-image/user-image.context";
 import { SafeArea } from "../../helpers/safe-area/safe-area.helper";
 import { FadeInView } from "../../animations/fade.animation";
+import { AvatarImage } from "../../components/user-avatar/user-avatar.component";
 
 export const SettingsScreen = ({ navigation }) => {
   const { onSignOut, currentUser, uid } = useContext(AuthenticationContext);
-  const { loadImage, userImage } = useContext(UserImageContext);
+  const { loadImage } = useContext(UserImageContext);
 
   const heartIcon = (props) => {
     return <HeartIcon {...props} />;
@@ -44,11 +45,7 @@ export const SettingsScreen = ({ navigation }) => {
           <TouchableOpacity
             onPress={() => navigation.navigate("Change Profile Image")}
           >
-            {userImage ? (
-              <UserPhoto source={{ uri: userImage }} />
-            ) : (
-              <UserAvatar />
-            )}
+            <AvatarImage size={150} />
           </TouchableOpacity>
         </FadeInView>
         <UserText variant="title">{currentUser.displayName}</UserText>

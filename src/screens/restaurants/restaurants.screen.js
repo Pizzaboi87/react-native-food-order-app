@@ -1,21 +1,27 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useCallback } from "react";
 import {
   IndicatorContainer,
   Loading,
   ErrorMessage,
   ErrorImage,
 } from "./restaurants.styles";
+import { useFocusEffect } from "@react-navigation/native";
 import { SafeArea } from "../../helpers/safe-area/safe-area.helper";
 import { RestaurantsContext } from "../../services/restaurants/restaurants.context";
 import { LocationContext } from "../../services/location/location.context";
+import { AuthenticationContext } from "../../services/authentication/authentication.context";
+import { UserImageContext } from "../../services/user-image/user-image.context";
 import { Search } from "../../components/search/search.component";
 import { SearchContainerRestaurant } from "../../components/search/search.styles";
 import { FavouritesBar } from "../../components/favourites-bar/favourites-bar.component";
 import { ListOfRestaurants } from "../../components/restaurant-list/restaurant-list.component";
+import { AvatarImage } from "../../components/user-avatar/user-avatar.component";
 
 export const RestaurantsScreen = ({ navigation }) => {
   const { isLoading, restaurants, error } = useContext(RestaurantsContext);
   const { error: locationError } = useContext(LocationContext);
+  const { uid } = useContext(AuthenticationContext);
+  const { loadImage } = useContext(UserImageContext);
   const [isToggled, setIsToggled] = useState(false);
 
   const openDetails = (item) => {
@@ -23,6 +29,15 @@ export const RestaurantsScreen = ({ navigation }) => {
       restaurant: item,
     });
   };
+
+  useFocusEffect(
+    useCallback(() => {
+      const getProfilePicture = async (user) => {
+        await loadImage(user);
+      };
+      getProfilePicture(uid);
+    }, [uid, loadImage])
+  );
 
   return (
     <SafeArea>
@@ -32,6 +47,7 @@ export const RestaurantsScreen = ({ navigation }) => {
           onToggle={() => setIsToggled(!isToggled)}
           isToggled={isToggled}
         />
+        <AvatarImage size={55} />
       </SearchContainerRestaurant>
       {isToggled && <FavouritesBar onDetail={openDetails} />}
       {isLoading ? (
