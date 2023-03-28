@@ -1,15 +1,16 @@
 import React, { useContext, useCallback } from "react";
 import { List } from "react-native-paper";
 import { useFocusEffect } from "@react-navigation/native";
-import { TouchableOpacity } from "react-native";
+import { Alert, TouchableOpacity } from "react-native";
 import {
   SettingsItem,
   AvatarContainer,
-  UserAvatar,
   HeartIcon,
   DoorIcon,
   UserText,
-  UserPhoto,
+  AddressIcon,
+  PersonalIcon,
+  OrdersIcon,
 } from "./settings.styles";
 import { AuthenticationContext } from "../../services/authentication/authentication.context";
 import { UserImageContext } from "../../services/user-image/user-image.context";
@@ -21,13 +22,15 @@ export const SettingsScreen = ({ navigation }) => {
   const { onSignOut, currentUser, uid } = useContext(AuthenticationContext);
   const { loadImage } = useContext(UserImageContext);
 
-  const heartIcon = (props) => {
-    return <HeartIcon {...props} />;
+  const createIcon = (IconComponent) => (props) => {
+    return <IconComponent {...props} />;
   };
 
-  const doorIcon = (props) => {
-    return <DoorIcon {...props} />;
-  };
+  const heartIcon = createIcon(HeartIcon);
+  const doorIcon = createIcon(DoorIcon);
+  const personalIcon = createIcon(PersonalIcon);
+  const addressIcon = createIcon(AddressIcon);
+  const ordersIcon = createIcon(OrdersIcon);
 
   useFocusEffect(
     useCallback(() => {
@@ -56,6 +59,39 @@ export const SettingsScreen = ({ navigation }) => {
           description="Check your favourites"
           left={heartIcon}
           onPress={() => navigation.navigate("My Favourite Restaurants")}
+        />
+        <SettingsItem
+          title="Delivery Address"
+          description="Edit your delivery address"
+          left={addressIcon}
+          onPress={() =>
+            Alert.alert(
+              "Under Progress",
+              "This will be the Delivery Address menu."
+            )
+          }
+        />
+        <SettingsItem
+          title="Personal Data"
+          description="Edit your personal data"
+          left={personalIcon}
+          onPress={() =>
+            Alert.alert(
+              "Under Progress",
+              "This will be the Personal Data menu."
+            )
+          }
+        />
+        <SettingsItem
+          title="Previous Orders"
+          description="Check your previous orders"
+          left={ordersIcon}
+          onPress={() =>
+            Alert.alert(
+              "Under Progress",
+              "This will be the Previous Orders menu."
+            )
+          }
         />
         <SettingsItem title="Logout" left={doorIcon} onPress={onSignOut} />
       </List.Section>

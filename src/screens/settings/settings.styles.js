@@ -15,19 +15,34 @@ export const SettingsItem = styled(List.Item).attrs({
   padding: ${(props) => props.theme.space[3]};
 `;
 
-export const HeartIcon = styled(List.Icon).attrs({
-  icon: "heart",
+export const MenuIcon = styled(List.Icon).attrs({
   color: theme.colors.ui.text,
 })``;
 
-export const DoorIcon = styled(List.Icon).attrs({
+export const HeartIcon = styled(MenuIcon).attrs({
+  icon: "heart",
+})``;
+
+export const DoorIcon = styled(MenuIcon).attrs({
   icon: "door",
-  color: theme.colors.ui.text,
+})``;
+
+export const AddressIcon = styled(MenuIcon).attrs({
+  icon: "routes",
+})``;
+
+export const PersonalIcon = styled(MenuIcon).attrs({
+  icon: "account-cog",
+})``;
+
+export const OrdersIcon = styled(MenuIcon).attrs({
+  icon: "pizza",
 })``;
 
 export const AvatarContainer = styled.View`
   align-items: center;
   padding-top: ${(props) => props.theme.space[4]};
+  margin-bottom: ${(props) => props.theme.space[3]};
 `;
 
 export const UserText = styled(StyledText)`
