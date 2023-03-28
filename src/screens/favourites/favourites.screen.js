@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { ListOfRestaurants } from "../../components/restaurant-list/restaurant-list.component";
-import { StyledText } from "../../helpers/typography/text.helper";
 import { FavouritesContext } from "../../services/favourites/favourites.context";
+import { StyledText } from "../../helpers/typography/text.helper";
 import {
   FavouritesContainer,
   NoFavouritesContainer,

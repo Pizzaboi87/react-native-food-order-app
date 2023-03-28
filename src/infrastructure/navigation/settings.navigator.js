@@ -1,11 +1,11 @@
 import React from "react";
+import { SettingsScreen } from "../../screens/settings/settings.screen";
+import { FavouritesScreen } from "../../screens/favourites/favourites.screen";
+import { ChangePictureNavigator } from "./change-picture.navigator";
 import {
   createStackNavigator,
   CardStyleInterpolators,
 } from "@react-navigation/stack";
-import { SettingsScreen } from "../../screens/settings/settings.screen";
-import { FavouritesScreen } from "../../screens/favourites/favourites.screen";
-import { ChangePictureNavigator } from "./change-picture.navigator";
 
 const SettingsStack = createStackNavigator();
 

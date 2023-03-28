@@ -1,10 +1,4 @@
 import React, { useContext, useState, useCallback } from "react";
-import {
-  IndicatorContainer,
-  Loading,
-  ErrorMessage,
-  ErrorImage,
-} from "./restaurants.styles";
 import { useFocusEffect } from "@react-navigation/native";
 import { SafeArea } from "../../helpers/safe-area/safe-area.helper";
 import { RestaurantsContext } from "../../services/restaurants/restaurants.context";
@@ -16,6 +10,12 @@ import { SearchContainerRestaurant } from "../../components/search/search.styles
 import { FavouritesBar } from "../../components/favourites-bar/favourites-bar.component";
 import { ListOfRestaurants } from "../../components/restaurant-list/restaurant-list.component";
 import { AvatarImage } from "../../components/user-avatar/user-avatar.component";
+import {
+  IndicatorContainer,
+  Loading,
+  ErrorMessage,
+  ErrorImage,
+} from "./restaurants.styles";
 
 export const RestaurantsScreen = ({ navigation }) => {
   const { isLoading, restaurants, error } = useContext(RestaurantsContext);

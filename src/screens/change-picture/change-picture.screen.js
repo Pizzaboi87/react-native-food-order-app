@@ -1,5 +1,8 @@
 import React, { useContext, useEffect } from "react";
+import * as ImagePicker from "expo-image-picker";
 import { Alert } from "react-native";
+import { AuthenticationContext } from "../../services/authentication/authentication.context";
+import { UserImageContext } from "../../services/user-image/user-image.context";
 import {
   ButtonText,
   TitleText,
@@ -7,9 +10,6 @@ import {
   PictureMenuContainer,
   UploadButton,
 } from "./change-picture.styles";
-import * as ImagePicker from "expo-image-picker";
-import { AuthenticationContext } from "../../services/authentication/authentication.context";
-import { UserImageContext } from "../../services/user-image/user-image.context";
 
 export const ChangePictureScreen = ({ navigation }) => {
   const { uid } = useContext(AuthenticationContext);

@@ -2,13 +2,13 @@ import React from "react";
 import { FavouritesContextProvider } from "../../services/favourites/favourites.context";
 import { LocationContextProvider } from "../../services/location/location.context";
 import { RestaurantsContextProvider } from "../../services/restaurants/restaurants.context";
+import { UserImageContextProvider } from "../../services/user-image/user-image.context";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MapScreen } from "../../screens/map/map.screen";
 import { RestaurantsNavigator } from "./restaurants.navigator";
 import { SettingsNavigator } from "./settings.navigator";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { theme } from "../theme";
-import { UserImageContextProvider } from "../../services/user-image/user-image.context";
 
 const TAB_ICON = {
   Restaurants: "md-restaurant",

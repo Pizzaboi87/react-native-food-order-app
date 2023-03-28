@@ -1,10 +1,15 @@
 import React, { useContext, useEffect, useState, useCallback } from "react";
+import { Platform } from "react-native";
 import { useFocusEffect } from "@react-navigation/native";
 import { theme } from "../../infrastructure/theme";
 import { Marker, Callout } from "react-native-maps";
 import { LocationContext } from "../../services/location/location.context";
 import { UserImageContext } from "../../services/user-image/user-image.context";
 import { RestaurantsContext } from "../../services/restaurants/restaurants.context";
+import { AuthenticationContext } from "../../services/authentication/authentication.context";
+import { Search } from "../../components/search/search.component";
+import { SearchContainerMap } from "../../components/search/search.styles";
+import { AvatarImage } from "../../components/user-avatar/user-avatar.component";
 import {
   Map,
   MapContainer,
@@ -13,11 +18,6 @@ import {
   CompactWebView,
   Name,
 } from "./map.styles";
-import { Search } from "../../components/search/search.component";
-import { SearchContainerMap } from "../../components/search/search.styles";
-import { Platform } from "react-native";
-import { AvatarImage } from "../../components/user-avatar/user-avatar.component";
-import { AuthenticationContext } from "../../services/authentication/authentication.context";
 
 const isAndroid = Platform.OS === "android";
 const Image = isAndroid ? CompactWebView : CompactImage;

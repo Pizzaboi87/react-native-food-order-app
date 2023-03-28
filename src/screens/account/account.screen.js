@@ -1,4 +1,5 @@
 import React from "react";
+import LottieView from "lottie-react-native";
 import {
   AccountBackground,
   AccountCover,
@@ -8,7 +9,6 @@ import {
   MainTitle,
   AnimationWrapper,
 } from "./account.styles";
-import LottieView from "lottie-react-native";
 
 export const AccountScreen = ({ navigation }) => {
   return (

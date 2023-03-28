@@ -1,4 +1,10 @@
 import React from "react";
+import { StyledText } from "../../helpers/typography/text.helper";
+import star from "../../../assets/star";
+import open from "../../../assets/open";
+import { View } from "react-native";
+import { Favourite } from "../favourites/favourites.component";
+import { FadeInView } from "../../animations/fade.animation";
 import {
   RestaurantCard,
   RestaurantCardCover,
@@ -9,12 +15,6 @@ import {
   Icon,
   SVG,
 } from "./restaurant-info-card.styles";
-import { StyledText } from "../../helpers/typography/text.helper";
-import star from "../../../assets/star";
-import open from "../../../assets/open";
-import { View } from "react-native";
-import { Favourite } from "../favourites/favourites.component";
-import { FadeInView } from "../../animations/fade.animation";
 
 export const RestaurantInfoCard = ({ restaurant }) => {
   const {

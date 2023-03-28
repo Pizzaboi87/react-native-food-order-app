@@ -2,6 +2,11 @@ import React, { useContext, useCallback } from "react";
 import { List } from "react-native-paper";
 import { useFocusEffect } from "@react-navigation/native";
 import { Alert, TouchableOpacity } from "react-native";
+import { AuthenticationContext } from "../../services/authentication/authentication.context";
+import { UserImageContext } from "../../services/user-image/user-image.context";
+import { SafeArea } from "../../helpers/safe-area/safe-area.helper";
+import { FadeInView } from "../../animations/fade.animation";
+import { AvatarImage } from "../../components/user-avatar/user-avatar.component";
 import {
   SettingsItem,
   AvatarContainer,
@@ -12,11 +17,6 @@ import {
   PersonalIcon,
   OrdersIcon,
 } from "./settings.styles";
-import { AuthenticationContext } from "../../services/authentication/authentication.context";
-import { UserImageContext } from "../../services/user-image/user-image.context";
-import { SafeArea } from "../../helpers/safe-area/safe-area.helper";
-import { FadeInView } from "../../animations/fade.animation";
-import { AvatarImage } from "../../components/user-avatar/user-avatar.component";
 
 export const SettingsScreen = ({ navigation }) => {
   const { onSignOut, currentUser, uid } = useContext(AuthenticationContext);

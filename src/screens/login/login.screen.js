@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { AuthenticationContext } from "../../services/authentication/authentication.context";
+import { StyledText } from "../../helpers/typography/text.helper";
 import {
   AccountBackground,
   AccountCover,
@@ -12,7 +13,6 @@ import {
   ButtonContainer,
   Loading,
 } from "../account/account.styles";
-import { StyledText } from "../../helpers/typography/text.helper";
 
 export const LoginScreen = ({ navigation }) => {
   const { onLogin, error, setError, isLoading } = useContext(
