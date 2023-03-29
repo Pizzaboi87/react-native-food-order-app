@@ -1,6 +1,6 @@
 import React from "react";
 import { View } from "react-native";
-import { Waiting } from "./personal-data.styles";
+import { Gif } from "../../helpers/gif-plus-text/gif-plus-text.helper";
 import {
   DataInput,
   PersonalContainer,
@@ -12,7 +12,7 @@ import {
 export const PersonalDataScreen = () => {
   return (
     <PersonalContainer>
-      <Waiting source={require("../../../assets/wait.gif")} />
+      <Gif source={require("../../../assets/wait.gif")} />
       <PersonalTitle variant="title">Edit Your Personal Data</PersonalTitle>
       <View>
         <RowView>

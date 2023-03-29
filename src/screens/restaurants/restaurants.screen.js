@@ -9,12 +9,12 @@ import { SearchContainerRestaurant } from "../../components/search/search.styles
 import { FavouritesBar } from "../../components/favourites-bar/favourites-bar.component";
 import { ListOfRestaurants } from "../../components/restaurant-list/restaurant-list.component";
 import { AvatarImage } from "../../components/user-avatar/user-avatar.component";
+import { IndicatorContainer, Loading } from "./restaurants.styles";
 import {
-  IndicatorContainer,
-  Loading,
-  ErrorMessage,
-  ErrorImage,
-} from "./restaurants.styles";
+  Gif,
+  GifContainer,
+  GifMessage,
+} from "../../helpers/gif-plus-text/gif-plus-text.helper";
 
 export const RestaurantsScreen = ({ navigation }) => {
   const { isLoading, restaurants, error } = useContext(RestaurantsContext);
@@ -47,12 +47,10 @@ export const RestaurantsScreen = ({ navigation }) => {
           <Loading />
         </IndicatorContainer>
       ) : !!error || !!locationError ? (
-        <>
-          <ErrorMessage variant="error">
-            Oops... Something went wrong.
-          </ErrorMessage>
-          <ErrorImage source={require("../../../assets/error.gif")} />
-        </>
+        <GifContainer>
+          <Gif source={require("../../../assets/error.gif")} />
+          <GifMessage variant="error">Oops... Something went wrong.</GifMessage>
+        </GifContainer>
       ) : (
         <ListOfRestaurants navigation={navigation} data={restaurants} />
       )}

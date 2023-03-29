@@ -1,5 +1,4 @@
 import styled from "styled-components/native";
-import { Image } from "react-native";
 import { Button, TextInput } from "react-native-paper";
 import { StyledText } from "../../helpers/typography/text.helper";
 
@@ -14,12 +13,6 @@ export const PersonalTitle = styled(StyledText)`
   margin-bottom: ${(props) => props.theme.sizes[4]}
   text-align: center;
   font-size: ${(props) => props.theme.fontSizes.h5};
-`;
-
-export const Waiting = styled(Image)`
-  width: 200px;
-  height: 200px;
-  margin: 0 auto;
 `;
 
 export const DataInput = styled(TextInput)`

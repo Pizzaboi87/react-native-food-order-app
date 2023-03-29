@@ -51,7 +51,7 @@ export const UserImageContextProvider = ({ children }) => {
           await loadImage(user);
         };
         getProfilePicture(uid);
-      }, [uid, loadImage])
+      }, [uid])
     );
   };
 

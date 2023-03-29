@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
 import { ListOfRestaurants } from "../../components/restaurant-list/restaurant-list.component";
 import { FavouritesContext } from "../../services/favourites/favourites.context";
-import { StyledText } from "../../helpers/typography/text.helper";
+import { FavouritesContainer } from "./favourites.styles";
 import {
-  FavouritesContainer,
-  NoFavouritesContainer,
-} from "./favourites.styles";
+  GifContainer,
+  GifMessage,
+  Gif,
+} from "../../helpers/gif-plus-text/gif-plus-text.helper";
 
 export const FavouritesScreen = ({ navigation }) => {
   const { favourites } = useContext(FavouritesContext);
@@ -15,8 +16,11 @@ export const FavouritesScreen = ({ navigation }) => {
       <ListOfRestaurants navigation={navigation} data={favourites} />
     </FavouritesContainer>
   ) : (
-    <NoFavouritesContainer>
-      <StyledText variant="title">No any favourites yet.</StyledText>
-    </NoFavouritesContainer>
+    <GifContainer>
+      <Gif source={require("../../../assets/nofavourite.gif")} />
+      <GifMessage variant="error">
+        You don't have any favourites yet.
+      </GifMessage>
+    </GifContainer>
   );
 };
