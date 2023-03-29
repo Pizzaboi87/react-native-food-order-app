@@ -32,5 +32,5 @@ export const Item = styled.View`
 
 export const Name = styled(StyledText)`
   text-align: center;
-  margin-top: 5px;
+  margin-top: ${(props) => props.theme.sizes[0]};
 `;

@@ -33,7 +33,7 @@ export const TakeAPicButton = styled(IconButton).attrs({
   size: 75,
   iconColor: theme.colors.ui.quaternary,
 })`
-  padding-top: 5px;
+  padding-top: ${(props) => props.theme.sizes[0]};
 `;
 
 export const ButtonContainer = styled.View`

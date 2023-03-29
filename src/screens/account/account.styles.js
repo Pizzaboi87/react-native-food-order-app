@@ -30,7 +30,7 @@ export const AnimationWrapper = styled.View`
 export const AccountContainer = styled.View`
   background-color: rgba(255, 255, 255, 0.7);
   padding: ${(props) => props.theme.space[4]};
-  border-radius: ${(props) => props.theme.sizes[1]};
+  border-radius: ${(props) => props.theme.sizes[2]};
   align-items: center;
 `;
 
@@ -57,7 +57,7 @@ export const AuthButton = styled(Button).attrs({
   padding-right: ${(props) => props.theme.space[3]};
   padding-top: ${(props) => props.theme.space[2]};
   padding-bottom: ${(props) => props.theme.space[2]};
-  border-radius: ${(props) => props.theme.sizes[0]};
+  border-radius: ${(props) => props.theme.sizes[1]};
   margin-top: ${(props) => props.theme.space[2]};
   width: 150px;
   height: 60px;

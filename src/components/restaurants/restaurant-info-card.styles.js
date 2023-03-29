@@ -36,13 +36,13 @@ export const Rating = styled.View`
 `;
 
 export const SVG = styled(SvgXml)`
-  width: ${(props) => props.theme.sizes[2]};
-  height: ${(props) => props.theme.sizes[2]};
+  width: ${(props) => props.theme.sizes[3]};
+  height: ${(props) => props.theme.sizes[3]};
 `;
 
 export const Icon = styled.Image`
-  width: ${(props) => props.theme.sizes[1]};
-  height: ${(props) => props.theme.sizes[1]};
+  width: ${(props) => props.theme.sizes[2]};
+  height: ${(props) => props.theme.sizes[2]};
   margin-left: ${(props) => props.theme.space[2]};
   margin-bottom: -2.5px;
 `;

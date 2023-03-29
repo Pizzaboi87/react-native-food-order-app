@@ -11,7 +11,7 @@ export const PersonalContainer = styled.View`
 `;
 
 export const PersonalTitle = styled(StyledText)`
-  margin-bottom: 25px;
+  margin-bottom: ${(props) => props.theme.sizes[4]}
   text-align: center;
   font-size: ${(props) => props.theme.fontSizes.h5};
 `;
@@ -23,8 +23,8 @@ export const Waiting = styled(Image)`
 `;
 
 export const DataInput = styled(TextInput)`
-  margin-bottom: 30px;
-  background-color: white;
+  margin-bottom: ${(props) => props.theme.space[4]}
+  background-color: ${(props) => props.theme.colors.bg.primary};
   width: ${(props) => props.width}px;
 `;
 
@@ -39,9 +39,9 @@ export const Submit = styled(Button).attrs({
     fontSize: 15,
   },
 })`
-  background-color: green;
+  background-color: ${(props) => props.theme.colors.ui.success};
   align-self: flex-end;
-  margin-right: 45px;
-  border-radius: 5px;
-  padding: 5px;
+  margin-right: ${(props) => props.theme.space[5]}
+  border-radius: ${(props) => props.theme.sizes[0]};
+  padding: ${(props) => props.theme.space[1]};
 `;
