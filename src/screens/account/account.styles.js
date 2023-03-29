@@ -2,6 +2,7 @@ import styled from "styled-components/native";
 import { Button, TextInput, ActivityIndicator } from "react-native-paper";
 import { theme } from "../../infrastructure/theme";
 import { StyledText } from "../../helpers/typography/text.helper";
+import { Gif } from "../../helpers/gif-plus-text/gif-plus-text.helper";
 
 export const AccountBackground = styled.ImageBackground.attrs({
   source: require("../../../assets/home_bg.jpg"),
@@ -20,10 +21,8 @@ export const AccountCover = styled.View`
 `;
 
 export const AnimationWrapper = styled.View`
-  width: 100%;
-  height: 40%;
   position: absolute;
-  top: 30px;
+  top: 70px;
   padding: ${(props) => props.theme.space[2]};
 `;
 
@@ -105,4 +104,9 @@ export const Loading = styled(ActivityIndicator).attrs({
   size: 30,
 })`
   margin: 0 auto;
+`;
+
+export const WelcomeGif = styled(Gif)`
+  width: 250px;
+  height: 250px;
 `;
