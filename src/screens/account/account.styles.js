@@ -21,9 +21,8 @@ export const AccountCover = styled.View`
 `;
 
 export const AnimationWrapper = styled.View`
-  position: absolute;
-  top: 70px;
-  padding: ${(props) => props.theme.space[2]};
+  padding: ${(props) => props.theme.space[0]};
+  margin-top: -30%;
 `;
 
 export const AccountContainer = styled.View`
@@ -35,7 +34,6 @@ export const AccountContainer = styled.View`
 
 export const MainTitle = styled(StyledText)`
   font-size: ${(props) => props.theme.fontSizes.h4};
-  margin-top: ${(props) => props.theme.space[5]};
   margin-bottom: ${(props) => props.theme.space[4]};
 `;
 
@@ -49,7 +47,7 @@ export const AuthButton = styled(Button).attrs({
   buttonColor: theme.colors.brand.primary,
   textColor: theme.colors.ui.tertiary,
   labelStyle: {
-    fontSize: 18,
+    fontSize: 16,
   },
 })`
   padding-left: ${(props) => props.theme.space[3]};

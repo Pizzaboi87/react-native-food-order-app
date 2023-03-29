@@ -16,6 +16,7 @@ import {
   AddressIcon,
   PersonalIcon,
   OrdersIcon,
+  ListContainer,
 } from "./settings.styles";
 
 export const SettingsScreen = ({ navigation }) => {
@@ -42,7 +43,7 @@ export const SettingsScreen = ({ navigation }) => {
         </FadeInView>
         <UserText variant="title">{currentUser.displayName}</UserText>
       </AvatarContainer>
-      <List.Section>
+      <ListContainer>
         <SettingsItem
           title="Favourites"
           description="Check your favourites"
@@ -53,18 +54,18 @@ export const SettingsScreen = ({ navigation }) => {
           title="Delivery Address"
           description="Edit your delivery address"
           left={addressIcon}
-          onPress={() =>
-            Alert.alert(
-              "Under Progress",
-              "This will be the Delivery Address menu."
-            )
-          }
+          onPress={() => navigation.navigate("Delivery Address")}
         />
         <SettingsItem
           title="Personal Data"
           description="Edit your personal data"
           left={personalIcon}
-          onPress={() => navigation.navigate("Personal Data")}
+          onPress={() =>
+            Alert.alert(
+              "Under Progress",
+              "This will be the Personal Data menu."
+            )
+          }
         />
         <SettingsItem
           title="Previous Orders"
@@ -78,7 +79,7 @@ export const SettingsScreen = ({ navigation }) => {
           }
         />
         <SettingsItem title="Logout" left={doorIcon} onPress={onSignOut} />
-      </List.Section>
+      </ListContainer>
     </SafeArea>
   );
 };

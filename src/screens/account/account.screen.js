@@ -1,4 +1,5 @@
 import React from "react";
+import { View } from "react-native";
 import {
   AccountBackground,
   AccountCover,
@@ -17,15 +18,17 @@ export const AccountScreen = ({ navigation }) => {
         <AnimationWrapper>
           <WelcomeGif source={require("../../../assets/surprise.gif")} />
         </AnimationWrapper>
-        <MainTitle variant="label">Meals-To-Go</MainTitle>
-        <AccountContainer>
-          <LoginButton onPress={() => navigation.navigate("Login")}>
-            sign-in
-          </LoginButton>
-          <RegisterButton onPress={() => navigation.navigate("Register")}>
-            sign-up
-          </RegisterButton>
-        </AccountContainer>
+        <View>
+          <MainTitle variant="label">Meals-To-Go</MainTitle>
+          <AccountContainer>
+            <LoginButton onPress={() => navigation.navigate("Login")}>
+              sign-in
+            </LoginButton>
+            <RegisterButton onPress={() => navigation.navigate("Register")}>
+              sign-up
+            </RegisterButton>
+          </AccountContainer>
+        </View>
       </AccountCover>
     </AccountBackground>
   );

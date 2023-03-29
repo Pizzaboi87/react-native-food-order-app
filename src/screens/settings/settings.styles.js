@@ -16,6 +16,11 @@ export const SettingsItem = styled(List.Item).attrs({
   padding: ${(props) => props.theme.space[3]};
 `;
 
+export const ListContainer = styled(List.Section)`
+  flex: 1;
+  justify-content: space-evenly;
+`;
+
 export const createIcon = (IconComponent) => (props) => {
   return <IconComponent {...props} />;
 };
@@ -47,10 +52,10 @@ export const OrdersIcon = styled(MenuIcon).attrs({
 export const AvatarContainer = styled.View`
   align-items: center;
   padding-top: ${(props) => props.theme.space[4]};
-  margin-bottom: ${(props) => props.theme.space[3]};
+  margin-bottom: ${(props) => props.theme.space[2]};
 `;
 
 export const UserText = styled(StyledText)`
   color: ${(props) => props.theme.colors.ui.text};
-  margin-top: ${(props) => props.theme.space[2]};
+  margin-top: ${(props) => props.theme.space[1]};
 `;

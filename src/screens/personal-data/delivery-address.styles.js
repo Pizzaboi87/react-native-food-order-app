@@ -2,17 +2,17 @@ import styled from "styled-components/native";
 import { Button, TextInput } from "react-native-paper";
 import { StyledText } from "../../helpers/typography/text.helper";
 
-export const PersonalContainer = styled.View`
+export const Container = styled.View`
   flex: 1;
   background-color: ${(props) => props.theme.colors.ui.background};
   align-items: center;
   justify-content: center;
 `;
 
-export const PersonalTitle = styled(StyledText)`
+export const Title = styled(StyledText)`
   margin-bottom: ${(props) => props.theme.sizes[4]}
   text-align: center;
-  font-size: ${(props) => props.theme.fontSizes.h5};
+  font-size: ${(props) => props.theme.fontSizes.title};
 `;
 
 export const DataInput = styled(TextInput)`
@@ -33,8 +33,7 @@ export const Submit = styled(Button).attrs({
   },
 })`
   background-color: ${(props) => props.theme.colors.ui.success};
-  align-self: flex-end;
-  margin-right: ${(props) => props.theme.space[5]}
+  width: 300px;
   border-radius: ${(props) => props.theme.sizes[0]};
   padding: ${(props) => props.theme.space[1]};
 `;
