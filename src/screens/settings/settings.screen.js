@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { List } from "react-native-paper";
 import { Alert, TouchableOpacity } from "react-native";
 import { AuthenticationContext } from "../../services/authentication/authentication.context";
 import { UserImageContext } from "../../services/user-image/user-image.context";

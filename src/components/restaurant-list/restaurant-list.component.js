@@ -1,7 +1,7 @@
 import React from "react";
 import { RestaurantList } from "../../screens/restaurants/restaurants.styles";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { RestaurantInfoCard } from "../restaurants/restaurant-info-card.component";
+import { RestaurantInfoCard } from "../restaurant-info-card/restaurant-info-card.component";
 
 export const ListOfRestaurants = ({ navigation, data }) => {
   const openDetails = (item) => {

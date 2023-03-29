@@ -1,8 +1,16 @@
 import React, { useState } from "react";
 import { List } from "react-native-paper";
-import { DetailsContainer } from "./restaurant-details.styles";
-import { RestaurantInfoCard } from "../../components/restaurants/restaurant-info-card.component";
+import { RestaurantInfoCard } from "../../components/restaurant-info-card/restaurant-info-card.component";
 import { SafeArea } from "../../helpers/safe-area/safe-area.helper";
+import {
+  DetailsContainer,
+  ListTitle,
+  createIcon,
+  BreakfastIcon,
+  LunchIcon,
+  DinnerIcon,
+  DrinksIcon,
+} from "./restaurant-details.styles";
 
 export const RestaurantDetailsScreen = ({ route }) => {
   const [breakfastExpanded, setBreakfastExpanded] = useState(false);
@@ -11,16 +19,16 @@ export const RestaurantDetailsScreen = ({ route }) => {
   const [drinksExpanded, setDrinksExpanded] = useState(false);
   const { restaurant } = route.params;
 
-  const breakfast = (props) => <List.Icon {...props} icon="bread-slice" />;
-  const lunch = (props) => <List.Icon {...props} icon="hamburger" />;
-  const dinner = (props) => <List.Icon {...props} icon="food-variant" />;
-  const drinks = (props) => <List.Icon {...props} icon="cup" />;
+  const breakfast = createIcon(BreakfastIcon);
+  const lunch = createIcon(LunchIcon);
+  const dinner = createIcon(DinnerIcon);
+  const drinks = createIcon(DrinksIcon);
 
   return (
     <SafeArea>
       <RestaurantInfoCard restaurant={restaurant} />
       <DetailsContainer>
-        <List.Accordion
+        <ListTitle
           title="Breakfast"
           left={breakfast}
           expanded={breakfastExpanded}
@@ -30,9 +38,9 @@ export const RestaurantDetailsScreen = ({ route }) => {
           <List.Item title="Classic Breakfast" />
           <List.Item title="Ham & Eggs" />
           <List.Item title="Greek Breakfast" />
-        </List.Accordion>
+        </ListTitle>
 
-        <List.Accordion
+        <ListTitle
           title="Lunch"
           left={lunch}
           expanded={lunchExpanded}
@@ -41,9 +49,9 @@ export const RestaurantDetailsScreen = ({ route }) => {
           <List.Item title="Steak Sandwich" />
           <List.Item title="Mushroom Soup" />
           <List.Item title="Mangalica Burger w/ French Fries" />
-        </List.Accordion>
+        </ListTitle>
 
-        <List.Accordion
+        <ListTitle
           title="Dinner"
           left={dinner}
           expanded={dinnerExpanded}
@@ -53,9 +61,9 @@ export const RestaurantDetailsScreen = ({ route }) => {
           <List.Item title="Veal Cutlet with Chicken Mushroom" />
           <List.Item title="Steak Frites" />
           <List.Item title="Fisherman's Soup" />
-        </List.Accordion>
+        </ListTitle>
 
-        <List.Accordion
+        <ListTitle
           title="Drinks"
           left={drinks}
           expanded={drinksExpanded}
@@ -67,7 +75,7 @@ export const RestaurantDetailsScreen = ({ route }) => {
           <List.Item title="Coca-Cola Zero" />
           <List.Item title="Fanta" />
           <List.Item title="Sprite" />
-        </List.Accordion>
+        </ListTitle>
       </DetailsContainer>
     </SafeArea>
   );

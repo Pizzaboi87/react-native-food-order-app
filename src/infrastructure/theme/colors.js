@@ -14,6 +14,8 @@ export const colors = {
     success: "#138000",
     brand: "#f65b1e",
     background: "#fcc8b4",
+    title: "#faa483",
+    card: "#fef1ed",
     text: "#333333",
   },
   bg: {
