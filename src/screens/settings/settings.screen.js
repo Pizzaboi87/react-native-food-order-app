@@ -1,6 +1,5 @@
-import React, { useContext, useCallback } from "react";
+import React, { useContext } from "react";
 import { List } from "react-native-paper";
-import { useFocusEffect } from "@react-navigation/native";
 import { Alert, TouchableOpacity } from "react-native";
 import { AuthenticationContext } from "../../services/authentication/authentication.context";
 import { UserImageContext } from "../../services/user-image/user-image.context";
@@ -21,7 +20,7 @@ import {
 
 export const SettingsScreen = ({ navigation }) => {
   const { onSignOut, currentUser, uid } = useContext(AuthenticationContext);
-  const { loadImage } = useContext(UserImageContext);
+  const { useLoadImage } = useContext(UserImageContext);
 
   const heartIcon = createIcon(HeartIcon);
   const doorIcon = createIcon(DoorIcon);
@@ -29,14 +28,7 @@ export const SettingsScreen = ({ navigation }) => {
   const addressIcon = createIcon(AddressIcon);
   const ordersIcon = createIcon(OrdersIcon);
 
-  useFocusEffect(
-    useCallback(() => {
-      const getProfilePicture = async (user) => {
-        await loadImage(user);
-      };
-      getProfilePicture(uid);
-    }, [uid, loadImage])
-  );
+  useLoadImage(uid);
 
   return (
     <SafeArea>

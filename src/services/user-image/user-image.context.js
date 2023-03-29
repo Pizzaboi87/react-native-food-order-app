@@ -1,5 +1,6 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useCallback } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useFocusEffect } from "@react-navigation/native";
 import { Alert } from "react-native";
 
 export const UserImageContext = createContext();
@@ -43,6 +44,17 @@ export const UserImageContextProvider = ({ children }) => {
     }
   };
 
+  const useLoadImage = (uid) => {
+    useFocusEffect(
+      useCallback(() => {
+        const getProfilePicture = async (user) => {
+          await loadImage(user);
+        };
+        getProfilePicture(uid);
+      }, [uid, loadImage])
+    );
+  };
+
   return (
     <UserImageContext.Provider
       value={{
@@ -50,6 +62,7 @@ export const UserImageContextProvider = ({ children }) => {
         loadImage,
         saveImage,
         saveImageFromUpload,
+        useLoadImage,
       }}
     >
       {children}

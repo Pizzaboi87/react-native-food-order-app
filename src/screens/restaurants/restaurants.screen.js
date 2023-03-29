@@ -1,5 +1,4 @@
-import React, { useContext, useState, useCallback } from "react";
-import { useFocusEffect } from "@react-navigation/native";
+import React, { useContext, useState } from "react";
 import { SafeArea } from "../../helpers/safe-area/safe-area.helper";
 import { RestaurantsContext } from "../../services/restaurants/restaurants.context";
 import { LocationContext } from "../../services/location/location.context";
@@ -21,7 +20,7 @@ export const RestaurantsScreen = ({ navigation }) => {
   const { isLoading, restaurants, error } = useContext(RestaurantsContext);
   const { error: locationError } = useContext(LocationContext);
   const { uid } = useContext(AuthenticationContext);
-  const { loadImage } = useContext(UserImageContext);
+  const { useLoadImage } = useContext(UserImageContext);
   const [isToggled, setIsToggled] = useState(false);
 
   const openDetails = (item) => {
@@ -30,14 +29,7 @@ export const RestaurantsScreen = ({ navigation }) => {
     });
   };
 
-  useFocusEffect(
-    useCallback(() => {
-      const getProfilePicture = async (user) => {
-        await loadImage(user);
-      };
-      getProfilePicture(uid);
-    }, [uid, loadImage])
-  );
+  useLoadImage(uid);
 
   return (
     <SafeArea>
