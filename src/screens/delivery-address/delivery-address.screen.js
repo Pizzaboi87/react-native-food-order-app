@@ -1,7 +1,10 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { Alert, View } from "react-native";
-import { AuthenticationContext } from "../../services/authentication/authentication.context";
 import { Gif } from "../../helpers/gif-plus-text/gif-plus-text.helper";
+import {
+  addAddressToUser,
+  getUserData,
+} from "../../services/firebase/firebase-config.service";
 import {
   DataInput,
   Container,
@@ -11,7 +14,6 @@ import {
 } from "./delivery-address.styles";
 
 export const DeliveryAddressScreen = () => {
-  const { setError } = useContext(AuthenticationContext);
   const [address, setAddress] = useState({
     city: "",
     zip: "",
@@ -22,11 +24,22 @@ export const DeliveryAddressScreen = () => {
     door: "",
   });
 
-  const test = () => {
-    Alert.alert(
-      "Your Address",
-      `city: ${address.city}\nstate: ${address.state}\nzip: ${address.zip}\nstreet: ${address.street}\nhouse nr: ${address.number}\nfloor: ${address.floor}\ndoor: ${address.door}`
-    );
+  useEffect(() => {
+    async function fetchUserData() {
+      const userData = await getUserData();
+      if (userData) {
+        setAddress(userData);
+      }
+    }
+    fetchUserData();
+  }, []);
+
+  const submitAddress = () => {
+    if (Object.values(address).every((value) => value !== "")) {
+      addAddressToUser(address);
+    } else {
+      Alert.alert("Error", "You didn't fill out every input field!");
+    }
   };
 
   const regexLetters = /^[a-zA-Z\s]*$/;
@@ -56,7 +69,6 @@ export const DeliveryAddressScreen = () => {
             autoCapitalize="none"
             autoComplete="off"
             keyboardType="email-address"
-            onFocus={() => setError(null)}
             onChangeText={(city) =>
               handleAddressChange("city", city, regexLetters)
             }
@@ -69,7 +81,6 @@ export const DeliveryAddressScreen = () => {
             autoCapitalize="none"
             autoComplete="off"
             keyboardType="email-address"
-            onFocus={() => setError(null)}
             onChangeText={(state) =>
               handleAddressChange("state", state, regexLetters)
             }
@@ -84,7 +95,6 @@ export const DeliveryAddressScreen = () => {
             autoCapitalize="none"
             autoComplete="off"
             keyboardType="numeric"
-            onFocus={() => setError(null)}
             onChangeText={(zip) =>
               handleAddressChange("zip", zip, regexNumbers)
             }
@@ -97,7 +107,6 @@ export const DeliveryAddressScreen = () => {
             autoCapitalize="none"
             autoComplete="off"
             keyboardType="email-address"
-            onFocus={() => setError(null)}
             onChangeText={(street) =>
               handleAddressChange("street", street, regexLetters)
             }
@@ -112,7 +121,6 @@ export const DeliveryAddressScreen = () => {
             autoCapitalize="none"
             autoComplete="off"
             keyboardType="numeric"
-            onFocus={() => setError(null)}
             onChangeText={(number) =>
               handleAddressChange("number", number, regexNumbers)
             }
@@ -125,7 +133,6 @@ export const DeliveryAddressScreen = () => {
             autoCapitalize="none"
             autoComplete="off"
             keyboardType="numeric"
-            onFocus={() => setError(null)}
             onChangeText={(floor) =>
               handleAddressChange("floor", floor, regexNumbers)
             }
@@ -138,14 +145,13 @@ export const DeliveryAddressScreen = () => {
             autoCapitalize="none"
             autoComplete="off"
             keyboardType="numeric"
-            onFocus={() => setError(null)}
             onChangeText={(door) =>
               handleAddressChange("door", door, regexNumbers)
             }
           />
         </RowView>
       </View>
-      <Submit onPress={test}>Submit</Submit>
+      <Submit onPress={submitAddress}>Submit</Submit>
     </Container>
   );
 };
