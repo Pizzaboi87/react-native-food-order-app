@@ -29,6 +29,18 @@ export const DeliveryAddressScreen = () => {
     );
   };
 
+  const regexLetters = /^[a-zA-Z\s]*$/;
+  const regexNumbers = /^\d{0,5}$/;
+
+  const handleAddressChange = (fieldName, fieldValue, regexType) => {
+    if (regexType.test(fieldValue)) {
+      setAddress((prevAddress) => ({
+        ...prevAddress,
+        [fieldName]: fieldValue,
+      }));
+    }
+  };
+
   return (
     <Container>
       <Gif source={require("../../../assets/wait.gif")} />
@@ -38,18 +50,16 @@ export const DeliveryAddressScreen = () => {
           <DataInput
             width={205}
             label="City"
+            name="city"
             value={address.city}
             textContentType="addressCity"
             autoCapitalize="none"
             autoComplete="off"
             keyboardType="email-address"
             onFocus={() => setError(null)}
-            onChangeText={(city) => {
-              setAddress((prevAddress) => ({
-                ...prevAddress,
-                city: city,
-              }));
-            }}
+            onChangeText={(city) =>
+              handleAddressChange("city", city, regexLetters)
+            }
           />
           <DataInput
             width={95}
@@ -60,12 +70,9 @@ export const DeliveryAddressScreen = () => {
             autoComplete="off"
             keyboardType="email-address"
             onFocus={() => setError(null)}
-            onChangeText={(state) => {
-              setAddress((prevAddress) => ({
-                ...prevAddress,
-                state: state,
-              }));
-            }}
+            onChangeText={(state) =>
+              handleAddressChange("state", state, regexLetters)
+            }
           />
         </RowView>
         <RowView>
@@ -78,12 +85,9 @@ export const DeliveryAddressScreen = () => {
             autoComplete="off"
             keyboardType="numeric"
             onFocus={() => setError(null)}
-            onChangeText={(zip) => {
-              setAddress((prevAddress) => ({
-                ...prevAddress,
-                zip: zip,
-              }));
-            }}
+            onChangeText={(zip) =>
+              handleAddressChange("zip", zip, regexNumbers)
+            }
           />
           <DataInput
             width={205}
@@ -94,12 +98,9 @@ export const DeliveryAddressScreen = () => {
             autoComplete="off"
             keyboardType="email-address"
             onFocus={() => setError(null)}
-            onChangeText={(street) => {
-              setAddress((prevAddress) => ({
-                ...prevAddress,
-                street: street,
-              }));
-            }}
+            onChangeText={(street) =>
+              handleAddressChange("street", street, regexLetters)
+            }
           />
         </RowView>
         <RowView>
@@ -112,12 +113,9 @@ export const DeliveryAddressScreen = () => {
             autoComplete="off"
             keyboardType="numeric"
             onFocus={() => setError(null)}
-            onChangeText={(number) => {
-              setAddress((prevAddress) => ({
-                ...prevAddress,
-                number: number,
-              }));
-            }}
+            onChangeText={(number) =>
+              handleAddressChange("number", number, regexNumbers)
+            }
           />
           <DataInput
             width={95}
@@ -128,12 +126,9 @@ export const DeliveryAddressScreen = () => {
             autoComplete="off"
             keyboardType="numeric"
             onFocus={() => setError(null)}
-            onChangeText={(floor) => {
-              setAddress((prevAddress) => ({
-                ...prevAddress,
-                floor: floor,
-              }));
-            }}
+            onChangeText={(floor) =>
+              handleAddressChange("floor", floor, regexNumbers)
+            }
           />
           <DataInput
             width={95}
@@ -144,12 +139,9 @@ export const DeliveryAddressScreen = () => {
             autoComplete="off"
             keyboardType="numeric"
             onFocus={() => setError(null)}
-            onChangeText={(door) => {
-              setAddress((prevAddress) => ({
-                ...prevAddress,
-                door: door,
-              }));
-            }}
+            onChangeText={(door) =>
+              handleAddressChange("door", door, regexNumbers)
+            }
           />
         </RowView>
       </View>
