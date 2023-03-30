@@ -24,6 +24,7 @@ export const DataInput = styled(TextInput)`
 export const RowView = styled.View`
   flex-direction: row;
   justify-content: space-between;
+  column-gap: 15px;
 `;
 
 export const Submit = styled(Button).attrs({

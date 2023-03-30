@@ -1,7 +1,7 @@
 import React from "react";
 import { SettingsScreen } from "../../screens/settings/settings.screen";
 import { FavouritesScreen } from "../../screens/favourites/favourites.screen";
-import { DeliveryAddressScreen } from "../../screens/personal-data/delivery-address.screen";
+import { DeliveryAddressScreen } from "../../screens/delivery-address/delivery-address.screen";
 import { ChangePictureNavigator } from "./change-picture.navigator";
 import {
   createStackNavigator,
