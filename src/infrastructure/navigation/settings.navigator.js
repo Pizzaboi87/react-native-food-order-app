@@ -1,6 +1,7 @@
 import React from "react";
 import { SettingsScreen } from "../../screens/settings/settings.screen";
 import { FavouritesScreen } from "../../screens/favourites/favourites.screen";
+import { PersonalDataScreen } from "../../screens/personal-data/personal-data.screen";
 import { DeliveryAddressScreen } from "../../screens/delivery-address/delivery-address.screen";
 import { ChangePictureNavigator } from "./change-picture.navigator";
 import {
@@ -35,6 +36,10 @@ export const SettingsNavigator = () => {
       <SettingsStack.Screen
         name="Delivery Address"
         component={DeliveryAddressScreen}
+      />
+      <SettingsStack.Screen
+        name="Personal Data"
+        component={PersonalDataScreen}
       />
       <SettingsStack.Screen
         name="Change Profile Image"

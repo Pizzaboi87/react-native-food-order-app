@@ -59,12 +59,7 @@ export const SettingsScreen = ({ navigation }) => {
           title="Personal Data"
           description="Edit your personal data"
           left={personalIcon}
-          onPress={() =>
-            Alert.alert(
-              "Under Progress",
-              "This will be the Personal Data menu."
-            )
-          }
+          onPress={() => navigation.navigate("Personal Data")}
         />
         <SettingsItem
           title="Previous Orders"
