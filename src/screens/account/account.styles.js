@@ -22,7 +22,7 @@ export const AccountCover = styled.View`
 
 export const AnimationWrapper = styled.View`
   padding: ${(props) => props.theme.space[0]};
-  margin-top: -30%;
+  margin-top: -50%;
 `;
 
 export const AccountContainer = styled.View`

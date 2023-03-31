@@ -19,7 +19,7 @@
         }
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
-      "name": "Piccolo Paradiso Pizzeria",
+      "name": "Piccolo Paradiso Pizzéria",
       "opening_hours": [
         [1200, 2000],
         [1200, 2200],
@@ -33,7 +33,7 @@
       "place_id": "kisvarda01",
       "rating": 4.1,
       "user_ratings_total": 173,
-      "address": "Kolcsey Ferenc utca 26, Kisvarda"
+      "address": "Kölcsey Ferenc utca 26, Kisvárda"
     },
     {
       "business_status": "OPERATIONAL",
@@ -54,7 +54,7 @@
         }
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
-      "name": "Placc-Mester Pizzeria",
+      "name": "Placc-Mester Pizzéria",
       "opening_hours": [
         [0, 0],
         [900, 2200],
@@ -68,7 +68,7 @@
       "place_id": "kisvarda02",
       "rating": 3.5,
       "user_ratings_total": 20,
-      "address": "Mester utca 1, Kisvarda"
+      "address": "Mester utca 1, Kisvárda"
     },
     {
       "business_status": "OPERATIONAL",
@@ -89,7 +89,7 @@
         }
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
-      "name": "Amadeus Etterem",
+      "name": "Amadeus Étterem",
       "opening_hours": [
         [1100, 2000],
         [1100, 2200],
@@ -103,7 +103,7 @@
       "place_id": "kisvarda03",
       "rating": 3.9,
       "user_ratings_total": 134,
-      "address": "Szent Laszlo utca 60, Kisvarda"
+      "address": "Szent László utca 60, Kisvárda"
     },
     {
       "business_status": "OPERATIONAL",
@@ -124,7 +124,7 @@
         }
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
-      "name": "Torpilla Teazo",
+      "name": "Törpilla Teázó",
       "opening_hours": [
         [1400, 2000],
         [800, 2200],
@@ -138,7 +138,7 @@
       "place_id": "kisvarda04",
       "rating": 4.1,
       "user_ratings_total": 32,
-      "address": "Martirok utja 12, Kisvarda"
+      "address": "Mártírok útja 12, Kisvárda"
     },
     {
       "business_status": "OPERATIONAL",
@@ -159,7 +159,7 @@
         }
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
-      "name": "Green Black Pizzeria",
+      "name": "Green Black Pizzéria",
       "opening_hours": [
         [0, 0],
         [1000, 2200],
@@ -173,7 +173,7 @@
       "place_id": "kisvarda05",
       "rating": 4.4,
       "user_ratings_total": 208,
-      "address": "Diner Istvan utca 1, Kisvarda"
+      "address": "Diner István utca 1, Kisvárda"
     },
     {
       "business_status": "OPERATIONAL",
@@ -208,7 +208,7 @@
       "place_id": "kisvarda06",
       "rating": 4.5,
       "user_ratings_total": 1227,
-      "address": "Varosmajor utca 56, Kisvarda"
+      "address": "Városmajor utca 56, Kisvárda"
     },
     {
       "business_status": "OPERATIONAL",
@@ -229,7 +229,7 @@
         }
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
-      "name": "McDonald's Kisvarda",
+      "name": "McDonald's Kisvárda",
       "opening_hours": [
         [700, 2200],
         [700, 2200],
@@ -243,7 +243,7 @@
       "place_id": "kisvarda07",
       "rating": 3.8,
       "user_ratings_total": 409,
-      "address": "Varosmajor utca 47, Kisvarda"
+      "address": "Városmajor utca 47, Kisvárda"
     },
     {
       "business_status": "OPERATIONAL",
@@ -264,7 +264,7 @@
         }
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
-      "name": "Party Etterem",
+      "name": "Party Étterem",
       "opening_hours": [
         [0, 0],
         [1100, 2000],
@@ -278,7 +278,7 @@
       "place_id": "kisvarda08",
       "rating": 4.7,
       "user_ratings_total": 291,
-      "address": "Simonyi utca 2, Kisvarda"
+      "address": "Simonyi utca 2, Kisvárda"
     },
     {
       "business_status": "OPERATIONAL",
@@ -299,7 +299,7 @@
         }
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
-      "name": "Rozsako Etterem",
+      "name": "Rózsakő Étterem",
       "opening_hours": [
         [0, 0],
         [1000, 2200],
@@ -313,7 +313,7 @@
       "place_id": "kisvarda09",
       "rating": 4.4,
       "user_ratings_total": 162,
-      "address": "Baross Gabor utca 25, Kisvarda"
+      "address": "Baross Gábor utca 25, Kisvárda"
     },
     {
       "business_status": "OPERATIONAL",
@@ -348,7 +348,7 @@
       "place_id": "kisvarda10",
       "rating": 4.7,
       "user_ratings_total": 180,
-      "address": "Szent Laszlo utca 21, Kisvarda"
+      "address": "Szent László utca 21, Kisvárda"
     },
     {
       "business_status": "OPERATIONAL",
@@ -369,7 +369,7 @@
         }
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
-      "name": "Cafe Vya",
+      "name": "Café Vya",
       "opening_hours": [
         [1130, 2100],
         [1130, 2200],
@@ -383,7 +383,7 @@
       "place_id": "kisvarda11",
       "rating": 4.7,
       "user_ratings_total": 411,
-      "address": "Varday koz 1, Kisvarda"
+      "address": "Várday kÖz 1, Kisvárda"
     },
     {
       "business_status": "OPERATIONAL",
@@ -404,7 +404,7 @@
         }
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
-      "name": "Instanbul Torok Etterem",
+      "name": "Instanbul Török Étterem",
       "opening_hours": [
         [1200, 1930],
         [1000, 2130],
@@ -418,7 +418,7 @@
       "place_id": "kisvarda12",
       "rating": 3.5,
       "user_ratings_total": 31,
-      "address": "Csillag utca 8, Kisvarda"
+      "address": "Csillag utca 8, Kisvárda"
     }
   ]
 }

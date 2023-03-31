@@ -18,7 +18,7 @@
           }
         }
       },
-      "ix": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
       "name": "Zuni Café",
       "opening_hours": [
         [1000, 2200],
