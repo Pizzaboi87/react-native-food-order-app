@@ -20,7 +20,7 @@ export const CompactImage = styled.Image`
 
 export const CompactWebView = styled(WebView)`
   border-radius: 10px;
-  width: 120px;
+  width: 150px;
   height: 100px;
 `;
 

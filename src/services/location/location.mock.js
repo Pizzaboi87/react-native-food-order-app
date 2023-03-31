@@ -4,8 +4,8 @@ export const locations = {
       {
         geometry: {
           location: {
-            lng: 4.402464,
             lat: 51.219448,
+            lng: 4.402464,
           },
           viewport: {
             northeast: {
@@ -62,8 +62,8 @@ export const locations = {
       {
         geometry: {
           location: {
-            lng: -79.383186,
             lat: 43.653225,
+            lng: -79.383186,
           },
           viewport: {
             northeast: {
@@ -73,6 +73,28 @@ export const locations = {
             southwest: {
               lat: 43.6452430197085,
               lng: -79.37595348029149,
+            },
+          },
+        },
+      },
+    ],
+  },
+  kisvarda: {
+    results: [
+      {
+        geometry: {
+          location: {
+            lat: 48.2261059,
+            lng: 22.07865983,
+          },
+          viewport: {
+            northeast: {
+              lat: 48.2212574,
+              lng: 22.09427,
+            },
+            southwest: {
+              lat: 48.2185594,
+              lng: 22.091572,
             },
           },
         },

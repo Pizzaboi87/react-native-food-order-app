@@ -1,6 +1,4 @@
 {
-  "html_attributions": [],
-  "next_page_token": "some token",
   "results": [
     {
       "business_status": "OPERATIONAL",
@@ -22,24 +20,23 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
       "name": "Mercure Antwerp City Centre",
-      "opening_hours": {
-        "open_now": true
-      },
-      "photos": [
-        {
-          "height": 0,
-          "html_attributions": [],
-          "photo_reference": "",
-          "width": 0
-        }
+      "opening_hours": [
+        [0, 0],
+        [800, 2200],
+        [800, 2200],
+        [800, 2200],
+        [800, 2200],
+        [800, 2400],
+        [800, 2400]
       ],
-      "place_id": "some place id 1",
+      "photo": "https://peterweiser.com/mealstogo/antwerp/antwerp01.jpg",
+      "place_id": "antwerp01",
       "rating": 4,
-      "reference": "",
       "user_ratings_total": 832,
-      "vicinity": "Quinten Matsijslei 25, Antwerpen"
+      "address": "Quinten Matsijslei 25, Antwerpen"
     },
     {
+      "business_status": "OPERATIONAL",
       "geometry": {
         "location": {
           "lat": 51.21366200000001,
@@ -58,32 +55,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
       "name": "Elzenveld Hotel & Seminar",
-      "photos": [
-        {
-          "height": 1536,
-          "html_attributions": [],
-          "photo_reference": "",
-          "width": 2048
-        }
+      "opening_hours": [
+        [0, 0],
+        [800, 2200],
+        [800, 2200],
+        [800, 2200],
+        [800, 2200],
+        [800, 2400],
+        [800, 2400]
       ],
-      "place_id": "some place id 2",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "reference": "",
-      "scope": "",
-      "types": [
-        "spa",
-        "lodging",
-        "restaurant",
-        "food",
-        "gym",
-        "health",
-        "point_of_interest",
-        "establishment"
-      ],
-      "vicinity": "Lange Gasthuisstraat 45, Antwerpen"
+      "photo": "https://peterweiser.com/mealstogo/antwerp/antwerp02.jpg",
+      "place_id": "antwerp02",
+      "rating": 5,
+      "user_ratings_total": 54,
+      "address": "Lange Gasthuisstraat 45, Antwerpen"
     },
     {
       "business_status": "OPERATIONAL",
@@ -105,35 +90,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
       "name": "HotelO",
-      "opening_hours": {
-        "open_now": false
-      },
-      "photos": [
-        {
-          "height": 2000,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 3000
-        }
+      "opening_hours": [
+        [800, 1500],
+        [800, 2200],
+        [800, 2200],
+        [800, 2200],
+        [800, 2200],
+        [800, 2200],
+        [800, 2200]
       ],
-      "place_id": "some place id 3",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
+      "photo": "https://peterweiser.com/mealstogo/antwerp/antwerp03.jpg",
+      "place_id": "antwerp03",
       "rating": 4.3,
-      "reference": "",
-      "scope": "",
-      "types": [
-        "travel_agency",
-        "lodging",
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
       "user_ratings_total": 321,
-      "vicinity": "Handschoenmarkt 3/5, Antwerpen"
+      "address": "Handschoenmarkt 3/5, Antwerpen"
     },
     {
       "business_status": "OPERATIONAL",
@@ -155,22 +125,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "The Glorious Inn",
-      "opening_hours": {
-        "open_now": false
-      },
-      "photos": [
-        {
-          "height": 0,
-          "html_attributions": [],
-          "photo_reference": "",
-          "width": 0
-        }
+      "opening_hours": [
+        [800, 2200],
+        [800, 2200],
+        [800, 2200],
+        [800, 2200],
+        [800, 2200],
+        [800, 2400],
+        [800, 2400]
       ],
-      "place_id": "some place id 4",
+      "photo": "https://peterweiser.com/mealstogo/antwerp/antwerp04.jpg",
+      "place_id": "antwerp04",
       "rating": 4.6,
-      "reference": "",
       "user_ratings_total": 152,
-      "vicinity": "De Burburestraat 4A, Antwerpen"
+      "address": "De Burburestraat 4A, Antwerpen"
     },
     {
       "business_status": "OPERATIONAL",
@@ -192,23 +160,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
       "name": "Hotel Pilar",
-      "opening_hours": {
-        "open_now": true
-      },
-      "photos": [
-        {
-          "height": 0,
-          "html_attributions": [],
-          "photo_reference": "",
-          "width": 0
-        }
+      "opening_hours": [
+        [0, 0],
+        [900, 2200],
+        [900, 2200],
+        [900, 2200],
+        [900, 2200],
+        [900, 2400],
+        [900, 2400]
       ],
-      "place_id": "some place id 5",
+      "photo": "https://peterweiser.com/mealstogo/antwerp/antwerp05.jpg",
+      "place_id": "antwerp05",
       "rating": 4.2,
-      "reference": "",
-
       "user_ratings_total": 151,
-      "vicinity": "Leopold de Waelplaats 34, Antwerpen"
+      "address": "Leopold de Waelplaats 34, Antwerpen"
     },
     {
       "business_status": "OPERATIONAL",
@@ -230,23 +195,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "De Peerdestal | Restaurant Antwerpen",
-      "opening_hours": {
-        "open_now": true
-      },
-      "photos": [
-        {
-          "height": 0,
-          "html_attributions": [],
-          "photo_reference": "",
-          "width": 0
-        }
+      "opening_hours": [
+        [0, 0],
+        [800, 2200],
+        [800, 2200],
+        [800, 2200],
+        [800, 2200],
+        [800, 2400],
+        [800, 2400]
       ],
-      "place_id": "some place id 6",
-      "price_level": 2,
+      "photo": "https://peterweiser.com/mealstogo/antwerp/antwerp06.jpg",
+      "place_id": "antwerp06",
       "rating": 4.3,
-      "reference": "",
       "user_ratings_total": 766,
-      "vicinity": "Wijngaardstraat 8, Antwerpen"
+      "address": "Wijngaardstraat 8, Antwerpen"
     },
     {
       "business_status": "OPERATIONAL",
@@ -268,22 +230,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "Huis De Colvenier",
-      "opening_hours": {
-        "open_now": true
-      },
-      "photos": [
-        {
-          "height": 0,
-          "html_attributions": [],
-          "photo_reference": "",
-          "width": 0
-        }
+      "opening_hours": [
+        [0, 0],
+        [830, 2200],
+        [830, 2200],
+        [830, 2200],
+        [830, 2200],
+        [830, 2300],
+        [830, 2300]
       ],
-      "place_id": "some place id 7",
+      "photo": "https://peterweiser.com/mealstogo/antwerp/antwerp07.jpg",
+      "place_id": "antwerp07",
       "rating": 4.2,
-      "reference": "",
       "user_ratings_total": 122,
-      "vicinity": "Sint-Antoniusstraat 8, Antwerpen"
+      "address": "Sint-Antoniusstraat 8, Antwerpen"
     },
     {
       "business_status": "OPERATIONAL",
@@ -305,23 +265,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "Il Milanese by Lollapalooza",
-      "opening_hours": {
-        "open_now": true
-      },
-      "photos": [
-        {
-          "height": 0,
-          "html_attributions": [],
-          "photo_reference": "",
-          "width": 0
-        }
+      "opening_hours": [
+        [900, 2200],
+        [900, 2200],
+        [900, 2200],
+        [900, 2200],
+        [900, 2200],
+        [900, 2200],
+        [900, 2200]
       ],
-      "place_id": "some place id 8",
-      "price_level": 2,
+      "photo": "https://peterweiser.com/mealstogo/antwerp/antwerp08.jpg",
+      "place_id": "antwerp08",
       "rating": 4.4,
-      "reference": "",
       "user_ratings_total": 156,
-      "vicinity": "Pelgrimstraat 28, Antwerpen"
+      "address": "Pelgrimstraat 28, Antwerpen"
     },
     {
       "business_status": "OPERATIONAL",
@@ -343,23 +300,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "Het Vermoeide Model",
-      "opening_hours": {
-        "open_now": true
-      },
-      "photos": [
-        {
-          "height": 0,
-          "html_attributions": [],
-          "photo_reference": "",
-          "width": 0
-        }
+      "opening_hours": [
+        [0, 0],
+        [800, 2000],
+        [800, 2000],
+        [800, 2000],
+        [800, 2000],
+        [800, 2000],
+        [800, 2000]
       ],
-      "place_id": "some place id 9",
-      "price_level": 2,
+      "photo": "https://peterweiser.com/mealstogo/antwerp/antwerp09.jpg",
+      "place_id": "antwerp09",
       "rating": 3.8,
-      "reference": "",
       "user_ratings_total": 441,
-      "vicinity": "Lijnwaadmarkt 2, Antwerpen"
+      "address": "Lijnwaadmarkt 2, Antwerpen"
     },
     {
       "business_status": "OPERATIONAL",
@@ -381,29 +335,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "'t Fornuis",
-      "opening_hours": {
-        "open_now": false
-      },
-      "photos": [
-        {
-          "height": 1536,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 2048
-        }
+      "opening_hours": [
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2400],
+        [1000, 2400]
       ],
-      "place_id": "some place id 10",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 4,
+      "photo": "https://peterweiser.com/mealstogo/antwerp/antwerp10.jpg",
+      "place_id": "antwerp10",
       "rating": 4.7,
-      "reference": "",
-      "scope": "",
-      "types": ["restaurant", "food", "point_of_interest", "establishment"],
       "user_ratings_total": 152,
-      "vicinity": "Reyndersstraat 24, Antwerpen"
+      "address": "Reyndersstraat 24, Antwerpen"
     },
     {
       "business_status": "OPERATIONAL",
@@ -425,35 +370,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "Lunchbox",
-      "opening_hours": {
-        "open_now": false
-      },
-      "photos": [
-        {
-          "height": 3139,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 6153
-        }
+      "opening_hours": [
+        [0, 0],
+        [1100, 2200],
+        [1100, 2200],
+        [1100, 2200],
+        [1100, 2200],
+        [1100, 2400],
+        [1100, 2400]
       ],
-      "place_id": "some place id 11",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 2,
+      "photo": "https://peterweiser.com/mealstogo/antwerp/antwerp11.jpg",
+      "place_id": "antwerp11",
       "rating": 4.2,
-      "reference": "",
-      "scope": "",
-      "types": [
-        "restaurant",
-        "bar",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
       "user_ratings_total": 689,
-      "vicinity": "Nieuwstad 8, Antwerpen"
+      "address": "Nieuwstad 8, Antwerpen"
     },
     {
       "business_status": "OPERATIONAL",
@@ -475,35 +405,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "Zuiderterras / RAS",
-      "opening_hours": {
-        "open_now": true
-      },
-      "photos": [
-        {
-          "height": 4032,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 3024
-        }
+      "opening_hours": [
+        [800, 2200],
+        [800, 2200],
+        [800, 2200],
+        [800, 2200],
+        [800, 2200],
+        [800, 2400],
+        [800, 2400]
       ],
-      "place_id": "some place id 12",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 2,
+      "photo": "https://peterweiser.com/mealstogo/antwerp/antwerp12.jpg",
+      "place_id": "antwerp12",
       "rating": 4.2,
-      "reference": "",
-      "scope": "",
-      "types": [
-        "restaurant",
-        "cafe",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
       "user_ratings_total": 854,
-      "vicinity": "Ernest Van Dijckkaai 37, Antwerpen"
+      "address": "Ernest Van Dijckkaai 37, Antwerpen"
     },
     {
       "business_status": "OPERATIONAL",
@@ -525,29 +440,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "Pazzo",
-      "opening_hours": {
-        "open_now": false
-      },
-      "photos": [
-        {
-          "height": 639,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 1136
-        }
+      "opening_hours": [
+        [0, 0],
+        [800, 2200],
+        [800, 2200],
+        [800, 2200],
+        [800, 2200],
+        [800, 2400],
+        [800, 2400]
       ],
-      "place_id": "some place id 13",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 3,
+      "photo": "https://peterweiser.com/mealstogo/antwerp/antwerp13.jpg",
+      "place_id": "antwerp13",
       "rating": 4.5,
-      "reference": "",
-      "scope": "",
-      "types": ["restaurant", "food", "point_of_interest", "establishment"],
       "user_ratings_total": 316,
-      "vicinity": "Oudeleeuwenrui 12, Antwerpen"
+      "address": "Oudeleeuwenrui 12, Antwerpen"
     },
     {
       "business_status": "OPERATIONAL",
@@ -569,29 +475,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "Horta Grand Café & Art Nouveau Zaal",
-      "opening_hours": {
-        "open_now": true
-      },
-      "photos": [
-        {
-          "height": 3376,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 6000
-        }
+      "opening_hours": [
+        [1000, 1000],
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200]
       ],
-      "place_id": "some place id 14",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 3,
+      "photo": "https://peterweiser.com/mealstogo/antwerp/antwerp14.jpg",
+      "place_id": "antwerp14",
       "rating": 4.1,
-      "reference": "",
-      "scope": "",
-      "types": ["restaurant", "food", "point_of_interest", "establishment"],
       "user_ratings_total": 1274,
-      "vicinity": "Hopland 2, Antwerpen"
+      "address": "Hopland 2, Antwerpen"
     },
     {
       "business_status": "OPERATIONAL",
@@ -613,29 +510,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "Sir Anthony Van Dijck",
-      "opening_hours": {
-        "open_now": false
-      },
-      "photos": [
-        {
-          "height": 720,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 480
-        }
+      "opening_hours": [
+        [900, 2300],
+        [900, 2300],
+        [900, 2300],
+        [900, 2300],
+        [900, 2300],
+        [900, 2300],
+        [900, 2300]
       ],
-      "place_id": "some place id 15",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 4,
+      "photo": "https://peterweiser.com/mealstogo/antwerp/antwerp15.jpg",
+      "place_id": "antwerp15",
       "rating": 4.4,
-      "reference": "",
-      "scope": "",
-      "types": ["restaurant", "food", "point_of_interest", "establishment"],
       "user_ratings_total": 311,
-      "vicinity": "Oude Koornmarkt 16, Antwerpen"
+      "address": "Oude Koornmarkt 16, Antwerpen"
     },
     {
       "business_status": "OPERATIONAL",
@@ -657,36 +545,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
       "name": "Mañana Mañana",
-      "opening_hours": {
-        "open_now": false
-      },
-      "photos": [
-        {
-          "height": 683,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 1024
-        }
+      "opening_hours": [
+        [1000, 2200],
+        [830, 2200],
+        [830, 2200],
+        [830, 2200],
+        [830, 2200],
+        [830, 2200],
+        [830, 2200]
       ],
-      "place_id": "some place id 16",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
+      "photo": "https://peterweiser.com/mealstogo/antwerp/antwerp16.jpg",
+      "place_id": "antwerp16",
       "rating": 4.9,
-      "reference": "",
-      "scope": "",
-      "types": [
-        "cafe",
-        "lodging",
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "store",
-        "establishment"
-      ],
       "user_ratings_total": 60,
-      "vicinity": "Scheldestraat 15, Antwerpen"
+      "address": "Scheldestraat 15, Antwerpen"
     },
     {
       "business_status": "OPERATIONAL",
@@ -708,35 +580,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "De Broers van Julienne",
-      "opening_hours": {
-        "open_now": true
-      },
-      "photos": [
-        {
-          "height": 1242,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 2038
-        }
+      "opening_hours": [
+        [0, 0],
+        [800, 2200],
+        [800, 2200],
+        [800, 2200],
+        [800, 2200],
+        [800, 2400],
+        [800, 2400]
       ],
-      "place_id": "some place id 17",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 2,
+      "photo": "https://peterweiser.com/mealstogo/antwerp/antwerp17.jpg",
+      "place_id": "antwerp17",
       "rating": 4.1,
-      "reference": "",
-      "scope": "",
-      "types": [
-        "meal_takeaway",
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
       "user_ratings_total": 335,
-      "vicinity": "Kasteelpleinstraat 45/47, Antwerpen"
+      "address": "Kasteelpleinstraat 45/47, Antwerpen"
     },
     {
       "business_status": "OPERATIONAL",
@@ -758,29 +615,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "Het Gebaar",
-      "opening_hours": {
-        "open_now": false
-      },
-      "photos": [
-        {
-          "height": 427,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 640
-        }
+      "opening_hours": [
+        [1100, 2200],
+        [1100, 2200],
+        [1100, 2200],
+        [1100, 2200],
+        [1100, 2200],
+        [1100, 2400],
+        [1100, 2400]
       ],
-      "place_id": "some place id 18",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 4,
+      "photo": "https://peterweiser.com/mealstogo/antwerp/antwerp18.jpg",
+      "place_id": "antwerp18",
       "rating": 4.7,
-      "reference": "",
-      "scope": "",
-      "types": ["restaurant", "food", "point_of_interest", "establishment"],
       "user_ratings_total": 362,
-      "vicinity": "Leopoldstraat 24, Antwerpen"
+      "address": "Leopoldstraat 24, Antwerpen"
     },
     {
       "business_status": "OPERATIONAL",
@@ -802,29 +650,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "Da Giovanni Groenplaats TAKE OUT",
-      "opening_hours": {
-        "open_now": true
-      },
-      "photos": [
-        {
-          "height": 1772,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 2658
-        }
+      "opening_hours": [
+        [900, 2400],
+        [900, 2400],
+        [900, 2400],
+        [900, 2400],
+        [900, 2400],
+        [900, 2400],
+        [900, 2400]
       ],
-      "place_id": "some place id 19",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 2,
+      "photo": "https://peterweiser.com/mealstogo/antwerp/antwerp19.jpg",
+      "place_id": "antwerp19",
       "rating": 3.9,
-      "reference": "",
-      "scope": "",
-      "types": ["restaurant", "food", "point_of_interest", "establishment"],
       "user_ratings_total": 4311,
-      "vicinity": "Jan Blomstraat 8, Antwerpen"
+      "address": "Jan Blomstraat 8, Antwerpen"
     },
     {
       "business_status": "OPERATIONAL",
@@ -846,30 +685,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "Bij Lam & Yin",
-      "opening_hours": {
-        "open_now": false
-      },
-      "photos": [
-        {
-          "height": 478,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 851
-        }
+      "opening_hours": [
+        [0, 0],
+        [800, 2200],
+        [800, 2200],
+        [800, 2200],
+        [800, 2200],
+        [800, 2400],
+        [800, 2400]
       ],
-      "place_id": "some place id 20",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 3,
+      "photo": "https://peterweiser.com/mealstogo/antwerp/antwerp20.jpg",
+      "place_id": "antwerp20",
       "rating": 4.6,
-      "reference": "",
-      "scope": "",
-      "types": ["restaurant", "food", "point_of_interest", "establishment"],
       "user_ratings_total": 151,
-      "vicinity": "Reyndersstraat 17, Antwerpen"
+      "address": "Reyndersstraat 17, Antwerpen"
     }
-  ],
-  "status": "OK"
+  ]
 }

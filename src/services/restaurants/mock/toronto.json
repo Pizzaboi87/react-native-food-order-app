@@ -1,6 +1,4 @@
 {
-  "html_attributions": [],
-  "next_page_token": "some token",
   "results": [
     {
       "business_status": "OPERATIONAL",
@@ -22,34 +20,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
       "name": "Novotel Toronto Centre",
-      "opening_hours": {
-        "open_now": true
-      },
-      "photos": [
-        {
-          "height": 4910,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 6576
-        }
+      "opening_hours": [
+        [900, 2200],
+        [900, 2200],
+        [900, 2200],
+        [900, 2200],
+        [900, 2200],
+        [900, 2400],
+        [900, 2400]
       ],
-      "place_id": "some place id 61",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
+      "photo": "https://peterweiser.com/mealstogo/toronto/toronto01.jpg",
+      "place_id": "toronto01",
       "rating": 4.2,
-      "reference": "",
-      "scope": "",
-      "types": [
-        "lodging",
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
       "user_ratings_total": 1822,
-      "vicinity": "45 The Esplanade, Toronto"
+      "address": "45 The Esplanade, Toronto"
     },
     {
       "business_status": "OPERATIONAL",
@@ -71,34 +55,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
       "name": "Fairmont Royal York",
-      "opening_hours": {
-        "open_now": true
-      },
-      "photos": [
-        {
-          "height": 2048,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 1621
-        }
+      "opening_hours": [
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200]
       ],
-      "place_id": "some place id 62",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
+      "photo": "https://peterweiser.com/mealstogo/toronto/toronto02.jpg",
+      "place_id": "toronto02",
       "rating": 4.5,
-      "reference": "",
-      "scope": "",
-      "types": [
-        "lodging",
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
       "user_ratings_total": 8383,
-      "vicinity": "100 Front Street West, Toronto"
+      "address": "100 Front Street West, Toronto"
     },
     {
       "business_status": "OPERATIONAL",
@@ -119,36 +89,21 @@
         }
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
-      "name": "HOTEL OCHO",
-      "opening_hours": {
-        "open_now": true
-      },
-      "photos": [
-        {
-          "height": 1924,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 3598
-        }
+      "name": "Hotel Ocho",
+      "opening_hours": [
+        [0, 0],
+        [1100, 2200],
+        [1100, 2200],
+        [1100, 2200],
+        [1100, 2200],
+        [1400, 2400],
+        [1400, 2400]
       ],
-      "place_id": "some place id 63",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
+      "photo": "https://peterweiser.com/mealstogo/toronto/toronto03.jpg",
+      "place_id": "toronto03",
       "rating": 4.3,
-      "reference": "",
-      "scope": "",
-      "types": [
-        "lodging",
-        "bar",
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
       "user_ratings_total": 502,
-      "vicinity": "195 Spadina Avenue, Toronto"
+      "address": "195 Spadina Avenue, Toronto"
     },
     {
       "business_status": "OPERATIONAL",
@@ -170,31 +125,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "Marquis Lounge and Bistro",
-      "photos": [
-        {
-          "height": 1500,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 2048
-        }
+      "opening_hours": [
+        [0, 0],
+        [1100, 2000],
+        [1100, 2000],
+        [1100, 2000],
+        [1100, 2000],
+        [1100, 2000],
+        [1100, 2000]
       ],
-      "place_id": "some place id 64",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
+      "photo": "https://peterweiser.com/mealstogo/toronto/toronto04.jpg",
+      "place_id": "toronto04",
       "rating": 4.4,
-      "reference": "",
-      "scope": "",
-      "types": [
-        "restaurant",
-        "bar",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
       "user_ratings_total": 9,
-      "vicinity": "92 Peter Street, Toronto"
+      "address": "92 Peter Street, Toronto"
     },
     {
       "business_status": "OPERATIONAL",
@@ -216,36 +160,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "Oliver & Bonacini Café Grill, Yonge & Front",
-      "opening_hours": {
-        "open_now": false
-      },
-      "photos": [
-        {
-          "height": 480,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 640
-        }
+      "opening_hours": [
+        [1230, 2230],
+        [1230, 2230],
+        [1230, 2230],
+        [1230, 2230],
+        [1230, 2230],
+        [1230, 2230],
+        [1230, 2230]
       ],
-      "place_id": "some place id 65",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 2,
+      "photo": "https://peterweiser.com/mealstogo/toronto/toronto05.jpg",
+      "place_id": "toronto05",
       "rating": 4,
-      "reference": "",
-      "scope": "",
-      "types": [
-        "restaurant",
-        "night_club",
-        "bar",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
       "user_ratings_total": 1382,
-      "vicinity": "33 Yonge Street, Toronto"
+      "address": "33 Yonge Street, Toronto"
     },
     {
       "business_status": "CLOSED_TEMPORARILY",
@@ -267,27 +195,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "Adega Restaurante",
-      "permanently_closed": true,
-      "photos": [
-        {
-          "height": 3456,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 4608
-        }
+      "opening_hours": [
+        [0, 0],
+        [900, 2100],
+        [900, 2100],
+        [900, 2100],
+        [900, 2100],
+        [900, 2100],
+        [900, 2100]
       ],
-      "place_id": "some place id 66",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 3,
+      "photo": "https://peterweiser.com/mealstogo/toronto/toronto06.jpg",
+      "place_id": "toronto06",
       "rating": 4.5,
-      "reference": "",
-      "scope": "",
-      "types": ["restaurant", "food", "point_of_interest", "establishment"],
       "user_ratings_total": 405,
-      "vicinity": "33 Elm Street, Toronto"
+      "address": "33 Elm Street, Toronto"
     },
     {
       "business_status": "OPERATIONAL",
@@ -309,29 +230,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "Terroni",
-      "opening_hours": {
-        "open_now": true
-      },
-      "photos": [
-        {
-          "height": 3840,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 5760
-        }
+      "opening_hours": [
+        [0, 0],
+        [0, 0],
+        [1500, 2400],
+        [1500, 2400],
+        [1500, 2400],
+        [1500, 2400],
+        [0, 0]
       ],
-      "place_id": "some place id 67",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 2,
+      "photo": "https://peterweiser.com/mealstogo/toronto/toronto07.jpg",
+      "place_id": "toronto07",
       "rating": 4.2,
-      "reference": "",
-      "scope": "",
-      "types": ["restaurant", "food", "point_of_interest", "establishment"],
       "user_ratings_total": 3698,
-      "vicinity": "57 Adelaide Street East, Toronto"
+      "address": "57 Adelaide Street East, Toronto"
     },
     {
       "business_status": "CLOSED_TEMPORARILY",
@@ -353,27 +265,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "The Keg Steakhouse + Bar - York Street",
-      "permanently_closed": true,
-      "photos": [
-        {
-          "height": 2268,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 4032
-        }
+      "opening_hours": [
+        [0, 0],
+        [1700, 2200],
+        [1700, 2200],
+        [1700, 2200],
+        [1700, 2200],
+        [1700, 2200],
+        [1700, 2200]
       ],
-      "place_id": "some place id 68",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 3,
+      "photo": "https://peterweiser.com/mealstogo/toronto/toronto08.jpg",
+      "place_id": "toronto08",
       "rating": 4.5,
-      "reference": "",
-      "scope": "",
-      "types": ["restaurant", "food", "point_of_interest", "establishment"],
       "user_ratings_total": 2954,
-      "vicinity": "165 York Street, Toronto"
+      "address": "165 York Street, Toronto"
     },
     {
       "business_status": "CLOSED_TEMPORARILY",
@@ -395,33 +300,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "Jump Restaurant",
-      "permanently_closed": true,
-      "photos": [
-        {
-          "height": 636,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 960
-        }
+      "opening_hours": [
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200]
       ],
-      "place_id": "some place id 69",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 3,
+      "photo": "https://peterweiser.com/mealstogo/toronto/toronto09.jpg",
+      "place_id": "toronto09",
       "rating": 4.2,
-      "reference": "",
-      "scope": "",
-      "types": [
-        "bar",
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
       "user_ratings_total": 781,
-      "vicinity": "18 Wellington Street West, Toronto"
+      "address": "18 Wellington Street West, Toronto"
     },
     {
       "business_status": "OPERATIONAL",
@@ -443,29 +335,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "The Senator",
-      "opening_hours": {
-        "open_now": false
-      },
-      "photos": [
-        {
-          "height": 2048,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 2048
-        }
+      "opening_hours": [
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200]
       ],
-      "place_id": "some place id 70",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 2,
+      "photo": "https://peterweiser.com/mealstogo/toronto/toronto10.jpg",
+      "place_id": "toronto10",
       "rating": 4.3,
-      "reference": "",
-      "scope": "",
-      "types": ["restaurant", "food", "point_of_interest", "establishment"],
       "user_ratings_total": 1371,
-      "vicinity": "249 Victoria Street, Toronto"
+      "address": "249 Victoria Street, Toronto"
     },
     {
       "business_status": "OPERATIONAL",
@@ -487,29 +370,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "Donatello Restaurant",
-      "opening_hours": {
-        "open_now": false
-      },
-      "photos": [
-        {
-          "height": 2048,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 1902
-        }
+      "opening_hours": [
+        [800, 1400],
+        [800, 1400],
+        [800, 1400],
+        [800, 1400],
+        [800, 1400],
+        [800, 1400],
+        [800, 1400]
       ],
-      "place_id": "some place id 71",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 3,
+      "photo": "https://peterweiser.com/mealstogo/toronto/toronto11.jpg",
+      "place_id": "toronto11",
       "rating": 4.3,
-      "reference": "",
-      "scope": "",
-      "types": ["restaurant", "food", "point_of_interest", "establishment"],
       "user_ratings_total": 798,
-      "vicinity": "37 Elm Street, Toronto"
+      "address": "37 Elm Street, Toronto"
     },
     {
       "business_status": "OPERATIONAL",
@@ -531,35 +405,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "Canoe",
-      "opening_hours": {
-        "open_now": false
-      },
-      "photos": [
-        {
-          "height": 2988,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 5312
-        }
+      "opening_hours": [
+        [1100, 2000],
+        [1100, 2200],
+        [1100, 2200],
+        [1100, 2200],
+        [1100, 2200],
+        [1100, 2300],
+        [1100, 2300]
       ],
-      "place_id": "some place id 72",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 4,
+      "photo": "https://peterweiser.com/mealstogo/toronto/toronto12.jpg",
+      "place_id": "toronto12",
       "rating": 4.5,
-      "reference": "",
-      "scope": "",
-      "types": [
-        "bar",
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
       "user_ratings_total": 2019,
-      "vicinity": "66 Wellington Street West 54th floor, Toronto"
+      "address": "66 Wellington Street West 54th floor, Toronto"
     },
     {
       "business_status": "OPERATIONAL",
@@ -581,35 +440,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "Jack Astor's Bar & Grill",
-      "opening_hours": {
-        "open_now": true
-      },
-      "photos": [
-        {
-          "height": 3024,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 4032
-        }
+      "opening_hours": [
+        [0, 0],
+        [1700, 2200],
+        [1700, 2200],
+        [1700, 2200],
+        [1700, 2200],
+        [1700, 2200],
+        [0, 0]
       ],
-      "place_id": "some place id 73",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 2,
+      "photo": "https://peterweiser.com/mealstogo/toronto/toronto13.jpg",
+      "place_id": "toronto13",
       "rating": 4.1,
-      "reference": "",
-      "scope": "",
-      "types": [
-        "bar",
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
       "user_ratings_total": 4973,
-      "vicinity": "144 Front Street West, Toronto"
+      "address": "144 Front Street West, Toronto"
     },
     {
       "business_status": "OPERATIONAL",
@@ -631,29 +475,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "Salad King",
-      "opening_hours": {
-        "open_now": true
-      },
-      "photos": [
-        {
-          "height": 1200,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 1343
-        }
+      "opening_hours": [
+        [1200, 2300],
+        [1200, 2300],
+        [1200, 2300],
+        [1200, 2300],
+        [1200, 2300],
+        [1200, 2300],
+        [1200, 2300]
       ],
-      "place_id": "some place id 74",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 1,
+      "photo": "https://peterweiser.com/mealstogo/toronto/toronto14.jpg",
+      "place_id": "toronto14",
       "rating": 4.3,
-      "reference": "",
-      "scope": "",
-      "types": ["restaurant", "food", "point_of_interest", "establishment"],
       "user_ratings_total": 3669,
-      "vicinity": "340 Yonge Street, Toronto"
+      "address": "340 Yonge Street, Toronto"
     },
     {
       "business_status": "CLOSED_TEMPORARILY",
@@ -675,35 +510,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "IL FORNELLO on King",
-      "permanently_closed": true,
-      "photos": [
-        {
-          "height": 1200,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 1800
-        }
+      "opening_hours": [
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200]
       ],
-      "place_id": "some place id 75",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 2,
+      "photo": "https://peterweiser.com/mealstogo/toronto/toronto15.jpg",
+      "place_id": "toronto15",
       "rating": 4.1,
-      "reference": "",
-      "scope": "",
-      "types": [
-        "meal_delivery",
-        "meal_takeaway",
-        "bar",
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
       "user_ratings_total": 763,
-      "vicinity": "214 King Street West, Toronto"
+      "address": "214 King Street West, Toronto"
     },
     {
       "business_status": "OPERATIONAL",
@@ -725,35 +545,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "Little India Restaurant",
-      "opening_hours": {
-        "open_now": true
-      },
-      "photos": [
-        {
-          "height": 1365,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 2048
-        }
+      "opening_hours": [
+        [0, 0],
+        [0, 0],
+        [0, 0],
+        [1400, 2000],
+        [1400, 2000],
+        [1400, 2000],
+        [1400, 2000]
       ],
-      "place_id": "some place id 76",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 2,
+      "photo": "https://peterweiser.com/mealstogo/toronto/toronto16.jpg",
+      "place_id": "toronto16",
       "rating": 4,
-      "reference": "",
-      "scope": "",
-      "types": [
-        "meal_takeaway",
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
       "user_ratings_total": 1976,
-      "vicinity": "255 Queen Street West, Toronto"
+      "address": "255 Queen Street West, Toronto"
     },
     {
       "business_status": "OPERATIONAL",
@@ -775,35 +580,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
       "name": "Scotland Yard Pub",
-      "opening_hours": {
-        "open_now": true
-      },
-      "photos": [
-        {
-          "height": 1055,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 2048
-        }
+      "opening_hours": [
+        [1100, 2230],
+        [1200, 2230],
+        [1200, 2230],
+        [1200, 2230],
+        [1200, 2230],
+        [1200, 2230],
+        [1200, 2230]
       ],
-      "place_id": "some place id 77",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 2,
+      "photo": "https://peterweiser.com/mealstogo/toronto/toronto17.jpg",
+      "place_id": "toronto17",
       "rating": 4.2,
-      "reference": "",
-      "scope": "",
-      "types": [
-        "bar",
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
       "user_ratings_total": 1202,
-      "vicinity": "56 The Esplanade, Toronto"
+      "address": "56 The Esplanade, Toronto"
     },
     {
       "business_status": "OPERATIONAL",
@@ -825,35 +615,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "309 Dhaba Indian Restaurant of Excellence",
-      "opening_hours": {
-        "open_now": true
-      },
-      "photos": [
-        {
-          "height": 731,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 1024
-        }
+      "opening_hours": [
+        [1500, 2000],
+        [1500, 2000],
+        [1500, 2000],
+        [1500, 2000],
+        [1500, 2000],
+        [1500, 2000],
+        [1500, 2000]
       ],
-      "place_id": "some place id 78",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 2,
+      "photo": "https://peterweiser.com/mealstogo/toronto/toronto18.jpg",
+      "place_id": "toronto18",
       "rating": 3.3,
-      "reference": "",
-      "scope": "",
-      "types": [
-        "meal_delivery",
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
       "user_ratings_total": 1410,
-      "vicinity": "309 King Street West, Toronto"
+      "address": "309 King Street West, Toronto"
     },
     {
       "business_status": "CLOSED_TEMPORARILY",
@@ -874,28 +649,21 @@
         }
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
-      "name": "VOLOS",
-      "permanently_closed": true,
-      "photos": [
-        {
-          "height": 3522,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 5283
-        }
+      "name": "Volos",
+      "opening_hours": [
+        [0, 0],
+        [1300, 2200],
+        [1300, 2200],
+        [1300, 2200],
+        [1300, 2200],
+        [1500, 2400],
+        [1500, 2400]
       ],
-      "place_id": "some place id 79",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 3,
+      "photo": "https://peterweiser.com/mealstogo/toronto/toronto19.jpg",
+      "place_id": "toronto19",
       "rating": 4.4,
-      "reference": "",
-      "scope": "",
-      "types": ["restaurant", "food", "point_of_interest", "establishment"],
       "user_ratings_total": 763,
-      "vicinity": "133 Richmond Street West, Toronto"
+      "address": "133 Richmond Street West, Toronto"
     },
     {
       "business_status": "OPERATIONAL",
@@ -917,30 +685,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "PLANTA Queen",
-      "opening_hours": {
-        "open_now": true
-      },
-      "photos": [
-        {
-          "height": 3840,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 5760
-        }
+      "opening_hours": [
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200]
       ],
-      "place_id": "some place id 80",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 3,
+      "photo": "https://peterweiser.com/mealstogo/toronto/toronto20.jpg",
+      "place_id": "toronto20",
       "rating": 4.4,
-      "reference": "",
-      "scope": "",
-      "types": ["restaurant", "food", "point_of_interest", "establishment"],
       "user_ratings_total": 1064,
-      "vicinity": "180 Queen Street West, Toronto"
+      "address": "180 Queen Street West, Toronto"
     }
-  ],
-  "status": "OK"
+  ]
 }

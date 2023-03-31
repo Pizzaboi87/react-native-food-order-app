@@ -1,6 +1,4 @@
 {
-  "html_attributions": [],
-  "next_page_token": "some token",
   "results": [
     {
       "business_status": "OPERATIONAL",
@@ -22,35 +20,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
       "name": "Fairmont Chicago - Millennium Park",
-      "opening_hours": {
-        "open_now": true
-      },
-      "photos": [
-        {
-          "height": 1194,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 1800
-        }
+      "opening_hours": [
+        [1100, 2200],
+        [1100, 2200],
+        [1100, 2200],
+        [1100, 2200],
+        [1100, 2200],
+        [1100, 2400],
+        [1100, 2400]
       ],
-      "place_id": "some place id 21",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 3,
+      "photo": "https://peterweiser.com/mealstogo/chicago/chicago01.jpg",
+      "place_id": "chicago01",
       "rating": 4.4,
-      "reference": "",
-      "scope": "",
-      "types": [
-        "lodging",
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
       "user_ratings_total": 2085,
-      "vicinity": "200 North Columbus Drive, Chicago"
+      "address": "200 North Columbus Drive, Chicago"
     },
     {
       "business_status": "OPERATIONAL",
@@ -72,37 +55,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
       "name": "Trump International Hotel & Tower® Chicago",
-      "opening_hours": {
-        "open_now": true
-      },
-      "photos": [
-        {
-          "height": 2000,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 3000
-        }
+      "opening_hours": [
+        [0, 0],
+        [1200, 2200],
+        [1200, 2200],
+        [1200, 2200],
+        [1200, 2200],
+        [1200, 2400],
+        [1200, 2400]
       ],
-      "place_id": "some place id 22",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
+      "photo": "https://peterweiser.com/mealstogo/chicago/chicago02.jpg",
+      "place_id": "chicago02",
       "rating": 4.1,
-      "reference": "",
-      "scope": "",
-      "types": [
-        "spa",
-        "lodging",
-        "restaurant",
-        "food",
-        "gym",
-        "health",
-        "point_of_interest",
-        "establishment"
-      ],
       "user_ratings_total": 2624,
-      "vicinity": "401 North Wabash Avenue, Chicago"
+      "address": "401 North Wabash Avenue, Chicago"
     },
     {
       "business_status": "OPERATIONAL",
@@ -124,34 +90,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
       "name": "Swissotel Chicago",
-      "opening_hours": {
-        "open_now": true
-      },
-      "photos": [
-        {
-          "height": 3024,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 4032
-        }
+      "opening_hours": [
+        [1000, 2200],
+        [1000, 2200],
+        [1100, 2200],
+        [1100, 2200],
+        [1100, 2200],
+        [1100, 2200],
+        [1100, 2200]
       ],
-      "place_id": "some place id 23",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
+      "photo": "https://peterweiser.com/mealstogo/chicago/chicago03.jpg",
+      "place_id": "chicago03",
       "rating": 4.4,
-      "reference": "",
-      "scope": "",
-      "types": [
-        "lodging",
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
       "user_ratings_total": 4059,
-      "vicinity": "323 East Wacker Drive, Chicago"
+      "address": "323 East Wacker Drive, Chicago"
     },
     {
       "business_status": "OPERATIONAL",
@@ -173,36 +125,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "Lou Malnati's Pizzeria",
-      "opening_hours": {
-        "open_now": true
-      },
-      "photos": [
-        {
-          "height": 2640,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 3960
-        }
+      "opening_hours": [
+        [0, 0],
+        [900, 2200],
+        [900, 2200],
+        [900, 2200],
+        [900, 2200],
+        [900, 2400],
+        [900, 2400]
       ],
-      "place_id": "some place id 24",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 2,
+      "photo": "https://peterweiser.com/mealstogo/chicago/chicago04.jpg",
+      "place_id": "chicago04",
       "rating": 4.5,
-      "reference": "",
-      "scope": "",
-      "types": [
-        "meal_delivery",
-        "meal_takeaway",
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
       "user_ratings_total": 6103,
-      "vicinity": "805 South State Street, Chicago"
+      "address": "805 South State Street, Chicago"
     },
     {
       "business_status": "OPERATIONAL",
@@ -224,35 +160,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "Siena Tavern",
-      "opening_hours": {
-        "open_now": true
-      },
-      "photos": [
-        {
-          "height": 812,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 1220
-        }
+      "opening_hours": [
+        [1100, 2200],
+        [1100, 2200],
+        [1100, 2200],
+        [1100, 2200],
+        [1100, 2200],
+        [1100, 2400],
+        [1100, 2400]
       ],
-      "place_id": "some place id 25",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 3,
+      "photo": "https://peterweiser.com/mealstogo/chicago/chicago05.jpg",
+      "place_id": "chicago05",
       "rating": 4.5,
-      "reference": "",
-      "scope": "",
-      "types": [
-        "bar",
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
       "user_ratings_total": 1906,
-      "vicinity": "51 West Kinzie Street, Chicago"
+      "address": "51 West Kinzie Street, Chicago"
     },
     {
       "business_status": "OPERATIONAL",
@@ -274,35 +195,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "Petterino's",
-      "opening_hours": {
-        "open_now": true
-      },
-      "photos": [
-        {
-          "height": 1000,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 1500
-        }
+      "opening_hours": [
+        [1200, 2200],
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2400],
+        [1200, 2400]
       ],
-      "place_id": "some place id 26",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 2,
+      "photo": "https://peterweiser.com/mealstogo/chicago/chicago06.jpg",
+      "place_id": "chicago06",
       "rating": 4.4,
-      "reference": "",
-      "scope": "",
-      "types": [
-        "bar",
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
       "user_ratings_total": 1255,
-      "vicinity": "150 North Dearborn Street, Chicago"
+      "address": "150 North Dearborn Street, Chicago"
     },
     {
       "business_status": "OPERATIONAL",
@@ -324,35 +230,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "Giordano's",
-      "opening_hours": {
-        "open_now": true
-      },
-      "photos": [
-        {
-          "height": 750,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 1000
-        }
+      "opening_hours": [
+        [800, 2000],
+        [800, 2000],
+        [800, 2000],
+        [800, 2000],
+        [800, 2000],
+        [800, 2000],
+        [800, 2000]
       ],
-      "place_id": "some place id 27",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 2,
+      "photo": "https://peterweiser.com/mealstogo/chicago/chicago07.jpg",
+      "place_id": "chicago07",
       "rating": 4.5,
-      "reference": "",
-      "scope": "",
-      "types": [
-        "meal_takeaway",
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
       "user_ratings_total": 6816,
-      "vicinity": "223 West Jackson Boulevard, Chicago"
+      "address": "223 West Jackson Boulevard, Chicago"
     },
     {
       "business_status": "OPERATIONAL",
@@ -374,35 +265,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "The Gage",
-      "opening_hours": {
-        "open_now": true
-      },
-      "photos": [
-        {
-          "height": 1367,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 2048
-        }
+      "opening_hours": [
+        [1100, 2330],
+        [1100, 2330],
+        [1100, 2330],
+        [1100, 2330],
+        [1100, 2330],
+        [1100, 2330],
+        [1100, 2330]
       ],
-      "place_id": "some place id 28",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 3,
+      "photo": "https://peterweiser.com/mealstogo/chicago/chicago08.jpg",
+      "place_id": "chicago08",
       "rating": 4.5,
-      "reference": "",
-      "scope": "",
-      "types": [
-        "bar",
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
       "user_ratings_total": 2771,
-      "vicinity": "24 South Michigan Avenue, Chicago"
+      "address": "24 South Michigan Avenue, Chicago"
     },
     {
       "business_status": "OPERATIONAL",
@@ -424,36 +300,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "Yolk - South Loop",
-      "opening_hours": {
-        "open_now": true
-      },
-      "photos": [
-        {
-          "height": 2268,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 4032
-        }
+      "opening_hours": [
+        [1030, 2200],
+        [1030, 2200],
+        [1030, 2200],
+        [1030, 2200],
+        [1030, 2200],
+        [1030, 2200],
+        [1030, 2200]
       ],
-      "place_id": "some place id 29",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 2,
+      "photo": "https://peterweiser.com/mealstogo/chicago/chicago09.jpg",
+      "place_id": "chicago09",
       "rating": 4.5,
-      "reference": "",
-      "scope": "",
-      "types": [
-        "cafe",
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "store",
-        "establishment"
-      ],
       "user_ratings_total": 3098,
-      "vicinity": "1120 South Michigan Avenue, Chicago"
+      "address": "1120 South Michigan Avenue, Chicago"
     },
     {
       "business_status": "CLOSED_TEMPORARILY",
@@ -475,26 +335,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "M Burger",
-      "permanently_closed": true,
-      "photos": [
-        {
-          "height": 1333,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 2000
-        }
+      "opening_hours": [
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2400],
+        [1000, 2400]
       ],
-      "place_id": "some place id 30",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
+      "photo": "https://peterweiser.com/mealstogo/chicago/chicago10.jpg",
+      "place_id": "chicago10",
       "rating": 4,
-      "reference": "",
-      "scope": "",
-      "types": ["restaurant", "food", "point_of_interest", "establishment"],
       "user_ratings_total": 113,
-      "vicinity": "THOMPSON CENTER, 100 West Randolph Street, Chicago"
+      "address": "THOMPSON CENTER, 100 West Randolph Street, Chicago"
     },
     {
       "business_status": "OPERATIONAL",
@@ -516,35 +370,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
       "name": "Wildberry Pancakes & Cafe",
-      "opening_hours": {
-        "open_now": true
-      },
-      "photos": [
-        {
-          "height": 3024,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 4032
-        }
+      "opening_hours": [
+        [1400, 2400],
+        [1400, 2400],
+        [1400, 2400],
+        [1400, 2400],
+        [1400, 2400],
+        [1400, 2400],
+        [1400, 2400]
       ],
-      "place_id": "some place id 31",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 2,
+      "photo": "https://peterweiser.com/mealstogo/chicago/chicago11.jpg",
+      "place_id": "chicago11",
       "rating": 4.6,
-      "reference": "",
-      "scope": "",
-      "types": [
-        "cafe",
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
       "user_ratings_total": 5639,
-      "vicinity": "130 East Randolph Street, Chicago"
+      "address": "130 East Randolph Street, Chicago"
     },
     {
       "business_status": "CLOSED_TEMPORARILY",
@@ -566,27 +405,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "The Berghoff Restaurant",
-      "permanently_closed": true,
-      "photos": [
-        {
-          "height": 1200,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 1800
-        }
+      "opening_hours": [
+        [1000, 2100],
+        [1000, 2100],
+        [1000, 2100],
+        [1000, 2100],
+        [1000, 2100],
+        [1000, 2100],
+        [1000, 2100]
       ],
-      "place_id": "some place id 32",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 2,
+      "photo": "https://peterweiser.com/mealstogo/chicago/chicago12.jpg",
+      "place_id": "chicago12",
       "rating": 4.4,
-      "reference": "",
-      "scope": "",
-      "types": ["restaurant", "food", "point_of_interest", "establishment"],
       "user_ratings_total": 3042,
-      "vicinity": "17 West Adams Street, Chicago"
+      "address": "17 West Adams Street, Chicago"
     },
     {
       "business_status": "OPERATIONAL",
@@ -608,29 +440,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "Lou Mitchell's",
-      "opening_hours": {
-        "open_now": true
-      },
-      "photos": [
-        {
-          "height": 1512,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 2016
-        }
+      "opening_hours": [
+        [1300, 2400],
+        [1300, 2400],
+        [1300, 2400],
+        [1300, 2400],
+        [1300, 2400],
+        [1300, 2400],
+        [1300, 2400]
       ],
-      "place_id": "some place id 33",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 2,
+      "photo": "https://peterweiser.com/mealstogo/chicago/chicago13.jpg",
+      "place_id": "chicago13",
       "rating": 4.6,
-      "reference": "",
-      "scope": "",
-      "types": ["restaurant", "food", "point_of_interest", "establishment"],
       "user_ratings_total": 2329,
-      "vicinity": "565 West Jackson Boulevard, Chicago"
+      "address": "565 West Jackson Boulevard, Chicago"
     },
     {
       "business_status": "CLOSED_TEMPORARILY",
@@ -652,33 +475,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "South Branch Tavern and Grille",
-      "permanently_closed": true,
-      "photos": [
-        {
-          "height": 6656,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 13312
-        }
+      "opening_hours": [
+        [1000, 2000],
+        [1000, 2000],
+        [1000, 2000],
+        [1000, 2000],
+        [1000, 2000],
+        [1000, 2000],
+        [1000, 2000]
       ],
-      "place_id": "some place id 34",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 2,
+      "photo": "https://peterweiser.com/mealstogo/chicago/chicago14.jpg",
+      "place_id": "chicago14",
       "rating": 4.3,
-      "reference": "",
-      "scope": "",
-      "types": [
-        "bar",
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
       "user_ratings_total": 1078,
-      "vicinity": "100 South Wacker Drive, Chicago"
+      "address": "100 South Wacker Drive, Chicago"
     },
     {
       "business_status": "CLOSED_TEMPORARILY",
@@ -700,33 +510,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "Sweetwater Tavern and Grille",
-      "permanently_closed": true,
-      "photos": [
-        {
-          "height": 717,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 1080
-        }
+      "opening_hours": [
+        [900, 2100],
+        [900, 2100],
+        [900, 2100],
+        [900, 2100],
+        [900, 2100],
+        [900, 2100],
+        [900, 2100]
       ],
-      "place_id": "some place id 35",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 2,
+      "photo": "https://peterweiser.com/mealstogo/chicago/chicago15.jpg",
+      "place_id": "chicago15",
       "rating": 4.2,
-      "reference": "",
-      "scope": "",
-      "types": [
-        "bar",
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
       "user_ratings_total": 2203,
-      "vicinity": "225 Michigan Avenue, Chicago"
+      "address": "225 Michigan Avenue, Chicago"
     },
     {
       "business_status": "OPERATIONAL",
@@ -748,33 +545,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
       "name": "Buddy Guy's Legends",
-      "photos": [
-        {
-          "height": 2048,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 1365
-        }
+      "opening_hours": [
+        [1300, 2400],
+        [1300, 2400],
+        [1300, 2400],
+        [1300, 2400],
+        [1300, 2400],
+        [1300, 2400],
+        [1300, 2400]
       ],
-      "place_id": "some place id 36",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 2,
+      "photo": "https://peterweiser.com/mealstogo/chicago/chicago16.jpg",
+      "place_id": "chicago16",
       "rating": 4.6,
-      "reference": "",
-      "scope": "",
-      "types": [
-        "night_club",
-        "bar",
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
       "user_ratings_total": 2118,
-      "vicinity": "700 South Wabash Avenue, Chicago"
+      "address": "700 South Wabash Avenue, Chicago"
     },
     {
       "business_status": "OPERATIONAL",
@@ -796,29 +580,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "Frontera Grill",
-      "opening_hours": {
-        "open_now": true
-      },
-      "photos": [
-        {
-          "height": 2667,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 4000
-        }
+      "opening_hours": [
+        [1200, 2300],
+        [900, 2300],
+        [900, 2300],
+        [900, 2300],
+        [900, 2300],
+        [900, 2400],
+        [900, 2400]
       ],
-      "place_id": "some place id 37",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 2,
+      "photo": "https://peterweiser.com/mealstogo/chicago/chicago17.jpg",
+      "place_id": "chicago17",
       "rating": 4.5,
-      "reference": "",
-      "scope": "",
-      "types": ["restaurant", "food", "point_of_interest", "establishment"],
       "user_ratings_total": 2064,
-      "vicinity": "445 North Clark Street, Chicago"
+      "address": "445 North Clark Street, Chicago"
     },
     {
       "business_status": "CLOSED_TEMPORARILY",
@@ -840,33 +615,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "One North Kitchen & Bar",
-      "permanently_closed": true,
-      "photos": [
-        {
-          "height": 768,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 1024
-        }
+      "opening_hours": [
+        [1100, 2200],
+        [1100, 2200],
+        [1100, 2200],
+        [1100, 2200],
+        [1100, 2200],
+        [1100, 2400],
+        [1100, 2400]
       ],
-      "place_id": "some place id 38",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 2,
+      "photo": "https://peterweiser.com/mealstogo/chicago/chicago18.jpg",
+      "place_id": "chicago18",
       "rating": 4.1,
-      "reference": "",
-      "scope": "",
-      "types": [
-        "bar",
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
       "user_ratings_total": 322,
-      "vicinity": "1 North Upper Wacker Drive, Chicago"
+      "address": "1 North Upper Wacker Drive, Chicago"
     },
     {
       "business_status": "OPERATIONAL",
@@ -888,35 +650,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "312 Chicago",
-      "opening_hours": {
-        "open_now": true
-      },
-      "photos": [
-        {
-          "height": 757,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 1024
-        }
+      "opening_hours": [
+        [0, 0],
+        [1100, 2000],
+        [1100, 2000],
+        [1100, 2000],
+        [1100, 2000],
+        [1100, 2000],
+        [1100, 2000]
       ],
-      "place_id": "some place id 39",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 3,
+      "photo": "https://peterweiser.com/mealstogo/chicago/chicago19.jpg",
+      "place_id": "chicago19",
       "rating": 4.5,
-      "reference": "",
-      "scope": "",
-      "types": [
-        "bar",
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
       "user_ratings_total": 810,
-      "vicinity": "136 North LaSalle Street, Chicago"
+      "address": "136 North LaSalle Street, Chicago"
     },
     {
       "business_status": "OPERATIONAL",
@@ -938,36 +685,20 @@
       },
       "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
       "name": "Chicago Cut Steakhouse",
-      "opening_hours": {
-        "open_now": true
-      },
-      "photos": [
-        {
-          "height": 1533,
-          "html_attributions": [""],
-          "photo_reference": "",
-          "width": 2239
-        }
+      "opening_hours": [
+        [0, 0],
+        [900, 2200],
+        [900, 2200],
+        [900, 2200],
+        [900, 2200],
+        [900, 2400],
+        [900, 2400]
       ],
-      "place_id": "some place id 40",
-      "plus_code": {
-        "compound_code": "",
-        "global_code": ""
-      },
-      "price_level": 4,
+      "photo": "https://peterweiser.com/mealstogo/chicago/chicago20.jpg",
+      "place_id": "chicago20",
       "rating": 4.5,
-      "reference": "",
-      "scope": "",
-      "types": [
-        "bar",
-        "restaurant",
-        "food",
-        "point_of_interest",
-        "establishment"
-      ],
       "user_ratings_total": 1860,
-      "vicinity": "300 North LaSalle Drive, Chicago"
+      "address": "300 North LaSalle Drive, Chicago"
     }
-  ],
-  "status": "OK"
+  ]
 }

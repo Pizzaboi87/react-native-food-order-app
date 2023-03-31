@@ -72,7 +72,7 @@ const RestaurantMap = ({ navigation }) => {
                 }
               >
                 <Item>
-                  <Image source={{ uri: restaurant.photos[0] }} />
+                  <Image source={{ uri: restaurant.photo }} />
                   <Name center variant="caption" numberOfLines={3}>
                     {restaurant.name}
                   </Name>

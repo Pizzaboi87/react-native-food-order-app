@@ -1,7 +1,9 @@
 import React from "react";
-import { StyledText } from "../../helpers/typography/text.helper";
 import star from "../../../assets/star";
 import open from "../../../assets/open";
+import closed from "../../../assets/close";
+import { getOpenStatus } from "../../helpers/get-open-status/get-open.status.helper";
+import { StyledText } from "../../helpers/typography/text.helper";
 import { View } from "react-native";
 import { Favourite } from "../favourites/favourites.component";
 import { FadeInView } from "../../animations/fade.animation";
@@ -17,47 +19,41 @@ import {
 } from "./restaurant-info-card.styles";
 
 export const RestaurantInfoCard = ({ restaurant }) => {
-  const {
-    name = "Cake Mountain Restaurant",
-    icon = "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
-    photos = [
-      "https://chocolatestorras.com/wp-content/uploads/2019/06/chocolate-cake-torras-760x667.jpg",
-    ],
-    address = "100 Some Random Street",
-    isOpenNow = true,
-    rating = 4,
-    isClosedTemporarily = true,
-    placeId,
-  } = restaurant;
+  const ratingArray = Array.from(new Array(Math.floor(restaurant.rating)));
 
-  const ratingArray = Array.from(new Array(Math.floor(rating)));
+  const result = getOpenStatus(restaurant.opening_hours);
 
   return (
     <RestaurantCard>
       <View>
         <Favourite restaurant={restaurant} />
         <FadeInView>
-          <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
+          <RestaurantCardCover
+            key={restaurant.place_id}
+            source={{ uri: restaurant.photo }}
+          />
         </FadeInView>
       </View>
       <Info>
-        <StyledText variant="label">{name}</StyledText>
+        <StyledText variant="label">{restaurant.name}</StyledText>
         <Section>
           <Rating>
             {ratingArray.map((_, index) => (
-              <SVG xml={star} key={`star-${placeId}-${index}`} />
+              <SVG xml={star} key={`star-${restaurant.place_id}-${index}`} />
             ))}
           </Rating>
           <SectionEnd>
-            {isClosedTemporarily ? (
-              <StyledText variant="error">CLOSED TEMPORARILY</StyledText>
+            {restaurant.business_status === "CLOSED_TEMPORARILY" ? (
+              <StyledText variant="error">TEMPORARILY CLOSED</StyledText>
+            ) : result === "open" ? (
+              <SVG xml={open} />
             ) : (
-              isOpenNow && <SVG xml={open} />
+              <SVG xml={closed} />
             )}
-            <Icon source={{ uri: icon }} />
+            <Icon source={{ uri: restaurant.icon }} />
           </SectionEnd>
         </Section>
-        <StyledText variant="lightCaption">{address}</StyledText>
+        <StyledText variant="lightCaption">{restaurant.address}</StyledText>
       </Info>
     </RestaurantCard>
   );

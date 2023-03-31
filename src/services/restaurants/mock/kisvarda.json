@@ -1,0 +1,424 @@
+{
+  "results": [
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": 48.2184967,
+          "lng": 22.0754737
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 48.21987538,
+            "lng": 22.07679618
+          },
+          "southwest": {
+            "lat": 48.21717742,
+            "lng": 22.07409822
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+      "name": "Piccolo Paradiso Pizzeria",
+      "opening_hours": [
+        [1200, 2000],
+        [1200, 2200],
+        [1200, 2200],
+        [1200, 2200],
+        [1200, 2200],
+        [1200, 2400],
+        [1200, 2400]
+      ],
+      "photo": "https://peterweiser.com/mealstogo/kisvarda/kisvarda01.jpg",
+      "place_id": "kisvarda01",
+      "rating": 4.1,
+      "user_ratings_total": 173,
+      "address": "Kolcsey Ferenc utca 26, Kisvarda"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": 48.219567,
+          "lng": 22.08257
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 48.2209453,
+            "lng": 22.0849609
+          },
+          "southwest": {
+            "lat": 48.2182477,
+            "lng": 22.0801791
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+      "name": "Placc-Mester Pizzeria",
+      "opening_hours": [
+        [0, 0],
+        [900, 2200],
+        [900, 2200],
+        [900, 2200],
+        [900, 2200],
+        [900, 2200],
+        [900, 2200]
+      ],
+      "photo": "https://peterweiser.com/mealstogo/kisvarda/kisvarda02.jpg",
+      "place_id": "kisvarda02",
+      "rating": 3.5,
+      "user_ratings_total": 20,
+      "address": "Mester utca 1, Kisvarda"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": 48.221422,
+          "lng": 22.079839
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 48.223578,
+            "lng": 22.082569
+          },
+          "southwest": {
+            "lat": 48.219725,
+            "lng": 22.077109
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+      "name": "Amadeus Etterem",
+      "opening_hours": [
+        [1100, 2000],
+        [1100, 2200],
+        [1100, 2200],
+        [1100, 2200],
+        [1100, 2200],
+        [1100, 2200],
+        [1100, 2400]
+      ],
+      "photo": "https://peterweiser.com/mealstogo/kisvarda/kisvarda03.jpg",
+      "place_id": "kisvarda03",
+      "rating": 3.9,
+      "user_ratings_total": 134,
+      "address": "Szent Laszlo utca 60, Kisvarda"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": 48.224302,
+          "lng": 22.082472
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 48.2256807,
+            "lng": 22.083686
+          },
+          "southwest": {
+            "lat": 48.2239233,
+            "lng": 22.081258
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
+      "name": "Torpilla Teazo",
+      "opening_hours": [
+        [1400, 2000],
+        [800, 2200],
+        [800, 2200],
+        [800, 2200],
+        [800, 2200],
+        [800, 2400],
+        [800, 2400]
+      ],
+      "photo": "https://peterweiser.com/mealstogo/kisvarda/kisvarda04.jpg",
+      "place_id": "kisvarda04",
+      "rating": 4.1,
+      "user_ratings_total": 32,
+      "address": "Martirok utja 12, Kisvarda"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": 48.2254275,
+          "lng": 22.0801449
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 48.2268069,
+            "lng": 22.0829259
+          },
+          "southwest": {
+            "lat": 48.2240481,
+            "lng": 22.0773639
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+      "name": "Green Black Pizzeria",
+      "opening_hours": [
+        [0, 0],
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200]
+      ],
+      "photo": "https://peterweiser.com/mealstogo/kisvarda/kisvarda05.jpg",
+      "place_id": "kisvarda05",
+      "rating": 4.4,
+      "user_ratings_total": 208,
+      "address": "Diner Istvan utca 1, Kisvarda"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": 48.2293272,
+          "lng": 22.0700261
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 48.2307057,
+            "lng": 22.0718221
+          },
+          "southwest": {
+            "lat": 48.2279487,
+            "lng": 22.0686241
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+      "name": "Madison Pub & Restaurant",
+      "opening_hours": [
+        [1100, 2200],
+        [1100, 2300],
+        [1100, 2300],
+        [1100, 2300],
+        [1100, 2300],
+        [1100, 2300],
+        [1100, 2300]
+      ],
+      "photo": "https://peterweiser.com/mealstogo/kisvarda/kisvarda06.jpg",
+      "place_id": "kisvarda06",
+      "rating": 4.5,
+      "user_ratings_total": 1227,
+      "address": "Varosmajor utca 56, Kisvarda"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": 48.2328198,
+          "lng": 22.0652398
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 48.2341978,
+            "lng": 22.0679944
+          },
+          "southwest": {
+            "lat": 48.2313178,
+            "lng": 22.0632078
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+      "name": "McDonald's Kisvarda",
+      "opening_hours": [
+        [700, 2200],
+        [700, 2200],
+        [700, 2200],
+        [700, 2200],
+        [700, 2200],
+        [700, 2300],
+        [700, 2300]
+      ],
+      "photo": "https://peterweiser.com/mealstogo/kisvarda/kisvarda07.jpg",
+      "place_id": "kisvarda07",
+      "rating": 3.8,
+      "user_ratings_total": 409,
+      "address": "Varosmajor utca 47, Kisvarda"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": 48.2242665,
+          "lng": 22.0871078
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 48.2257445,
+            "lng": 22.0887258
+          },
+          "southwest": {
+            "lat": 48.2227885,
+            "lng": 22.0854898
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+      "name": "Party Etterem",
+      "opening_hours": [
+        [0, 0],
+        [1100, 2000],
+        [1100, 2000],
+        [1100, 2000],
+        [1100, 2000],
+        [1100, 2100],
+        [1100, 2100]
+      ],
+      "photo": "https://peterweiser.com/mealstogo/kisvarda/kisvarda08.jpg",
+      "place_id": "kisvarda08",
+      "rating": 4.7,
+      "user_ratings_total": 291,
+      "address": "Simonyi utca 2, Kisvarda"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": 48.2084872,
+          "lng": 22.0774789
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 48.2119557,
+            "lng": 22.0846054
+          },
+          "southwest": {
+            "lat": 48.2056727,
+            "lng": 22.0703524
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+      "name": "Rozsako Etterem",
+      "opening_hours": [
+        [0, 0],
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200],
+        [1000, 2200],
+        [1500, 2400]
+      ],
+      "photo": "https://peterweiser.com/mealstogo/kisvarda/kisvarda09.jpg",
+      "place_id": "kisvarda09",
+      "rating": 4.4,
+      "user_ratings_total": 162,
+      "address": "Baross Gabor utca 25, Kisvarda"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": 48.2245682,
+          "lng": 22.0784952
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 48.22624322,
+            "lng": 22.08085406
+          },
+          "southwest": {
+            "lat": 48.22289318,
+            "lng": 22.07613634
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
+      "name": "Story Bistro",
+      "opening_hours": [
+        [0, 0],
+        [1000, 2130],
+        [1000, 2130],
+        [1000, 2130],
+        [1000, 2130],
+        [1000, 2130],
+        [1000, 2130]
+      ],
+      "photo": "https://peterweiser.com/mealstogo/kisvarda/kisvarda10.jpg",
+      "place_id": "kisvarda10",
+      "rating": 4.7,
+      "user_ratings_total": 180,
+      "address": "Szent Laszlo utca 21, Kisvarda"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": 48.223493,
+          "lng": 22.0741573
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 48.2248713,
+            "lng": 22.0755413
+          },
+          "southwest": {
+            "lat": 48.2220967,
+            "lng": 22.0727733
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
+      "name": "Cafe Vya",
+      "opening_hours": [
+        [1130, 2100],
+        [1130, 2200],
+        [1130, 2200],
+        [1130, 2200],
+        [1130, 2200],
+        [1130, 2400],
+        [1130, 2400]
+      ],
+      "photo": "https://peterweiser.com/mealstogo/kisvarda/kisvarda11.jpg",
+      "place_id": "kisvarda11",
+      "rating": 4.7,
+      "user_ratings_total": 411,
+      "address": "Varday koz 1, Kisvarda"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": 48.2262365,
+          "lng": 22.0803922
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 48.22761568,
+            "lng": 22.0828642
+          },
+          "southwest": {
+            "lat": 48.22483768,
+            "lng": 22.0789202
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+      "name": "Instanbul Torok Etterem",
+      "opening_hours": [
+        [1200, 1930],
+        [1000, 2130],
+        [1000, 2130],
+        [1000, 2130],
+        [1000, 2130],
+        [1000, 2130],
+        [1000, 2130]
+      ],
+      "photo": "https://peterweiser.com/mealstogo/kisvarda/kisvarda12.jpg",
+      "place_id": "kisvarda12",
+      "rating": 3.5,
+      "user_ratings_total": 31,
+      "address": "Csillag utca 8, Kisvarda"
+    }
+  ]
+}
