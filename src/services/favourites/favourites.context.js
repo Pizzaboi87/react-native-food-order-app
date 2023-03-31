@@ -41,7 +41,7 @@ export const FavouritesContextProvider = ({ children }) => {
   const removeFavourite = useCallback((restaurant) => {
     setFavourites((prevFavourites) =>
       prevFavourites.filter(
-        (favourite) => favourite.placeId !== restaurant.placeId
+        (favourite) => favourite.place_id !== restaurant.place_id
       )
     );
   }, []);

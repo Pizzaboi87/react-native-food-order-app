@@ -10,7 +10,9 @@ export const Favourite = ({ restaurant }) => {
   const colorFav = theme.colors.ui.brand;
   const colorNotFav = theme.colors.ui.tertiary;
 
-  const isFavourite = favourites.find((r) => r.placeId === restaurant.placeId);
+  const isFavourite = favourites.find(
+    (r) => r.place_id === restaurant.place_id
+  );
 
   return (
     <FavouriteButton

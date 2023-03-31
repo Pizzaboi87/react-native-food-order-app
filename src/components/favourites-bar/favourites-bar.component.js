@@ -21,7 +21,7 @@ export const FavouritesBar = ({ onDetail }) => {
             <TouchableOpacity onPress={() => onDetail(restaurant)} key={key}>
               <CardBox>
                 <Item>
-                  <CompactImage source={{ uri: restaurant.photos[0] }} />
+                  <CompactImage source={{ uri: restaurant.photo }} />
                   <Name center variant="caption" numberOfLines={3}>
                     {restaurant.name}
                   </Name>
