@@ -16,6 +16,7 @@ import {
   Rating,
   Icon,
   SVG,
+  RatingNumber,
 } from "./restaurant-info-card.styles";
 
 export const RestaurantInfoCard = ({ restaurant }) => {
@@ -41,6 +42,7 @@ export const RestaurantInfoCard = ({ restaurant }) => {
             {ratingArray.map((_, index) => (
               <SVG xml={star} key={`star-${restaurant.place_id}-${index}`} />
             ))}
+            <RatingNumber>({restaurant.user_ratings_total})</RatingNumber>
           </Rating>
           <SectionEnd>
             {restaurant.business_status === "CLOSED_TEMPORARILY" ? (

@@ -35,6 +35,11 @@ export const Rating = styled.View`
   padding-bottom: ${(props) => props.theme.space[0]};
 `;
 
+export const RatingNumber = styled.Text`
+  margin-top: -2px;
+  margin-left: ${(props) => props.theme.space[1]};
+`;
+
 export const SVG = styled(SvgXml)`
   width: ${(props) => props.theme.sizes[3]};
   height: ${(props) => props.theme.sizes[3]};
