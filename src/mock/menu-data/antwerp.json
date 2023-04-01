@@ -1,0 +1,1424 @@
+[
+  {
+    "place_id": "antwerp01",
+    "restaurant_menu": [
+      {
+        "title": "Starters",
+        "icon": "cheese",
+        "menu": [
+          ["Shrimp Croquettes", 8.5],
+          ["Cheese Croquettes", 7.5],
+          ["Tomato Soup", 5.0],
+          ["French Onion Soup", 6.5],
+          ["Meatballs in Tomato Sauce", 9.0],
+          ["Assorted Cheese Plate", 12.0],
+          ["Charcuterie Board", 15.0]
+        ]
+      },
+      {
+        "title": "Main Dishes",
+        "icon": "food-turkey",
+        "menu": [
+          ["Moules Frites", 18.5],
+          ["Stoemp", 13.0],
+          ["Waterzooi", 15.5],
+          ["Carbonade Flamande", 16.0],
+          ["Vol-au-Vent", 14.5],
+          ["Flemish Asparagus", 19.5],
+          ["Belgian Beef Stew", 20.0],
+          ["Beef and Mushroom Stew", 17.5]
+        ]
+      },
+      {
+        "title": "Sides",
+        "icon": "french-fries",
+        "menu": [
+          ["French Fries", 3.5],
+          ["Mashed Potatoes", 4.0],
+          ["Grilled Vegetables", 6.0],
+          ["Mixed Salad", 5.0]
+        ]
+      },
+      {
+        "title": "Desserts",
+        "icon": "cupcake",
+        "menu": [
+          ["Waffles with Chocolate Sauce", 7.0],
+          ["Speculoos", 5.0],
+          ["Crème Brûlée", 6.5],
+          ["Tarte Tatin", 6.5],
+          ["Chocolate Mousse", 7.5],
+          ["Ice Cream", 5.0],
+          ["Belgian Waffles with Berries", 8.0]
+        ]
+      },
+      {
+        "title": "Drinks",
+        "icon": "glass-wine",
+        "menu": [
+          ["Belgian Beer", 4.5],
+          ["Fruit Juice", 3.0],
+          ["Soft Drinks", 2.5],
+          ["Coffee", 2.5],
+          ["Tea", 2.0],
+          ["Red Wine", 5.5],
+          ["White Wine", 5.5],
+          ["Cocktails", 8.0],
+          ["Spirits", 6.5]
+        ]
+      }
+    ]
+  },
+  {
+    "place_id": "antwerp02",
+    "restaurant_menu": [
+      {
+        "title": "Breakfast",
+        "icon": "bread-slice",
+        "menu": [
+          ["Croissant", 2.5],
+          ["Pain au Chocolat", 2.5],
+          ["Belgian Waffle", 4.0],
+          ["Granola with Yogurt", 5.0],
+          ["Omelette", 6.0]
+        ]
+      },
+      {
+        "title": "Soups",
+        "icon": "bowl-mix",
+        "menu": [
+          ["Tomato Soup", 4.5],
+          ["Pumpkin Soup", 4.5],
+          ["Pea Soup", 4.5],
+          ["Chicken Noodle Soup", 5.0]
+        ]
+      },
+      {
+        "title": "Main Dishes",
+        "icon": "food-turkey",
+        "menu": [
+          ["Beef Stew", 10.5],
+          ["Flemish Carbonnade", 11.5],
+          ["Stoofvlees", 11.0],
+          ["Vol-au-vent", 12.0],
+          ["Moules-frites", 14.0],
+          ["Grilled Salmon", 15.0],
+          ["Beef Tenderloin", 17.0]
+        ]
+      },
+      {
+        "title": "Sides",
+        "icon": "french-fries",
+        "menu": [
+          ["Fries", 3.0],
+          ["Mashed Potatoes", 4.0],
+          ["Roasted Vegetables", 4.5],
+          ["Green Salad", 5.0]
+        ]
+      },
+      {
+        "title": "Desserts",
+        "icon": "cupcake",
+        "menu": [
+          ["Belgian Chocolate Mousse", 5.0],
+          ["Waffles with Strawberries", 6.0],
+          ["Apple Pie", 6.0],
+          ["Speculoos Ice Cream", 4.5]
+        ]
+      }
+    ]
+  },
+  {
+    "place_id": "antwerp03",
+    "restaurant_menu": [
+      {
+        "title": "Starters",
+        "icon": "cheese",
+        "menu": [
+          ["Cheese Croquettes", 7.5],
+          ["Tomato Soup", 5.0],
+          ["Onion Soup", 6.5],
+          ["Escargots", 8.0],
+          ["Prawn Cocktail", 9.0]
+        ]
+      },
+      {
+        "title": "Main Dishes",
+        "icon": "food-turkey",
+        "menu": [
+          ["Stoemp with Sausage", 13.5],
+          ["Beef Stew", 16.5],
+          ["Moules Frites", 18.5],
+          ["Steak Tartare", 21.0],
+          ["Carbonade Flamande", 16.0],
+          ["Vol-au-Vent", 14.5]
+        ]
+      },
+      {
+        "title": "Desserts",
+        "icon": "cupcake",
+        "menu": [
+          ["Waffles with Whipped Cream", 7.5],
+          ["Profiteroles", 6.5],
+          ["Chocolate Mousse", 5.0],
+          ["Tiramisu", 6.5]
+        ]
+      }
+    ]
+  },
+  {
+    "place_id": "antwerp04",
+    "restaurant_menu": [
+      {
+        "title": "Breakfast",
+        "icon": "bread-slice",
+        "menu": [
+          ["Belgian Waffles", 8.0],
+          ["Croissants", 4.5],
+          ["Scrambled Eggs with Toast", 6.5],
+          ["Omelette", 7.5],
+          ["Fruit Salad", 5.5]
+        ]
+      },
+      {
+        "title": "Soups",
+        "icon": "bowl-mix",
+        "menu": [
+          ["Potato Leek Soup", 5.5],
+          ["Creamy Mushroom Soup", 6.5],
+          ["Lobster Bisque", 8.5]
+        ]
+      },
+      {
+        "title": "Salads",
+        "icon": "bowl",
+        "menu": [
+          ["Cobb Salad", 10.5],
+          ["Caesar Salad", 9.5],
+          ["Greek Salad", 8.5]
+        ]
+      },
+      {
+        "title": "Main Dishes",
+        "icon": "food-turkey",
+        "menu": [
+          ["Steak Frites", 22.5],
+          ["Mussels in White Wine Sauce", 18.5],
+          ["Beef Stew with Fries", 16.5],
+          ["Chicken with Apples and Pears", 15.5],
+          ["Grilled Sea Bass with Vegetables", 20.5]
+        ]
+      },
+      {
+        "title": "Sides",
+        "icon": "french-fries",
+        "menu": [
+          ["French Fries", 3.5],
+          ["Mashed Potatoes", 4.5],
+          ["Roasted Brussels Sprouts", 5.5]
+        ]
+      },
+      {
+        "title": "Desserts",
+        "icon": "cupcake",
+        "menu": [
+          ["Belgian Chocolate Mousse", 7.5],
+          ["Apple Tart", 6.5],
+          ["Profiteroles with Vanilla Ice Cream", 8.5]
+        ]
+      },
+      {
+        "title": "Drinks",
+        "icon": "glass-wine",
+        "menu": [
+          ["Belgian Beer", 4.5],
+          ["Wine by the Glass", 6.5],
+          ["Cocktails", 8.5],
+          ["Coffee", 3.0],
+          ["Tea", 2.5]
+        ]
+      }
+    ]
+  },
+  {
+    "place_id": "antwerp05",
+    "restaurant_menu": [
+      {
+        "title": "Appetizers",
+        "icon": "cheese",
+        "menu": [
+          ["Cheese Plate", 12.0],
+          ["Shrimp Cocktail", 9.5],
+          ["Baked Brie", 8.5],
+          ["Mushroom Bruschetta", 7.0]
+        ]
+      },
+      {
+        "title": "Salads",
+        "icon": "bowl",
+        "menu": [
+          ["Caesar Salad", 9.5],
+          ["Greek Salad", 8.5],
+          ["Caprese Salad", 10.5],
+          ["Nicoise Salad", 11.0]
+        ]
+      },
+      {
+        "title": "Main Dishes",
+        "icon": "food-turkey",
+        "menu": [
+          ["Beef Stew", 17.5],
+          ["Chicken Pot Pie", 15.5],
+          ["Grilled Salmon", 18.5],
+          ["Vegetable Curry", 14.5],
+          ["Pork Schnitzel", 16.5]
+        ]
+      },
+      {
+        "title": "Pizzas",
+        "icon": "pizza",
+        "menu": [
+          ["Margherita", 12.5],
+          ["Pepperoni", 13.5],
+          ["Mushroom & Onion", 14.5],
+          ["Prosciutto & Arugula", 16.5]
+        ]
+      },
+      {
+        "title": "Pasta",
+        "icon": "pasta",
+        "menu": [
+          ["Spaghetti Bolognese", 13.5],
+          ["Penne alla Vodka", 14.5],
+          ["Fettuccine Alfredo", 15.5],
+          ["Linguine with Clams", 16.5]
+        ]
+      },
+      {
+        "title": "Burgers",
+        "icon": "hamburger",
+        "menu": [
+          ["Classic Burger", 11.5],
+          ["Bacon Cheeseburger", 12.5],
+          ["Mushroom Swiss Burger", 13.5],
+          ["Veggie Burger", 10.5]
+        ]
+      },
+      {
+        "title": "Beers",
+        "icon": "glass-mug-variant",
+        "menu": [
+          ["Pilsner", 4.5],
+          ["IPA", 5.5],
+          ["Belgian Tripel", 6.5],
+          ["Stout", 5.5]
+        ]
+      }
+    ]
+  },
+  {
+    "place_id": "antwerp06",
+    "restaurant_menu": [
+      {
+        "title": "Breakfast",
+        "icon": "bread-slice",
+        "menu": [
+          ["Belgian Waffles with Maple Syrup", 8.5],
+          ["Egg and Bacon Sandwich", 6.5],
+          ["Croissant with Jam and Butter", 4.5],
+          ["Omelette with Cheese and Ham", 7.5],
+          ["Greek Yogurt with Honey and Nuts", 5.0]
+        ]
+      },
+      {
+        "title": "Soups",
+        "icon": "bowl-mix",
+        "menu": [
+          ["Pumpkin Soup", 5.5],
+          ["Asparagus Soup", 6.0],
+          ["Cream of Mushroom Soup", 5.5],
+          ["Chicken Noodle Soup", 6.5]
+        ]
+      },
+      {
+        "title": "Main Dishes",
+        "icon": "food-turkey",
+        "menu": [
+          ["Steak with Fries and Salad", 22.5],
+          ["Grilled Salmon with Vegetables", 18.5],
+          ["Beef Stew with Potatoes", 15.5],
+          ["Vegetable Lasagna", 14.0],
+          ["Roasted Chicken with Rosemary", 16.5]
+        ]
+      },
+      {
+        "title": "Sides",
+        "icon": "french-fries",
+        "menu": [
+          ["Sweet Potato Fries", 4.5],
+          ["Mixed Salad", 3.5],
+          ["Garlic Bread", 3.0],
+          ["Grilled Vegetables", 4.5]
+        ]
+      },
+      {
+        "title": "Desserts",
+        "icon": "cupcake",
+        "menu": [
+          ["Belgian Chocolate Cake", 7.0],
+          ["Vanilla Ice Cream with Fruit", 6.0],
+          ["Tiramisu", 6.5],
+          ["Apple Pie with Whipped Cream", 6.0]
+        ]
+      },
+      {
+        "title": "Drinks",
+        "icon": "glass-wine",
+        "menu": [
+          ["Belgian Beer", 4.5],
+          ["Red Wine", 6.5],
+          ["White Wine", 6.5],
+          ["Sparkling Water", 3.0],
+          ["Cappuccino", 3.0],
+          ["Hot Chocolate", 3.5]
+        ]
+      },
+      {
+        "title": "Appetizers",
+        "icon": "cheese",
+        "menu": [
+          ["Cheese Plate with Crackers and Grapes", 10.5],
+          ["Charcuterie Board with Olives and Bread", 12.5],
+          ["Fried Calamari with Garlic Aioli", 8.5],
+          ["Bruschetta with Tomato and Basil", 7.5]
+        ]
+      },
+      {
+        "title": "Salads",
+        "icon": "bowl",
+        "menu": [
+          ["Caesar Salad with Grilled Chicken", 9.5],
+          ["Greek Salad with Feta Cheese", 8.5],
+          ["Spinach Salad with Bacon and Egg", 7.5],
+          ["Caprese Salad with Mozzarella and Tomato", 8.5]
+        ]
+      }
+    ]
+  },
+  {
+    "place_id": "antwerp07",
+    "restaurant_menu": [
+      {
+        "title": "Breakfast",
+        "icon": "bread-slice",
+        "menu": [
+          ["Belgian Waffles", 7.5],
+          ["Egg Omelette", 8.5],
+          ["Bacon and Eggs", 9.5],
+          ["Croissant", 3.5]
+        ]
+      },
+      {
+        "title": "Soups",
+        "icon": "bowl-mix",
+        "menu": [
+          ["Pumpkin Soup", 6.0],
+          ["Leek Soup", 5.5],
+          ["Potato Soup", 5.5],
+          ["Chicken Noodle Soup", 6.5]
+        ]
+      },
+      {
+        "title": "Main Dishes",
+        "icon": "food-turkey",
+        "menu": [
+          ["Beef Stew", 16.5],
+          ["Steak and Fries", 19.5],
+          ["Roast Chicken", 15.0],
+          ["Mussels in White Wine Sauce", 17.5],
+          ["Vegetable Stir Fry", 14.5]
+        ]
+      },
+      {
+        "title": "Sides",
+        "icon": "french-fries",
+        "menu": [
+          ["French Fries", 3.5],
+          ["Mashed Potatoes", 4.0],
+          ["Garlic Bread", 4.5],
+          ["Steamed Vegetables", 5.0]
+        ]
+      },
+      {
+        "title": "Desserts",
+        "icon": "cupcake",
+        "menu": [
+          ["Chocolate Brownie", 6.5],
+          ["Apple Pie", 5.5],
+          ["Ice Cream Sundae", 7.0],
+          ["Cheesecake", 6.5]
+        ]
+      },
+      {
+        "title": "Drinks",
+        "icon": "glass-wine",
+        "menu": [
+          ["Red Wine", 5.5],
+          ["White Wine", 5.5],
+          ["Sparkling Water", 3.0],
+          ["Milk", 2.5],
+          ["Hot Chocolate", 3.5]
+        ]
+      }
+    ]
+  },
+  {
+    "place_id": "antwerp08",
+    "restaurant_menu": [
+      {
+        "title": "Breakfast",
+        "icon": "bread-slice",
+        "menu": [
+          ["English Breakfast", 12.5],
+          ["Pancakes with Maple Syrup", 8.5],
+          ["Croissant with Ham and Cheese", 6.5],
+          ["Freshly Squeezed Orange Juice", 4.5],
+          ["Coffee with Milk", 2.5]
+        ]
+      },
+      {
+        "title": "Soups",
+        "icon": "bowl-mix",
+        "menu": [
+          ["Minestrone Soup", 5.0],
+          ["Pumpkin Soup", 6.5],
+          ["Chicken Noodle Soup", 5.5],
+          ["Cream of Mushroom Soup", 6.5]
+        ]
+      },
+      {
+        "title": "Main Dishes",
+        "icon": "food-turkey",
+        "menu": [
+          ["Belgian Beef Stew", 16.5],
+          ["Roasted Chicken with Vegetables", 14.5],
+          ["Beef Burger with Fries", 13.5],
+          ["Fish and Chips", 15.5],
+          ["Vegetable Lasagna", 12.5]
+        ]
+      },
+      {
+        "title": "Sides",
+        "icon": "french-fries",
+        "menu": [
+          ["French Fries", 4.5],
+          ["Onion Rings", 5.5],
+          ["Mixed Salad", 6.5],
+          ["Garlic Bread", 3.5]
+        ]
+      },
+      {
+        "title": "Desserts",
+        "icon": "cupcake",
+        "menu": [
+          ["Chocolate Cake", 7.5],
+          ["Apple Pie", 6.5],
+          ["Ice Cream Sundae", 5.5],
+          ["Fruit Salad", 4.5]
+        ]
+      },
+      {
+        "title": "Drinks",
+        "icon": "glass-wine",
+        "menu": [
+          ["Belgian Beer", 4.5],
+          ["Red Wine", 6.5],
+          ["White Wine", 6.5],
+          ["Cocktails", 8.5],
+          ["Soda", 2.5]
+        ]
+      }
+    ]
+  },
+  {
+    "place_id": "antwerp09",
+    "restaurant_menu": [
+      {
+        "title": "Starters",
+        "icon": "cheese",
+        "menu": [
+          ["Shrimp Croquettes", 8.5],
+          ["Cheese Croquettes", 7.5],
+          ["Tomato Soup", 5.0],
+          ["French Onion Soup", 6.5],
+          ["Meatballs in Tomato Sauce", 9.0]
+        ]
+      },
+      {
+        "title": "Main Dishes",
+        "icon": "food-turkey",
+        "menu": [
+          ["Moules Frites", 18.5],
+          ["Stoemp", 13.0],
+          ["Waterzooi", 15.5],
+          ["Carbonade Flamande", 16.0],
+          ["Vol-au-Vent", 14.5]
+        ]
+      },
+      {
+        "title": "Desserts",
+        "icon": "cupcake",
+        "menu": [
+          ["Waffles with Chocolate Sauce", 7.0],
+          ["Speculoos", 5.0],
+          ["Crème Brûlée", 6.5],
+          ["Tarte Tatin", 6.5]
+        ]
+      },
+      {
+        "title": "Drinks",
+        "icon": "glass-wine",
+        "menu": [
+          ["Belgian Beer", 4.5],
+          ["Fruit Juice", 3.0],
+          ["Soft Drinks", 2.5],
+          ["Coffee", 2.5],
+          ["Tea", 2.0]
+        ]
+      },
+      {
+        "title": "Salads",
+        "icon": "bowl",
+        "menu": [
+          ["Caesar Salad", 8.5],
+          ["Greek Salad", 7.5],
+          ["Nicoise Salad", 9.5],
+          ["Caprese Salad", 8.5]
+        ]
+      },
+      {
+        "title": "Pizzas",
+        "icon": "pizza",
+        "menu": [
+          ["Margherita", 9.5],
+          ["Pepperoni", 11.0],
+          ["Vegetariana", 10.5],
+          ["Capricciosa", 12.5]
+        ]
+      },
+      {
+        "title": "Pasta",
+        "icon": "pasta",
+        "menu": [
+          ["Spaghetti Bolognese", 11.5],
+          ["Lasagna", 12.5],
+          ["Penne Arrabiata", 10.5],
+          ["Carbonara", 12.0]
+        ]
+      },
+      {
+        "title": "Burgers",
+        "icon": "hamburger",
+        "menu": [
+          ["Classic Burger", 9.5],
+          ["Cheeseburger", 10.5],
+          ["Bacon Burger", 11.0],
+          ["Veggie Burger", 9.5]
+        ]
+      },
+      {
+        "title": "Beers",
+        "icon": "glass-mug-variant",
+        "menu": [
+          ["Trappist Beer", 5.5],
+          ["Blond Beer", 4.5],
+          ["Dark Beer", 4.5],
+          ["Wheat Beer", 5.0]
+        ]
+      }
+    ]
+  },
+  {
+    "place_id": "antwerp10",
+    "restaurant_menu": [
+      {
+        "title": "Breakfast",
+        "icon": "bread-slice",
+        "menu": [
+          ["Croissant", 2.5],
+          ["Bagel with Cream Cheese", 4.5],
+          ["Ham and Cheese Omelette", 7.5],
+          ["Belgian Waffles with Berries", 8.5],
+          ["Eggs Benedict", 9.5]
+        ]
+      },
+      {
+        "title": "Soups",
+        "icon": "bowl-mix",
+        "menu": [
+          ["Potato Leek Soup", 5.5],
+          ["Pumpkin Soup", 6.5],
+          ["Cream of Mushroom Soup", 7.0],
+          ["Chicken Noodle Soup", 6.5],
+          ["Tom Kha Gai", 7.5]
+        ]
+      },
+      {
+        "title": "Main Dishes",
+        "icon": "food-turkey",
+        "menu": [
+          ["Beef Stew", 15.5],
+          ["Carbonnade Flamande", 16.5],
+          ["Moules Marinières", 18.5],
+          ["Bouillabaisse", 20.0],
+          ["Beef Bourguignon", 19.5]
+        ]
+      },
+      {
+        "title": "Sides",
+        "icon": "french-fries",
+        "menu": [
+          ["French Fries", 3.5],
+          ["Mashed Potatoes", 4.0],
+          ["Ratatouille", 4.5],
+          ["Grilled Vegetables", 5.0],
+          ["Potato Gratin", 5.5]
+        ]
+      },
+      {
+        "title": "Desserts",
+        "icon": "cupcake",
+        "menu": [
+          ["Chocolate Fondant", 7.0],
+          ["Apple Pie with Vanilla Ice Cream", 7.5],
+          ["Crème Brûlée", 6.5],
+          ["Tiramisu", 7.5],
+          ["Chocolate Mousse", 6.5]
+        ]
+      },
+      {
+        "title": "Drinks",
+        "icon": "glass-wine",
+        "menu": [
+          ["Belgian Beer", 4.5],
+          ["Red Wine", 5.5],
+          ["White Wine", 5.5],
+          ["Sparkling Wine", 6.5],
+          ["Cocktail", 8.5]
+        ]
+      },
+      {
+        "title": "Appetizers",
+        "icon": "cheese",
+        "menu": [
+          ["Cheese Plate", 9.0],
+          ["Charcuterie Board", 10.0],
+          ["Garlic Shrimp", 11.0],
+          ["Caprese Salad", 8.5],
+          ["Stuffed Mushrooms", 9.5]
+        ]
+      },
+      {
+        "title": "Salads",
+        "icon": "bowl",
+        "menu": [
+          ["Caesar Salad", 9.5],
+          ["Greek Salad", 8.5],
+          ["Nicoise Salad", 10.0],
+          ["Cobb Salad", 11.5],
+          ["Spinach Salad", 9.5]
+        ]
+      }
+    ]
+  },
+  {
+    "place_id": "antwerp11",
+    "restaurant_menu": [
+      {
+        "title": "Breakfast",
+        "icon": "bread-slice",
+        "menu": [
+          ["Pancakes with Syrup", 7.5],
+          ["Avocado Toast with Eggs", 9.0],
+          ["Fruit Salad", 6.5],
+          ["English Breakfast", 10.0],
+          ["Bagel with Smoked Salmon", 11.0]
+        ]
+      },
+      {
+        "title": "Soups",
+        "icon": "bowl-mix",
+        "menu": [
+          ["Minestrone Soup", 6.5],
+          ["Lobster Bisque", 9.5],
+          ["French Onion Soup", 7.0],
+          ["Clam Chowder", 8.5],
+          ["Miso Soup", 5.5]
+        ]
+      },
+      {
+        "title": "Main Dishes",
+        "icon": "food-turkey",
+        "menu": [
+          ["Belgian Beef Stew with Fries", 17.5],
+          ["Grilled Salmon with Ratatouille", 20.5],
+          ["Roasted Chicken with Potatoes", 18.5],
+          ["Vegetable Curry with Rice", 16.5],
+          ["Belgian Meatballs with Mash", 16.0]
+        ]
+      },
+      {
+        "title": "Sides",
+        "icon": "french-fries",
+        "menu": [
+          ["Onion Rings", 4.0],
+          ["Garlic Bread", 3.5],
+          ["Steamed Broccoli", 4.5],
+          ["Truffle Fries", 5.5],
+          ["Creamed Spinach", 5.0]
+        ]
+      },
+      {
+        "title": "Desserts",
+        "icon": "cupcake",
+        "menu": [
+          ["Fruit Tart", 6.5],
+          ["Chocolate Chip Cookies", 4.5],
+          ["Ice Cream Sundae", 7.0],
+          ["Peach Cobbler", 8.0],
+          ["Banana Bread Pudding", 7.5]
+        ]
+      },
+      {
+        "title": "Drinks",
+        "icon": "glass-wine",
+        "menu": [
+          ["Belgian Tripel Beer", 5.0],
+          ["Sangria", 8.5],
+          ["Lemonade", 4.0],
+          ["Margarita", 9.0],
+          ["Hot Chocolate", 4.5]
+        ]
+      },
+      {
+        "title": "Pizzas",
+        "icon": "pizza",
+        "menu": [
+          ["Margherita Pizza", 12.5],
+          ["Pepperoni Pizza", 14.0],
+          ["Hawaiian Pizza", 13.5],
+          ["Veggie Pizza", 13.0],
+          ["Quattro Formaggi Pizza", 15.5]
+        ]
+      },
+      {
+        "title": "Burgers",
+        "icon": "hamburger",
+        "menu": [
+          ["Classic Cheeseburger", 11.0],
+          ["Veggie Burger", 9.5],
+          ["Bacon Cheeseburger", 12.0],
+          ["Mushroom Swiss Burger", 12.5],
+          ["BBQ Burger", 11.5]
+        ]
+      }
+    ]
+  },
+  {
+    "place_id": "antwerp12",
+    "restaurant_menu": [
+      {
+        "title": "Breakfast",
+        "icon": "bread-slice",
+        "menu": [
+          ["Scrambled Eggs with Bacon", 7.5],
+          ["Pancakes with Maple Syrup", 8.5],
+          ["Avocado Toast", 9.5],
+          ["Oatmeal with Berries", 6.5],
+          ["Belgian Chocolate Croissant", 3.5]
+        ]
+      },
+      {
+        "title": "Soups",
+        "icon": "bowl-mix",
+        "menu": [
+          ["Creamy Tomato Soup", 5.5],
+          ["Lentil Soup", 6.5],
+          ["Clam Chowder", 7.0],
+          ["Gazpacho", 6.5],
+          ["Borscht", 7.5]
+        ]
+      },
+      {
+        "title": "Main Dishes",
+        "icon": "food-turkey",
+        "menu": [
+          ["Beef Tartare", 22.5],
+          ["Carbonade Flamande", 16.5],
+          ["Moules Frites", 19.5],
+          ["Vol-au-vent", 18.0],
+          ["Stoemp with Sausage", 15.5]
+        ]
+      },
+      {
+        "title": "Sides",
+        "icon": "french-fries",
+        "menu": [
+          ["Sweet Potato Fries", 4.5],
+          ["Creamed Spinach", 4.0],
+          ["Cauliflower Gratin", 4.5],
+          ["Braised Red Cabbage", 5.0],
+          ["Truffle Fries", 5.5]
+        ]
+      },
+      {
+        "title": "Desserts",
+        "icon": "cupcake",
+        "menu": [
+          ["Belgian Waffle with Chocolate Sauce", 7.5],
+          ["Speculoos Cheesecake", 7.5],
+          ["Tarte Tatin", 6.5],
+          ["Crêpes Suzette", 8.5],
+          ["Panna Cotta with Berry Coulis", 6.5]
+        ]
+      },
+      {
+        "title": "Drinks",
+        "icon": "glass-wine",
+        "menu": [
+          ["Trappist Beer", 5.5],
+          ["Mulled Wine", 6.5],
+          ["Kir Royale", 6.5],
+          ["Gin and Tonic", 8.5],
+          ["Espresso Martini", 9.5]
+        ]
+      },
+      {
+        "title": "Pizzas",
+        "icon": "pizza",
+        "menu": [
+          ["Margherita Pizza", 10.5],
+          ["Pepperoni Pizza", 12.5],
+          ["Quattro Formaggi Pizza", 13.5],
+          ["Pizza Diavola", 11.0],
+          ["Pizza Capricciosa", 12.0]
+        ]
+      },
+      {
+        "title": "Pasta",
+        "icon": "pasta",
+        "menu": [
+          ["Spaghetti Carbonara", 13.5],
+          ["Penne Arrabiata", 11.5],
+          ["Ravioli with Sage Butter", 14.5],
+          ["Lasagna Bolognese", 16.0],
+          ["Fettuccine Alfredo", 12.5]
+        ]
+      }
+    ]
+  },
+  {
+    "place_id": "antwerp13",
+    "restaurant_menu": [
+      {
+        "title": "Breakfast",
+        "icon": "bread-slice",
+        "menu": [
+          ["Belgian Waffles with Berries", 8.5],
+          ["Eggs Benedict", 9.5],
+          ["Croissant", 2.5],
+          ["Bagel with Cream Cheese", 4.5],
+          ["Ham and Cheese Omelette", 7.5],
+          ["Classic American Pancakes", 8.5],
+          ["French Toast", 7.5]
+        ]
+      },
+      {
+        "title": "Soups",
+        "icon": "bowl-mix",
+        "menu": [
+          ["Pumpkin Soup", 6.5],
+          ["Cream of Mushroom Soup", 7.0],
+          ["Minestrone Soup", 6.5],
+          ["Tomato Soup", 6.5],
+          ["Clam Chowder", 7.5],
+          ["Lentil Soup", 6.5]
+        ]
+      },
+      {
+        "title": "Main Dishes",
+        "icon": "food-turkey",
+        "menu": [
+          ["Beef Stroganoff", 19.5],
+          ["Moules Frites", 18.5],
+          ["Chicken Cordon Bleu", 16.5],
+          ["Pork Schnitzel", 15.5],
+          ["Vegetable Stir Fry", 14.5],
+          ["Grilled Salmon", 20.0]
+        ]
+      },
+      {
+        "title": "Sides",
+        "icon": "french-fries",
+        "menu": [
+          ["French Fries", 3.5],
+          ["Onion Rings", 4.0],
+          ["Garlic Bread", 4.5],
+          ["Mixed Vegetables", 5.0],
+          ["Baked Potato", 5.5],
+          ["Rice Pilaf", 4.5]
+        ]
+      },
+      {
+        "title": "Desserts",
+        "icon": "cupcake",
+        "menu": [
+          ["Chocolate Cake", 7.0],
+          ["Apple Pie with Ice Cream", 7.5],
+          ["New York Cheesecake", 6.5],
+          ["Banana Split", 7.5],
+          ["Strawberry Shortcake", 6.5],
+          ["Tropical Fruit Salad", 5.5]
+        ]
+      },
+      {
+        "title": "Drinks",
+        "icon": "glass-wine",
+        "menu": [
+          ["Belgian Beer", 4.5],
+          ["Red Wine", 5.5],
+          ["White Wine", 5.5],
+          ["Sparkling Wine", 6.5],
+          ["Cocktail", 8.5],
+          ["Iced Tea", 3.5],
+          ["Coffee", 3.0],
+          ["Hot Chocolate", 3.5]
+        ]
+      }
+    ]
+  },
+  {
+    "place_id": "antwerp14",
+    "restaurant_menu": [
+      {
+        "title": "Breakfast",
+        "icon": "bread-slice",
+        "menu": [
+          ["Croissant", 2.5],
+          ["Bagel with Cream Cheese", 4.5],
+          ["Ham and Cheese Omelette", 7.5],
+          ["Belgian Waffles with Berries", 8.5],
+          ["Eggs Benedict", 9.5]
+        ]
+      },
+      {
+        "title": "Salads",
+        "icon": "bowl",
+        "menu": [
+          ["Caesar Salad", 9.5],
+          ["Greek Salad", 8.5],
+          ["Nicoise Salad", 10.0],
+          ["Cobb Salad", 11.5],
+          ["Spinach Salad", 9.5],
+          ["Arugula Salad with Feta", 10.0]
+        ]
+      },
+      {
+        "title": "Pizzas",
+        "icon": "pizza",
+        "menu": [
+          ["Margherita Pizza", 10.0],
+          ["Pepperoni Pizza", 12.0],
+          ["Hawaiian Pizza", 11.5],
+          ["BBQ Chicken Pizza", 13.0],
+          ["Vegetarian Pizza", 11.5],
+          ["Seafood Pizza", 14.0]
+        ]
+      },
+      {
+        "title": "Beers",
+        "icon": "glass-mug-variant",
+        "menu": [
+          ["Belgian Blond Ale", 4.5],
+          ["Belgian Dubbel", 5.5],
+          ["Belgian Tripel", 6.0],
+          ["Belgian Strong Ale", 7.5],
+          ["Belgian Quadrupel", 8.0],
+          ["Fruit Lambic", 9.5]
+        ]
+      }
+    ]
+  },
+  {
+    "place_id": "antwerp15",
+    "restaurant_menu": [
+      {
+        "title": "Breakfast",
+        "icon": "bread-slice",
+        "menu": [
+          ["Croissant", 2.5],
+          ["Bagel with Cream Cheese", 4.5],
+          ["Scrambled Eggs with Smoked Salmon", 8.5],
+          ["Belgian Waffles with Chocolate Sauce", 7.5],
+          ["Oatmeal with Berries and Nuts", 6.5]
+        ]
+      },
+      {
+        "title": "Soups",
+        "icon": "bowl-mix",
+        "menu": [
+          ["Tomato Soup", 5.0],
+          ["Minestrone Soup", 6.0],
+          ["French Onion Soup", 7.0],
+          ["Spicy Chicken Soup", 7.5],
+          ["Miso Soup", 6.5]
+        ]
+      },
+      {
+        "title": "Main Dishes",
+        "icon": "food-turkey",
+        "menu": [
+          ["Beef Tartare with Fries", 18.5],
+          ["Roasted Chicken with Potatoes", 16.5],
+          ["Grilled Salmon with Asparagus", 20.5],
+          ["Stuffed Bell Peppers with Rice", 15.5],
+          ["Vegetarian Lasagna", 17.5]
+        ]
+      },
+      {
+        "title": "Sides",
+        "icon": "french-fries",
+        "menu": [
+          ["Truffle Fries", 5.5],
+          ["Sweet Potato Fries", 4.5],
+          ["Roasted Vegetables", 5.0],
+          ["Garlic Bread", 3.5],
+          ["Onion Rings", 4.5]
+        ]
+      },
+      {
+        "title": "Desserts",
+        "icon": "cupcake",
+        "menu": [
+          ["Red Velvet Cake", 7.5],
+          ["Apple Crumble with Ice Cream", 6.5],
+          ["Lemon Tart", 6.0],
+          ["Cheesecake with Berry Sauce", 8.0],
+          ["Chocolate Chip Cookies", 5.5]
+        ]
+      },
+      {
+        "title": "Drinks",
+        "icon": "glass-wine",
+        "menu": [
+          ["Belgian Beer", 4.5],
+          ["Sangria", 6.5],
+          ["Mojito", 7.0],
+          ["Cappuccino", 3.5],
+          ["Freshly Squeezed Orange Juice", 4.5]
+        ]
+      },
+      {
+        "title": "Appetizers",
+        "icon": "cheese",
+        "menu": [
+          ["Bruschetta with Tomato and Basil", 8.0],
+          ["Fried Calamari", 10.0],
+          ["Beef Carpaccio with Parmesan", 12.0],
+          ["Goat Cheese Salad", 9.5],
+          ["Vegetable Spring Rolls", 8.5]
+        ]
+      }
+    ]
+  },
+  {
+    "place_id": "antwerp16",
+    "restaurant_menu": [
+      {
+        "title": "Breakfast",
+        "icon": "bread-slice",
+        "menu": [
+          ["Classic Belgian Waffles", 7.5],
+          ["English Breakfast", 8.5],
+          ["Greek Yogurt with Fresh Berries", 6.5],
+          ["Bagel with Lox and Cream Cheese", 9.5],
+          ["Eggs Florentine", 10.5]
+        ]
+      },
+      {
+        "title": "Main Dishes",
+        "icon": "food-turkey",
+        "menu": [
+          ["Beef Stew with Belgian Beer", 16.5],
+          ["Mussels in White Wine Sauce", 18.5],
+          ["Roasted Chicken with Frites", 14.5],
+          ["Belgian Carbonade Flamande", 17.5],
+          ["Vol-au-vent with Mushrooms and Chicken", 19.5]
+        ]
+      },
+      {
+        "title": "Sides",
+        "icon": "french-fries",
+        "menu": [
+          ["Belgian Frites", 4.5],
+          ["Crispy Onion Rings", 5.5],
+          ["Green Salad with Vinaigrette", 3.5],
+          ["Mashed Potatoes", 4.5],
+          ["Grilled Vegetables", 6.5]
+        ]
+      },
+      {
+        "title": "Desserts",
+        "icon": "cupcake",
+        "menu": [
+          ["Belgian Chocolate Mousse", 6.5],
+          ["Speculoos Cheesecake", 7.5],
+          ["Waffles with Nutella and Banana", 8.5],
+          ["Vanilla Ice Cream with Belgian Chocolate Sauce", 5.5],
+          ["Apple Tart with Cinnamon Ice Cream", 7.5]
+        ]
+      },
+      {
+        "title": "Drinks",
+        "icon": "glass-wine",
+        "menu": [
+          ["Belgian Trappist Ale", 6.5],
+          ["Red Wine from Antwerp", 8.5],
+          ["Mimosa with Fresh Orange Juice", 7.5],
+          ["Classic Belgian Hot Chocolate", 5.5],
+          ["Freshly Brewed Coffee or Tea", 3.5]
+        ]
+      }
+    ]
+  },
+  {
+    "place_id": "antwerp17",
+    "restaurant_menu": [
+      {
+        "title": "Breakfast",
+        "icon": "bread-slice",
+        "menu": [
+          ["Belgian Waffles with Fresh Fruit", 8.5],
+          ["Eggs Benedict with Smoked Salmon", 10.5],
+          ["Avocado Toast with Poached Egg", 9.5],
+          ["Cinnamon French Toast", 7.5],
+          ["Croissant Sandwich with Ham and Cheese", 6.5]
+        ]
+      },
+      {
+        "title": "Soups",
+        "icon": "bowl-mix",
+        "menu": [
+          ["Tomato Soup with Basil", 5.5],
+          ["Creamy Broccoli Soup", 6.5],
+          ["Mushroom Soup with Truffle Oil", 7.5],
+          ["Classic Belgian Onion Soup", 8.5],
+          ["Lobster Bisque", 12.5]
+        ]
+      },
+      {
+        "title": "Main Dishes",
+        "icon": "food-turkey",
+        "menu": [
+          ["Steak Frites with Béarnaise Sauce", 19.5],
+          ["Moules Frites with White Wine and Garlic", 17.5],
+          ["Vol-au-vent with Shrimp and Mushrooms", 18.5],
+          ["Carbonnades Flamandes with Mashed Potatoes", 16.5],
+          ["Vegetable Paella with Saffron Rice", 15.5]
+        ]
+      },
+      {
+        "title": "Appetizers",
+        "icon": "cheese",
+        "menu": [
+          ["Belgian Cheese Board", 12.5],
+          ["Mixed Charcuterie Plate", 14.5],
+          ["Garlic Shrimp with Crusty Bread", 13.5],
+          ["Belgian Beef Tartare with Toast Points", 16.5],
+          ["Stuffed Mushrooms with Spinach and Cheese", 10.5]
+        ]
+      },
+      {
+        "title": "Desserts",
+        "icon": "cupcake",
+        "menu": [
+          ["Belgian Chocolate Fondue with Fresh Fruit", 12.5],
+          ["Crème Brûlée with Speculoos Cookies", 8.5],
+          ["Warm Apple Tart with Vanilla Ice Cream", 9.5],
+          ["Belgian Waffle with Chocolate Sauce and Whipped Cream", 7.5],
+          ["Panna Cotta with Mixed Berries", 6.5]
+        ]
+      },
+      {
+        "title": "Drinks",
+        "icon": "glass-wine",
+        "menu": [
+          ["Belgian Trappist Beer", 6.5],
+          ["Red Wine from Antwerp", 8.5],
+          ["White Wine from the Loire Valley", 9.5],
+          ["Classic Belgian Hot Chocolate", 5.5],
+          ["Freshly Brewed Coffee or Tea", 3.5]
+        ]
+      }
+    ]
+  },
+  {
+    "place_id": "antwerp18",
+    "restaurant_menu": [
+      {
+        "title": "Breakfast",
+        "icon": "bread-slice",
+        "menu": [
+          ["Croissant", 2.5],
+          ["Bagel with Cream Cheese", 4.5],
+          ["Ham and Cheese Omelette", 7.5],
+          ["Belgian Waffles with Berries", 8.5],
+          ["Eggs Benedict", 9.5]
+        ]
+      },
+      {
+        "title": "Soups",
+        "icon": "bowl-mix",
+        "menu": [
+          ["Tomato Soup with Croutons", 5.5],
+          ["Pumpkin Soup with Seeds", 6.5],
+          ["Chicken Noodle Soup", 7.5]
+        ]
+      },
+      {
+        "title": "Main Dishes",
+        "icon": "food-turkey",
+        "menu": [
+          ["Beef Stew with Mash Potatoes", 12.5],
+          ["Salmon with Roasted Vegetables", 15.5],
+          ["Vegetarian Curry with Rice", 11.5],
+          ["Moules-Frites", 13.5]
+        ]
+      },
+      {
+        "title": "Sides",
+        "icon": "french-fries",
+        "menu": [
+          ["Fries with Mayo", 3.5],
+          ["Mixed Salad", 4.5],
+          ["Grilled Vegetables", 5.5]
+        ]
+      },
+      {
+        "title": "Desserts",
+        "icon": "cupcake",
+        "menu": [
+          ["Chocolate Brownie with Vanilla Ice Cream", 6.5],
+          ["Crème Brûlée", 5.5],
+          ["Tiramisu", 7.5],
+          ["Fruit Salad with Whipped Cream", 4.5]
+        ]
+      },
+      {
+        "title": "Drinks",
+        "icon": "glass-wine",
+        "menu": [
+          ["Red Wine (Glass)", 5.5],
+          ["White Wine (Glass)", 5.5],
+          ["Beer (Bottle)", 4.5],
+          ["Coca-Cola", 3.5]
+        ]
+      }
+    ]
+  },
+  {
+    "place_id": "antwerp19",
+    "restaurant_menu": [
+      {
+        "title": "Appetizers",
+        "icon": "cheese",
+        "menu": [
+          ["Garlic Bread", 4.5],
+          ["Chicken Wings", 6.5],
+          ["Bruschetta", 5.5],
+          ["Fried Calamari", 8.5]
+        ]
+      },
+      {
+        "title": "Main Dishes",
+        "icon": "food-turkey",
+        "menu": [
+          ["Steak Frites", 18.5],
+          ["Roasted Chicken", 15.5],
+          ["Seafood Paella", 22.5],
+          ["Beef Stroganoff", 16.5],
+          ["Mushroom Risotto", 14.5]
+        ]
+      },
+      {
+        "title": "Desserts",
+        "icon": "cupcake",
+        "menu": [
+          ["Tiramisu", 7.5],
+          ["Crème Brûlée", 8.5],
+          ["Chocolate Mousse", 6.5],
+          ["Apple Pie", 5.5]
+        ]
+      },
+      {
+        "title": "Drinks",
+        "icon": "glass-wine",
+        "menu": [
+          ["Red Wine", 6.5],
+          ["White Wine", 7.5],
+          ["Beer", 4.5],
+          ["Cocktails", 9.5]
+        ]
+      }
+    ]
+  },
+  {
+    "place_id": "antwerp20",
+    "restaurant_menu": [
+      {
+        "title": "Breakfast",
+        "icon": "bread-slice",
+        "menu": [
+          ["Egg and Cheese Bagel", 5.5],
+          ["Buttermilk Pancakes", 6.5],
+          ["Avocado Toast", 7.5],
+          ["Greek Yogurt with Berries", 4.5],
+          ["Belgian Chocolate Croissant", 3.5]
+        ]
+      },
+      {
+        "title": "Main Dishes",
+        "icon": "food-turkey",
+        "menu": [
+          ["Steak Frites", 18.5],
+          ["Mussels in White Wine Sauce", 16.5],
+          ["Chicken Schnitzel", 14.5],
+          ["Vegetable Ratatouille", 12.5],
+          ["Salmon with Dill Sauce", 17.5]
+        ]
+      },
+      {
+        "title": "Desserts",
+        "icon": "cupcake",
+        "menu": [
+          ["Chocolate Lava Cake", 6.5],
+          ["Crème Brûlée", 7.5],
+          ["Fruit Tart", 5.5],
+          ["Apple Pie with Vanilla Ice Cream", 8.5],
+          ["Tiramisu", 9.5]
+        ]
+      },
+      {
+        "title": "Drinks",
+        "icon": "glass-wine",
+        "menu": [
+          ["Espresso", 2.5],
+          ["Cappuccino", 3.5],
+          ["Mimosa", 6.5],
+          ["Belgian Beer", 5.5],
+          ["Red Wine", 7.5]
+        ]
+      }
+    ]
+  }
+]

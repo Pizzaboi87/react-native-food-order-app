@@ -1,8 +1,8 @@
-import { mocks } from "./mock";
+import { restaurantMocks } from "../../mock/restaurant-data";
 
 export const restaurantsRequest = (location) => {
   return new Promise((result, reject) => {
-    const mock = mocks[location];
+    const mock = restaurantMocks[location];
     if (!mock) {
       reject("not found");
     }

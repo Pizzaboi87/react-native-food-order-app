@@ -1,10 +1,10 @@
 import antwerp from "./antwerp.json";
 import chicago from "./chicago.json";
 import kisvarda from "./kisvarda.json";
-import toronto from "./toronto.json";
 import san_francisco from "./san_francisco.json";
+import toronto from "./toronto.json";
 
-export const mocks = {
+export const restaurantMocks = {
   "51.219448,4.402464": antwerp,
   "43.653225,-79.383186": toronto,
   "41.878113,-87.629799": chicago,

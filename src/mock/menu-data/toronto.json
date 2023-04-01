@@ -1,0 +1,1285 @@
+[
+  {
+    "place_id": "toronto01",
+    "restaurant_menu": [
+      {
+        "title": "Burgers",
+        "icon": "hamburger",
+        "menu": [
+          ["Classic Burger", 10.99],
+          ["Veggie Burger", 9.99],
+          ["Bacon Cheeseburger", 12.99],
+          ["Mushroom Swiss Burger", 11.99],
+          ["BBQ Burger", 13.99],
+          ["Turkey Burger", 10.99],
+          ["Spicy Burger", 11.99]
+        ]
+      },
+      {
+        "title": "Pizzas",
+        "icon": "pizza",
+        "menu": [
+          ["Margherita Pizza", 12.99],
+          ["Pepperoni Pizza", 14.99],
+          ["Vegetarian Pizza", 13.99],
+          ["Hawaiian Pizza", 15.99],
+          ["Meat Lovers Pizza", 16.99]
+        ]
+      },
+      {
+        "title": "Soups",
+        "icon": "bowl-mix",
+        "menu": [
+          ["Tomato Soup", 6.99],
+          ["Chicken Noodle Soup", 7.99],
+          ["Vegetable Soup", 6.99],
+          ["Mushroom Soup", 7.99]
+        ]
+      },
+      {
+        "title": "Drinks",
+        "icon": "glass-wine",
+        "menu": [
+          ["Coke", 2.99],
+          ["Pepsi", 2.99],
+          ["Sprite", 2.99],
+          ["Lemonade", 3.99],
+          ["Iced Tea", 3.99]
+        ]
+      }
+    ]
+  },
+  {
+    "place_id": "toronto02",
+    "restaurant_menu": [
+      {
+        "title": "Burgers",
+        "icon": "hamburger",
+        "menu": [
+          ["Classic Burger", 8.99],
+          ["Veggie Burger", 9.99],
+          ["Cheeseburger", 10.99],
+          ["Bacon Burger", 11.99]
+        ]
+      },
+      {
+        "title": "Drinks",
+        "icon": "glass-wine",
+        "menu": [
+          ["Iced Tea", 2.5],
+          ["Soda", 2.5],
+          ["Lemonade", 3.0],
+          ["Beer", 5.0]
+        ]
+      },
+      {
+        "title": "Salads",
+        "icon": "bowl",
+        "menu": [
+          ["Caesar Salad", 7.99],
+          ["Greek Salad", 8.99],
+          ["Cobb Salad", 9.99],
+          ["Spinach Salad", 7.99]
+        ]
+      },
+      {
+        "title": "Soups",
+        "icon": "bowl-mix",
+        "menu": [
+          ["Tomato Soup", 4.99],
+          ["Chicken Noodle Soup", 5.99],
+          ["Vegetable Soup", 4.99],
+          ["Clam Chowder", 6.99]
+        ]
+      },
+      {
+        "title": "Pizzas",
+        "icon": "pizza",
+        "menu": [
+          ["Margherita Pizza", 12.99],
+          ["Pepperoni Pizza", 13.99],
+          ["Hawaiian Pizza", 14.99],
+          ["Vegetable Pizza", 12.99]
+        ]
+      }
+    ]
+  },
+  {
+    "place_id": "toronto03",
+    "restaurant_menu": [
+      {
+        "title": "Appetizers",
+        "icon": "cheese",
+        "menu": [
+          ["Fried Calamari", 8.5],
+          ["Spinach and Artichoke Dip", 7.0],
+          ["Mozzarella Sticks", 6.5],
+          ["Bruschetta", 5.5],
+          ["Garlic Bread", 4.5],
+          ["Loaded Fries", 7.5]
+        ]
+      },
+      {
+        "title": "Burgers",
+        "icon": "hamburger",
+        "menu": [
+          ["Classic Cheeseburger", 9.0],
+          ["Bacon Burger", 10.5],
+          ["Mushroom Swiss Burger", 11.0],
+          ["Veggie Burger", 9.5],
+          ["Double Bacon Cheeseburger", 12.0],
+          ["Jalapeno Burger", 11.5]
+        ]
+      },
+      {
+        "title": "Pasta",
+        "icon": "pasta",
+        "menu": [
+          ["Spaghetti Bolognese", 12.5],
+          ["Fettuccine Alfredo", 13.5],
+          ["Penne Arrabiata", 11.5],
+          ["Linguine with Clams", 14.0],
+          ["Chicken Parmesan", 15.0],
+          ["Shrimp Scampi", 16.5]
+        ]
+      },
+      {
+        "title": "Main Dishes",
+        "icon": "food-turkey",
+        "menu": [
+          ["Grilled Salmon", 17.5],
+          ["Roasted Chicken", 16.0],
+          ["Beef Stroganoff", 18.5],
+          ["Meatloaf", 14.5],
+          ["BBQ Ribs", 19.0],
+          ["Vegetable Stir Fry", 13.5]
+        ]
+      }
+    ]
+  },
+  {
+    "place_id": "toronto04",
+    "restaurant_menu": [
+      {
+        "title": "Burgers",
+        "icon": "hamburger",
+        "menu": [
+          ["Classic Burger", 9.5],
+          ["Bacon Cheeseburger", 11.0],
+          ["Veggie Burger", 8.5],
+          ["Mushroom Swiss Burger", 10.5],
+          ["BBQ Burger", 11.5],
+          ["Spicy Jalapeno Burger", 12.0],
+          ["Double Cheeseburger", 13.5]
+        ]
+      },
+      {
+        "title": "Pasta",
+        "icon": "pasta",
+        "menu": [
+          ["Spaghetti Bolognese", 12.0],
+          ["Fettuccine Alfredo", 13.5],
+          ["Penne Arrabiata", 11.5],
+          ["Lasagna", 14.0],
+          ["Chicken Pesto Pasta", 13.0],
+          ["Seafood Linguine", 16.5]
+        ]
+      },
+      {
+        "title": "Drinks",
+        "icon": "glass-wine",
+        "menu": [
+          ["Coca-Cola", 2.5],
+          ["Sprite", 2.5],
+          ["Lemonade", 3.0],
+          ["Iced Tea", 3.5],
+          ["Fruit Punch", 4.0],
+          ["Lime Margarita", 8.0],
+          ["Strawberry Daiquiri", 8.0]
+        ]
+      },
+      {
+        "title": "Appetizers",
+        "icon": "cheese",
+        "menu": [
+          ["Mozzarella Sticks", 7.0],
+          ["Jalapeno Poppers", 8.0],
+          ["Fried Calamari", 9.5],
+          ["Garlic Bread", 6.0],
+          ["Buffalo Wings", 10.5],
+          ["Bruschetta", 7.5],
+          ["Nachos", 12.0]
+        ]
+      }
+    ]
+  },
+  {
+    "place_id": "toronto05",
+    "restaurant_menu": [
+      {
+        "title": "Pasta",
+        "icon": "pasta",
+        "menu": [
+          ["Spaghetti with Meatballs", 12.99],
+          ["Fettuccine Alfredo", 10.99],
+          ["Penne Arrabiata", 9.99],
+          ["Lasagna", 13.99],
+          ["Pesto Linguine", 11.99],
+          ["Carbonara", 12.99]
+        ]
+      },
+      {
+        "title": "Burgers",
+        "icon": "hamburger",
+        "menu": [
+          ["Classic Burger", 8.99],
+          ["Bacon Cheeseburger", 10.99],
+          ["Mushroom Swiss Burger", 9.99],
+          ["Veggie Burger", 8.99],
+          ["BBQ Burger", 10.99],
+          ["California Burger", 9.99]
+        ]
+      },
+      {
+        "title": "Beers",
+        "icon": "glass-mug-variant",
+        "menu": [
+          ["IPA", 6.99],
+          ["Stout", 7.99],
+          ["Pilsner", 5.99],
+          ["Wheat Beer", 6.99],
+          ["Lager", 5.99],
+          ["Porter", 7.99]
+        ]
+      },
+      {
+        "title": "Drinks",
+        "icon": "glass-wine",
+        "menu": [
+          ["Coke", 2.5],
+          ["Pepsi", 2.5],
+          ["Sprite", 2.5],
+          ["Iced Tea", 3.5],
+          ["Lemonade", 3.5],
+          ["Root Beer", 2.5]
+        ]
+      },
+      {
+        "title": "Appetizers",
+        "icon": "cheese",
+        "menu": [
+          ["Mozzarella Sticks", 6.99],
+          ["Chicken Wings", 8.99],
+          ["Nachos", 9.99],
+          ["Garlic Bread", 4.99],
+          ["Onion Rings", 5.99],
+          ["Potato Skins", 7.99]
+        ]
+      }
+    ]
+  },
+  {
+    "place_id": "toronto06",
+    "restaurant_menu": [
+      {
+        "title": "Pasta",
+        "icon": "pasta",
+        "menu": [
+          ["Spaghetti Carbonara", 12.5],
+          ["Fettuccine Alfredo", 11.0],
+          ["Penne Arrabbiata", 10.5],
+          ["Ravioli with Spinach and Ricotta", 13.0],
+          ["Lasagna Bolognese", 14.5]
+        ]
+      },
+      {
+        "title": "Burgers",
+        "icon": "hamburger",
+        "menu": [
+          ["Classic Hamburger", 9.5],
+          ["Cheeseburger", 10.5],
+          ["Bacon Cheeseburger", 11.5],
+          ["Veggie Burger", 9.5],
+          ["BBQ Burger", 12.5]
+        ]
+      },
+      {
+        "title": "Drinks",
+        "icon": "glass-wine",
+        "menu": [
+          ["Coca-Cola", 2.5],
+          ["Sprite", 2.5],
+          ["Fanta Orange", 2.5],
+          ["Lemonade", 3.0],
+          ["Iced Tea", 3.0],
+          ["Orange Juice", 3.5]
+        ]
+      },
+      {
+        "title": "Appetizers",
+        "icon": "cheese",
+        "menu": [
+          ["Mozzarella Sticks", 6.5],
+          ["Garlic Bread", 4.5],
+          ["Chicken Wings", 8.5],
+          ["Onion Rings", 5.5],
+          ["Bruschetta", 7.5]
+        ]
+      },
+      {
+        "title": "Main Dishes",
+        "icon": "food-turkey",
+        "menu": [
+          ["Grilled Chicken with Rice", 13.5],
+          ["Rib-Eye Steak with Mashed Potatoes", 18.5],
+          ["Salmon with Steamed Vegetables", 16.0],
+          ["Shrimp Scampi", 15.5],
+          ["Beef Stroganoff with Egg Noodles", 14.5],
+          ["Vegetable Stir-Fry with Rice", 12.5]
+        ]
+      },
+      {
+        "title": "Salads",
+        "icon": "bowl",
+        "menu": [
+          ["Greek Salad", 9.5],
+          ["Caesar Salad", 8.5],
+          ["Cobb Salad", 10.5],
+          ["Caprese Salad", 7.5],
+          ["Asian Salad", 9.5],
+          ["Spinach Salad with Bacon and Egg", 8.5]
+        ]
+      }
+    ]
+  },
+  {
+    "place_id": "toronto07",
+    "restaurant_menu": [
+      {
+        "title": "Burgers",
+        "icon": "hamburger",
+        "menu": [
+          ["Classic Burger", 8.99],
+          ["Bacon Cheeseburger", 10.99],
+          ["Veggie Burger", 9.99],
+          ["Mushroom Swiss Burger", 11.99],
+          ["BBQ Burger", 12.99],
+          ["Jalapeno Burger", 11.99],
+          ["Buffalo Chicken Burger", 12.99]
+        ]
+      },
+      {
+        "title": "Beers",
+        "icon": "glass-mug-variant",
+        "menu": [
+          ["Domestic Beer", 5.5],
+          ["Imported Beer", 6.5],
+          ["Craft Beer", 7.5],
+          ["Light Beer", 4.5],
+          ["Dark Beer", 6.5]
+        ]
+      },
+      {
+        "title": "Main Dishes",
+        "icon": "food-turkey",
+        "menu": [
+          ["Roasted Chicken", 15.99],
+          ["Grilled Salmon", 17.99],
+          ["Beef Tenderloin", 22.99],
+          ["Pork Chops", 18.99],
+          ["Lamb Chops", 21.99]
+        ]
+      },
+      {
+        "title": "Pizzas",
+        "icon": "pizza",
+        "menu": [
+          ["Margherita Pizza", 12.99],
+          ["Pepperoni Pizza", 14.99],
+          ["Hawaiian Pizza", 15.99],
+          ["Meat Lovers Pizza", 17.99]
+        ]
+      },
+      {
+        "title": "Salads",
+        "icon": "bowl",
+        "menu": [
+          ["Caesar Salad", 8.99],
+          ["Greek Salad", 9.99],
+          ["Caprese Salad", 10.99],
+          ["Spinach Salad", 8.99],
+          ["Cobb Salad", 11.99]
+        ]
+      }
+    ]
+  },
+  {
+    "place_id": "toronto08",
+    "restaurant_menu": [
+      {
+        "title": "Appetizers",
+        "icon": "cheese",
+        "menu": [
+          ["Mozzarella Sticks", 6.5],
+          ["Potato Skins", 5.0],
+          ["Buffalo Wings", 7.5],
+          ["Garlic Bread", 4.0],
+          ["Bruschetta", 5.5],
+          ["Fried Calamari", 8.5]
+        ]
+      },
+      {
+        "title": "Pasta",
+        "icon": "pasta",
+        "menu": [
+          ["Spaghetti Bolognese", 12.0],
+          ["Penne Arrabiata", 10.5],
+          ["Fettuccine Alfredo", 11.5],
+          ["Lasagna", 13.0],
+          ["Ravioli", 12.5]
+        ]
+      },
+      {
+        "title": "Salads",
+        "icon": "bowl",
+        "menu": [
+          ["Caesar Salad", 8.5],
+          ["Greek Salad", 9.5],
+          ["Cobb Salad", 10.5],
+          ["Spinach Salad", 8.0]
+        ]
+      },
+      {
+        "title": "Main Dishes",
+        "icon": "food-turkey",
+        "menu": [
+          ["Steak Frites", 18.0],
+          ["Roast Chicken", 16.5],
+          ["Fish and Chips", 14.5],
+          ["Burger and Fries", 12.5],
+          ["Vegetarian Curry", 13.5],
+          ["Beef Stew", 15.0]
+        ]
+      }
+    ]
+  },
+  {
+    "place_id": "toronto09",
+    "restaurant_menu": [
+      {
+        "title": "Salads",
+        "icon": "bowl",
+        "menu": [
+          ["Caesar Salad", 7.5],
+          ["Greek Salad", 8.5],
+          ["Spinach Salad", 6.5],
+          ["Cobb Salad", 9.0]
+        ]
+      },
+      {
+        "title": "Main Dishes",
+        "icon": "food-turkey",
+        "menu": [
+          ["Roasted Chicken", 13.5],
+          ["Grilled Steak", 18.5],
+          ["Pan-Seared Salmon", 15.5],
+          ["Vegetarian Lasagna", 12.5],
+          ["Burger with Fries", 10.5]
+        ]
+      },
+      {
+        "title": "Drinks",
+        "icon": "glass-wine",
+        "menu": [
+          ["Coca Cola", 2.0],
+          ["Sprite", 2.0],
+          ["Iced Tea", 2.5],
+          ["Lemonade", 3.0],
+          ["Bottled Water", 1.5],
+          ["Coffee", 2.5],
+          ["Hot Tea", 2.5]
+        ]
+      },
+      {
+        "title": "Appetizers",
+        "icon": "cheese",
+        "menu": [
+          ["Garlic Bread", 4.5],
+          ["Mozzarella Sticks", 6.5],
+          ["Chicken Wings", 8.5],
+          ["Fried Calamari", 9.0]
+        ]
+      },
+      {
+        "title": "Pasta",
+        "icon": "pasta",
+        "menu": [
+          ["Spaghetti with Meatballs", 12.5],
+          ["Fettuccine Alfredo", 11.5],
+          ["Penne Arrabiata", 10.5],
+          ["Lasagna Bolognese", 13.5]
+        ]
+      },
+      {
+        "title": "Soups",
+        "icon": "bowl-mix",
+        "menu": [
+          ["Tomato Soup", 5.5],
+          ["Chicken Noodle Soup", 6.5],
+          ["Beef Stew", 8.5]
+        ]
+      },
+      {
+        "title": "Beers",
+        "icon": "glass-mug-variant",
+        "menu": [
+          ["Stella Artois", 5.5],
+          ["Heineken", 5.5],
+          ["Guinness", 6.0],
+          ["Budweiser", 4.5]
+        ]
+      }
+    ]
+  },
+  {
+    "place_id": "toronto10",
+    "restaurant_menu": [
+      {
+        "title": "Appetizers",
+        "icon": "cheese",
+        "menu": [
+          ["Cheese Plate", 10.5],
+          ["Garlic Bread", 6.75],
+          ["Nachos", 12.0],
+          ["Mozzarella Sticks", 8.5],
+          ["Fried Calamari", 13.25]
+        ]
+      },
+      {
+        "title": "Main Dishes",
+        "icon": "food-turkey",
+        "menu": [
+          ["Steak", 26.5],
+          ["Salmon", 22.75],
+          ["Chicken Alfredo", 18.5],
+          ["Burger", 16.0],
+          ["Fish and Chips", 19.25],
+          ["Veggie Stir Fry", 15.75]
+        ]
+      },
+      {
+        "title": "Salads",
+        "icon": "bowl",
+        "menu": [
+          ["Caesar Salad", 12.5],
+          ["Greek Salad", 11.75],
+          ["Caprese Salad", 10.25],
+          ["Cobb Salad", 14.0]
+        ]
+      },
+      {
+        "title": "Drinks",
+        "icon": "glass-wine",
+        "menu": [
+          ["Soda", 2.5],
+          ["Iced Tea", 3.0],
+          ["Lemonade", 3.25],
+          ["Beer", 5.5],
+          ["Wine", 8.75],
+          ["Cocktails", 10.5]
+        ]
+      }
+    ]
+  },
+  {
+    "place_id": "toronto11",
+    "restaurant_menu": [
+      {
+        "title": "Appetizers",
+        "icon": "cheese",
+        "menu": [
+          ["Garlic Bread", 3.5],
+          ["Spinach Dip", 6.5],
+          ["Mozzarella Sticks", 5.0],
+          ["Buffalo Wings", 8.5]
+        ]
+      },
+      {
+        "title": "Main Dishes",
+        "icon": "food-turkey",
+        "menu": [
+          ["Grilled Salmon", 18.0],
+          ["Steak Frites", 20.0],
+          ["Roasted Chicken", 16.5],
+          ["Pork Chops", 17.5],
+          ["Vegetable Curry", 15.0],
+          ["Burger and Fries", 12.5]
+        ]
+      },
+      {
+        "title": "Salads",
+        "icon": "bowl",
+        "menu": [
+          ["Caesar Salad", 8.5],
+          ["Greek Salad", 9.0],
+          ["Cobb Salad", 10.5],
+          ["Kale Salad", 7.5]
+        ]
+      },
+      {
+        "title": "Drinks",
+        "icon": "glass-wine",
+        "menu": [
+          ["Soda", 2.0],
+          ["Lemonade", 3.0],
+          ["Iced Tea", 2.5],
+          ["Wine by the Glass", 7.0],
+          ["Beer on Tap", 5.0],
+          ["Cocktails", 10.0]
+        ]
+      },
+      {
+        "title": "Pasta",
+        "icon": "pasta",
+        "menu": [
+          ["Spaghetti and Meatballs", 13.5],
+          ["Fettuccine Alfredo", 14.5],
+          ["Pesto Linguine", 12.5],
+          ["Lasagna", 15.0]
+        ]
+      }
+    ]
+  },
+  {
+    "place_id": "toronto12",
+    "restaurant_menu": [
+      {
+        "title": "Pasta",
+        "icon": "pasta",
+        "menu": [
+          ["Spaghetti Bolognese", 12.99],
+          ["Fettuccine Alfredo", 14.99],
+          ["Penne Arrabiata", 11.99],
+          ["Linguine with Clams", 16.99],
+          ["Rigatoni Carbonara", 13.99],
+          ["Gnocchi with Pesto", 12.99],
+          ["Ravioli with Tomato Sauce", 13.99]
+        ]
+      },
+      {
+        "title": "Beers",
+        "icon": "glass-mug-variant",
+        "menu": [
+          ["IPA", 6.0],
+          ["Stout", 6.5],
+          ["Lager", 5.5],
+          ["Amber Ale", 6.0],
+          ["Wheat Beer", 5.5]
+        ]
+      },
+      {
+        "title": "Drinks",
+        "icon": "glass-wine",
+        "menu": [
+          ["Coca-Cola", 2.5],
+          ["Sprite", 2.5],
+          ["Lemonade", 2.5],
+          ["Iced Tea", 2.5],
+          ["Bottled Water", 1.5],
+          ["Coffee", 2.5],
+          ["Tea", 2.0]
+        ]
+      },
+      {
+        "title": "Appetizers",
+        "icon": "cheese",
+        "menu": [
+          ["Mozzarella Sticks", 6.99],
+          ["Garlic Bread", 4.99],
+          ["Spinach and Artichoke Dip", 8.99],
+          ["Chicken Wings", 10.99],
+          ["Fried Calamari", 12.99]
+        ]
+      },
+      {
+        "title": "Main Dishes",
+        "icon": "food-turkey",
+        "menu": [
+          ["Ribeye Steak", 26.99],
+          ["Salmon Fillet", 20.99],
+          ["Veal Parmigiana", 18.99],
+          ["Chicken Marsala", 16.99],
+          ["Shrimp Scampi", 22.99],
+          ["Beef Burgundy", 19.99]
+        ]
+      },
+      {
+        "title": "Salads",
+        "icon": "bowl",
+        "menu": [
+          ["Caesar Salad", 9.99],
+          ["Greek Salad", 10.99],
+          ["Caprese Salad", 11.99],
+          ["Spinach Salad", 9.99],
+          ["Cobb Salad", 12.99]
+        ]
+      },
+      {
+        "title": "Soups",
+        "icon": "bowl-mix",
+        "menu": [
+          ["Tomato Soup", 5.99],
+          ["Minestrone Soup", 6.99],
+          ["Clam Chowder", 7.99],
+          ["Chicken Noodle Soup", 5.99]
+        ]
+      }
+    ]
+  },
+  {
+    "place_id": "toronto13",
+    "restaurant_menu": [
+      {
+        "title": "Pasta",
+        "icon": "pasta",
+        "menu": [
+          ["Spaghetti Bolognese", 12.5],
+          ["Penne alla Vodka", 11.0],
+          ["Fettuccine Alfredo", 10.0],
+          ["Pesto Linguine", 9.5]
+        ]
+      },
+      {
+        "title": "Beers",
+        "icon": "glass-mug-variant",
+        "menu": [
+          ["IPA", 6.0],
+          ["Stout", 7.0],
+          ["Lager", 5.5],
+          ["Porter", 8.0]
+        ]
+      },
+      {
+        "title": "Drinks",
+        "icon": "glass-wine",
+        "menu": [
+          ["Soda", 2.5],
+          ["Iced Tea", 3.0],
+          ["Lemonade", 3.0],
+          ["Orange Juice", 3.5],
+          ["Cranberry Juice", 3.5]
+        ]
+      },
+      {
+        "title": "Appetizers",
+        "icon": "cheese",
+        "menu": [
+          ["Mozzarella Sticks", 6.5],
+          ["Calamari", 9.0],
+          ["Bruschetta", 5.5],
+          ["Chicken Wings", 8.5]
+        ]
+      },
+      {
+        "title": "Main Dishes",
+        "icon": "food-turkey",
+        "menu": [
+          ["Steak Frites", 20.0],
+          ["Burger with Fries", 12.0],
+          ["Grilled Salmon", 18.5],
+          ["Roasted Chicken", 16.0]
+        ]
+      },
+      {
+        "title": "Salads",
+        "icon": "bowl",
+        "menu": [
+          ["Caesar Salad", 9.5],
+          ["Greek Salad", 10.0],
+          ["Cobb Salad", 11.0]
+        ]
+      },
+      {
+        "title": "Soups",
+        "icon": "bowl-mix",
+        "menu": [
+          ["Tomato Soup", 6.5],
+          ["Clam Chowder", 7.5],
+          ["French Onion Soup", 8.0],
+          ["Minestrone", 6.0]
+        ]
+      }
+    ]
+  },
+  {
+    "place_id": "toronto14",
+    "restaurant_menu": [
+      {
+        "title": "Main Dishes",
+        "icon": "food-turkey",
+        "menu": [
+          ["Steak with Fries", 20.0],
+          ["Grilled Chicken", 15.0],
+          ["Fish and Chips", 16.5],
+          ["Pork Chops", 18.0],
+          ["Vegetable Stir Fry", 12.5],
+          ["Beef Burger", 14.0],
+          ["Pasta with Tomato Sauce", 13.0]
+        ]
+      },
+      {
+        "title": "Drinks",
+        "icon": "glass-wine",
+        "menu": [
+          ["Coca-Cola", 2.5],
+          ["Sprite", 2.5],
+          ["Lemonade", 3.0],
+          ["Iced Tea", 3.5],
+          ["Bottled Water", 1.5],
+          ["Mango Smoothie", 4.0],
+          ["Pineapple Juice", 3.5]
+        ]
+      },
+      {
+        "title": "Salads",
+        "icon": "bowl",
+        "menu": [
+          ["Caesar Salad", 9.0],
+          ["Greek Salad", 8.5],
+          ["Spinach Salad", 8.5],
+          ["Cobb Salad", 10.0],
+          ["Caprese Salad", 9.5]
+        ]
+      },
+      {
+        "title": "Appetizers",
+        "icon": "cheese",
+        "menu": [
+          ["Garlic Bread", 6.0],
+          ["Mozzarella Sticks", 7.5],
+          ["Potato Skins", 8.0],
+          ["Nachos", 10.0]
+        ]
+      },
+      {
+        "title": "Pasta",
+        "icon": "pasta",
+        "menu": [
+          ["Spaghetti Carbonara", 13.5],
+          ["Penne Alfredo", 12.5],
+          ["Linguine with Clams", 15.0],
+          ["Pesto Linguine", 12.0]
+        ]
+      }
+    ]
+  },
+  {
+    "place_id": "toronto15",
+    "restaurant_menu": [
+      {
+        "title": "Main Dishes",
+        "icon": "food-turkey",
+        "menu": [
+          ["Roast Chicken with Potatoes", 18.5],
+          ["Grilled Steak with Vegetables", 22.0],
+          ["Baked Salmon with Rice", 20.0],
+          ["Lobster Ravioli", 24.0],
+          ["Pork Tenderloin with Applesauce", 19.5]
+        ]
+      },
+      {
+        "title": "Sides",
+        "icon": "french-fries",
+        "menu": [
+          ["French Fries", 4.0],
+          ["Mashed Potatoes", 4.5],
+          ["Garlic Bread", 3.0],
+          ["Roasted Vegetables", 5.0]
+        ]
+      },
+      {
+        "title": "Desserts",
+        "icon": "cupcake",
+        "menu": [
+          ["Chocolate Cake", 6.0],
+          ["Cheesecake", 5.5],
+          ["Apple Pie", 5.0],
+          ["Tiramisu", 6.5],
+          ["Ice Cream Sundae", 4.5]
+        ]
+      },
+      {
+        "title": "Drinks",
+        "icon": "glass-wine",
+        "menu": [
+          ["Coca-Cola", 2.5],
+          ["Sprite", 2.5],
+          ["Lemonade", 3.0],
+          ["Iced Tea", 2.75],
+          ["Red Wine", 8.0],
+          ["White Wine", 7.5]
+        ]
+      }
+    ]
+  },
+  {
+    "place_id": "toronto16",
+    "restaurant_menu": [
+      {
+        "title": "Breakfast",
+        "icon": "bread-slice",
+        "menu": [
+          ["Belgian Waffles with Maple Syrup", 8.5],
+          ["Egg and Bacon Sandwich", 6.5],
+          ["Croissant with Jam and Butter", 4.5],
+          ["Omelette with Cheese and Ham", 7.5],
+          ["Greek Yogurt with Honey and Nuts", 5.0]
+        ]
+      },
+      {
+        "title": "Soups",
+        "icon": "bowl-mix",
+        "menu": [
+          ["Pumpkin Soup", 5.5],
+          ["Asparagus Soup", 6.0],
+          ["Cream of Mushroom Soup", 5.5],
+          ["Chicken Noodle Soup", 6.5]
+        ]
+      },
+      {
+        "title": "Main Dishes",
+        "icon": "food-turkey",
+        "menu": [
+          ["Steak with Fries and Salad", 22.5],
+          ["Grilled Salmon with Vegetables", 18.5],
+          ["Beef Stew with Potatoes", 15.5],
+          ["Vegetable Lasagna", 14.0],
+          ["Roasted Chicken with Rosemary", 16.5]
+        ]
+      },
+      {
+        "title": "Sides",
+        "icon": "french-fries",
+        "menu": [
+          ["Sweet Potato Fries", 4.5],
+          ["Mixed Salad", 3.5],
+          ["Garlic Bread", 3.0],
+          ["Grilled Vegetables", 4.5]
+        ]
+      },
+      {
+        "title": "Desserts",
+        "icon": "cupcake",
+        "menu": [
+          ["Belgian Chocolate Cake", 7.0],
+          ["Vanilla Ice Cream with Fruit", 6.0],
+          ["Tiramisu", 6.5],
+          ["Apple Pie with Whipped Cream", 6.0]
+        ]
+      }
+    ]
+  },
+  {
+    "place_id": "toronto17",
+    "restaurant_menu": [
+      {
+        "title": "Pasta",
+        "icon": "pasta",
+        "menu": [
+          ["Spaghetti Carbonara", 12.99],
+          ["Fettuccine Alfredo", 11.99],
+          ["Penne Arrabbiata", 10.99],
+          ["Ravioli with Meat Sauce", 13.99],
+          ["Lasagna Bolognese", 14.99],
+          ["Gnocchi with Pesto", 9.99],
+          ["Pappardelle with Wild Boar Ragu", 15.99]
+        ]
+      },
+      {
+        "title": "Beers",
+        "icon": "glass-mug-variant",
+        "menu": [
+          ["IPA", 6.99],
+          ["Lager", 5.99],
+          ["Stout", 7.99],
+          ["Amber Ale", 6.49],
+          ["Wheat Beer", 6.49]
+        ]
+      },
+      {
+        "title": "Drinks",
+        "icon": "glass-wine",
+        "menu": [
+          ["Coca-Cola", 2.99],
+          ["Sprite", 2.99],
+          ["Iced Tea", 3.49],
+          ["Lemonade", 3.49],
+          ["Orange Juice", 3.99]
+        ]
+      },
+      {
+        "title": "Appetizers",
+        "icon": "cheese",
+        "menu": [
+          ["Mozzarella Sticks", 7.99],
+          ["Fried Calamari", 9.99],
+          ["Bruschetta", 6.99],
+          ["Garlic Bread", 4.99],
+          ["Antipasto Platter", 12.99]
+        ]
+      },
+      {
+        "title": "Main Dishes",
+        "icon": "food-turkey",
+        "menu": [
+          ["Grilled Ribeye Steak", 24.99],
+          ["Pan-Seared Salmon", 19.99],
+          ["Chicken Parmigiana", 17.99],
+          ["Vegetable Stir Fry", 14.99],
+          ["Roasted Pork Loin", 18.99]
+        ]
+      },
+      {
+        "title": "Salads",
+        "icon": "bowl",
+        "menu": [
+          ["Caesar Salad", 8.99],
+          ["Greek Salad", 9.99],
+          ["Cobb Salad", 10.99],
+          ["Spinach Salad", 8.99],
+          ["Caprese Salad", 9.99]
+        ]
+      },
+      {
+        "title": "Breakfast",
+        "icon": "bread-slice",
+        "menu": [
+          ["Belgian Waffle", 7.99],
+          ["Eggs Benedict", 9.99],
+          ["Omelette", 8.99],
+          ["French Toast", 7.99],
+          ["Pancakes", 6.99]
+        ]
+      }
+    ]
+  },
+  {
+    "place_id": "toronto18",
+    "restaurant_menu": [
+      {
+        "title": "Pasta",
+        "icon": "pasta",
+        "menu": [
+          ["Spaghetti Bolognese", 10.5],
+          ["Penne alla Vodka", 12.0],
+          ["Fettuccine Alfredo", 11.5],
+          ["Linguine with Clam Sauce", 14.5],
+          ["Lasagna", 13.0],
+          ["Ravioli with Marinara Sauce", 12.5]
+        ]
+      },
+      {
+        "title": "Beers",
+        "icon": "glass-mug-variant",
+        "menu": [
+          ["IPA", 6.0],
+          ["Stout", 7.0],
+          ["Lager", 5.5],
+          ["Porter", 7.5],
+          ["Wheat Beer", 6.5],
+          ["Pale Ale", 6.5],
+          ["Sour Beer", 8.0]
+        ]
+      },
+      {
+        "title": "Drinks",
+        "icon": "glass-wine",
+        "menu": [
+          ["Soda", 2.5],
+          ["Lemonade", 3.0],
+          ["Iced Tea", 2.75],
+          ["Sparkling Water", 3.5],
+          ["Juice", 3.5],
+          ["Coffee", 2.5],
+          ["Tea", 2.75]
+        ]
+      },
+      {
+        "title": "Appetizers",
+        "icon": "cheese",
+        "menu": [
+          ["Garlic Bread", 4.5],
+          ["Bruschetta", 5.5],
+          ["Mozzarella Sticks", 6.5],
+          ["Fried Calamari", 9.5],
+          ["Chicken Wings", 8.5]
+        ]
+      },
+      {
+        "title": "Main Dishes",
+        "icon": "food-turkey",
+        "menu": [
+          ["Ribeye Steak", 20.5],
+          ["Grilled Salmon", 17.0],
+          ["Roasted Chicken", 16.5],
+          ["Pork Chop", 18.5],
+          ["Vegetable Curry", 15.5],
+          ["Beef Stroganoff", 19.0]
+        ]
+      },
+      {
+        "title": "Salads",
+        "icon": "bowl",
+        "menu": [
+          ["Caesar Salad", 9.5],
+          ["Greek Salad", 10.5],
+          ["Cobb Salad", 12.0],
+          ["Caprese Salad", 8.5]
+        ]
+      },
+      {
+        "title": "Soups",
+        "icon": "bowl-mix",
+        "menu": [
+          ["Chicken Noodle Soup", 6.5],
+          ["Tomato Soup", 5.5],
+          ["Clam Chowder", 7.5],
+          ["Mushroom Soup", 6.5],
+          ["Minestrone Soup", 6.5]
+        ]
+      }
+    ]
+  },
+  {
+    "place_id": "toronto19",
+    "restaurant_menu": [
+      {
+        "title": "Pasta",
+        "icon": "pasta",
+        "menu": [
+          ["Spaghetti Bolognese", 10.5],
+          ["Fettuccine Alfredo", 12.5],
+          ["Lasagna", 11.5],
+          ["Penne alla Vodka", 13.5],
+          ["Pesto Linguine", 9.5]
+        ]
+      },
+      {
+        "title": "Beers",
+        "icon": "glass-mug-variant",
+        "menu": [
+          ["IPA", 7.5],
+          ["Lager", 6.5],
+          ["Wheat Beer", 8.5],
+          ["Stout", 9.5],
+          ["Pilsner", 6.0]
+        ]
+      },
+      {
+        "title": "Drinks",
+        "icon": "glass-wine",
+        "menu": [
+          ["Coca Cola", 2.5],
+          ["Sprite", 2.5],
+          ["Iced Tea", 3.0],
+          ["Lemonade", 3.5],
+          ["Mojito", 8.5],
+          ["Margarita", 9.5]
+        ]
+      },
+      {
+        "title": "Appetizers",
+        "icon": "cheese",
+        "menu": [
+          ["Bruschetta", 7.5],
+          ["Calamari", 10.5],
+          ["Caprese Salad", 9.5],
+          ["Garlic Bread", 5.5],
+          ["Nachos", 11.5],
+          ["Potato Skins", 8.5]
+        ]
+      },
+      {
+        "title": "Main Dishes",
+        "icon": "food-turkey",
+        "menu": [
+          ["Ribeye Steak", 23.5],
+          ["Salmon Fillet", 20.5],
+          ["Grilled Chicken", 16.5],
+          ["Vegetable Stir Fry", 14.5],
+          ["Beef Burger", 12.5],
+          ["Fish and Chips", 15.5]
+        ]
+      },
+      {
+        "title": "Salads",
+        "icon": "bowl",
+        "menu": [
+          ["Caesar Salad", 9.5],
+          ["Greek Salad", 10.5],
+          ["Cobb Salad", 11.5],
+          ["Spinach Salad", 8.5]
+        ]
+      },
+      {
+        "title": "Soups",
+        "icon": "bowl-mix",
+        "menu": [
+          ["Tomato Soup", 6.5],
+          ["Chicken Noodle Soup", 7.5],
+          ["Mushroom Soup", 8.5],
+          ["Minestrone Soup", 6.5]
+        ]
+      }
+    ]
+  },
+  {
+    "place_id": "toronto20",
+    "restaurant_menu": [
+      {
+        "title": "Breakfast",
+        "icon": "bread-slice",
+        "menu": [
+          ["Scrambled Eggs", 5.5],
+          ["French Toast", 7.0],
+          ["Pancakes with Syrup", 6.5],
+          ["Avocado Toast", 8.0],
+          ["Bacon and Eggs", 6.5],
+          ["Breakfast Burrito", 9.0]
+        ]
+      },
+      {
+        "title": "Main Dishes",
+        "icon": "food-turkey",
+        "menu": [
+          ["Grilled Chicken", 12.5],
+          ["Beef Stroganoff", 15.0],
+          ["Fish and Chips", 13.5],
+          ["Veggie Burger", 10.0],
+          ["Roasted Pork Loin", 14.0]
+        ]
+      },
+      {
+        "title": "Sides",
+        "icon": "french-fries",
+        "menu": [
+          ["Sweet Potato Fries", 4.5],
+          ["Garlic Bread", 3.5],
+          ["Onion Rings", 5.0],
+          ["Mashed Potatoes", 4.0]
+        ]
+      },
+      {
+        "title": "Desserts",
+        "icon": "cupcake",
+        "menu": [
+          ["Chocolate Cake", 6.5],
+          ["Fruit Tart", 5.5],
+          ["Ice Cream Sundae", 4.5],
+          ["Cheesecake", 7.0],
+          ["Key Lime Pie", 6.0]
+        ]
+      }
+    ]
+  }
+]

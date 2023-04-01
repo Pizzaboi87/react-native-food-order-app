@@ -29,7 +29,7 @@
         [1200, 2400],
         [1200, 2400]
       ],
-      "photo": "https://peterweiser.com/mealstogo/kisvarda/kisvarda01.jpg",
+      "photo": "https://peterweiser.com/meals-to-go/kisvarda/kisvarda01.jpg",
       "place_id": "kisvarda01",
       "rating": 4.1,
       "user_ratings_total": 173,
@@ -64,7 +64,7 @@
         [900, 2200],
         [900, 2200]
       ],
-      "photo": "https://peterweiser.com/mealstogo/kisvarda/kisvarda02.jpg",
+      "photo": "https://peterweiser.com/meals-to-go/kisvarda/kisvarda02.jpg",
       "place_id": "kisvarda02",
       "rating": 3.5,
       "user_ratings_total": 20,
@@ -99,7 +99,7 @@
         [1100, 2200],
         [1100, 2400]
       ],
-      "photo": "https://peterweiser.com/mealstogo/kisvarda/kisvarda03.jpg",
+      "photo": "https://peterweiser.com/meals-to-go/kisvarda/kisvarda03.jpg",
       "place_id": "kisvarda03",
       "rating": 3.9,
       "user_ratings_total": 134,
@@ -134,7 +134,7 @@
         [800, 2400],
         [800, 2400]
       ],
-      "photo": "https://peterweiser.com/mealstogo/kisvarda/kisvarda04.jpg",
+      "photo": "https://peterweiser.com/meals-to-go/kisvarda/kisvarda04.jpg",
       "place_id": "kisvarda04",
       "rating": 4.1,
       "user_ratings_total": 32,
@@ -169,7 +169,7 @@
         [1000, 2200],
         [1000, 2200]
       ],
-      "photo": "https://peterweiser.com/mealstogo/kisvarda/kisvarda05.jpg",
+      "photo": "https://peterweiser.com/meals-to-go/kisvarda/kisvarda05.jpg",
       "place_id": "kisvarda05",
       "rating": 4.4,
       "user_ratings_total": 208,
@@ -204,46 +204,11 @@
         [1100, 2300],
         [1100, 2300]
       ],
-      "photo": "https://peterweiser.com/mealstogo/kisvarda/kisvarda06.jpg",
+      "photo": "https://peterweiser.com/meals-to-go/kisvarda/kisvarda06.jpg",
       "place_id": "kisvarda06",
       "rating": 4.5,
       "user_ratings_total": 1227,
       "address": "Városmajor utca 56, Kisvárda"
-    },
-    {
-      "business_status": "OPERATIONAL",
-      "geometry": {
-        "location": {
-          "lat": 48.2328198,
-          "lng": 22.0652398
-        },
-        "viewport": {
-          "northeast": {
-            "lat": 48.2341978,
-            "lng": 22.0679944
-          },
-          "southwest": {
-            "lat": 48.2313178,
-            "lng": 22.0632078
-          }
-        }
-      },
-      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
-      "name": "McDonald's Kisvárda",
-      "opening_hours": [
-        [700, 2200],
-        [700, 2200],
-        [700, 2200],
-        [700, 2200],
-        [700, 2200],
-        [700, 2300],
-        [700, 2300]
-      ],
-      "photo": "https://peterweiser.com/mealstogo/kisvarda/kisvarda07.jpg",
-      "place_id": "kisvarda07",
-      "rating": 3.8,
-      "user_ratings_total": 409,
-      "address": "Városmajor utca 47, Kisvárda"
     },
     {
       "business_status": "OPERATIONAL",
@@ -274,8 +239,8 @@
         [1100, 2100],
         [1100, 2100]
       ],
-      "photo": "https://peterweiser.com/mealstogo/kisvarda/kisvarda08.jpg",
-      "place_id": "kisvarda08",
+      "photo": "https://peterweiser.com/meals-to-go/kisvarda/kisvarda07.jpg",
+      "place_id": "kisvarda07",
       "rating": 4.7,
       "user_ratings_total": 291,
       "address": "Simonyi utca 2, Kisvárda"
@@ -309,8 +274,8 @@
         [1000, 2200],
         [1500, 2400]
       ],
-      "photo": "https://peterweiser.com/mealstogo/kisvarda/kisvarda09.jpg",
-      "place_id": "kisvarda09",
+      "photo": "https://peterweiser.com/meals-to-go/kisvarda/kisvarda08.jpg",
+      "place_id": "kisvarda08",
       "rating": 4.4,
       "user_ratings_total": 162,
       "address": "Baross Gábor utca 25, Kisvárda"
@@ -344,8 +309,8 @@
         [1000, 2130],
         [1000, 2130]
       ],
-      "photo": "https://peterweiser.com/mealstogo/kisvarda/kisvarda10.jpg",
-      "place_id": "kisvarda10",
+      "photo": "https://peterweiser.com/meals-to-go/kisvarda/kisvarda09.jpg",
+      "place_id": "kisvarda09",
       "rating": 4.7,
       "user_ratings_total": 180,
       "address": "Szent László utca 21, Kisvárda"
@@ -379,8 +344,8 @@
         [1130, 2400],
         [1130, 2400]
       ],
-      "photo": "https://peterweiser.com/mealstogo/kisvarda/kisvarda11.jpg",
-      "place_id": "kisvarda11",
+      "photo": "https://peterweiser.com/meals-to-go/kisvarda/kisvarda10.jpg",
+      "place_id": "kisvarda10",
       "rating": 4.7,
       "user_ratings_total": 411,
       "address": "Várday kÖz 1, Kisvárda"
@@ -414,8 +379,8 @@
         [1000, 2130],
         [1000, 2130]
       ],
-      "photo": "https://peterweiser.com/mealstogo/kisvarda/kisvarda12.jpg",
-      "place_id": "kisvarda12",
+      "photo": "https://peterweiser.com/meals-to-go/kisvarda/kisvarda11.jpg",
+      "place_id": "kisvarda11",
       "rating": 3.5,
       "user_ratings_total": 31,
       "address": "Csillag utca 8, Kisvárda"
