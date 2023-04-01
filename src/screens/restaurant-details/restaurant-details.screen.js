@@ -1,82 +1,71 @@
 import React, { useState } from "react";
-import { List } from "react-native-paper";
-import { RestaurantInfoCard } from "../../components/restaurant-info-card/restaurant-info-card.component";
+import { menuMocks } from "../../mock/menu-data";
 import { SafeArea } from "../../helpers/safe-area/safe-area.helper";
+import { RestaurantInfoCard } from "../../components/restaurant-info-card/restaurant-info-card.component";
+import {
+  TouchableOpacity,
+  LayoutAnimation,
+  Platform,
+  UIManager,
+} from "react-native";
 import {
   DetailsContainer,
-  ListTitle,
+  FoodContainer,
+  FoodText,
   createIcon,
-  BreakfastIcon,
-  LunchIcon,
-  DinnerIcon,
-  DrinksIcon,
+  ListTitle,
 } from "./restaurant-details.styles";
 
 export const RestaurantDetailsScreen = ({ route }) => {
-  const [breakfastExpanded, setBreakfastExpanded] = useState(false);
-  const [lunchExpanded, setLunchExpanded] = useState(false);
-  const [dinnerExpanded, setDinnerExpanded] = useState(false);
-  const [drinksExpanded, setDrinksExpanded] = useState(false);
+  if (Platform.OS === "android") {
+    UIManager.setLayoutAnimationEnabledExperimental(true);
+  }
+
+  const [menuStates, setMenuStates] = useState({});
   const { restaurant } = route.params;
 
-  const breakfast = createIcon(BreakfastIcon);
-  const lunch = createIcon(LunchIcon);
-  const dinner = createIcon(DinnerIcon);
-  const drinks = createIcon(DrinksIcon);
+  const mockSelector = restaurant.place_id.slice(0, -2);
+  const cityMenu = menuMocks[mockSelector];
+  const menuObject = cityMenu.filter(
+    (menu) => menu.place_id === restaurant.place_id
+  );
+  const restaurantMenu = menuObject[0].restaurant_menu;
+
+  const handlePress = (title) => {
+    const isExpanded = menuStates[title] || false;
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+    setMenuStates({ ...menuStates, [title]: !isExpanded });
+  };
+
+  const list = restaurantMenu.map((item) => {
+    const title = item.title;
+    const expanded = menuStates[title] || false;
+    return (
+      <ListTitle
+        key={`${item.icon} - ${item.menu[0][1]}`}
+        title={title}
+        left={createIcon(`${item.icon}`)}
+        expanded={expanded}
+        onPress={() => handlePress(title)}
+      >
+        {item.menu.map((food) => {
+          return (
+            <TouchableOpacity key={`${food[0]} - ${food[1]}`}>
+              <FoodContainer>
+                <FoodText variant="lightCaption">{food[0]}</FoodText>
+                <FoodText variant="lightCaption">{food[1]} €</FoodText>
+              </FoodContainer>
+            </TouchableOpacity>
+          );
+        })}
+      </ListTitle>
+    );
+  });
 
   return (
     <SafeArea>
       <RestaurantInfoCard restaurant={restaurant} />
-      <DetailsContainer>
-        <ListTitle
-          title="Breakfast"
-          left={breakfast}
-          expanded={breakfastExpanded}
-          onPress={() => setBreakfastExpanded(!breakfastExpanded)}
-        >
-          <List.Item title="Eggs Benedict" />
-          <List.Item title="Classic Breakfast" />
-          <List.Item title="Ham & Eggs" />
-          <List.Item title="Greek Breakfast" />
-        </ListTitle>
-
-        <ListTitle
-          title="Lunch"
-          left={lunch}
-          expanded={lunchExpanded}
-          onPress={() => setLunchExpanded(!lunchExpanded)}
-        >
-          <List.Item title="Steak Sandwich" />
-          <List.Item title="Mushroom Soup" />
-          <List.Item title="Mangalica Burger w/ French Fries" />
-        </ListTitle>
-
-        <ListTitle
-          title="Dinner"
-          left={dinner}
-          expanded={dinnerExpanded}
-          onPress={() => setDinnerExpanded(!dinnerExpanded)}
-        >
-          <List.Item title="Spaghetti Bolognese" />
-          <List.Item title="Veal Cutlet with Chicken Mushroom" />
-          <List.Item title="Steak Frites" />
-          <List.Item title="Fisherman's Soup" />
-        </ListTitle>
-
-        <ListTitle
-          title="Drinks"
-          left={drinks}
-          expanded={drinksExpanded}
-          onPress={() => setDrinksExpanded(!drinksExpanded)}
-        >
-          <List.Item title="Coffee" />
-          <List.Item title="Tea" />
-          <List.Item title="Coca-Cola Classic" />
-          <List.Item title="Coca-Cola Zero" />
-          <List.Item title="Fanta" />
-          <List.Item title="Sprite" />
-        </ListTitle>
-      </DetailsContainer>
+      <DetailsContainer>{list}</DetailsContainer>
     </SafeArea>
   );
 };
