@@ -15,6 +15,14 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { Alert } from "react-native";
+import {
+  getBytes,
+  getDownloadURL,
+  getStorage,
+  ref,
+  uploadBytes,
+} from "firebase/storage";
+import { manipulateAsync } from "expo-image-manipulator";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDmfc3QRM3nHNMO6SHCthlm8p3dr5UcF3g",
@@ -118,4 +126,24 @@ export const signOutUser = async () => {
 
 export const addAddressToUser = async (address) => {
   await createUserDocumentFromAuth(auth.currentUser, { address });
+};
+
+const storage = getStorage();
+
+export const storeImage = async (imageUri, imageUrl) => {
+  const response = await fetch(imageUri);
+  const blob = await response.blob();
+  const storageRef = ref(storage, imageUrl);
+  const metadata = {
+    contentType: "image/jpeg",
+  };
+  uploadBytes(storageRef, blob, metadata).then((snapshot) => {
+    console.log("File uploaded.");
+  });
+};
+
+export const loadStoredImage = async (imageUrl) => {
+  const storageRef = ref(storage, imageUrl);
+  const url = await getDownloadURL(storageRef, 500);
+  return url;
 };

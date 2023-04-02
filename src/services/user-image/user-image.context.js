@@ -2,6 +2,11 @@ import React, { createContext, useState, useCallback } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useFocusEffect } from "@react-navigation/native";
 import { Alert } from "react-native";
+import {
+  loadStoredImage,
+  storeImage,
+} from "../firebase/firebase-config.service";
+import { manipulateAsync } from "expo-image-manipulator";
 
 export const UserImageContext = createContext();
 
@@ -10,19 +15,13 @@ export const UserImageContextProvider = ({ children }) => {
 
   const saveImage = async (image, user) => {
     try {
-      const savePic = image;
-      await AsyncStorage.setItem(`${user}-photo`, savePic);
-    } catch (error) {
-      Alert.alert("Error", "An error happened during saving process.", [
-        { text: "OK" },
-      ]);
-    }
-  };
-
-  const saveImageFromUpload = async (image, user) => {
-    try {
-      const saveUploadPic = image.assets[0].uri;
-      await AsyncStorage.setItem(`${user}-photo`, saveUploadPic);
+      const userId = user;
+      const { uri } = await manipulateAsync(
+        image,
+        [{ resize: { width: 500 } }],
+        { format: "jpeg" }
+      );
+      storeImage(uri, `users/${userId}/profile.jpg`);
     } catch (error) {
       Alert.alert("Error", "An error happened during saving process.", [
         { text: "OK" },
@@ -31,26 +30,20 @@ export const UserImageContextProvider = ({ children }) => {
   };
 
   const loadImage = async (user) => {
-    try {
-      const image = await AsyncStorage.getItem(`${user}-photo`);
-      if (image !== null) {
-        setUserImage(image);
-        return userImage;
-      }
-    } catch (error) {
-      Alert.alert("Error", "An error happened during loading process.", [
-        { text: "OK" },
-      ]);
-    }
+    const imageUrl = `users/${user}/profile.jpg`;
+    const url = await loadStoredImage(imageUrl);
+    setUserImage(url);
   };
 
   const useLoadImage = (uid) => {
     useFocusEffect(
       useCallback(() => {
-        const getProfilePicture = async (user) => {
-          await loadImage(user);
-        };
-        getProfilePicture(uid);
+        if (uid) {
+          const getProfilePicture = async (user) => {
+            await loadImage(user);
+          };
+          getProfilePicture(uid);
+        }
       }, [uid])
     );
   };
@@ -61,7 +54,6 @@ export const UserImageContextProvider = ({ children }) => {
         userImage,
         loadImage,
         saveImage,
-        saveImageFromUpload,
         useLoadImage,
       }}
     >

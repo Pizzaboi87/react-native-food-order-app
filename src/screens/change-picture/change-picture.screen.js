@@ -13,7 +13,7 @@ import {
 
 export const ChangePictureScreen = ({ navigation }) => {
   const { uid } = useContext(AuthenticationContext);
-  const { saveImageFromUpload } = useContext(UserImageContext);
+  const { saveImage } = useContext(UserImageContext);
   const [status, requestPermission] = ImagePicker.useMediaLibraryPermissions();
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export const ChangePictureScreen = ({ navigation }) => {
     });
 
     if (!result.canceled) {
-      await saveImageFromUpload(result, uid);
+      await saveImage(result.assets[0].uri, uid);
       navigation.navigate("My Settings");
     } else {
       Alert.alert("Error", "You didn't choose any photo", [{ text: "OK" }]);
