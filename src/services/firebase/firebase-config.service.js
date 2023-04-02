@@ -1,4 +1,6 @@
+import { Alert } from "react-native";
 import { initializeApp } from "firebase/app";
+import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 import {
   getFirestore,
   doc,
@@ -14,15 +16,6 @@ import {
   sendEmailVerification,
   updateProfile,
 } from "firebase/auth";
-import { Alert } from "react-native";
-import {
-  getBytes,
-  getDownloadURL,
-  getStorage,
-  ref,
-  uploadBytes,
-} from "firebase/storage";
-import { manipulateAsync } from "expo-image-manipulator";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDmfc3QRM3nHNMO6SHCthlm8p3dr5UcF3g",

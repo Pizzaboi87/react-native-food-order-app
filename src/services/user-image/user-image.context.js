@@ -1,12 +1,11 @@
 import React, { createContext, useState, useCallback } from "react";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useFocusEffect } from "@react-navigation/native";
+import { manipulateAsync } from "expo-image-manipulator";
 import { Alert } from "react-native";
 import {
   loadStoredImage,
   storeImage,
 } from "../firebase/firebase-config.service";
-import { manipulateAsync } from "expo-image-manipulator";
 
 export const UserImageContext = createContext();
 
