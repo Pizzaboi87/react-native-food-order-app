@@ -15,6 +15,7 @@ import {
   createIcon,
   ListTitle,
 } from "./restaurant-details.styles";
+import { theme } from "../../infrastructure/theme";
 
 export const RestaurantDetailsScreen = ({ route }) => {
   if (Platform.OS === "android") {
@@ -47,6 +48,7 @@ export const RestaurantDetailsScreen = ({ route }) => {
         left={createIcon(`${item.icon}`)}
         expanded={expanded}
         onPress={() => handlePress(title)}
+        theme={theme}
       >
         {item.menu.map((food) => {
           return (

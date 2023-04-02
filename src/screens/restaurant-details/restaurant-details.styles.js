@@ -13,12 +13,10 @@ export const ListTitle = styled(List.Accordion).attrs({
     color: theme.colors.ui.quaternary,
     fontWeight: "bold",
   },
-  touchableProps: { activeOpacity: 1 },
 })`
   background-color: ${(props) => props.theme.colors.ui.title};
   padding-left: ${(props) => props.theme.space[3]};
   border: 1px solid white;
-  box-shadow: none;
 `;
 
 export const MenuIcon = styled(List.Icon).attrs({

@@ -30,4 +30,7 @@ export const colors = {
     error: "#D0421B",
     success: "#138000",
   },
+  onSurface: "#f65b1e",
+  primary: "#f65b1e",
+  text: "#f65b1e",
 };
