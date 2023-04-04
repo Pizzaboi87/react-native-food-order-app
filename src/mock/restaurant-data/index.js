@@ -11,3 +11,11 @@ export const restaurantMocks = {
   "37.7749295,-122.4194155": san_francisco,
   "48.2261059,22.07865983": kisvarda,
 };
+
+export const restaurantData = {
+  antwerp: antwerp,
+  toronto: toronto,
+  chicago: chicago,
+  san_francisco: san_francisco,
+  kisvarda: kisvarda,
+};

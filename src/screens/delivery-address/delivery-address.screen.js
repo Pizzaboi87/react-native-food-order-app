@@ -26,7 +26,7 @@ export const DeliveryAddressScreen = () => {
 
   useEffect(() => {
     async function fetchUserData() {
-      const userData = await getUserData();
+      const userData = await getUserData("address");
       if (userData) {
         setAddress(userData);
       }

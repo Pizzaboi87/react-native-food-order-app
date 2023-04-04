@@ -1,4 +1,3 @@
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { AuthenticationContext } from "../authentication/authentication.context";
 import React, {
   createContext,
@@ -7,6 +6,12 @@ import React, {
   useContext,
   useCallback,
 } from "react";
+import {
+  addFavouriteToUser,
+  getRestaurant,
+  getUserData,
+  removeFavouriteFromUser,
+} from "../firebase/firebase-config.service";
 
 export const FavouritesContext = createContext();
 
@@ -14,49 +19,40 @@ export const FavouritesContextProvider = ({ children }) => {
   const { currentUser } = useContext(AuthenticationContext);
   const [favourites, setFavourites] = useState([]);
 
-  const saveFavourites = async (value, uid) => {
-    try {
-      const jsonValue = JSON.stringify(value);
-      await AsyncStorage.setItem(`@favourites-${uid}`, jsonValue);
-    } catch (error) {
-      console.log("error while saving", error);
-    }
-  };
+  const addFavourite = useCallback(
+    (restaurant) => {
+      addFavouriteToUser(restaurant.place_id);
+    },
+    [currentUser]
+  );
 
-  const loadFavourites = async (uid) => {
-    try {
-      const value = await AsyncStorage.getItem(`@favourites-${uid}`);
-      if (value !== null) {
-        setFavourites(JSON.parse(value));
+  const removeFavourite = useCallback(
+    (restaurant) => {
+      removeFavouriteFromUser(restaurant.place_id);
+    },
+    [currentUser]
+  );
+
+  useEffect(() => {
+    const fetchFavourites = async () => {
+      if (currentUser) {
+        const userData = await getUserData("favourites");
+        if (userData.length) {
+          const filteredRestaurants = [];
+          for (const element of userData) {
+            try {
+              const data = await getRestaurant(element.slice(0, -2), element);
+              filteredRestaurants.push(data);
+            } catch (error) {
+              console.error(error);
+            }
+          }
+          setFavourites(filteredRestaurants);
+        }
       }
-    } catch (error) {
-      console.log("error while loading", error);
-    }
-  };
-
-  const addFavourite = useCallback((restaurant) => {
-    setFavourites((prevFavourites) => [...prevFavourites, restaurant]);
-  }, []);
-
-  const removeFavourite = useCallback((restaurant) => {
-    setFavourites((prevFavourites) =>
-      prevFavourites.filter(
-        (favourite) => favourite.place_id !== restaurant.place_id
-      )
-    );
-  }, []);
-
-  useEffect(() => {
-    if (currentUser) {
-      loadFavourites(currentUser.uid);
-    }
-  }, [currentUser]);
-
-  useEffect(() => {
-    if (currentUser) {
-      saveFavourites(favourites, currentUser.uid);
-    }
-  }, [favourites, currentUser]);
+    };
+    fetchFavourites();
+  }, [currentUser, favourites]);
 
   return (
     <FavouritesContext.Provider

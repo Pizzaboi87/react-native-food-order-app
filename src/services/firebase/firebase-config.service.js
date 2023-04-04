@@ -7,6 +7,8 @@ import {
   getDoc,
   setDoc,
   updateDoc,
+  arrayUnion,
+  arrayRemove,
 } from "firebase/firestore";
 import {
   getAuth,
@@ -16,10 +18,13 @@ import {
   sendEmailVerification,
   updateProfile,
 } from "firebase/auth";
+import { getDatabase, get, ref as rtdbref, child } from "firebase/database";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDmfc3QRM3nHNMO6SHCthlm8p3dr5UcF3g",
   authDomain: "mealstogo-2680a.firebaseapp.com",
+  databaseURL:
+    "https://mealstogo-2680a-default-rtdb.europe-west1.firebasedatabase.app/",
   projectId: "mealstogo-2680a",
   storageBucket: "mealstogo-2680a.appspot.com",
   messagingSenderId: "1035111378933",
@@ -27,11 +32,11 @@ const firebaseConfig = {
 };
 
 initializeApp(firebaseConfig);
-const db = getFirestore();
-
+export const db = getFirestore();
 export const auth = getAuth();
+const storage = getStorage();
 
-export const createUserDocumentFromAuth = async (
+export const editUserDocument = async (
   userAuth,
   additionalInformation = {}
 ) => {
@@ -45,50 +50,29 @@ export const createUserDocumentFromAuth = async (
     const { displayName, email } = userAuth;
     const createdAt = new Date();
 
-    try {
-      await setDoc(userDocRef, {
-        displayName,
-        email,
-        createdAt,
-        ...additionalInformation,
-      }).then(
-        Alert.alert(
-          "Successful Modification",
-          "Your details has been added to your account."
-        )
-      );
-    } catch (error) {
-      Alert.alert("Error", "Oops.. Something went wrong..");
-      console.log("error during create the user", error);
-    }
+    await setDoc(userDocRef, {
+      displayName,
+      email,
+      createdAt,
+      ...additionalInformation,
+    });
   } else {
-    try {
-      await updateDoc(userDocRef, {
-        ...additionalInformation,
-      }).then(
-        Alert.alert(
-          "Successful Modification",
-          "Your details has been modified on your account."
-        )
-      );
-    } catch (error) {
-      Alert.alert("Error", "Oops.. Something went wrong.");
-      console.log("error during the update", error);
-    }
+    await updateDoc(userDocRef, {
+      ...additionalInformation,
+    });
   }
-
   return userSnapShot;
 };
 
-export const getUserData = async () => {
+export const getUserData = async (data) => {
   const userDocRef = doc(db, "users", auth.currentUser.uid);
   const userSnapShot = await getDoc(userDocRef);
 
   if (userSnapShot.exists()) {
-    const savedAddress = userSnapShot.data().address;
-    return savedAddress;
+    const userData = userSnapShot.data()[data];
+    return userData;
   } else {
-    console.log("User didn't set-up address in database.");
+    return;
   }
 };
 
@@ -118,10 +102,18 @@ export const signOutUser = async () => {
 };
 
 export const addAddressToUser = async (address) => {
-  await createUserDocumentFromAuth(auth.currentUser, { address });
+  try {
+    await editUserDocument(auth.currentUser, { address }).then(
+      Alert.alert(
+        "Successful Modification",
+        "Your details has been added to your account."
+      )
+    );
+  } catch (error) {
+    Alert.alert("Error", "Oops.. Something went wrong.");
+    console.log(error);
+  }
 };
-
-const storage = getStorage();
 
 export const storeImage = async (imageUri, imageUrl) => {
   const response = await fetch(imageUri);
@@ -130,13 +122,65 @@ export const storeImage = async (imageUri, imageUrl) => {
   const metadata = {
     contentType: "image/jpeg",
   };
-  uploadBytes(storageRef, blob, metadata).then((snapshot) => {
-    console.log("File uploaded.");
+  uploadBytes(storageRef, blob, metadata).then(() => {
+    Alert.alert(
+      "Upload Successfull",
+      "Your profile photo has been uploaded, it may take some time, to update."
+    );
   });
 };
 
 export const loadStoredImage = async (imageUrl) => {
   const storageRef = ref(storage, imageUrl);
-  const url = await getDownloadURL(storageRef, 500);
-  return url;
+  try {
+    const url = await getDownloadURL(storageRef, 500);
+    return url;
+  } catch (error) {
+    return;
+  }
+};
+
+export const addFavouriteToUser = async (favourite) => {
+  editUserDocument(auth.currentUser, {
+    favourites: arrayUnion(favourite),
+  });
+};
+
+export const removeFavouriteFromUser = async (value) => {
+  try {
+    const listDocRef = doc(db, "users", auth.currentUser.uid);
+    const listSnapshot = await getDoc(listDocRef);
+    const index = listSnapshot.data().favourites.indexOf(value);
+
+    if (index > -1) {
+      await updateDoc(listDocRef, {
+        favourites: arrayRemove(index),
+      });
+
+      console.log("Az elem sikeresen eltávolítva a listából!");
+    } else {
+      console.log("Az elem nem található a listában!");
+    }
+  } catch (error) {
+    console.error("Hiba történt az elem eltávolítása során:", error);
+  }
+};
+
+export const getRestaurant = async (city, restaurantId) => {
+  try {
+    const dbRef = rtdbref(getDatabase());
+    const snapshot = await get(
+      child(dbRef, `restaurant/${city}/${restaurantId}`)
+    );
+    if (snapshot.exists()) {
+      const data = snapshot.val();
+      return data;
+    } else {
+      console.log("No data available");
+      return null;
+    }
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
 };
