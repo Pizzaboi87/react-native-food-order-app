@@ -20,15 +20,25 @@ export const FavouritesContextProvider = ({ children }) => {
   const [favourites, setFavourites] = useState([]);
 
   const addFavourite = useCallback(
-    (restaurant) => {
-      addFavouriteToUser(restaurant.place_id);
+    async (restaurant) => {
+      await addFavouriteToUser(restaurant.place_id);
+      const data = await getRestaurant(
+        restaurant.place_id.slice(0, -2),
+        restaurant.place_id
+      );
+      setFavourites([...favourites, data]);
     },
-    [currentUser]
+    [currentUser, favourites]
   );
 
   const removeFavourite = useCallback(
-    (restaurant) => {
-      removeFavouriteFromUser(restaurant.place_id);
+    async (restaurant) => {
+      await removeFavouriteFromUser(restaurant.place_id);
+      setFavourites((prevFavourites) =>
+        prevFavourites.filter(
+          (favourite) => favourite.place_id !== restaurant.place_id
+        )
+      );
     },
     [currentUser]
   );
@@ -52,7 +62,7 @@ export const FavouritesContextProvider = ({ children }) => {
       }
     };
     fetchFavourites();
-  }, [currentUser, favourites]);
+  }, [currentUser]);
 
   return (
     <FavouritesContext.Provider

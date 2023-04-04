@@ -150,19 +150,21 @@ export const removeFavouriteFromUser = async (value) => {
   try {
     const listDocRef = doc(db, "users", auth.currentUser.uid);
     const listSnapshot = await getDoc(listDocRef);
-    const index = listSnapshot.data().favourites.indexOf(value);
+    const favourites = listSnapshot.data().favourites;
+    const index = favourites.indexOf(value);
 
     if (index > -1) {
+      const updatedFavourites = [...favourites];
+      updatedFavourites.splice(index, 1);
       await updateDoc(listDocRef, {
-        favourites: arrayRemove(index),
+        favourites: updatedFavourites,
       });
-
-      console.log("Az elem sikeresen eltávolítva a listából!");
     } else {
-      console.log("Az elem nem található a listában!");
+      console.log("The element doesn't exist in the list.");
     }
   } catch (error) {
-    console.error("Hiba történt az elem eltávolítása során:", error);
+    Alert.alert("Error", "Oops.. Something went wrong.");
+    console.log("Error:", error);
   }
 };
 
