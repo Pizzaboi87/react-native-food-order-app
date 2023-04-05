@@ -26,7 +26,6 @@ export const MenuIcon = styled(List.Icon).attrs({
 
 export const FoodContainer = styled.View`
   width: 100%;
-  flex-direction: row;
   justify-content: space-between;
   border: 1px solid black;
   border-radius: ${(props) => props.theme.sizes[2]};
@@ -38,10 +37,25 @@ export const FoodContainer = styled.View`
 
 export const FoodText = styled(StyledText)`
   font-size: ${(props) => props.theme.sizes[3]};
-  padding-top: ${(props) => props.theme.space[1]};
+  padding-top: ${(props) => props.theme.space[0]};
   padding-bottom: ${(props) => props.theme.space[2]};
   margin-left: ${(props) => props.theme.space[3]};
   margin-right: ${(props) => props.theme.space[3]};
+`;
+
+export const DescriptionText = styled(StyledText)`
+  font-size: ${(props) => props.theme.sizes[2]};
+  margin-left: ${(props) => props.theme.space[3]};
+  margin-right: ${(props) => props.theme.space[3]};
+  text-align: justify;
+  font-style: italic;
+`;
+
+export const PriceText = styled(StyledText)`
+  font-size: ${(props) => props.theme.sizes[3]};
+  margin-right: ${(props) => props.theme.space[3]};
+  padding-bottom: ${(props) => props.theme.space[2]};
+  align-self: flex-end;
 `;
 
 export const createIcon = (icon) => (props) => {

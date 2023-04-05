@@ -16,6 +16,8 @@ import {
   createIcon,
   ListTitle,
   Loading,
+  DescriptionText,
+  PriceText,
 } from "./restaurant-details.styles";
 
 export const RestaurantDetailsScreen = ({ route }) => {
@@ -68,7 +70,10 @@ export const RestaurantDetailsScreen = ({ route }) => {
               <TouchableOpacity key={`${food.name} - ${food.price}`}>
                 <FoodContainer>
                   <FoodText variant="lightCaption">{food.name}</FoodText>
-                  <FoodText variant="lightCaption">{food.price} €</FoodText>
+                  <DescriptionText variant="lightCaption">
+                    {food.description}
+                  </DescriptionText>
+                  <PriceText variant="lightCaption">{food.price} €</PriceText>
                 </FoodContainer>
               </TouchableOpacity>
             );
