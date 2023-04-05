@@ -3,6 +3,7 @@ import styled from "styled-components/native";
 import { theme } from "../../infrastructure/theme";
 import { List } from "react-native-paper";
 import { StyledText } from "../../helpers/typography/text.helper";
+import { ActivityIndicator } from "react-native";
 
 export const DetailsContainer = styled.ScrollView`
   background-color: ${(props) => props.theme.colors.ui.background};
@@ -46,3 +47,9 @@ export const FoodText = styled(StyledText)`
 export const createIcon = (icon) => (props) => {
   return <MenuIcon {...props} icon={icon} />;
 };
+
+export const Loading = styled(ActivityIndicator).attrs({
+  animating: true,
+  color: theme.colors.ui.brand,
+  size: 50,
+})``;

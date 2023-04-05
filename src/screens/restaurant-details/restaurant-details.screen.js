@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import { menuMocks } from "../../mock/menu-data";
+import React, { useEffect, useState } from "react";
+import { theme } from "../../infrastructure/theme";
 import { SafeArea } from "../../helpers/safe-area/safe-area.helper";
+import { getDataFromDatabase } from "../../services/firebase/firebase-config.service";
 import { RestaurantInfoCard } from "../../components/restaurant-info-card/restaurant-info-card.component";
 import {
   TouchableOpacity,
@@ -14,8 +15,8 @@ import {
   FoodText,
   createIcon,
   ListTitle,
+  Loading,
 } from "./restaurant-details.styles";
-import { theme } from "../../infrastructure/theme";
 
 export const RestaurantDetailsScreen = ({ route }) => {
   if (Platform.OS === "android") {
@@ -23,51 +24,73 @@ export const RestaurantDetailsScreen = ({ route }) => {
   }
 
   const [menuStates, setMenuStates] = useState({});
+  const [restaurantMenu, setRestaurantMenu] = useState(null);
   const { restaurant } = route.params;
+  const { place_id } = restaurant;
 
-  const mockSelector = restaurant.place_id.slice(0, -2);
-  const cityMenu = menuMocks[mockSelector];
-  const menuObject = cityMenu.filter(
-    (menu) => menu.place_id === restaurant.place_id
-  );
-  const restaurantMenu = menuObject[0].restaurant_menu;
+  useEffect(() => {
+    const fetchMenu = async () => {
+      try {
+        const menu = await getDataFromDatabase(
+          "menu",
+          place_id.slice(0, -2),
+          place_id
+        );
+        setRestaurantMenu(menu);
+      } catch (error) {
+        console.log("error", error);
+      }
+    };
+    fetchMenu();
+  }, [place_id]);
 
-  const handlePress = (title) => {
-    const isExpanded = menuStates[title] || false;
-    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
-    setMenuStates({ ...menuStates, [title]: !isExpanded });
-  };
+  if (restaurantMenu) {
+    const handlePress = (title) => {
+      const isExpanded = menuStates[title] || false;
+      LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+      setMenuStates({ ...menuStates, [title]: !isExpanded });
+    };
 
-  const list = restaurantMenu.map((item) => {
-    const title = item.title;
-    const expanded = menuStates[title] || false;
+    const list = restaurantMenu.restaurant_menu.map((item) => {
+      const title = item.title;
+      const expanded = menuStates[title] || false;
+      return (
+        <ListTitle
+          key={`${item.icon} - ${item.menu[0].price}`}
+          title={title}
+          left={createIcon(`${item.icon}`)}
+          expanded={expanded}
+          onPress={() => handlePress(title)}
+          theme={theme}
+        >
+          {item.menu.map((food) => {
+            return (
+              <TouchableOpacity key={`${food.name} - ${food.price}`}>
+                <FoodContainer>
+                  <FoodText variant="lightCaption">{food.name}</FoodText>
+                  <FoodText variant="lightCaption">{food.price} €</FoodText>
+                </FoodContainer>
+              </TouchableOpacity>
+            );
+          })}
+        </ListTitle>
+      );
+    });
+
     return (
-      <ListTitle
-        key={`${item.icon} - ${item.menu[0][1]}`}
-        title={title}
-        left={createIcon(`${item.icon}`)}
-        expanded={expanded}
-        onPress={() => handlePress(title)}
-        theme={theme}
-      >
-        {item.menu.map((food) => {
-          return (
-            <TouchableOpacity key={`${food[0]} - ${food[1]}`}>
-              <FoodContainer>
-                <FoodText variant="lightCaption">{food[0]}</FoodText>
-                <FoodText variant="lightCaption">{food[1]} €</FoodText>
-              </FoodContainer>
-            </TouchableOpacity>
-          );
-        })}
-      </ListTitle>
+      <SafeArea>
+        <RestaurantInfoCard restaurant={restaurant} />
+        <DetailsContainer>{list}</DetailsContainer>
+      </SafeArea>
     );
-  });
-
-  return (
-    <SafeArea>
-      <RestaurantInfoCard restaurant={restaurant} />
-      <DetailsContainer>{list}</DetailsContainer>
-    </SafeArea>
-  );
+  } else {
+    return (
+      <SafeArea>
+        <RestaurantInfoCard restaurant={restaurant} />
+        <DetailsContainer>
+          <Loading />
+        </DetailsContainer>
+      </SafeArea>
+    );
+  }
 };

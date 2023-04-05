@@ -168,11 +168,11 @@ export const removeFavouriteFromUser = async (value) => {
   }
 };
 
-export const getRestaurant = async (city, restaurantId) => {
+export const getDataFromDatabase = async (database, city, restaurantId) => {
   try {
     const dbRef = rtdbref(getDatabase());
     const snapshot = await get(
-      child(dbRef, `restaurant/${city}/${restaurantId}`)
+      child(dbRef, `${database}/${city}/${restaurantId}`)
     );
     if (snapshot.exists()) {
       const data = snapshot.val();

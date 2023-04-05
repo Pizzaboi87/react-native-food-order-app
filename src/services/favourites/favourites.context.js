@@ -8,7 +8,7 @@ import React, {
 } from "react";
 import {
   addFavouriteToUser,
-  getRestaurant,
+  getDataFromDatabase,
   getUserData,
   removeFavouriteFromUser,
 } from "../firebase/firebase-config.service";
@@ -22,7 +22,8 @@ export const FavouritesContextProvider = ({ children }) => {
   const addFavourite = useCallback(
     async (restaurant) => {
       await addFavouriteToUser(restaurant.place_id);
-      const data = await getRestaurant(
+      const data = await getDataFromDatabase(
+        "restaurant",
         restaurant.place_id.slice(0, -2),
         restaurant.place_id
       );
@@ -51,7 +52,11 @@ export const FavouritesContextProvider = ({ children }) => {
           const filteredRestaurants = [];
           for (const element of userData) {
             try {
-              const data = await getRestaurant(element.slice(0, -2), element);
+              const data = await getDataFromDatabase(
+                "restaurant",
+                element.slice(0, -2),
+                element
+              );
               filteredRestaurants.push(data);
             } catch (error) {
               console.error(error);
