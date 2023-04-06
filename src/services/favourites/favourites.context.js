@@ -29,20 +29,17 @@ export const FavouritesContextProvider = ({ children }) => {
       );
       setFavourites([...favourites, data]);
     },
-    [currentUser, favourites]
+    [favourites]
   );
 
-  const removeFavourite = useCallback(
-    async (restaurant) => {
-      await removeFavouriteFromUser(restaurant.place_id);
-      setFavourites((prevFavourites) =>
-        prevFavourites.filter(
-          (favourite) => favourite.place_id !== restaurant.place_id
-        )
-      );
-    },
-    [currentUser]
-  );
+  const removeFavourite = useCallback(async (restaurant) => {
+    await removeFavouriteFromUser(restaurant.place_id);
+    setFavourites((prevFavourites) =>
+      prevFavourites.filter(
+        (favourite) => favourite.place_id !== restaurant.place_id
+      )
+    );
+  }, []);
 
   useEffect(() => {
     const fetchFavourites = async () => {

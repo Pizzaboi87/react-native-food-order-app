@@ -1,9 +1,6 @@
 import React, { useState, createContext, useEffect, useContext } from "react";
 import { LocationContext } from "../location/location.context";
-import {
-  restaurantsRequest,
-  restaurantsTransform,
-} from "./restaurants.service";
+import { getDataFromDatabase } from "../firebase/firebase-config.service";
 
 export const RestaurantsContext = createContext();
 export const RestaurantsContextProvider = ({ children }) => {
@@ -12,12 +9,29 @@ export const RestaurantsContextProvider = ({ children }) => {
   const [error, setError] = useState(null);
   const { location } = useContext(LocationContext);
 
+  const restaurantsRequest = async (location) => {
+    console.log(location);
+    try {
+      const restaurantArray = [];
+      const allRestaurant = await getDataFromDatabase(
+        "restaurant",
+        "kisvarda",
+        ""
+      );
+      Object.keys(allRestaurant).forEach((key) => {
+        restaurantArray.push(allRestaurant[key]);
+      });
+      return restaurantArray;
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
+
   const retrieveRestaurants = (loc) => {
     setIsLoading(true);
     setRestaurants([]);
     setTimeout(() => {
       restaurantsRequest(loc)
-        .then(restaurantsTransform)
         .then((results) => {
           setError(null);
           setIsLoading(false);
@@ -31,10 +45,10 @@ export const RestaurantsContextProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    if (location) {
-      const locationString = `${location.lat},${location.lng}`;
-      retrieveRestaurants(locationString);
-    }
+    //if (location) {
+    //const locationString = `${location.lat},${location.lng}`;
+    retrieveRestaurants(location);
+    //}
   }, [location]);
 
   return (

@@ -8,7 +8,6 @@ import {
   setDoc,
   updateDoc,
   arrayUnion,
-  arrayRemove,
 } from "firebase/firestore";
 import {
   getAuth,
@@ -169,20 +168,22 @@ export const removeFavouriteFromUser = async (value) => {
 };
 
 export const getDataFromDatabase = async (database, city, restaurantId) => {
-  try {
-    const dbRef = rtdbref(getDatabase());
-    const snapshot = await get(
-      child(dbRef, `${database}/${city}/${restaurantId}`)
-    );
-    if (snapshot.exists()) {
-      const data = snapshot.val();
-      return data;
-    } else {
-      console.log("No data available");
+  if (auth.currentUser) {
+    try {
+      const dbRef = rtdbref(getDatabase());
+      const snapshot = await get(
+        child(dbRef, `${database}/${city}/${restaurantId}`)
+      );
+      if (snapshot.exists()) {
+        const data = snapshot.val();
+        return data;
+      } else {
+        console.log("No data available");
+        return null;
+      }
+    } catch (error) {
+      console.error(error);
       return null;
     }
-  } catch (error) {
-    console.error(error);
-    return null;
-  }
+  } else return;
 };
