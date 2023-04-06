@@ -26,16 +26,16 @@ const RestaurantMap = ({ navigation }) => {
   const { restaurants } = useContext(RestaurantsContext);
   const { useLoadImage } = useContext(UserImageContext);
   const { uid } = useContext(AuthenticationContext);
-  const { viewPort, lat, lng } = location;
+  const { viewport, lat, lng } = location;
   const [latDelta, setLatDelta] = useState(0);
 
   useEffect(() => {
-    const northeastLat = viewPort.northeast.lat;
-    const southwestLat = viewPort.southwest.lat;
+    const northeastLat = viewport.northeast.lat;
+    const southwestLat = viewport.southwest.lat;
 
     const newLatDelta = northeastLat - southwestLat;
     setLatDelta(newLatDelta);
-  }, [location, viewPort]);
+  }, [location, viewport]);
 
   useLoadImage(uid);
 
