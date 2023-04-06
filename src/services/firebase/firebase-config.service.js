@@ -17,7 +17,14 @@ import {
   sendEmailVerification,
   updateProfile,
 } from "firebase/auth";
-import { getDatabase, get, ref as rtdbref, child } from "firebase/database";
+import {
+  getDatabase,
+  get,
+  ref as rtdbref,
+  child,
+  orderByValue,
+  equalTo,
+} from "firebase/database";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDmfc3QRM3nHNMO6SHCthlm8p3dr5UcF3g",
@@ -186,4 +193,27 @@ export const getDataFromDatabase = async (database, city, restaurantId) => {
       return null;
     }
   } else return;
+};
+
+export const findBranchByValue = async (value) => {
+  if (auth.currentUser) {
+    try {
+      const dbRef = rtdbref(getDatabase());
+      const snapshot = await get(child(dbRef, "coordinates"));
+      if (snapshot.exists()) {
+        const branches = snapshot.val();
+        let result = null;
+        Object.keys(branches).forEach((branchKey) => {
+          const branch = branches[branchKey];
+          if (branch.location.lat === value) {
+            result = branchKey;
+          }
+        });
+        return result;
+      } else return null;
+    } catch (error) {
+      console.log("error:", error);
+      return null;
+    }
+  } else return null;
 };

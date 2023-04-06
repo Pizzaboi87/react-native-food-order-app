@@ -1,6 +1,9 @@
 import React, { useState, createContext, useEffect, useContext } from "react";
 import { LocationContext } from "../location/location.context";
-import { getDataFromDatabase } from "../firebase/firebase-config.service";
+import {
+  findBranchByValue,
+  getDataFromDatabase,
+} from "../firebase/firebase-config.service";
 
 export const RestaurantsContext = createContext();
 export const RestaurantsContextProvider = ({ children }) => {
@@ -10,12 +13,13 @@ export const RestaurantsContextProvider = ({ children }) => {
   const { location } = useContext(LocationContext);
 
   const restaurantsRequest = async (location) => {
-    console.log(location);
+    const cityName = await findBranchByValue(location.lat);
+    const searchableCityName = cityName.split(" ").join("_");
     try {
       const restaurantArray = [];
       const allRestaurant = await getDataFromDatabase(
         "restaurant",
-        "kisvarda",
+        `${searchableCityName}`,
         ""
       );
       Object.keys(allRestaurant).forEach((key) => {
@@ -30,25 +34,20 @@ export const RestaurantsContextProvider = ({ children }) => {
   const retrieveRestaurants = (loc) => {
     setIsLoading(true);
     setRestaurants([]);
-    setTimeout(() => {
-      restaurantsRequest(loc)
-        .then((results) => {
-          setError(null);
-          setIsLoading(false);
-          setRestaurants(results);
-        })
-        .catch((err) => {
-          setIsLoading(false);
-          setError(err);
-        });
-    }, 2000);
+    restaurantsRequest(loc)
+      .then((results) => {
+        setError(null);
+        setIsLoading(false);
+        setRestaurants(results);
+      })
+      .catch((err) => {
+        setIsLoading(false);
+        setError(err);
+      });
   };
 
   useEffect(() => {
-    //if (location) {
-    //const locationString = `${location.lat},${location.lng}`;
     retrieveRestaurants(location);
-    //}
   }, [location]);
 
   return (
