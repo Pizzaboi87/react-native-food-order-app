@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { ListOfRestaurants } from "../../components/restaurant-list/restaurant-list.component";
 import { FavouritesContext } from "../../services/favourites/favourites.context";
 import { FavouritesContainer } from "./favourites.styles";
+import { FadeInView } from "../../animations/fade.animation";
 import {
   GifContainer,
   GifMessage,
@@ -11,16 +12,18 @@ import {
 export const FavouritesScreen = ({ navigation }) => {
   const { favourites } = useContext(FavouritesContext);
 
-  return favourites.length ? (
+  return favourites ? (
     <FavouritesContainer>
       <ListOfRestaurants navigation={navigation} data={favourites} />
     </FavouritesContainer>
   ) : (
     <GifContainer>
-      <Gif source={require("../../../assets/nofavourite.gif")} />
-      <GifMessage variant="error">
-        You don't have any favourites yet.
-      </GifMessage>
+      <FadeInView>
+        <Gif source={require("../../../assets/nofavourite.gif")} />
+        <GifMessage variant="error">
+          You don't have any favourites yet.
+        </GifMessage>
+      </FadeInView>
     </GifContainer>
   );
 };

@@ -10,6 +10,7 @@ import { FavouritesBar } from "../../components/favourites-bar/favourites-bar.co
 import { ListOfRestaurants } from "../../components/restaurant-list/restaurant-list.component";
 import { AvatarImage } from "../../components/user-avatar/user-avatar.component";
 import { IndicatorContainer, Loading } from "./restaurants.styles";
+import { FadeInView } from "../../animations/fade.animation";
 import {
   Gif,
   GifContainer,
@@ -48,8 +49,12 @@ export const RestaurantsScreen = ({ navigation }) => {
         </IndicatorContainer>
       ) : !!error || !!locationError ? (
         <GifContainer>
-          <Gif source={require("../../../assets/error.gif")} />
-          <GifMessage variant="error">Oops... Something went wrong.</GifMessage>
+          <FadeInView>
+            <Gif source={require("../../../assets/error.gif")} />
+            <GifMessage variant="error">
+              Oops... Something went wrong.
+            </GifMessage>
+          </FadeInView>
         </GifContainer>
       ) : (
         <ListOfRestaurants navigation={navigation} data={restaurants} />

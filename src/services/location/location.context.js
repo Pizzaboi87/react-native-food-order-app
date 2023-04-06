@@ -5,7 +5,7 @@ export const LocationContext = createContext();
 export const LocationContextProvider = ({ children }) => {
   const [keyword, setKeyword] = useState("Kisvarda");
   const [location, setLocation] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
   const locationRequest = async (searchTerm) => {
@@ -29,19 +29,22 @@ export const LocationContextProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    if (!keyword.length) {
+    setError(null);
+    setIsLoading(true);
+
+    if (!keyword) {
       return;
     }
     locationRequest(keyword.toLowerCase())
       .then(locationTransform)
       .then((result) => {
         setError(null);
-        setIsLoading(false);
         setLocation(result);
+        setIsLoading(false);
       })
       .catch((err) => {
-        setIsLoading(false);
         setError(err);
+        setIsLoading(false);
       });
   }, [keyword]);
 

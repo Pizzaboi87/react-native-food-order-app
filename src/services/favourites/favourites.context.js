@@ -45,7 +45,7 @@ export const FavouritesContextProvider = ({ children }) => {
     const fetchFavourites = async () => {
       if (currentUser) {
         const userData = await getUserData("favourites");
-        if (userData.length) {
+        if (userData) {
           const filteredRestaurants = [];
           for (const element of userData) {
             try {

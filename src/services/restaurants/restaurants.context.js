@@ -14,7 +14,7 @@ import {
 export const RestaurantsContext = createContext();
 export const RestaurantsContextProvider = ({ children }) => {
   const [restaurants, setRestaurants] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const { location } = useContext(LocationContext);
 
@@ -38,17 +38,18 @@ export const RestaurantsContextProvider = ({ children }) => {
   };
 
   const retrieveRestaurants = useCallback((loc) => {
+    setError(null);
     setIsLoading(true);
     setRestaurants([]);
     restaurantsRequest(loc)
       .then((results) => {
         setError(null);
-        setIsLoading(false);
         setRestaurants(results);
+        setIsLoading(false);
       })
       .catch((err) => {
-        setIsLoading(false);
         setError(err);
+        setIsLoading(false);
       });
   }, []);
 
