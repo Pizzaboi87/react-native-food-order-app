@@ -17,14 +17,7 @@ import {
   sendEmailVerification,
   updateProfile,
 } from "firebase/auth";
-import {
-  getDatabase,
-  get,
-  ref as rtdbref,
-  child,
-  orderByValue,
-  equalTo,
-} from "firebase/database";
+import { getDatabase, get, ref as rtdbref, child } from "firebase/database";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDmfc3QRM3nHNMO6SHCthlm8p3dr5UcF3g",
@@ -192,7 +185,9 @@ export const getDataFromDatabase = async (database, city, restaurantId) => {
       console.error(error);
       return null;
     }
-  } else return;
+  } else {
+    return;
+  }
 };
 
 export const findBranchByValue = async (value) => {
@@ -210,10 +205,14 @@ export const findBranchByValue = async (value) => {
           }
         });
         return result;
-      } else return null;
+      } else {
+        return null;
+      }
     } catch (error) {
       console.log("error:", error);
       return null;
     }
-  } else return null;
+  } else {
+    return null;
+  }
 };

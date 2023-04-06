@@ -1,4 +1,10 @@
-import React, { useState, createContext, useEffect, useContext } from "react";
+import React, {
+  useState,
+  createContext,
+  useEffect,
+  useContext,
+  useCallback,
+} from "react";
 import { LocationContext } from "../location/location.context";
 import {
   findBranchByValue,
@@ -12,8 +18,8 @@ export const RestaurantsContextProvider = ({ children }) => {
   const [error, setError] = useState(null);
   const { location } = useContext(LocationContext);
 
-  const restaurantsRequest = async (location) => {
-    const cityName = await findBranchByValue(location.lat);
+  const restaurantsRequest = async (locData) => {
+    const cityName = await findBranchByValue(locData.lat);
     const searchableCityName = cityName.split(" ").join("_");
     try {
       const restaurantArray = [];
@@ -26,12 +32,12 @@ export const RestaurantsContextProvider = ({ children }) => {
         restaurantArray.push(allRestaurant[key]);
       });
       return restaurantArray;
-    } catch (error) {
-      console.log("error", error);
+    } catch (err) {
+      console.log("error", err);
     }
   };
 
-  const retrieveRestaurants = (loc) => {
+  const retrieveRestaurants = useCallback((loc) => {
     setIsLoading(true);
     setRestaurants([]);
     restaurantsRequest(loc)
@@ -44,11 +50,11 @@ export const RestaurantsContextProvider = ({ children }) => {
         setIsLoading(false);
         setError(err);
       });
-  };
+  }, []);
 
   useEffect(() => {
     retrieveRestaurants(location);
-  }, [location]);
+  }, [location, retrieveRestaurants]);
 
   return (
     <RestaurantsContext.Provider value={{ restaurants, isLoading, error }}>
