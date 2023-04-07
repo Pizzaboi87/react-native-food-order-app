@@ -19,7 +19,7 @@ export const AccountScreen = ({ navigation }) => {
           <WelcomeGif source={require("../../../assets/surprise.gif")} />
         </AnimationWrapper>
         <View>
-          <MainTitle variant="label">Meals-To-Go</MainTitle>
+          <MainTitle variant="label">Pizzaboi Order</MainTitle>
           <AccountContainer>
             <LoginButton onPress={() => navigation.navigate("Login")}>
               sign-in
