@@ -22,7 +22,7 @@ export const AccountCover = styled.View`
 
 export const AnimationWrapper = styled.View`
   padding: ${(props) => props.theme.space[0]};
-  margin-top: -50%;
+  margin-top: -30%;
 `;
 
 export const AccountContainer = styled.View`
@@ -35,6 +35,7 @@ export const AccountContainer = styled.View`
 export const MainTitle = styled(StyledText)`
   font-size: ${(props) => props.theme.fontSizes.h4};
   margin-bottom: ${(props) => props.theme.space[4]};
+  text-align: center;
 `;
 
 export const Title = styled(StyledText)`

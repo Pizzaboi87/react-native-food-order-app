@@ -2,11 +2,14 @@ import styled from "styled-components/native";
 import { Button, TextInput } from "react-native-paper";
 import { StyledText } from "../../helpers/typography/text.helper";
 
-export const Container = styled.View`
+export const Container = styled.ScrollView.attrs({
+  contentContainerStyle: {
+    alignItems: "center",
+    justifyContent: "center",
+  },
+})`
   flex: 1;
   background-color: ${(props) => props.theme.colors.ui.background};
-  align-items: center;
-  justify-content: center;
 `;
 
 export const Title = styled(StyledText)`
@@ -37,4 +40,5 @@ export const Submit = styled(Button).attrs({
   width: 300px;
   border-radius: ${(props) => props.theme.sizes[0]};
   padding: ${(props) => props.theme.space[1]};
+  margin-bottom: ${(props) => props.theme.space[4]};
 `;
