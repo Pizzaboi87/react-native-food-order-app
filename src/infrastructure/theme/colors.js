@@ -12,7 +12,7 @@ export const colors = {
     disabled: "#DEDEDE",
     error: "#D0421B",
     success: "#138000",
-    brand: "#f65b1e",
+    brand: "#f65b23",
     background: "#fcc8b4",
     title: "#faa483",
     card: "#fef1ed",
@@ -30,6 +30,6 @@ export const colors = {
     error: "#D0421B",
     success: "#138000",
   },
-  onSurface: "#f65b1e",
-  primary: "#f65b1e",
+  onSurface: "#f65b23",
+  primary: "#f65b23",
 };
