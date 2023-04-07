@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Platform } from "react-native";
+import { Platform, TouchableOpacity } from "react-native";
 import { theme } from "../../infrastructure/theme";
 import { Marker, Callout } from "react-native-maps";
 import { LocationContext } from "../../services/location/location.context";
@@ -43,7 +43,9 @@ const RestaurantMap = ({ navigation }) => {
     <MapContainer>
       <SearchContainerMap>
         <Search icon="map" />
-        <AvatarImage size={55} />
+        <TouchableOpacity onPress={() => console.log("clicked")}>
+          <AvatarImage size={55} />
+        </TouchableOpacity>
       </SearchContainerMap>
       <Map
         region={{
@@ -93,7 +95,9 @@ export const MapScreen = ({ navigation }) => {
       <MapContainer>
         <SearchContainerMap>
           <Search icon="map" />
-          <AvatarImage size={55} />
+          <TouchableOpacity onPress={() => console.log("clicked")}>
+            <AvatarImage size={55} />
+          </TouchableOpacity>
         </SearchContainerMap>
         <Map
           region={{

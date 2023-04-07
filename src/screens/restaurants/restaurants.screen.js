@@ -11,6 +11,7 @@ import { ListOfRestaurants } from "../../components/restaurant-list/restaurant-l
 import { AvatarImage } from "../../components/user-avatar/user-avatar.component";
 import { IndicatorContainer, Loading } from "./restaurants.styles";
 import { FadeInView } from "../../animations/fade.animation";
+import { TouchableOpacity } from "react-native";
 import {
   Gif,
   GifContainer,
@@ -40,7 +41,9 @@ export const RestaurantsScreen = ({ navigation }) => {
           onToggle={() => setIsToggled(!isToggled)}
           isToggled={isToggled}
         />
-        <AvatarImage size={55} />
+        <TouchableOpacity onPress={() => console.log("clicked")}>
+          <AvatarImage size={55} />
+        </TouchableOpacity>
       </SearchContainerRestaurant>
       {isToggled && <FavouritesBar onDetail={openDetails} />}
       {isLoading ? (
