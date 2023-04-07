@@ -7,20 +7,21 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MapScreen } from "../../screens/map/map.screen";
 import { RestaurantsNavigator } from "./restaurants.navigator";
 import { SettingsNavigator } from "./settings.navigator";
-import Ionicons from "@expo/vector-icons/Ionicons";
+import { MaterialIcons } from "@expo/vector-icons";
 import { theme } from "../theme";
 
 const TAB_ICON = {
-  Restaurants: "md-restaurant",
-  Map: "md-map",
-  Settings: "md-settings",
+  Restaurants: "local-restaurant",
+  Map: "map",
+  Cart: "shopping-basket",
+  Settings: "settings",
 };
 
 const createScreenOptions = ({ route }) => {
   const iconName = TAB_ICON[route.name];
   return {
-    tabBarIcon: ({ size, color }) => (
-      <Ionicons name={iconName} size={size} color={color} />
+    tabBarIcon: ({ color }) => (
+      <MaterialIcons name={iconName} size={32} color={color} />
     ),
     headerShown: false,
     tabBarActiveTintColor: theme.colors.ui.brand,
@@ -39,7 +40,14 @@ export const AppNavigator = () => {
             <Tab.Navigator screenOptions={createScreenOptions}>
               <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
               <Tab.Screen name="Map" component={MapScreen} />
-              <Tab.Screen name="Settings" component={SettingsNavigator} />
+              <Tab.Screen name="Cart" component={SettingsNavigator} />
+              <Tab.Screen
+                name="Settings"
+                component={SettingsNavigator}
+                options={{
+                  tabBarButton: () => null,
+                }}
+              />
             </Tab.Navigator>
           </RestaurantsContextProvider>
         </LocationContextProvider>

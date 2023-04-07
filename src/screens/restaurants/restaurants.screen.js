@@ -41,7 +41,7 @@ export const RestaurantsScreen = ({ navigation }) => {
           onToggle={() => setIsToggled(!isToggled)}
           isToggled={isToggled}
         />
-        <TouchableOpacity onPress={() => console.log("clicked")}>
+        <TouchableOpacity onPress={() => navigation.navigate("Settings")}>
           <AvatarImage size={55} />
         </TouchableOpacity>
       </SearchContainerRestaurant>

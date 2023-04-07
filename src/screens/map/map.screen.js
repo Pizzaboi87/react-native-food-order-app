@@ -43,7 +43,7 @@ const RestaurantMap = ({ navigation }) => {
     <MapContainer>
       <SearchContainerMap>
         <Search icon="map" />
-        <TouchableOpacity onPress={() => console.log("clicked")}>
+        <TouchableOpacity onPress={() => navigation.navigate("Settings")}>
           <AvatarImage size={55} />
         </TouchableOpacity>
       </SearchContainerMap>
@@ -95,7 +95,7 @@ export const MapScreen = ({ navigation }) => {
       <MapContainer>
         <SearchContainerMap>
           <Search icon="map" />
-          <TouchableOpacity onPress={() => console.log("clicked")}>
+          <TouchableOpacity onPress={() => navigation.navigate("Settings")}>
             <AvatarImage size={55} />
           </TouchableOpacity>
         </SearchContainerMap>
