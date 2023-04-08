@@ -1,7 +1,6 @@
 import React, { createContext, useState, useCallback } from "react";
 import { useFocusEffect } from "@react-navigation/native";
 import { manipulateAsync } from "expo-image-manipulator";
-import { Alert } from "react-native";
 import {
   loadStoredImage,
   storeImage,
@@ -12,7 +11,7 @@ export const UserImageContext = createContext();
 export const UserImageContextProvider = ({ children }) => {
   const [userImage, setUserImage] = useState(null);
 
-  const saveImage = async (image, user) => {
+  const saveImage = async (image, user, setDone, setError) => {
     try {
       const userId = user;
       const { uri } = await manipulateAsync(
@@ -21,10 +20,9 @@ export const UserImageContextProvider = ({ children }) => {
         { format: "jpeg" }
       );
       storeImage(uri, `users/${userId}/profile.jpg`);
+      setDone(true);
     } catch (error) {
-      Alert.alert("Error", "An error happened during saving process.", [
-        { text: "OK" },
-      ]);
+      setError(true);
     }
   };
 

@@ -60,25 +60,6 @@ export const DeliveryAddressScreen = ({ navigation }) => {
 
   return (
     <Container>
-      <DialogWindow
-        variant="go"
-        message="Please fill out every input field!"
-        visible={missingError}
-        setVisible={setMissingError}
-      />
-      <DialogWindow
-        variant="error"
-        message="Oops.. Something went wrong."
-        visible={addressWrong}
-        setVisible={setAddressWrong}
-      />
-      <DialogWindow
-        variant="done"
-        message={`Successful Modification,\nYour details has been added to your account.`}
-        visible={addressDone}
-        setVisible={setAddressDone}
-        navigation={navigation}
-      />
       <Gif source={require("../../../assets/wait.gif")} />
       <Title variant="title">Edit Your Delivery Address</Title>
       <View>
@@ -175,6 +156,25 @@ export const DeliveryAddressScreen = ({ navigation }) => {
         </RowView>
       </View>
       <Submit onPress={submitAddress}>Submit</Submit>
+      <DialogWindow
+        variant="go"
+        message="Please fill out every input field!"
+        visible={missingError}
+        setVisible={setMissingError}
+      />
+      <DialogWindow
+        variant="error"
+        message="Oops.. Something went wrong."
+        visible={addressWrong}
+        setVisible={setAddressWrong}
+      />
+      <DialogWindow
+        variant="done"
+        message={`Successful Modification,\nYour details has been added to your account.`}
+        visible={addressDone}
+        setVisible={setAddressDone}
+        navigation={navigation}
+      />
     </Container>
   );
 };

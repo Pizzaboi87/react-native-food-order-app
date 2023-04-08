@@ -84,31 +84,6 @@ export const PersonalDataScreen = ({ navigation }) => {
 
   return (
     <Container>
-      <DialogWindow
-        variant="go"
-        message="Please fill out every input field!"
-        visible={missingError}
-        setVisible={setMissingError}
-      />
-      <DialogWindow
-        variant="error"
-        message="The phone number is invalid."
-        visible={phoneError}
-        setVisible={setPhoneError}
-      />
-      <DialogWindow
-        variant="error"
-        message="Oops.. Something went wrong."
-        visible={personalError}
-        setVisible={setPersonalError}
-      />
-      <DialogWindow
-        variant="done"
-        message={`Successful Modification\nYour details has been added to your account.`}
-        visible={personalDone}
-        setVisible={setPersonalDone}
-        navigation={navigation}
-      />
       <CorrectedGif source={require("../../../assets/thinking.gif")} />
       <Title variant="title">Edit Your Personal Details</Title>
       <View>
@@ -167,6 +142,31 @@ export const PersonalDataScreen = ({ navigation }) => {
 
         <Submit onPress={submitPersonalData}>Submit</Submit>
       </View>
+      <DialogWindow
+        variant="go"
+        message="Please fill out every input field!"
+        visible={missingError}
+        setVisible={setMissingError}
+      />
+      <DialogWindow
+        variant="error"
+        message="The phone number is invalid."
+        visible={phoneError}
+        setVisible={setPhoneError}
+      />
+      <DialogWindow
+        variant="error"
+        message="Oops.. Something went wrong."
+        visible={personalError}
+        setVisible={setPersonalError}
+      />
+      <DialogWindow
+        variant="done"
+        message={`Successful Modification\nYour details has been added to your account.`}
+        visible={personalDone}
+        setVisible={setPersonalDone}
+        navigation={navigation}
+      />
     </Container>
   );
 };

@@ -16,6 +16,7 @@ export const ChangePictureScreen = ({ navigation }) => {
   const { saveImage } = useContext(UserImageContext);
   const [status, requestPermission] = ImagePicker.useMediaLibraryPermissions();
   const [photoError, setPhotoError] = useState(false);
+  const [photoDone, setPhotoDone] = useState(false);
 
   useEffect(() => {
     if (!status || status !== "granted") {
@@ -31,8 +32,7 @@ export const ChangePictureScreen = ({ navigation }) => {
     });
 
     if (!result.canceled) {
-      await saveImage(result.assets[0].uri, uid);
-      navigation.navigate("My Settings");
+      await saveImage(result.assets[0].uri, uid, setPhotoDone, setPhotoError);
     } else {
       setPhotoError(true);
     }
@@ -54,6 +54,20 @@ export const ChangePictureScreen = ({ navigation }) => {
         message="You didn't choose any photo."
         visible={photoError}
         setVisible={setPhotoError}
+      />
+      <DialogWindow
+        variant="error"
+        message="An error happened during saving process."
+        visible={photoError}
+        setVisible={setPhotoError}
+      />
+      <DialogWindow
+        variant="done"
+        message={`Upload Successful\nYour profile photo has been uploaded, it may take some time, to update.`}
+        visible={photoDone}
+        setVisible={setPhotoDone}
+        navigation={navigation}
+        whereTo="My Settings"
       />
     </PictureMenuContainer>
   );

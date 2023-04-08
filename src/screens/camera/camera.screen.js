@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect, useContext } from "react";
+import { DialogWindow } from "../../components/dialog-modal/dialog-modal.component";
 import { AuthenticationContext } from "../../services/authentication/authentication.context";
 import { UserImageContext } from "../../services/user-image/user-image.context";
 import { TouchableOpacity } from "react-native";
@@ -13,6 +14,8 @@ import {
 } from "./camera.styles";
 
 export const CameraScreen = ({ navigation }) => {
+  const [photoDone, setPhotoDone] = useState(false);
+  const [photoError, setPhotoError] = useState(false);
   const { uid } = useContext(AuthenticationContext);
   const { saveImage } = useContext(UserImageContext);
   const cameraRef = useRef();
@@ -34,8 +37,7 @@ export const CameraScreen = ({ navigation }) => {
   const takeAPicture = async () => {
     if (cameraRef) {
       const photo = await cameraRef.current.takePictureAsync();
-      await saveImage(photo.uri, uid);
-      navigation.navigate("My Settings");
+      await saveImage(photo.uri, uid, setPhotoDone, setPhotoError);
     }
   };
 
@@ -55,6 +57,20 @@ export const CameraScreen = ({ navigation }) => {
             </TouchableOpacity>
           </ButtonContainer>
         </ProfileCamera>
+        <DialogWindow
+          variant="error"
+          message="An error happened during saving process."
+          visible={photoError}
+          setVisible={setPhotoError}
+        />
+        <DialogWindow
+          variant="done"
+          message={`Upload Successful\nYour profile photo has been uploaded, it may take some time, to update.`}
+          visible={photoDone}
+          setVisible={setPhotoDone}
+          navigation={navigation}
+          whereTo="My Settings"
+        />
       </CameraScreenContainer>
     );
   } else {

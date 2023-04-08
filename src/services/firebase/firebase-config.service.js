@@ -122,12 +122,7 @@ export const storeImage = async (imageUri, imageUrl) => {
   const metadata = {
     contentType: "image/jpeg",
   };
-  uploadBytes(storageRef, blob, metadata).then(() => {
-    Alert.alert(
-      "Upload Successfull",
-      "Your profile photo has been uploaded, it may take some time, to update."
-    );
-  });
+  uploadBytes(storageRef, blob, metadata);
 };
 
 export const loadStoredImage = async (imageUrl) => {
@@ -163,7 +158,6 @@ export const removeFavouriteFromUser = async (value) => {
       console.log("The element doesn't exist in the list.");
     }
   } catch (error) {
-    Alert.alert("Error", "Oops.. Something went wrong.");
     console.log("Error:", error);
   }
 };

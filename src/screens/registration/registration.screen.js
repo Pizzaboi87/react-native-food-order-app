@@ -25,14 +25,6 @@ export const RegistrationScreen = ({ navigation }) => {
 
   return (
     <AccountBackground>
-      <DialogWindow
-        variant="go"
-        message={`Before we continue...\nPlease check your mailbox!`}
-        visible={checkEmail}
-        setVisible={setCheckEmail}
-        navigation={navigation}
-        whereTo="Main"
-      />
       <AccountCover>
         <AccountContainer>
           <Title>Sign-Up Your New Account</Title>
@@ -115,6 +107,14 @@ export const RegistrationScreen = ({ navigation }) => {
           </ButtonContainer>
         </AccountContainer>
       </AccountCover>
+      <DialogWindow
+        variant="go"
+        message={`Before we continue...\nPlease check your mailbox!`}
+        visible={checkEmail}
+        setVisible={setCheckEmail}
+        navigation={navigation}
+        whereTo="Main"
+      />
     </AccountBackground>
   );
 };
