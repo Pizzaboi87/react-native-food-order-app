@@ -19,11 +19,13 @@ import {
   OrdersIcon,
   ListContainer,
 } from "./settings.styles";
+import { DialogWindow } from "../../components/dialog-modal/dialog-modal.component";
 
 export const SettingsScreen = ({ navigation }) => {
   const { onSignOut, uid } = useContext(AuthenticationContext);
   const { useLoadImage } = useContext(UserImageContext);
   const [userName, setUserName] = useState("");
+  const [visible, setVisible] = useState(false);
 
   const heartIcon = createIcon(HeartIcon);
   const doorIcon = createIcon(DoorIcon);
@@ -80,12 +82,13 @@ export const SettingsScreen = ({ navigation }) => {
           title="Previous Orders"
           description="Check your previous orders"
           left={ordersIcon}
-          onPress={() =>
-            Alert.alert(
-              "Under Progress",
-              "This will be the Previous Orders menu."
-            )
-          }
+          onPress={() => setVisible(true)}
+        />
+        <DialogWindow
+          variant="wait"
+          message="This will be the previous orders menu"
+          visible={visible}
+          setVisible={setVisible}
         />
         <SettingsItem title="Logout" left={doorIcon} onPress={onSignOut} />
       </ListContainer>

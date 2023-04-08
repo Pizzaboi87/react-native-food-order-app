@@ -12,6 +12,7 @@ export const AuthenticationContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [error, setError] = useState(null);
   const [uid, setUid] = useState(null);
+  const [checkEmail, setCheckEmail] = useState(false);
 
   const onLogin = (email, password) => {
     setIsLoading(true);
@@ -34,13 +35,7 @@ export const AuthenticationContextProvider = ({ children }) => {
       });
   };
 
-  const onRegister = (
-    nickName,
-    email,
-    password,
-    repeatedPassword,
-    navigation
-  ) => {
+  const onRegister = (nickName, email, password, repeatedPassword) => {
     setIsLoading(true);
     if (password !== repeatedPassword) {
       setError("Passwords do not match.");
@@ -52,13 +47,8 @@ export const AuthenticationContextProvider = ({ children }) => {
           setCurrentUser(userCredential.user);
           setUid(userCredential.user.uid);
           setIsLoading(false);
+          setCheckEmail(true);
         })
-        .then(() =>
-          Alert.alert("Before we continue...", "Please check your mailbox", [
-            { text: "OK" },
-          ])
-        )
-        .then(() => navigation.navigate("Main"))
         .catch((err) => {
           setIsLoading(false);
           setError(err.message);
@@ -84,6 +74,8 @@ export const AuthenticationContextProvider = ({ children }) => {
         onLogin,
         onRegister,
         onSignOut,
+        checkEmail,
+        setCheckEmail,
       }}
     >
       {children}

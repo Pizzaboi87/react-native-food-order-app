@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Alert, View } from "react-native";
+import { View } from "react-native";
 import { Gif } from "../../helpers/gif-plus-text/gif-plus-text.helper";
 import {
   addAddressToUser,
@@ -12,8 +12,12 @@ import {
   RowView,
   Submit,
 } from "./delivery-address.styles";
+import { DialogWindow } from "../../components/dialog-modal/dialog-modal.component";
 
 export const DeliveryAddressScreen = ({ navigation }) => {
+  const [missingError, setMissingError] = useState(false);
+  const [addressDone, setAddressDone] = useState(false);
+  const [addressWrong, setAddressWrong] = useState(false);
   const [address, setAddress] = useState({
     city: "",
     zip: "",
@@ -36,10 +40,9 @@ export const DeliveryAddressScreen = ({ navigation }) => {
 
   const submitAddress = () => {
     if (Object.values(address).every((value) => value !== "")) {
-      addAddressToUser(address);
-      navigation.goBack();
+      addAddressToUser(address, setAddressDone, setAddressWrong);
     } else {
-      Alert.alert("Error", "You didn't fill out every input field!");
+      setMissingError(true);
     }
   };
 
@@ -57,6 +60,25 @@ export const DeliveryAddressScreen = ({ navigation }) => {
 
   return (
     <Container>
+      <DialogWindow
+        variant="go"
+        message="Please fill out every input field!"
+        visible={missingError}
+        setVisible={setMissingError}
+      />
+      <DialogWindow
+        variant="error"
+        message="Oops.. Something went wrong."
+        visible={addressWrong}
+        setVisible={setAddressWrong}
+      />
+      <DialogWindow
+        variant="done"
+        message={`Successful Modification,\nYour details has been added to your account.`}
+        visible={addressDone}
+        setVisible={setAddressDone}
+        navigation={navigation}
+      />
       <Gif source={require("../../../assets/wait.gif")} />
       <Title variant="title">Edit Your Delivery Address</Title>
       <View>

@@ -1,6 +1,6 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import * as ImagePicker from "expo-image-picker";
-import { Alert } from "react-native";
+import { DialogWindow } from "../../components/dialog-modal/dialog-modal.component";
 import { AuthenticationContext } from "../../services/authentication/authentication.context";
 import { UserImageContext } from "../../services/user-image/user-image.context";
 import {
@@ -15,6 +15,7 @@ export const ChangePictureScreen = ({ navigation }) => {
   const { uid } = useContext(AuthenticationContext);
   const { saveImage } = useContext(UserImageContext);
   const [status, requestPermission] = ImagePicker.useMediaLibraryPermissions();
+  const [photoError, setPhotoError] = useState(false);
 
   useEffect(() => {
     if (!status || status !== "granted") {
@@ -33,7 +34,7 @@ export const ChangePictureScreen = ({ navigation }) => {
       await saveImage(result.assets[0].uri, uid);
       navigation.navigate("My Settings");
     } else {
-      Alert.alert("Error", "You didn't choose any photo", [{ text: "OK" }]);
+      setPhotoError(true);
     }
   };
 
@@ -48,6 +49,12 @@ export const ChangePictureScreen = ({ navigation }) => {
       <UploadButton onPress={pickImageAsync}>
         <ButtonText variant="title">Upload</ButtonText>
       </UploadButton>
+      <DialogWindow
+        variant="error"
+        message="You didn't choose any photo."
+        visible={photoError}
+        setVisible={setPhotoError}
+      />
     </PictureMenuContainer>
   );
 };

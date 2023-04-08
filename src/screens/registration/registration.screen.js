@@ -13,11 +13,11 @@ import {
   ButtonContainer,
   Loading,
 } from "../account/account.styles";
+import { DialogWindow } from "../../components/dialog-modal/dialog-modal.component";
 
 export const RegistrationScreen = ({ navigation }) => {
-  const { onRegister, error, setError, isLoading } = useContext(
-    AuthenticationContext
-  );
+  const { onRegister, error, setError, isLoading, checkEmail, setCheckEmail } =
+    useContext(AuthenticationContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatedPassword, setRepeatedPassword] = useState("");
@@ -25,6 +25,14 @@ export const RegistrationScreen = ({ navigation }) => {
 
   return (
     <AccountBackground>
+      <DialogWindow
+        variant="go"
+        message={`Before we continue...\nPlease check your mailbox!`}
+        visible={checkEmail}
+        setVisible={setCheckEmail}
+        navigation={navigation}
+        whereTo="Main"
+      />
       <AccountCover>
         <AccountContainer>
           <Title>Sign-Up Your New Account</Title>

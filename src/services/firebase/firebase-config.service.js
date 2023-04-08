@@ -100,16 +100,17 @@ export const signOutUser = async () => {
   return await signOut(auth);
 };
 
-export const addAddressToUser = async (address) => {
+export const addAddressToUser = async (
+  address,
+  setAddressDone,
+  setAddressWrong
+) => {
   try {
     await editUserDocument(auth.currentUser, { address }).then(
-      Alert.alert(
-        "Successful Modification",
-        "Your details has been added to your account."
-      )
+      setAddressDone(true)
     );
   } catch (error) {
-    Alert.alert("Error", "Oops.. Something went wrong.");
+    setAddressWrong(true);
     console.log(error);
   }
 };
@@ -217,7 +218,11 @@ export const findBranchByValue = async (value) => {
   }
 };
 
-export const setUserPeronalData = async (personalData) => {
+export const setUserPersonalData = async (
+  personalData,
+  setPersonalDone,
+  setPersonalError
+) => {
   try {
     await editUserDocument(auth.currentUser, {
       displayName: personalData.nickName,
@@ -226,14 +231,9 @@ export const setUserPeronalData = async (personalData) => {
         lastName: personalData.lastName,
         phone: personalData.phone,
       },
-    }).then(
-      Alert.alert(
-        "Successful Modification",
-        "Your details has been added to your account."
-      )
-    );
+    }).then(setPersonalDone(true));
   } catch (error) {
-    Alert.alert("Error", "Oops.. Something went wrong.");
+    setPersonalError(true);
     console.log(error);
   }
 };

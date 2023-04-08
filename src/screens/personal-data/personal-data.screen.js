@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { View, Alert } from "react-native";
-import { useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { View } from "react-native";
+import { DialogWindow } from "../../components/dialog-modal/dialog-modal.component";
 import {
   Container,
   CorrectedGif,
@@ -10,12 +10,16 @@ import {
   Title,
 } from "./personal-data.styles";
 import {
-  setUserPeronalData,
+  setUserPersonalData,
   getUserData,
 } from "../../services/firebase/firebase-config.service";
 
 export const PersonalDataScreen = ({ navigation }) => {
   const phoneInput = useRef(null);
+  const [missingError, setMissingError] = useState(false);
+  const [phoneError, setPhoneError] = useState(false);
+  const [personalDone, setPersonalDone] = useState(false);
+  const [personalError, setPersonalError] = useState(false);
   const [personal, setPersonal] = useState({
     firstName: "",
     lastName: "",
@@ -70,17 +74,41 @@ export const PersonalDataScreen = ({ navigation }) => {
   const submitPersonalData = () => {
     const checkValid = phoneInput.current.isValidNumber(personal.phone);
     if (Object.values(personal).every((value) => value !== "") && checkValid) {
-      setUserPeronalData(personal);
-      navigation.goBack();
+      setUserPersonalData(personal, setPersonalDone, setPersonalError);
     } else if (!checkValid) {
-      Alert.alert("Error", "The phone number is invalid.");
+      setPhoneError(true);
     } else {
-      Alert.alert("Error", "You didn't fill out every input field!");
+      setMissingError(true);
     }
   };
 
   return (
     <Container>
+      <DialogWindow
+        variant="go"
+        message="Please fill out every input field!"
+        visible={missingError}
+        setVisible={setMissingError}
+      />
+      <DialogWindow
+        variant="error"
+        message="The phone number is invalid."
+        visible={phoneError}
+        setVisible={setPhoneError}
+      />
+      <DialogWindow
+        variant="error"
+        message="Oops.. Something went wrong."
+        visible={personalError}
+        setVisible={setPersonalError}
+      />
+      <DialogWindow
+        variant="done"
+        message={`Successful Modification\nYour details has been added to your account.`}
+        visible={personalDone}
+        setVisible={setPersonalDone}
+        navigation={navigation}
+      />
       <CorrectedGif source={require("../../../assets/thinking.gif")} />
       <Title variant="title">Edit Your Personal Details</Title>
       <View>
