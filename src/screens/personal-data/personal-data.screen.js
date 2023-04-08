@@ -162,7 +162,9 @@ export const PersonalDataScreen = ({ navigation }) => {
       />
       <DialogWindow
         variant="done"
-        message={`Successful Modification\nYour details has been added to your account.`}
+        message={
+          "Successful Modification\nYour details has been added to your account."
+        }
         visible={personalDone}
         setVisible={setPersonalDone}
         navigation={navigation}

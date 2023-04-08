@@ -109,7 +109,7 @@ export const RegistrationScreen = ({ navigation }) => {
       </AccountCover>
       <DialogWindow
         variant="go"
-        message={`Before we continue...\nPlease check your mailbox!`}
+        message={"Before we continue...\nPlease check your mailbox!"}
         visible={checkEmail}
         setVisible={setCheckEmail}
         navigation={navigation}

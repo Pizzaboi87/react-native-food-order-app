@@ -1,5 +1,5 @@
 import React, { useContext, useCallback, useState } from "react";
-import { Alert, TouchableOpacity } from "react-native";
+import { TouchableOpacity } from "react-native";
 import { AuthenticationContext } from "../../services/authentication/authentication.context";
 import { UserImageContext } from "../../services/user-image/user-image.context";
 import { SafeArea } from "../../helpers/safe-area/safe-area.helper";

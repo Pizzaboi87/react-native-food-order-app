@@ -1,5 +1,4 @@
 import React, { createContext, useState } from "react";
-import { Alert } from "react-native";
 import {
   signInWithEmail,
   registerWithEmail,

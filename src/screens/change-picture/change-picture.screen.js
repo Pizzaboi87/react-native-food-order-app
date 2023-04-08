@@ -63,7 +63,9 @@ export const ChangePictureScreen = ({ navigation }) => {
       />
       <DialogWindow
         variant="done"
-        message={`Upload Successful\nYour profile photo has been uploaded, it may take some time, to update.`}
+        message={
+          "Upload Successful\nYour profile photo has been uploaded, it may take some time, to update."
+        }
         visible={photoDone}
         setVisible={setPhotoDone}
         navigation={navigation}

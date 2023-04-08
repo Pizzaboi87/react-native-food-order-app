@@ -1,4 +1,3 @@
-import { Alert } from "react-native";
 import { initializeApp } from "firebase/app";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 import {
