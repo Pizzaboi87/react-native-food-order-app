@@ -41,7 +41,6 @@ const title = (theme) => `
   font-family: ${theme.fonts.body};
   font-size: ${theme.fontSizes.title};
   font-weight: ${theme.fontWeights.bold};
-
 `;
 
 const variants = {

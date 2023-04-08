@@ -19,6 +19,7 @@ import {
   DescriptionText,
   PriceText,
 } from "./restaurant-details.styles";
+import { FoodSelector } from "../../components/foodselector/foodselector.component";
 
 export const RestaurantDetailsScreen = ({ route }) => {
   if (Platform.OS === "android") {
@@ -26,6 +27,8 @@ export const RestaurantDetailsScreen = ({ route }) => {
   }
 
   const [menuStates, setMenuStates] = useState({});
+  const [foodModals, setFoodModals] = useState({});
+  const [quantity, setQuantity] = useState({});
   const [restaurantMenu, setRestaurantMenu] = useState(null);
   const { restaurant } = route.params;
   const { place_id } = restaurant;
@@ -47,10 +50,26 @@ export const RestaurantDetailsScreen = ({ route }) => {
   }, [place_id]);
 
   if (restaurantMenu) {
-    const handlePress = (title) => {
+    const handleCategory = (title) => {
       const isExpanded = menuStates[title] || false;
       LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
       setMenuStates({ ...menuStates, [title]: !isExpanded });
+    };
+
+    const handleProduct = (name) => {
+      const isSelected = foodModals[name] || false;
+      setFoodModals({ ...foodModals, [name]: !isSelected });
+    };
+
+    const add = (name) => {
+      const prevQuantity = quantity[name] || 0;
+      setQuantity({ ...quantity, [name]: prevQuantity + 1 });
+    };
+
+    const remove = (name) => {
+      const prevQuantity = quantity[name] || 0;
+      if (quantity[name] > 0)
+        setQuantity({ ...quantity, [name]: prevQuantity - 1 });
     };
 
     const list = restaurantMenu.restaurant_menu.map((item) => {
@@ -62,12 +81,16 @@ export const RestaurantDetailsScreen = ({ route }) => {
           title={title}
           left={createIcon(`${item.icon}`)}
           expanded={expanded}
-          onPress={() => handlePress(title)}
+          onPress={() => handleCategory(title)}
           theme={theme}
         >
           {item.menu.map((food) => {
+            const name = food.name;
             return (
-              <TouchableOpacity key={`${food.name} - ${food.price}`}>
+              <TouchableOpacity
+                onPress={() => handleProduct(name)}
+                key={`${food.name} - ${food.price}`}
+              >
                 <FoodContainer>
                   <FoodText variant="lightCaption">{food.name}</FoodText>
                   <DescriptionText variant="lightCaption">
@@ -75,6 +98,16 @@ export const RestaurantDetailsScreen = ({ route }) => {
                   </DescriptionText>
                   <PriceText variant="lightCaption">{food.price} €</PriceText>
                 </FoodContainer>
+                <FoodSelector
+                  visible={foodModals[name]}
+                  setVisible={() => handleProduct(name)}
+                  name={food.name}
+                  price={food.price}
+                  description={food.description}
+                  quantity={quantity[name] ? quantity[name] : 0}
+                  add={() => add(name)}
+                  remove={() => remove(name)}
+                />
               </TouchableOpacity>
             );
           })}
