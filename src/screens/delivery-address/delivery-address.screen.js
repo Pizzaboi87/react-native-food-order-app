@@ -13,7 +13,7 @@ import {
   Submit,
 } from "./delivery-address.styles";
 
-export const DeliveryAddressScreen = () => {
+export const DeliveryAddressScreen = ({ navigation }) => {
   const [address, setAddress] = useState({
     city: "",
     zip: "",
@@ -25,18 +25,19 @@ export const DeliveryAddressScreen = () => {
   });
 
   useEffect(() => {
-    async function fetchUserData() {
+    const fetchUserData = async () => {
       const userData = await getUserData("address");
       if (userData) {
         setAddress(userData);
       }
-    }
+    };
     fetchUserData();
   }, []);
 
   const submitAddress = () => {
     if (Object.values(address).every((value) => value !== "")) {
       addAddressToUser(address);
+      navigation.goBack();
     } else {
       Alert.alert("Error", "You didn't fill out every input field!");
     }
@@ -66,7 +67,7 @@ export const DeliveryAddressScreen = () => {
             name="city"
             value={address.city}
             textContentType="addressCity"
-            autoCapitalize="none"
+            autoCapitalize="words"
             autoComplete="off"
             keyboardType="email-address"
             onChangeText={(city) =>
@@ -78,7 +79,7 @@ export const DeliveryAddressScreen = () => {
             label="State"
             value={address.state}
             textContentType="addressState"
-            autoCapitalize="none"
+            autoCapitalize="characters"
             autoComplete="off"
             keyboardType="email-address"
             onChangeText={(state) =>
@@ -92,7 +93,7 @@ export const DeliveryAddressScreen = () => {
             label="ZIP"
             value={address.zip}
             textContentType="postalCode"
-            autoCapitalize="none"
+            autoCapitalize="characters"
             autoComplete="off"
             keyboardType="numeric"
             onChangeText={(zip) =>
@@ -104,7 +105,7 @@ export const DeliveryAddressScreen = () => {
             label="Street"
             value={address.street}
             textContentType="streetAddressLine1"
-            autoCapitalize="none"
+            autoCapitalize="sentences"
             autoComplete="off"
             keyboardType="email-address"
             onChangeText={(street) =>

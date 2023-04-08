@@ -216,3 +216,24 @@ export const findBranchByValue = async (value) => {
     return null;
   }
 };
+
+export const setUserPeronalData = async (personalData) => {
+  try {
+    await editUserDocument(auth.currentUser, {
+      displayName: personalData.nickName,
+      personalData: {
+        firstName: personalData.firstName,
+        lastName: personalData.lastName,
+        phone: personalData.phone,
+      },
+    }).then(
+      Alert.alert(
+        "Successful Modification",
+        "Your details has been added to your account."
+      )
+    );
+  } catch (error) {
+    Alert.alert("Error", "Oops.. Something went wrong.");
+    console.log(error);
+  }
+};

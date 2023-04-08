@@ -38,7 +38,7 @@ export const SettingsNavigator = () => {
         component={DeliveryAddressScreen}
       />
       <SettingsStack.Screen
-        name="Personal Data"
+        name="Personal Details"
         component={PersonalDataScreen}
       />
       <SettingsStack.Screen

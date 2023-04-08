@@ -55,7 +55,7 @@ export const RestaurantsScreen = ({ navigation }) => {
           <FadeInView>
             <Gif source={require("../../../assets/error.gif")} />
             <GifMessage variant="error">
-              Oops... Something went wrong.
+              It seems all food disappeared...
             </GifMessage>
           </FadeInView>
         </GifContainer>

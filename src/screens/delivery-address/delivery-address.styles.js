@@ -1,8 +1,9 @@
 import styled from "styled-components/native";
 import { Button, TextInput } from "react-native-paper";
 import { StyledText } from "../../helpers/typography/text.helper";
+import { ScrollView } from "react-native";
 
-export const Container = styled.ScrollView.attrs({
+export const Container = styled(ScrollView).attrs({
   contentContainerStyle: {
     alignItems: "center",
     justifyContent: "center",
