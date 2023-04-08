@@ -68,8 +68,9 @@ export const RestaurantDetailsScreen = ({ route }) => {
 
     const remove = (name) => {
       const prevQuantity = quantity[name] || 0;
-      if (quantity[name] > 0)
+      if (quantity[name] > 0) {
         setQuantity({ ...quantity, [name]: prevQuantity - 1 });
+      }
     };
 
     const list = restaurantMenu.restaurant_menu.map((item) => {
