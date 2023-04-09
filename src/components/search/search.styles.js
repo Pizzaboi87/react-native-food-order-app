@@ -11,7 +11,8 @@ export const SearchContainerRestaurant = styled.View`
 export const SearchContainerMap = styled(SearchContainerRestaurant)`
   position: absolute;
   z-index: 10;
-  top: 35px;
+  top: 33.5px;
+  padding: ${(props) => props.theme.space[3]};
   width: 100%;
 `;
 
