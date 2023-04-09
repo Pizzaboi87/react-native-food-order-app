@@ -6,6 +6,7 @@ import { theme } from "./src/infrastructure/theme";
 import { Provider } from "react-native-paper";
 import { useCustomFonts } from "./src/helpers/typography/useCustomFonts.helper";
 import { AuthenticationContextProvider } from "./src/services/authentication/authentication.context";
+import { CartContextProvider } from "./src/services/cart/cart.context";
 
 export default function App() {
   const fontsLoaded = useCustomFonts();
@@ -19,7 +20,9 @@ export default function App() {
       <ThemeProvider theme={theme}>
         <Provider>
           <AuthenticationContextProvider>
-            <Navigation />
+            <CartContextProvider>
+              <Navigation />
+            </CartContextProvider>
           </AuthenticationContextProvider>
         </Provider>
       </ThemeProvider>
