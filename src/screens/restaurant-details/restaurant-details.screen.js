@@ -73,6 +73,10 @@ export const RestaurantDetailsScreen = ({ route }) => {
       }
     };
 
+    const fullfilled = (name) => {
+      setQuantity({ ...quantity, [name]: 0 });
+    };
+
     const list = restaurantMenu.restaurant_menu.map((item) => {
       const title = item.title;
       const expanded = menuStates[title] || false;
@@ -105,9 +109,11 @@ export const RestaurantDetailsScreen = ({ route }) => {
                   name={food.name}
                   price={food.price}
                   description={food.description}
+                  id={restaurantMenu.place_id}
                   quantity={quantity[name] ? quantity[name] : 0}
-                  add={() => add(name)}
-                  remove={() => remove(name)}
+                  add={() => add(food.name)}
+                  remove={() => remove(food.name)}
+                  fullfilled={() => fullfilled(food.name)}
                 />
               </TouchableOpacity>
             );

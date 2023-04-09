@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Portal, Dialog } from "react-native-paper";
+import { CartContext } from "../../services/cart/cart.context";
+import { DialogWindow } from "../dialog-modal/dialog-modal.component";
 import {
   ControlContainer,
   ControlText,
@@ -11,6 +13,7 @@ import {
   MinusIcon,
   PlusIcon,
 } from "./foodselector.styles";
+import { useState } from "react";
 
 export const FoodSelector = ({
   visible,
@@ -21,8 +24,19 @@ export const FoodSelector = ({
   quantity,
   add,
   remove,
+  id,
+  fullfilled,
 }) => {
   const hideDialog = () => setVisible(false);
+  const { addToCart } = useContext(CartContext);
+  const [addedDone, setAddedDone] = useState(false);
+
+  const order = (id, name, price, quantity) => {
+    addToCart(id, name, price, quantity);
+    fullfilled();
+    setVisible(false);
+    setAddedDone(true);
+  };
 
   return (
     <Portal>
@@ -43,11 +57,20 @@ export const FoodSelector = ({
           <ControlButton onPress={add}>
             <PlusIcon />
           </ControlButton>
-          <CartButton disabled={quantity > 0 ? false : true}>
+          <CartButton
+            disabled={quantity > 0 ? false : true}
+            onPress={() => order(id, name, price, quantity)}
+          >
             Add To Cart - {price * quantity}€
           </CartButton>
         </ControlContainer>
       </DialogContainer>
+      <DialogWindow
+        variant="done"
+        message="The product has been added to the cart."
+        visible={addedDone}
+        setVisible={setAddedDone}
+      />
     </Portal>
   );
 };

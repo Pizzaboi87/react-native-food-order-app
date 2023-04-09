@@ -9,6 +9,7 @@ import { RestaurantsNavigator } from "./restaurants.navigator";
 import { SettingsNavigator } from "./settings.navigator";
 import { MaterialIcons } from "@expo/vector-icons";
 import { theme } from "../theme";
+import { CartContextProvider } from "../../services/cart/cart.context";
 
 const TAB_ICON = {
   Restaurants: "local-restaurant",
@@ -37,18 +38,23 @@ export const AppNavigator = () => {
       <FavouritesContextProvider>
         <LocationContextProvider>
           <RestaurantsContextProvider>
-            <Tab.Navigator screenOptions={createScreenOptions}>
-              <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
-              <Tab.Screen name="Map" component={MapScreen} />
-              <Tab.Screen name="Cart" component={SettingsNavigator} />
-              <Tab.Screen
-                name="Settings"
-                component={SettingsNavigator}
-                options={{
-                  tabBarButton: () => null,
-                }}
-              />
-            </Tab.Navigator>
+            <CartContextProvider>
+              <Tab.Navigator screenOptions={createScreenOptions}>
+                <Tab.Screen
+                  name="Restaurants"
+                  component={RestaurantsNavigator}
+                />
+                <Tab.Screen name="Map" component={MapScreen} />
+                <Tab.Screen name="Cart" component={SettingsNavigator} />
+                <Tab.Screen
+                  name="Settings"
+                  component={SettingsNavigator}
+                  options={{
+                    tabBarButton: () => null,
+                  }}
+                />
+              </Tab.Navigator>
+            </CartContextProvider>
           </RestaurantsContextProvider>
         </LocationContextProvider>
       </FavouritesContextProvider>
