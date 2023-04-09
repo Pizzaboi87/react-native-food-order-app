@@ -25,15 +25,18 @@ export const ControlButton = styled(Button).attrs({
   padding-left: 5px;
 `;
 
-export const CartButton = styled(ControlButton)`
-  padding-left: 3px;
+export const CartButton = styled(ControlButton).attrs({
+  labelStyle: {
+    color: theme.colors.bg.primary,
+  },
+})`
+  width: 160px;
 `;
 
 export const ControlText = styled(StyledText).attrs({
   variant: "title",
 })`
   font-size: ${(props) => props.theme.fontSizes.title};
-  width: 80px;
   text-align: center;
 `;
 

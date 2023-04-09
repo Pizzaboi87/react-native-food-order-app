@@ -43,8 +43,9 @@ export const FoodSelector = ({
           <ControlButton onPress={add}>
             <PlusIcon />
           </ControlButton>
-          <ControlText>{price * quantity}€</ControlText>
-          <CartButton>Add To Cart</CartButton>
+          <CartButton disabled={quantity > 0 ? false : true}>
+            Add To Cart - {price * quantity}€
+          </CartButton>
         </ControlContainer>
       </DialogContainer>
     </Portal>
