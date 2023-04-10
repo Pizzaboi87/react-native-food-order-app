@@ -45,6 +45,7 @@ export const Title = styled(StyledText)`
 `;
 
 export const AuthButton = styled(Button).attrs({
+  mode: "contained",
   buttonColor: theme.colors.brand.primary,
   textColor: theme.colors.ui.tertiary,
   labelStyle: {
@@ -66,6 +67,19 @@ export const LoginButton = styled(AuthButton).attrs({
   icon: "lock-open-outline",
 })``;
 
+export const EmailButton = styled(LoginButton)`
+  width: 230px;
+`;
+
+export const GoogleButton = styled(AuthButton).attrs({
+  icon: "google",
+  buttonColor: theme.colors.ui.tertiary,
+  textColor: theme.colors.brand.primary,
+})`
+  width: 230px;
+  border: 1px solid ${theme.colors.brand.primary};
+`;
+
 export const RegisterButton = styled(AuthButton).attrs({
   icon: "account-plus-outline",
 })``;
@@ -75,6 +89,11 @@ export const BackButton = styled(AuthButton).attrs({
   icon: "step-backward",
 })`
   width: 140px;
+`;
+
+export const SmallBackButton = styled(Button)`
+  font-size: ${(props) => props.theme.fontSizes.body};
+  margin-top: ${(props) => props.theme.space[2]};
 `;
 
 export const AuthInput = styled(TextInput)`
@@ -94,6 +113,11 @@ export const ButtonContainer = styled.View`
   flex-direction: row;
   align-items: flex-end;
   justify-content: space-between;
+  width: 300px;
+`;
+
+export const Buttons = styled.View`
+  align-items: center;
   width: 300px;
 `;
 

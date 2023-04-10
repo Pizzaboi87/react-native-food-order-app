@@ -12,6 +12,10 @@ import {
   BackButton,
   ButtonContainer,
   Loading,
+  GoogleButton,
+  EmailButton,
+  SmallBackButton,
+  Buttons,
 } from "../account/account.styles";
 
 export const LoginScreen = ({ navigation }) => {
@@ -53,22 +57,24 @@ export const LoginScreen = ({ navigation }) => {
           )}
           <ButtonContainer>
             {!isLoading ? (
-              <>
-                <BackButton
+              <Buttons>
+                <EmailButton onPress={() => onLogin(email, password)}>
+                  sign-in with email
+                </EmailButton>
+
+                <GoogleButton onPress={() => onLogin(email, password)}>
+                  sign-in with Google
+                </GoogleButton>
+
+                <SmallBackButton
                   onPress={() => {
                     setError(null);
                     navigation.goBack();
                   }}
                 >
                   back
-                </BackButton>
-                <LoginButton
-                  onPress={() => onLogin(email, password)}
-                  mode="contained"
-                >
-                  sign-in
-                </LoginButton>
-              </>
+                </SmallBackButton>
+              </Buttons>
             ) : (
               <Loading />
             )}

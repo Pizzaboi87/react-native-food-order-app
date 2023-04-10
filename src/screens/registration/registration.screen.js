@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { AuthenticationContext } from "../../services/authentication/authentication.context";
+import { DialogWindow } from "../../components/dialog-modal/dialog-modal.component";
 import { StyledText } from "../../helpers/typography/text.helper";
 import {
   AccountBackground,
@@ -9,11 +10,11 @@ import {
   AuthInput,
   Title,
   ErrorContainer,
-  BackButton,
   ButtonContainer,
   Loading,
+  SmallBackButton,
+  Buttons,
 } from "../account/account.styles";
-import { DialogWindow } from "../../components/dialog-modal/dialog-modal.component";
 
 export const RegistrationScreen = ({ navigation }) => {
   const { onRegister, error, setError, isLoading, checkEmail, setCheckEmail } =
@@ -77,15 +78,7 @@ export const RegistrationScreen = ({ navigation }) => {
           )}
           <ButtonContainer>
             {!isLoading ? (
-              <>
-                <BackButton
-                  onPress={() => {
-                    setError(null);
-                    navigation.goBack();
-                  }}
-                >
-                  back
-                </BackButton>
+              <Buttons>
                 <RegisterButton
                   onPress={() =>
                     onRegister(
@@ -100,7 +93,15 @@ export const RegistrationScreen = ({ navigation }) => {
                 >
                   register
                 </RegisterButton>
-              </>
+                <SmallBackButton
+                  onPress={() => {
+                    setError(null);
+                    navigation.goBack();
+                  }}
+                >
+                  back
+                </SmallBackButton>
+              </Buttons>
             ) : (
               <Loading />
             )}
