@@ -34,8 +34,8 @@ export const FoodSelector = ({
   const { addToCart } = useContext(CartContext);
   const [addedDone, setAddedDone] = useState(false);
 
-  const order = (id, name, price, quantity) => {
-    addToCart(id, name, price, quantity);
+  const order = (ordId, ordName, ordPrice, ordQuantity) => {
+    addToCart(ordId, ordName, ordPrice, ordQuantity);
     fullfilled();
     setVisible(false);
     setAddedDone(true);
@@ -71,7 +71,7 @@ export const FoodSelector = ({
           >
             {isOpen
               ? `Add To Cart - ${price * quantity}€`
-              : `Restaurant is Closed`}
+              : "Restaurant is Closed"}
           </CartButton>
         </ControlContainer>
       </DialogContainer>

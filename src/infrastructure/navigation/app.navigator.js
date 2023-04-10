@@ -19,7 +19,7 @@ const TAB_ICON = {
   Settings: "settings",
 };
 
-const createScreenOptions = ({ route }) => {
+const useScreenOptions = ({ route }) => {
   const { cart } = useContext(CartContext);
   const isCart = route.name === "Cart";
   const iconName = TAB_ICON[route.name];
@@ -47,7 +47,7 @@ export const AppNavigator = () => {
       <FavouritesContextProvider>
         <LocationContextProvider>
           <RestaurantsContextProvider>
-            <Tab.Navigator screenOptions={createScreenOptions}>
+            <Tab.Navigator screenOptions={useScreenOptions}>
               <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
               <Tab.Screen name="Map" component={MapScreen} />
               <Tab.Screen name="Cart" component={CartNavigator} />
