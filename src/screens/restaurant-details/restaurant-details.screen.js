@@ -114,6 +114,8 @@ export const RestaurantDetailsScreen = ({ route }) => {
                   add={() => add(food.name)}
                   remove={() => remove(food.name)}
                   fullfilled={() => fullfilled(food.name)}
+                  openingHours={restaurant.opening_hours}
+                  temporaryClosed={restaurant.business_status}
                 />
               </TouchableOpacity>
             );

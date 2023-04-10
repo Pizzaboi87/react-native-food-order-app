@@ -3,15 +3,38 @@ import { CartContext } from "../../services/cart/cart.context";
 import { UserImageContext } from "../../services/user-image/user-image.context";
 import { AuthenticationContext } from "../../services/authentication/authentication.context";
 import { SafeArea } from "../../helpers/safe-area/safe-area.helper";
-import { View, Text, TouchableOpacity, ScrollView } from "react-native";
 import { AvatarImage } from "../../components/user-avatar/user-avatar.component";
-import { StyledText } from "../../helpers/typography/text.helper";
+import { Button, Card } from "react-native-paper";
+import { FadeInView } from "../../animations/fade.animation";
 import {
   getDataFromDatabase,
   getUserData,
 } from "../../services/firebase/firebase-config.service";
-import { Button } from "react-native-paper";
-import { Loading } from "../restaurant-details/restaurant-details.styles";
+import {
+  Gif,
+  GifContainer,
+  GifMessage,
+} from "../../helpers/gif-plus-text/gif-plus-text.helper";
+import {
+  AvatarContainer,
+  HeaderContainer,
+  MainTitle,
+  Loading,
+  OrderContainer,
+  PlusIcon,
+  MinusIcon,
+  OrderCard,
+  OrderTitle,
+  OrderTextBold,
+  OrderText,
+  HorizontalLine,
+  PaymentButton,
+  OrderDetailsContainer,
+  OrderProduct,
+  OrderQuantity,
+  OrderPrice,
+  OrderTotal,
+} from "./cart.styles";
 
 export const CartScreen = ({ navigation }) => {
   const { cart, setCart } = useContext(CartContext);
@@ -21,6 +44,7 @@ export const CartScreen = ({ navigation }) => {
   const [restaurant, setRestaurant] = useState({});
   const [userAddress, setUserAddress] = useState({});
   const [userPersonalData, setUserPersonalData] = useState({});
+  let fullPrice = 0;
 
   const fetchData = async (id) => {
     setIsLoading(true);
@@ -46,6 +70,12 @@ export const CartScreen = ({ navigation }) => {
     return unsubscribe;
   }, [navigation, cart]);
 
+  const openDetails = (item) => {
+    navigation.navigate("RestaurantDetail", {
+      restaurant: item,
+    });
+  };
+
   useLoadImage(uid);
 
   const minus = (index) => {
@@ -69,68 +99,80 @@ export const CartScreen = ({ navigation }) => {
 
   return (
     <SafeArea>
-      <View
-        style={{
-          paddingTop: 15,
-          height: 80,
-          backgroundColor: "blue",
-        }}
-      >
-        <StyledText
-          variant="title"
-          style={{
-            fontSize: 30,
-            textAlign: "center",
-            fontWeight: "normal",
-          }}
-        >
-          Your Order
-        </StyledText>
-        <TouchableOpacity
-          onPress={() => navigation.navigate("Settings")}
-          style={{
-            position: "absolute",
-            top: 17.5,
-            right: 16,
-          }}
-        >
+      <HeaderContainer>
+        <MainTitle>Your Order</MainTitle>
+        <AvatarContainer onPress={() => navigation.navigate("Settings")}>
           <AvatarImage size={55} />
-        </TouchableOpacity>
-      </View>
+        </AvatarContainer>
+      </HeaderContainer>
       {!cart.length ? (
-        <Text>No any order.</Text>
+        <GifContainer>
+          <FadeInView>
+            <Gif source={require("../../../assets/noorder.gif")} />
+            <GifMessage variant="error">Your cart is still empty.</GifMessage>
+          </FadeInView>
+        </GifContainer>
       ) : isLoading ? (
         <Loading />
       ) : (
-        <ScrollView style={{ flex: 1, backgroundColor: "yellow" }}>
-          <Text>Restaurant:</Text>
-          <Text>{restaurant.name}</Text>
-          <Text>{restaurant.address}</Text>
-          <Text style={{ marginTop: 20 }}>Order:</Text>
-          {cart.map((item, index) => (
-            <View>
-              <Button onPress={() => minus(index)}>Minus</Button>
-              <Text>
-                {item.order.product} - {item.order.quantity}db -{" "}
-                {item.order.quantity * item.order.price} euró
-              </Text>
-              <Button onPress={() => plus(index)}>Plus</Button>
-            </View>
-          ))}
-          <Text style={{ marginTop: 20 }}>Delivery Address:</Text>
-          <Text>
-            {userPersonalData.firstName} {userPersonalData.lastName}
-          </Text>
-          <Text>
-            {userAddress.street} {userAddress.number}. {userAddress.floor}/
-            {userAddress.door}
-          </Text>
-          <Text>{userAddress.city}</Text>
-          <Text>{userPersonalData.phone}</Text>
-          <Button onPress={() => navigation.navigate("Change Address")}>
-            Change Address
-          </Button>
-        </ScrollView>
+        <OrderContainer>
+          <OrderCard onPress={() => openDetails(restaurant)}>
+            <OrderTitle title="Restaurant" />
+            <Card.Content>
+              <OrderText>{restaurant.name}</OrderText>
+              <OrderText>{restaurant.address}</OrderText>
+            </Card.Content>
+          </OrderCard>
+          <OrderCard>
+            <OrderTitle title="Order" />
+            <Card.Content>
+              {cart.map((item, index) => {
+                const { product, quantity, price } = item.order;
+                const partPrice = price * quantity;
+                fullPrice += partPrice;
+
+                return (
+                  <OrderDetailsContainer key={`${product}-${price}`}>
+                    <OrderProduct>
+                      <OrderText>{product}</OrderText>
+                    </OrderProduct>
+                    <OrderQuantity>
+                      <MinusIcon onPress={() => minus(index)} />
+                      <OrderText>{quantity}</OrderText>
+                      <PlusIcon onPress={() => plus(index)} />
+                    </OrderQuantity>
+                    <OrderPrice>
+                      <OrderTextBold>{partPrice}€</OrderTextBold>
+                    </OrderPrice>
+                  </OrderDetailsContainer>
+                );
+              })}
+              <HorizontalLine />
+              <OrderTotal>
+                <OrderTextBold>Total:</OrderTextBold>
+                <OrderTextBold>{fullPrice}€</OrderTextBold>
+              </OrderTotal>
+            </Card.Content>
+          </OrderCard>
+          <OrderCard>
+            <OrderTitle title="Delivery Address" />
+            <Card.Content>
+              <OrderText>
+                {userPersonalData.firstName} {userPersonalData.lastName}
+              </OrderText>
+              <OrderText>
+                {userAddress.street} {userAddress.number}. {userAddress.floor}/
+                {userAddress.door}
+              </OrderText>
+              <OrderText>{userAddress.city}</OrderText>
+              <OrderText>{userPersonalData.phone}</OrderText>
+              <Button onPress={() => navigation.navigate("Change Address")}>
+                Change Address
+              </Button>
+            </Card.Content>
+          </OrderCard>
+          <PaymentButton>Continue To Payment</PaymentButton>
+        </OrderContainer>
       )}
     </SafeArea>
   );

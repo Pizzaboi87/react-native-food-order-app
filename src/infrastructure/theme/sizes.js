@@ -5,6 +5,7 @@ export const sizes = [
   "20px",
   "25px",
   "32px",
+  "40px",
   "64px",
   "128px",
 ];

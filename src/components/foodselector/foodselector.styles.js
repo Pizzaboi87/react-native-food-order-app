@@ -10,7 +10,7 @@ export const DialogContainer = styled(Dialog)`
   bottom: 0;
   margin: 0;
   width: 100%;
-  height: 200px;
+  height: 220px;
   border-radius: 0;
   align-items: center;
 `;

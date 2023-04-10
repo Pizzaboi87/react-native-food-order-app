@@ -14,6 +14,7 @@ import {
   PlusIcon,
 } from "./foodselector.styles";
 import { useState } from "react";
+import { getOpenStatus } from "../../helpers/get-open-status/get-open.status.helper";
 
 export const FoodSelector = ({
   visible,
@@ -26,6 +27,8 @@ export const FoodSelector = ({
   remove,
   id,
   fullfilled,
+  openingHours,
+  temporaryClosed,
 }) => {
   const hideDialog = () => setVisible(false);
   const { addToCart } = useContext(CartContext);
@@ -37,6 +40,11 @@ export const FoodSelector = ({
     setVisible(false);
     setAddedDone(true);
   };
+
+  const openStatus = getOpenStatus(openingHours);
+  const isOpen =
+    openStatus === "open" && temporaryClosed !== "CLOSED_TEMPORARILY";
+  const hasOrder = quantity > 0;
 
   return (
     <Portal>
@@ -58,10 +66,12 @@ export const FoodSelector = ({
             <PlusIcon />
           </ControlButton>
           <CartButton
-            disabled={quantity > 0 ? false : true}
+            disabled={hasOrder && isOpen ? false : true}
             onPress={() => order(id, name, price, quantity)}
           >
-            Add To Cart - {price * quantity}€
+            {isOpen
+              ? `Add To Cart - ${price * quantity}€`
+              : `Restaurant is Closed`}
           </CartButton>
         </ControlContainer>
       </DialogContainer>
