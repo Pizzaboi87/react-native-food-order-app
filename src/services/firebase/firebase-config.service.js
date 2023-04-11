@@ -42,7 +42,7 @@ googleProvider.setCustomParameters({
   prompt: "select_account",
 });
 
-export const signInWithGoogle = signInWithPopup(auth, googleProvider);
+export const signInWithGoogle = () => signInWithPopup(auth, googleProvider);
 
 export const editUserDocument = async (
   userAuth,
