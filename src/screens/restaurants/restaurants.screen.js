@@ -17,13 +17,15 @@ import {
   GifContainer,
   GifMessage,
 } from "../../helpers/gif-plus-text/gif-plus-text.helper";
+import { useEffect } from "react";
 
 export const RestaurantsScreen = ({ navigation }) => {
-  const { isLoading, restaurants, error } = useContext(RestaurantsContext);
+  const { restaurants, error } = useContext(RestaurantsContext);
   const { error: locationError } = useContext(LocationContext);
   const { uid } = useContext(AuthenticationContext);
   const { useLoadImage } = useContext(UserImageContext);
   const [isToggled, setIsToggled] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const openDetails = (item) => {
     navigation.navigate("RestaurantDetail", {
@@ -32,6 +34,13 @@ export const RestaurantsScreen = ({ navigation }) => {
   };
 
   useLoadImage(uid);
+
+  useEffect(() => {
+    setIsLoading(true);
+    if (restaurants.length) {
+      setIsLoading(false);
+    }
+  }, [restaurants]);
 
   return (
     <SafeArea>

@@ -12,7 +12,6 @@ import {
   ErrorContainer,
   ButtonContainer,
   Loading,
-  SmallBackButton,
   Buttons,
   JustTextButton,
 } from "../account/account.styles";
