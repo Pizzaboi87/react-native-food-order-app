@@ -14,6 +14,7 @@ import {
   Loading,
   SmallBackButton,
   Buttons,
+  JustTextButton,
 } from "../account/account.styles";
 
 export const RegistrationScreen = ({ navigation }) => {
@@ -93,14 +94,14 @@ export const RegistrationScreen = ({ navigation }) => {
                 >
                   register
                 </RegisterButton>
-                <SmallBackButton
+                <JustTextButton
                   onPress={() => {
                     setError(null);
                     navigation.goBack();
                   }}
                 >
                   back
-                </SmallBackButton>
+                </JustTextButton>
               </Buttons>
             ) : (
               <Loading />

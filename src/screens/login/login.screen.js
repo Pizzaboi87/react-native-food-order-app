@@ -5,18 +5,17 @@ import {
   AccountBackground,
   AccountCover,
   AccountContainer,
-  LoginButton,
   AuthInput,
   Title,
   ErrorContainer,
-  BackButton,
   ButtonContainer,
   Loading,
   GoogleButton,
   EmailButton,
-  SmallBackButton,
   Buttons,
+  JustTextButton,
 } from "../account/account.styles";
+import { signInWithGoogle } from "../../services/firebase/firebase-config.service";
 
 export const LoginScreen = ({ navigation }) => {
   const { onLogin, error, setError, isLoading } = useContext(
@@ -62,18 +61,22 @@ export const LoginScreen = ({ navigation }) => {
                   sign-in with email
                 </EmailButton>
 
-                <GoogleButton onPress={() => onLogin(email, password)}>
+                <GoogleButton onPress={() => signInWithGoogle()}>
                   sign-in with Google
                 </GoogleButton>
 
-                <SmallBackButton
+                <JustTextButton onPress={() => navigation.navigate("Reset")}>
+                  Forgot your password?
+                </JustTextButton>
+
+                <JustTextButton
                   onPress={() => {
                     setError(null);
                     navigation.goBack();
                   }}
                 >
                   back
-                </SmallBackButton>
+                </JustTextButton>
               </Buttons>
             ) : (
               <Loading />

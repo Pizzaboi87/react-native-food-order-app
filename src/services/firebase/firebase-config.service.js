@@ -15,6 +15,9 @@ import {
   signOut,
   sendEmailVerification,
   updateProfile,
+  GoogleAuthProvider,
+  signInWithPopup,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 import { getDatabase, get, ref as rtdbref, child } from "firebase/database";
 
@@ -29,10 +32,35 @@ const firebaseConfig = {
   appId: "1:1035111378933:web:32706dabfe671489033abc",
 };
 
-initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 export const db = getFirestore();
-export const auth = getAuth();
+export const auth = getAuth(app);
 const storage = getStorage();
+const googleProvider = new GoogleAuthProvider();
+
+googleProvider.setCustomParameters({
+  prompt: "select_account",
+});
+
+export const signInWithGoogle = async () => {
+  try {
+    const res = await signInWithPopup(auth, googleProvider);
+    const user = res.user;
+    const q = query(collection(db, "users"), where("uid", "==", user.uid));
+    const docs = await getDoc(q);
+    if (docs.docs.length === 0) {
+      await addDoc(collection(db, "users"), {
+        uid: user.uid,
+        name: user.displayName,
+        authProvider: "google",
+        email: user.email,
+      });
+    }
+  } catch (err) {
+    console.error(err);
+    alert(err.message);
+  }
+};
 
 export const editUserDocument = async (
   userAuth,
@@ -97,6 +125,28 @@ export const registerWithEmail = async (email, password, nickName) => {
 
 export const signOutUser = async () => {
   return await signOut(auth);
+};
+
+export const sendPasswordReset = async (email, setEmailPopup, setError) => {
+  try {
+    await sendPasswordResetEmail(auth, email);
+    setError("noError");
+    setEmailPopup(true);
+  } catch (err) {
+    console.log(err.message);
+    setEmailPopup(true);
+    switch (err.message) {
+      case "Firebase: Error (auth/invalid-email).":
+        setError("Invalid email address.");
+        break;
+      case "Firebase: Error (auth/user-not-found).":
+        setError("Email address is not registered.");
+        break;
+      default:
+        setError("Error: ", err.message);
+        break;
+    }
+  }
 };
 
 export const addAddressToUser = async (

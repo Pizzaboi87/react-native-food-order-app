@@ -91,7 +91,9 @@ export const BackButton = styled(AuthButton).attrs({
   width: 140px;
 `;
 
-export const SmallBackButton = styled(Button)`
+export const JustTextButton = styled(Button).attrs({
+  textColor: theme.colors.ui.text,
+})`
   font-size: ${(props) => props.theme.fontSizes.body};
   margin-top: ${(props) => props.theme.space[2]};
 `;
