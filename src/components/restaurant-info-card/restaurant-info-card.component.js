@@ -17,12 +17,14 @@ import {
   Icon,
   SVG,
   RatingNumber,
+  DeliveryText,
+  NotDeliver,
 } from "./restaurant-info-card.styles";
 
-export const RestaurantInfoCard = ({ restaurant }) => {
+export const RestaurantInfoCard = ({ restaurant, distance }) => {
   const ratingArray = Array.from(new Array(Math.floor(restaurant.rating)));
-
   const result = getOpenStatus(restaurant.opening_hours);
+  const isTooFar = distance > 50;
 
   return (
     <RestaurantCard>
@@ -56,6 +58,15 @@ export const RestaurantInfoCard = ({ restaurant }) => {
           </SectionEnd>
         </Section>
         <StyledText variant="lightCaption">{restaurant.address}</StyledText>
+        {distance ? (
+          isTooFar ? (
+            <NotDeliver>Not deliver to your address.</NotDeliver>
+          ) : (
+            <DeliveryText>{`Delivery: ${Number(
+              (distance * 0.2).toFixed(1)
+            )}€`}</DeliveryText>
+          )
+        ) : null}
       </Info>
     </RestaurantCard>
   );

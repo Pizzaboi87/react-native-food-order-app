@@ -1,6 +1,7 @@
 import styled from "styled-components/native";
 import { Card } from "react-native-paper";
 import { SvgXml } from "react-native-svg";
+import { StyledText } from "../../helpers/typography/text.helper";
 
 export const RestaurantCard = styled(Card)`
   background-color: ${(props) => props.theme.colors.ui.card};
@@ -50,4 +51,15 @@ export const Icon = styled.Image`
   height: ${(props) => props.theme.sizes[2]};
   margin-left: ${(props) => props.theme.space[2]};
   margin-bottom: -2.5px;
+`;
+
+export const DeliveryText = styled(StyledText).attrs({
+  variant: "lightCaption",
+})`
+  font-weight: ${(props) => props.theme.fontWeights.bold};
+  color: ${(props) => props.theme.colors.ui.success};
+`;
+
+export const NotDeliver = styled(DeliveryText)`
+  color: ${(props) => props.theme.colors.ui.error};
 `;

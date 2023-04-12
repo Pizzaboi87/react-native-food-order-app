@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { theme } from "../../infrastructure/theme";
 import { SafeArea } from "../../helpers/safe-area/safe-area.helper";
-import { getDataFromDatabase } from "../../services/firebase/firebase-config.service";
+import {
+  getDataFromDatabase,
+  getUserData,
+} from "../../services/firebase/firebase-config.service";
+import { FoodSelector } from "../../components/foodselector/foodselector.component";
 import { RestaurantInfoCard } from "../../components/restaurant-info-card/restaurant-info-card.component";
 import {
   TouchableOpacity,
@@ -19,7 +23,7 @@ import {
   DescriptionText,
   PriceText,
 } from "./restaurant-details.styles";
-import { FoodSelector } from "../../components/foodselector/foodselector.component";
+import { getDistance } from "../../helpers/get-distance/get-distance.helper";
 
 export const RestaurantDetailsScreen = ({ route }) => {
   if (Platform.OS === "android") {
@@ -32,6 +36,24 @@ export const RestaurantDetailsScreen = ({ route }) => {
   const [restaurantMenu, setRestaurantMenu] = useState(null);
   const { restaurant } = route.params;
   const { place_id } = restaurant;
+
+  const [distance, setDistance] = useState("");
+
+  const fetchData = async () => {
+    const userAddress = await getUserData("address");
+    try {
+      setDistance(
+        await getDistance(
+          `(${userAddress.city}+${userAddress.street})`
+            .split(/[\s,-]+/)
+            .join("+"),
+          restaurant.address.split(/[\s,-]+/).join("+")
+        )
+      );
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   useEffect(() => {
     const fetchMenu = async () => {
@@ -47,6 +69,7 @@ export const RestaurantDetailsScreen = ({ route }) => {
       }
     };
     fetchMenu();
+    fetchData();
   }, [place_id]);
 
   if (restaurantMenu) {
@@ -126,14 +149,14 @@ export const RestaurantDetailsScreen = ({ route }) => {
 
     return (
       <SafeArea>
-        <RestaurantInfoCard restaurant={restaurant} />
+        <RestaurantInfoCard restaurant={restaurant} distance={distance} />
         <DetailsContainer>{list}</DetailsContainer>
       </SafeArea>
     );
   } else {
     return (
       <SafeArea>
-        <RestaurantInfoCard restaurant={restaurant} />
+        <RestaurantInfoCard restaurant={restaurant} distance={distance} />
         <DetailsContainer>
           <Loading />
         </DetailsContainer>
