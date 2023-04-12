@@ -3,7 +3,9 @@ import { CartContext } from "../../services/cart/cart.context";
 import { UserImageContext } from "../../services/user-image/user-image.context";
 import { AuthenticationContext } from "../../services/authentication/authentication.context";
 import { SafeArea } from "../../helpers/safe-area/safe-area.helper";
+import { getDistance } from "../../helpers/get-distance/get-distance.helper";
 import { AvatarImage } from "../../components/user-avatar/user-avatar.component";
+import { DialogWindow } from "../../components/dialog-modal/dialog-modal.component";
 import { Button, Card } from "react-native-paper";
 import { FadeInView } from "../../animations/fade.animation";
 import {
@@ -34,6 +36,8 @@ import {
   OrderQuantity,
   OrderPrice,
   OrderTotal,
+  DeliveryPrice,
+  OrderTextError,
 } from "./cart.styles";
 
 export const CartScreen = ({ navigation }) => {
@@ -44,7 +48,11 @@ export const CartScreen = ({ navigation }) => {
   const [restaurant, setRestaurant] = useState({});
   const [userAddress, setUserAddress] = useState({});
   const [userPersonalData, setUserPersonalData] = useState({});
+  const [distance, setDistance] = useState("");
+  const [deliveryError, setDeliveryError] = useState(false);
+  const [dataError, setDataError] = useState(false);
   let fullPrice = 0;
+  let delivery = 0;
 
   const fetchData = async (id) => {
     setIsLoading(true);
@@ -53,10 +61,41 @@ export const CartScreen = ({ navigation }) => {
       getUserData("personalData"),
       getUserData("address"),
     ]);
-    setRestaurant(place);
-    setUserAddress(address);
-    setUserPersonalData(personalData);
-    setIsLoading(false);
+    if (!address && !personalData) {
+      setIsLoading(false);
+      setRestaurant(place);
+      setDataError(true);
+      setDeliveryError(true);
+    } else if (!address) {
+      setIsLoading(false);
+      setRestaurant(place);
+      setUserPersonalData(personalData);
+      setDataError(true);
+      setDeliveryError(true);
+    } else if (!personalData) {
+      setIsLoading(false);
+      setRestaurant(place);
+      setUserAddress(address);
+      setDataError(true);
+      setDeliveryError(true);
+    } else {
+      setRestaurant(place);
+      setUserAddress(address);
+      setUserPersonalData(personalData);
+      setIsLoading(false);
+      try {
+        setDistance(
+          await getDistance(
+            `${address.city} + ${address.street}`,
+            place.address.split(/[\s,-]+/).join("+")
+          )
+        );
+        setAddressError(false);
+      } catch (error) {
+        setDataError(true);
+        setDeliveryError(true);
+      }
+    }
   };
 
   useEffect(() => {
@@ -116,6 +155,12 @@ export const CartScreen = ({ navigation }) => {
         <Loading />
       ) : (
         <OrderContainer>
+          <DialogWindow
+            variant="go"
+            message={`Your delivery details are not valid,\nplease change them to continue!`}
+            visible={dataError}
+            setVisible={setDataError}
+          />
           <OrderCard onPress={() => openDetails(restaurant)}>
             <OrderTitle title="Restaurant" />
             <Card.Content>
@@ -130,6 +175,7 @@ export const CartScreen = ({ navigation }) => {
                 const { product, quantity, price } = item.order;
                 const partPrice = price * quantity;
                 fullPrice += partPrice;
+                delivery = fullPrice > 20 ? 0 : distance * 0.3;
 
                 return (
                   <OrderDetailsContainer key={`${product}-${price}`}>
@@ -147,10 +193,16 @@ export const CartScreen = ({ navigation }) => {
                   </OrderDetailsContainer>
                 );
               })}
+              <DeliveryPrice>
+                <OrderTextBold>Delivery:</OrderTextBold>
+                <OrderTextBold>{delivery}€</OrderTextBold>
+              </DeliveryPrice>
               <HorizontalLine />
               <OrderTotal>
                 <OrderTextBold>Total:</OrderTextBold>
-                <OrderTextBold>{fullPrice}€</OrderTextBold>
+                <OrderTextBold>
+                  {Number((fullPrice + delivery).toFixed(1))}€
+                </OrderTextBold>
               </OrderTotal>
             </Card.Content>
           </OrderCard>
@@ -158,20 +210,41 @@ export const CartScreen = ({ navigation }) => {
             <OrderTitle title="Delivery Address" />
             <Card.Content>
               <OrderText>
-                {userPersonalData.firstName} {userPersonalData.lastName}
+                <OrderTextBold>Name: </OrderTextBold>
+                {userPersonalData.firstName && userPersonalData.lastName ? (
+                  `${userPersonalData.firstName} ${userPersonalData.lastName}`
+                ) : (
+                  <OrderTextError>Missing name</OrderTextError>
+                )}
               </OrderText>
               <OrderText>
-                {userAddress.street} {userAddress.number}. {userAddress.floor}/
-                {userAddress.door}
+                <OrderTextBold>Address: </OrderTextBold>
+                {userAddress.street &&
+                userAddress.number &&
+                userAddress.floor &&
+                userAddress.door &&
+                userAddress.city ? (
+                  `${userAddress.street} ${userAddress.number}. ${userAddress.floor}/${userAddress.door}, ${userAddress.city}`
+                ) : (
+                  <OrderTextError>Missing address</OrderTextError>
+                )}
               </OrderText>
-              <OrderText>{userAddress.city}</OrderText>
-              <OrderText>{userPersonalData.phone}</OrderText>
+              <OrderText>
+                <OrderTextBold>Phone: </OrderTextBold>
+                {userPersonalData.phone ? (
+                  `${userPersonalData.phone}`
+                ) : (
+                  <OrderTextError>Missing phone number</OrderTextError>
+                )}
+              </OrderText>
               <Button onPress={() => navigation.navigate("Change Address")}>
                 Change Address
               </Button>
             </Card.Content>
           </OrderCard>
-          <PaymentButton>Continue To Payment</PaymentButton>
+          <PaymentButton disabled={deliveryError ? true : false}>
+            Continue To Payment
+          </PaymentButton>
         </OrderContainer>
       )}
     </SafeArea>

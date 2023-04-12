@@ -78,6 +78,10 @@ export const OrderTextBold = styled(OrderText)`
   font-weight: ${(props) => props.theme.fontWeights.bold};
 `;
 
+export const OrderTextError = styled(OrderTextBold)`
+  color: ${(props) => props.theme.colors.ui.error};
+`;
+
 export const OrderDetailsContainer = styled.View`
   flex-direction: row;
   align-items: center;
@@ -112,6 +116,10 @@ export const OrderTotal = styled.View`
   width: 100%;
 `;
 
+export const DeliveryPrice = styled(OrderTotal)`
+  margin-bottom: ${(props) => props.theme.space[2]};
+`;
+
 export const HorizontalLine = styled.View`
   border-bottom-color: ${(props) => props.theme.colors.ui.text};
   border-bottom-width: ${StyleSheet.hairlineWidth}px;
@@ -120,11 +128,12 @@ export const HorizontalLine = styled.View`
 
 export const PaymentButton = styled(Button).attrs({
   mode: "contained",
+  buttonColor: theme.colors.ui.success,
   labelStyle: {
     fontSize: 20,
   },
 })`
   margin-bottom: ${(props) => props.theme.space[4]};
   margin-top: ${(props) => props.theme.space[4]};
-  background-color: ${(props) => props.theme.colors.ui.success};
+  border-radius: ${(props) => props.theme.sizes[1]};
 `;
