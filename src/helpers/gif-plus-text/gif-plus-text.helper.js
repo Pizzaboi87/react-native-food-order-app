@@ -9,9 +9,21 @@ export const GifContainer = styled.View`
   justify-content: center;
 `;
 
-export const GifMessage = styled(StyledText)`
+export const GifTitle = styled(StyledText).attrs({
+  variant: "error",
+})`
+  text-align: center;
+  align-self: center;
+  font-size: ${(props) => props.theme.fontSizes.bigTitle};
+  padding-bottom: ${(props) => props.theme.space[3]};
+`;
+
+export const GifMessage = styled(StyledText).attrs({
+  variant: "error",
+})`
   color: ${(props) => props.theme.colors.ui.error};
   align-self: center;
+  text-align: center;
   font-size: ${(props) => props.theme.fontSizes.title};
 `;
 

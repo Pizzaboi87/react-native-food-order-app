@@ -16,6 +16,7 @@ import {
   Gif,
   GifContainer,
   GifMessage,
+  GifTitle,
 } from "../../helpers/gif-plus-text/gif-plus-text.helper";
 import {
   AvatarContainer,
@@ -44,6 +45,7 @@ export const CartScreen = ({ navigation }) => {
   const { cart, setCart } = useContext(CartContext);
   const { useLoadImage } = useContext(UserImageContext);
   const { uid } = useContext(AuthenticationContext);
+
   const [isLoading, setIsLoading] = useState(false);
   const [restaurant, setRestaurant] = useState({});
   const [userAddress, setUserAddress] = useState({});
@@ -51,8 +53,20 @@ export const CartScreen = ({ navigation }) => {
   const [distance, setDistance] = useState("");
   const [deliveryError, setDeliveryError] = useState(false);
   const [dataError, setDataError] = useState(false);
+
   let fullPrice = 0;
   let delivery = 0;
+
+  const isCorrectAddress =
+    userAddress.street &&
+    userAddress.number &&
+    userAddress.floor &&
+    userAddress.door &&
+    userAddress.city;
+
+  const isCorrectName = userPersonalData.firstName && userPersonalData.lastName;
+
+  useLoadImage(uid);
 
   const fetchData = async (id) => {
     setIsLoading(true);
@@ -86,12 +100,12 @@ export const CartScreen = ({ navigation }) => {
       try {
         setDistance(
           await getDistance(
-            `${address.city} + ${address.street}`,
+            `(${address.city}+${address.street})`.split(/[\s,-]+/).join("+"),
             place.address.split(/[\s,-]+/).join("+")
           )
         );
-        setAddressError(false);
-      } catch (error) {
+        setDeliveryError(false);
+      } catch (err) {
         setDataError(true);
         setDeliveryError(true);
       }
@@ -105,7 +119,6 @@ export const CartScreen = ({ navigation }) => {
         fetchData(id);
       }
     });
-
     return unsubscribe;
   }, [navigation, cart]);
 
@@ -115,9 +128,9 @@ export const CartScreen = ({ navigation }) => {
     });
   };
 
-  useLoadImage(uid);
+  const isTooFar = distance > 50;
 
-  const minus = (index) => {
+  const minusQuantity = (index) => {
     const newCart = [...cart];
     const item = newCart[index].order;
     if (item.quantity > 1) {
@@ -129,7 +142,7 @@ export const CartScreen = ({ navigation }) => {
     }
   };
 
-  const plus = (index) => {
+  const plusQuantity = (index) => {
     const newCart = [...cart];
     const item = newCart[index].order;
     newCart[index].order = { ...item, quantity: item.quantity + 1 };
@@ -147,17 +160,30 @@ export const CartScreen = ({ navigation }) => {
       {!cart.length ? (
         <GifContainer>
           <FadeInView>
+            <GifTitle>Empty Cart</GifTitle>
             <Gif source={require("../../../assets/noorder.gif")} />
-            <GifMessage variant="error">Your cart is still empty.</GifMessage>
+            <GifMessage>Your cart is still empty.</GifMessage>
           </FadeInView>
         </GifContainer>
       ) : isLoading ? (
         <Loading />
+      ) : isTooFar ? (
+        <GifContainer>
+          <FadeInView>
+            <GifTitle>Sad News...</GifTitle>
+            <Gif source={require("../../../assets/sad.gif")} />
+            <GifMessage>
+              {`The selected restaurant\nis too far from your address.`}
+            </GifMessage>
+          </FadeInView>
+        </GifContainer>
       ) : (
         <OrderContainer>
           <DialogWindow
             variant="go"
-            message={`Your delivery details are not valid,\nplease change them to continue!`}
+            message={
+              "Your delivery details are not valid,\nplease change them in Settings!"
+            }
             visible={dataError}
             setVisible={setDataError}
           />
@@ -170,12 +196,13 @@ export const CartScreen = ({ navigation }) => {
           </OrderCard>
           <OrderCard>
             <OrderTitle title="Order" />
+
             <Card.Content>
               {cart.map((item, index) => {
                 const { product, quantity, price } = item.order;
                 const partPrice = price * quantity;
                 fullPrice += partPrice;
-                delivery = fullPrice > 20 ? 0 : distance * 0.3;
+                delivery = fullPrice > 20 ? 0 : distance * 0.2;
 
                 return (
                   <OrderDetailsContainer key={`${product}-${price}`}>
@@ -183,9 +210,9 @@ export const CartScreen = ({ navigation }) => {
                       <OrderText>{product}</OrderText>
                     </OrderProduct>
                     <OrderQuantity>
-                      <MinusIcon onPress={() => minus(index)} />
+                      <MinusIcon onPress={() => minusQuantity(index)} />
                       <OrderText>{quantity}</OrderText>
-                      <PlusIcon onPress={() => plus(index)} />
+                      <PlusIcon onPress={() => plusQuantity(index)} />
                     </OrderQuantity>
                     <OrderPrice>
                       <OrderTextBold>{partPrice}€</OrderTextBold>
@@ -195,7 +222,7 @@ export const CartScreen = ({ navigation }) => {
               })}
               <DeliveryPrice>
                 <OrderTextBold>Delivery:</OrderTextBold>
-                <OrderTextBold>{delivery}€</OrderTextBold>
+                <OrderTextBold>{Number(delivery.toFixed(1))}€</OrderTextBold>
               </DeliveryPrice>
               <HorizontalLine />
               <OrderTotal>
@@ -211,7 +238,7 @@ export const CartScreen = ({ navigation }) => {
             <Card.Content>
               <OrderText>
                 <OrderTextBold>Name: </OrderTextBold>
-                {userPersonalData.firstName && userPersonalData.lastName ? (
+                {isCorrectName ? (
                   `${userPersonalData.firstName} ${userPersonalData.lastName}`
                 ) : (
                   <OrderTextError>Missing name</OrderTextError>
@@ -219,11 +246,7 @@ export const CartScreen = ({ navigation }) => {
               </OrderText>
               <OrderText>
                 <OrderTextBold>Address: </OrderTextBold>
-                {userAddress.street &&
-                userAddress.number &&
-                userAddress.floor &&
-                userAddress.door &&
-                userAddress.city ? (
+                {isCorrectAddress ? (
                   `${userAddress.street} ${userAddress.number}. ${userAddress.floor}/${userAddress.door}, ${userAddress.city}`
                 ) : (
                   <OrderTextError>Missing address</OrderTextError>

@@ -16,6 +16,7 @@ import {
   Gif,
   GifContainer,
   GifMessage,
+  GifTitle,
 } from "../../helpers/gif-plus-text/gif-plus-text.helper";
 import { useEffect } from "react";
 
@@ -62,10 +63,9 @@ export const RestaurantsScreen = ({ navigation }) => {
       ) : !!error || !!locationError ? (
         <GifContainer>
           <FadeInView>
+            <GifTitle>Search Error</GifTitle>
             <Gif source={require("../../../assets/error.gif")} />
-            <GifMessage variant="error">
-              It seems all food disappeared...
-            </GifMessage>
+            <GifMessage>It seems all food disappeared...</GifMessage>
           </FadeInView>
         </GifContainer>
       ) : (

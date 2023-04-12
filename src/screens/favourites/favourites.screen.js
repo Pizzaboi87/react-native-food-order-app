@@ -7,6 +7,7 @@ import {
   GifContainer,
   GifMessage,
   Gif,
+  GifTitle,
 } from "../../helpers/gif-plus-text/gif-plus-text.helper";
 
 export const FavouritesScreen = ({ navigation }) => {
@@ -19,10 +20,9 @@ export const FavouritesScreen = ({ navigation }) => {
   ) : (
     <GifContainer>
       <FadeInView>
+        <GifTitle>No Favourites</GifTitle>
         <Gif source={require("../../../assets/nofavourite.gif")} />
-        <GifMessage variant="error">
-          You don't have any favourites yet.
-        </GifMessage>
+        <GifMessage>You don't have any favourites yet.</GifMessage>
       </FadeInView>
     </GifContainer>
   );
