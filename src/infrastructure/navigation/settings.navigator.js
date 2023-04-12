@@ -9,6 +9,7 @@ import {
   CardStyleInterpolators,
 } from "@react-navigation/stack";
 import { theme } from "../theme";
+import { PasswordChangeScreen } from "../../screens/password-change/password-change.screen";
 
 const SettingsStack = createStackNavigator();
 
@@ -44,6 +45,10 @@ export const SettingsNavigator = () => {
       <SettingsStack.Screen
         name="Change Profile Image"
         component={ChangePictureNavigator}
+      />
+      <SettingsStack.Screen
+        name="Change Password"
+        component={PasswordChangeScreen}
       />
     </SettingsStack.Navigator>
   );

@@ -3,6 +3,7 @@ import styled from "styled-components/native";
 import { theme } from "../../infrastructure/theme";
 import { List } from "react-native-paper";
 import { StyledText } from "../../helpers/typography/text.helper";
+import { ScrollView } from "react-native";
 
 export const SettingsItem = styled(List.Item).attrs({
   titleStyle: {
@@ -14,11 +15,6 @@ export const SettingsItem = styled(List.Item).attrs({
   },
 })`
   padding: ${(props) => props.theme.space[3]};
-`;
-
-export const ListContainer = styled(List.Section)`
-  flex: 1;
-  justify-content: space-evenly;
 `;
 
 export const createIcon = (IconComponent) => (props) => {
@@ -43,6 +39,10 @@ export const AddressIcon = styled(MenuIcon).attrs({
 
 export const PersonalIcon = styled(MenuIcon).attrs({
   icon: "account-cog",
+})``;
+
+export const PasswordIcon = styled(MenuIcon).attrs({
+  icon: "security",
 })``;
 
 export const OrdersIcon = styled(MenuIcon).attrs({

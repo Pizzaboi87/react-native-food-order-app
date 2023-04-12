@@ -1,10 +1,11 @@
 import React, { useContext, useCallback, useState } from "react";
-import { TouchableOpacity } from "react-native";
+import { ScrollView, TouchableOpacity } from "react-native";
 import { AuthenticationContext } from "../../services/authentication/authentication.context";
 import { UserImageContext } from "../../services/user-image/user-image.context";
 import { SafeArea } from "../../helpers/safe-area/safe-area.helper";
 import { FadeInView } from "../../animations/fade.animation";
 import { AvatarImage } from "../../components/user-avatar/user-avatar.component";
+import { DialogWindow } from "../../components/dialog-modal/dialog-modal.component";
 import { getUserData } from "../../services/firebase/firebase-config.service";
 import { useFocusEffect } from "@react-navigation/native";
 import {
@@ -17,9 +18,8 @@ import {
   AddressIcon,
   PersonalIcon,
   OrdersIcon,
-  ListContainer,
+  PasswordIcon,
 } from "./settings.styles";
-import { DialogWindow } from "../../components/dialog-modal/dialog-modal.component";
 
 export const SettingsScreen = ({ navigation }) => {
   const { onSignOut, uid } = useContext(AuthenticationContext);
@@ -32,6 +32,7 @@ export const SettingsScreen = ({ navigation }) => {
   const personalIcon = createIcon(PersonalIcon);
   const addressIcon = createIcon(AddressIcon);
   const ordersIcon = createIcon(OrdersIcon);
+  const passwordIcon = createIcon(PasswordIcon);
 
   useFocusEffect(
     useCallback(() => {
@@ -59,12 +60,18 @@ export const SettingsScreen = ({ navigation }) => {
         </FadeInView>
         <UserText variant="title">{userName}</UserText>
       </AvatarContainer>
-      <ListContainer>
+      <ScrollView>
         <SettingsItem
           title="Favourites"
           description="Check your favourites"
           left={heartIcon}
           onPress={() => navigation.navigate("My Favourite Restaurants")}
+        />
+        <SettingsItem
+          title="Previous Orders"
+          description="Check your previous orders"
+          left={ordersIcon}
+          onPress={() => setVisible(true)}
         />
         <SettingsItem
           title="Delivery Address"
@@ -79,10 +86,10 @@ export const SettingsScreen = ({ navigation }) => {
           onPress={() => navigation.navigate("Personal Details")}
         />
         <SettingsItem
-          title="Previous Orders"
-          description="Check your previous orders"
-          left={ordersIcon}
-          onPress={() => setVisible(true)}
+          title="Change Password"
+          description="Change your password"
+          left={passwordIcon}
+          onPress={() => navigation.navigate("Change Password")}
         />
         <DialogWindow
           variant="wait"
@@ -91,7 +98,7 @@ export const SettingsScreen = ({ navigation }) => {
           setVisible={setVisible}
         />
         <SettingsItem title="Logout" left={doorIcon} onPress={onSignOut} />
-      </ListContainer>
+      </ScrollView>
     </SafeArea>
   );
 };

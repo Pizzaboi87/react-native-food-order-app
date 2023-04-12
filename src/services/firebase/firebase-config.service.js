@@ -1,4 +1,4 @@
-import { initializeApp } from "firebase/app";
+import firebase, { initializeApp } from "firebase/app";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 import {
   getFirestore,
@@ -18,6 +18,9 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   sendPasswordResetEmail,
+  updatePassword,
+  reauthenticateWithCredential,
+  EmailAuthProvider,
 } from "firebase/auth";
 import { getDatabase, get, ref as rtdbref, child } from "firebase/database";
 
@@ -128,6 +131,34 @@ export const sendPasswordReset = async (email, setEmailPopup, setError) => {
         break;
     }
   }
+};
+
+export const updateUserPassword = (
+  currentPassword,
+  newPassword,
+  setChangeSuccess,
+  setChangeFail,
+  setAuthenticationFail
+) => {
+  const user = auth.currentUser;
+  const email = auth.currentUser.email;
+  const credential = EmailAuthProvider.credential(email, currentPassword);
+
+  reauthenticateWithCredential(user, credential)
+    .then(() => {
+      updatePassword(user, newPassword)
+        .then(() => {
+          setChangeSuccess(true);
+        })
+        .catch((error) => {
+          setChangeFail(true);
+          console.log(error);
+        });
+    })
+    .catch((error) => {
+      setAuthenticationFail(true);
+      console.log(error);
+    });
 };
 
 export const addAddressToUser = async (

@@ -173,7 +173,7 @@ export const CartScreen = ({ navigation }) => {
             <GifTitle>Sad News...</GifTitle>
             <Gif source={require("../../../assets/sad.gif")} />
             <GifMessage>
-              {`The selected restaurant\nis too far from your address.`}
+              {"The selected restaurant\nis too far from your address."}
             </GifMessage>
           </FadeInView>
         </GifContainer>
