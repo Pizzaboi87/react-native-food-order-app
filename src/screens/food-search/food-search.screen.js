@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { SafeArea } from "../../helpers/safe-area/safe-area.helper";
-import { View } from "react-native";
-import { Button, Text } from "react-native-paper";
+import { ScrollView, View } from "react-native";
+import { Button } from "react-native-paper";
 import { Search } from "../../components/search/search.component";
 import { SearchContainerRestaurant } from "../../components/search/search.styles";
 import { TouchableOpacity } from "react-native";
@@ -10,6 +10,7 @@ import { UserImageContext } from "../../services/user-image/user-image.context";
 import { AuthenticationContext } from "../../services/authentication/authentication.context";
 import { getDataFromDatabase } from "../../services/firebase/firebase-config.service";
 import { LocationContext } from "../../services/location/location.context";
+import { RestaurantMenu } from "../../components/restaurant-menu/restaurant-menu.component";
 
 export const FoodSearchScreen = ({ navigation }) => {
   const { useLoadImage } = useContext(UserImageContext);
@@ -17,6 +18,14 @@ export const FoodSearchScreen = ({ navigation }) => {
   const { keyword } = useContext(LocationContext);
   const [allMenu, setAllMenu] = useState({});
   const [allCategories, setAllCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [filteredMenuItems, setFilteredMenuItems] = useState(null);
+
+  useLoadImage(uid);
+
+  const handlePress = (category) => {
+    setSelectedCategory(category);
+  };
 
   useEffect(() => {
     const fetchMenu = async () => {
@@ -30,6 +39,7 @@ export const FoodSearchScreen = ({ navigation }) => {
         const iconSet = new Set();
         const titleSet = new Set();
         const iconTitlePairs = [];
+        const restaurants = [];
 
         Object.keys(menu).forEach((placeKey) => {
           const place = menu[placeKey];
@@ -51,19 +61,51 @@ export const FoodSearchScreen = ({ navigation }) => {
           });
         });
         setAllCategories(iconTitlePairs);
-        setAllMenu(menu);
+        setSelectedCategory(iconTitlePairs[0]);
+
+        Object.keys(menu).forEach((place) => {
+          const restaurant = menu[place];
+          restaurants.push(restaurant);
+        });
+        setAllMenu(restaurants);
       } catch (error) {
         console.log("error", error);
       }
     };
     fetchMenu();
+
+    return () => {
+      return null;
+    };
   }, [keyword]);
 
-  useLoadImage(uid);
+  useEffect(() => {
+    if (allMenu.length) {
+      const filteredMenu = allMenu
+        .map((menu) => {
+          return menu.restaurant_menu
+            .filter((restMenu) => restMenu.title === selectedCategory.title)
+            .map((restMenu) => ({
+              place_id: menu.place_id,
+              ...restMenu,
+            }));
+        })
+        .filter((menu) => menu.length > 0);
+      setFilteredMenuItems(filteredMenu);
+    }
+    return () => {
+      return null;
+    };
+  }, [selectedCategory, allMenu]);
 
   const buttonList = allCategories.map((category) => {
     return (
-      <Button mode="contained" icon={category.icon} buttonColor="coral">
+      <Button
+        mode="contained"
+        icon={category.icon}
+        buttonColor={selectedCategory === category ? "coral" : "grey"}
+        onPress={() => handlePress(category)}
+      >
         {category.title}
       </Button>
     );
@@ -88,6 +130,13 @@ export const FoodSearchScreen = ({ navigation }) => {
       >
         {buttonList}
       </View>
+      <ScrollView style={{ marginTop: 30 }}>
+        {filteredMenuItems !== null
+          ? filteredMenuItems.map((item) => {
+              return <RestaurantMenu menu={item} id={item[0].place_id} />;
+            })
+          : null}
+      </ScrollView>
     </SafeArea>
   );
 };

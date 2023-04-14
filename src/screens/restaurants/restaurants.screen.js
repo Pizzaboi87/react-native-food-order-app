@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { SafeArea } from "../../helpers/safe-area/safe-area.helper";
 import { RestaurantsContext } from "../../services/restaurants/restaurants.context";
 import { LocationContext } from "../../services/location/location.context";
@@ -18,7 +18,6 @@ import {
   GifMessage,
   GifTitle,
 } from "../../helpers/gif-plus-text/gif-plus-text.helper";
-import { useEffect } from "react";
 
 export const RestaurantsScreen = ({ navigation }) => {
   const { restaurants, error } = useContext(RestaurantsContext);
