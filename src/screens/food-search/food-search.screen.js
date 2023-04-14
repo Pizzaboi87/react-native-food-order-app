@@ -149,24 +149,22 @@ export const FoodSearchScreen = ({ navigation }) => {
           </FadeInView>
         </GifContainer>
       ) : (
-        <View>
+        <ScrollView>
           <ButtonContainer>{buttonList}</ButtonContainer>
-          <ScrollView>
-            {filteredMenuItems !== null
-              ? filteredMenuItems.map((item, index) => {
-                  return (
-                    <View key={`${item.place_id}-${index}`}>
-                      <RestaurantInfoBanner
-                        id={item[0].place_id}
-                        navigation={navigation}
-                      />
-                      <RestaurantMenu menu={item} id={item[0].place_id} />
-                    </View>
-                  );
-                })
-              : null}
-          </ScrollView>
-        </View>
+          {filteredMenuItems !== null
+            ? filteredMenuItems.map((item, index) => {
+                return (
+                  <View key={`${item.place_id}-${index}`}>
+                    <RestaurantInfoBanner
+                      id={item[0].place_id}
+                      navigation={navigation}
+                    />
+                    <RestaurantMenu menu={item} id={item[0].place_id} />
+                  </View>
+                );
+              })
+            : null}
+        </ScrollView>
       )}
     </SafeArea>
   );
