@@ -3,7 +3,6 @@ import styled from "styled-components/native";
 import { theme } from "../../infrastructure/theme";
 import { List } from "react-native-paper";
 import { StyledText } from "../../helpers/typography/text.helper";
-import { ScrollView } from "react-native";
 
 export const SettingsItem = styled(List.Item).attrs({
   titleStyle: {

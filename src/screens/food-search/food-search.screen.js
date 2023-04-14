@@ -1,21 +1,31 @@
 import React, { useContext, useEffect, useState } from "react";
-import { SafeArea } from "../../helpers/safe-area/safe-area.helper";
-import { ScrollView, View } from "react-native";
+import { ScrollView, View, TouchableOpacity } from "react-native";
 import { Button } from "react-native-paper";
 import { Search } from "../../components/search/search.component";
-import { SearchContainerRestaurant } from "../../components/search/search.styles";
-import { TouchableOpacity } from "react-native";
 import { AvatarImage } from "../../components/user-avatar/user-avatar.component";
+import { RestaurantMenu } from "../../components/restaurant-menu/restaurant-menu.component";
+import { RestaurantInfoBanner } from "../../components/restaurant-info-banner/restaurant-info-banner.component";
+import { getDataFromDatabase } from "../../services/firebase/firebase-config.service";
+import { SafeArea } from "../../helpers/safe-area/safe-area.helper";
+import { LocationContext } from "../../services/location/location.context";
 import { UserImageContext } from "../../services/user-image/user-image.context";
 import { AuthenticationContext } from "../../services/authentication/authentication.context";
-import { getDataFromDatabase } from "../../services/firebase/firebase-config.service";
-import { LocationContext } from "../../services/location/location.context";
-import { RestaurantMenu } from "../../components/restaurant-menu/restaurant-menu.component";
+import { SearchContainerRestaurant } from "../../components/search/search.styles";
+import { ButtonContainer } from "./food-search.styles";
+import { theme } from "../../infrastructure/theme";
+import { FadeInView } from "../../animations/fade.animation";
+import {
+  GifContainer,
+  GifMessage,
+  GifTitle,
+  Gif,
+} from "../../helpers/gif-plus-text/gif-plus-text.helper";
 
 export const FoodSearchScreen = ({ navigation }) => {
   const { useLoadImage } = useContext(UserImageContext);
   const { uid } = useContext(AuthenticationContext);
   const { keyword } = useContext(LocationContext);
+  const [error, setError] = useState(false);
   const [allMenu, setAllMenu] = useState({});
   const [allCategories, setAllCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -30,6 +40,7 @@ export const FoodSearchScreen = ({ navigation }) => {
   useEffect(() => {
     const fetchMenu = async () => {
       try {
+        setError(false);
         const menu = await getDataFromDatabase(
           "menu",
           keyword.toLowerCase(),
@@ -68,8 +79,9 @@ export const FoodSearchScreen = ({ navigation }) => {
           restaurants.push(restaurant);
         });
         setAllMenu(restaurants);
-      } catch (error) {
-        console.log("error", error);
+      } catch (err) {
+        console.log("error", err);
+        setError(true);
       }
     };
     fetchMenu();
@@ -98,12 +110,17 @@ export const FoodSearchScreen = ({ navigation }) => {
     };
   }, [selectedCategory, allMenu]);
 
-  const buttonList = allCategories.map((category) => {
+  const buttonList = allCategories.map((category, index) => {
     return (
       <Button
+        key={`${category.icon}-${category.title}-${index}`}
         mode="contained"
         icon={category.icon}
-        buttonColor={selectedCategory === category ? "coral" : "grey"}
+        buttonColor={
+          selectedCategory === category
+            ? theme.colors.ui.brand
+            : theme.colors.ui.secondary
+        }
         onPress={() => handlePress(category)}
       >
         {category.title}
@@ -119,24 +136,34 @@ export const FoodSearchScreen = ({ navigation }) => {
           <AvatarImage size={55} />
         </TouchableOpacity>
       </SearchContainerRestaurant>
-      <View
-        style={{
-          flexDirection: "row",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          gap: 10,
-          marginTop: 30,
-        }}
-      >
-        {buttonList}
-      </View>
-      <ScrollView style={{ marginTop: 30 }}>
-        {filteredMenuItems !== null
-          ? filteredMenuItems.map((item) => {
-              return <RestaurantMenu menu={item} id={item[0].place_id} />;
-            })
-          : null}
-      </ScrollView>
+      {error ? (
+        <GifContainer>
+          <FadeInView>
+            <GifTitle>Search Error</GifTitle>
+            <Gif source={require("../../../assets/error.gif")} />
+            <GifMessage>{`It seems all food disappeared...\nor you tried a wrong keyword.`}</GifMessage>
+          </FadeInView>
+        </GifContainer>
+      ) : (
+        <View>
+          <ButtonContainer>{buttonList}</ButtonContainer>
+          <ScrollView>
+            {filteredMenuItems !== null
+              ? filteredMenuItems.map((item, index) => {
+                  return (
+                    <View key={`${item.place_id}-${index}`}>
+                      <RestaurantInfoBanner
+                        id={item[0].place_id}
+                        navigation={navigation}
+                      />
+                      <RestaurantMenu menu={item} id={item[0].place_id} />
+                    </View>
+                  );
+                })
+              : null}
+          </ScrollView>
+        </View>
+      )}
     </SafeArea>
   );
 };

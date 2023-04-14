@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { SafeArea } from "../../helpers/safe-area/safe-area.helper";
 import { RestaurantInfoCard } from "../../components/restaurant-info-card/restaurant-info-card.component";
 import { DetailsContainer, Loading } from "./restaurant-details.styles";
@@ -16,7 +16,7 @@ export const RestaurantDetailsScreen = ({ route }) => {
 
   const [distance, setDistance] = useState("");
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     const userAddress = await getUserData("address");
     try {
       setDistance(
@@ -30,7 +30,7 @@ export const RestaurantDetailsScreen = ({ route }) => {
     } catch (err) {
       console.log(err);
     }
-  };
+  }, [restaurant.address]);
 
   useEffect(() => {
     const fetchMenu = async () => {
@@ -47,7 +47,7 @@ export const RestaurantDetailsScreen = ({ route }) => {
     };
     fetchMenu();
     fetchData();
-  }, [place_id]);
+  }, [place_id, fetchData]);
 
   if (restaurantMenu) {
     return (
@@ -56,6 +56,7 @@ export const RestaurantDetailsScreen = ({ route }) => {
         <DetailsContainer>
           <RestaurantMenu
             menu={restaurantMenu.restaurant_menu}
+            id={restaurantMenu.place_id}
             restaurantObject={restaurant}
           />
         </DetailsContainer>

@@ -40,10 +40,12 @@ export const RestaurantMenu = ({ menu, id, restaurantObject }) => {
         } catch (error) {
           console.log(error);
         }
-      } else setRestaurant(restaurantObject);
+      } else {
+        setRestaurant(restaurantObject);
+      }
     };
     fetchRestaurant();
-  }, []);
+  }, [id, restaurantObject]);
 
   if (restaurant) {
     const handleCategory = (title) => {
@@ -105,7 +107,7 @@ export const RestaurantMenu = ({ menu, id, restaurantObject }) => {
                   name={food.name}
                   price={food.price}
                   description={food.description}
-                  id={restaurant.place_id}
+                  id={id}
                   quantity={quantity[name] ? quantity[name] : 0}
                   add={() => add(food.name)}
                   remove={() => remove(food.name)}
@@ -121,5 +123,7 @@ export const RestaurantMenu = ({ menu, id, restaurantObject }) => {
     });
 
     return list;
-  } else return null;
+  } else {
+    return null;
+  }
 };

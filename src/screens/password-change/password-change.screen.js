@@ -43,7 +43,9 @@ export const PasswordChangeScreen = ({ navigation }) => {
       } else {
         setWeakPassword(true);
       }
-    } else setDoNotMatch(true);
+    } else {
+      setDoNotMatch(true);
+    }
   };
 
   return (
@@ -89,7 +91,7 @@ export const PasswordChangeScreen = ({ navigation }) => {
 
       <DialogWindow
         variant="error"
-        message={`Password change failed.\nPlease try again later.`}
+        message={"Password change failed.\nPlease try again later."}
         visible={changeFail}
         setVisible={setChangeFail}
       />
@@ -110,7 +112,9 @@ export const PasswordChangeScreen = ({ navigation }) => {
 
       <DialogWindow
         variant="thinking"
-        message={`Your new password is weak. It should:\n- Be at least 8 characters long\n- Contain at least one lowercase letter\n- Contain at least one uppercase letter\n- Contain at least one number\n- Contain at least one special character`}
+        message={
+          "Your new password is weak. It should:\n- Be at least 8 characters long\n- Contain at least one lowercase letter\n- Contain at least one uppercase letter\n- Contain at least one number\n- Contain at least one special character"
+        }
         visible={weakPassword}
         setVisible={setWeakPassword}
       />
