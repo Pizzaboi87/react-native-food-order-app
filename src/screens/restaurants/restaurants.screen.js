@@ -64,7 +64,11 @@ export const RestaurantsScreen = ({ navigation }) => {
           <FadeInView>
             <GifTitle>Search Error</GifTitle>
             <Gif source={require("../../../assets/error.gif")} />
-            <GifMessage>{`It seems all food disappeared...\nor you tried a wrong keyword.`}</GifMessage>
+            <GifMessage>
+              {
+                "It seems all food disappeared...\nor you tried a wrong keyword."
+              }
+            </GifMessage>
           </FadeInView>
         </GifContainer>
       ) : (
