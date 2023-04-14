@@ -1,20 +1,22 @@
 import React, { useContext } from "react";
 import { FavouritesContextProvider } from "../../services/favourites/favourites.context";
-import { theme } from "../theme";
 import { LocationContextProvider } from "../../services/location/location.context";
 import { RestaurantsContextProvider } from "../../services/restaurants/restaurants.context";
 import { UserImageContextProvider } from "../../services/user-image/user-image.context";
+import { CartContext } from "../../services/cart/cart.context";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { FoodSearchScreen } from "../../screens/food-search/food-search.screen";
 import { MapScreen } from "../../screens/map/map.screen";
 import { RestaurantsNavigator } from "./restaurants.navigator";
 import { SettingsNavigator } from "./settings.navigator";
-import { MaterialIcons } from "@expo/vector-icons";
-import { CartContext } from "../../services/cart/cart.context";
 import { CartNavigator } from "./cart.navigator";
+import { MaterialIcons } from "@expo/vector-icons";
+import { theme } from "../theme";
 
 const TAB_ICON = {
   Restaurants: "local-restaurant",
   Map: "map",
+  Search: "search",
   Cart: "shopping-basket",
   Settings: "settings",
 };
@@ -50,6 +52,7 @@ export const AppNavigator = () => {
             <Tab.Navigator screenOptions={useScreenOptions}>
               <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
               <Tab.Screen name="Map" component={MapScreen} />
+              <Tab.Screen name="Search" component={FoodSearchScreen} />
               <Tab.Screen name="Cart" component={CartNavigator} />
               <Tab.Screen
                 name="Settings"

@@ -13,7 +13,15 @@ export const Search = ({ icon, isToggled, onToggle }) => {
 
   return (
     <SearchBarOrange
-      icon={icon === "map" ? "map" : isToggled ? "heart" : "heart-outline"}
+      icon={
+        icon === "map"
+          ? "map"
+          : icon === "search"
+          ? "crosshairs"
+          : isToggled
+          ? "heart"
+          : "heart-outline"
+      }
       onIconPress={icon === "heart" ? onToggle : null}
       placeholder="Search for a location"
       value={searchKeyword}
