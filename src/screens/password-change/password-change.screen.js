@@ -29,7 +29,8 @@ export const PasswordChangeScreen = ({ navigation }) => {
   };
 
   const changePassword = () => {
-    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
+    const passwordRegex =
+      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+~`\-={}[\]:;"'<>,.?\\/])[0-9a-zA-Z!@#$%^&*()_+~`\-={}[\]:;"'<>,.?\\/]{8,}$/;
     if (password.newPW1 === password.newPW2) {
       if (passwordRegex.test(password.newPW1)) {
         updateUserPassword(
@@ -109,7 +110,7 @@ export const PasswordChangeScreen = ({ navigation }) => {
 
       <DialogWindow
         variant="thinking"
-        message={`Your new password is weak. It should:\n- Be at least 8 characters long\n- Contain at least one lowercase letter\n- Contain at least one uppercase letter\n- Contain at least one number`}
+        message={`Your new password is weak. It should:\n- Be at least 8 characters long\n- Contain at least one lowercase letter\n- Contain at least one uppercase letter\n- Contain at least one number\n- Contain at least one special character`}
         visible={weakPassword}
         setVisible={setWeakPassword}
       />
