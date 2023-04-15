@@ -127,13 +127,15 @@ export const HorizontalLine = styled.View`
 `;
 
 export const PaymentButton = styled(Button).attrs({
-  mode: "contained",
-  buttonColor: theme.colors.ui.success,
+  mode: "contained-tonal",
+  buttonColor: theme.colors.brand.secondary,
   labelStyle: {
     fontSize: 20,
+    color: theme.colors.ui.tertiary,
   },
 })`
   margin-bottom: ${(props) => props.theme.space[4]};
   margin-top: ${(props) => props.theme.space[4]};
   border-radius: ${(props) => props.theme.sizes[1]};
+  padding: ${(props) => props.theme.sizes[0]};
 `;

@@ -13,7 +13,7 @@ import {
 export const FavouritesScreen = ({ navigation }) => {
   const { favourites } = useContext(FavouritesContext);
 
-  return favourites ? (
+  return favourites?.length ? (
     <FavouritesContainer>
       <ListOfRestaurants navigation={navigation} data={favourites} />
     </FavouritesContainer>

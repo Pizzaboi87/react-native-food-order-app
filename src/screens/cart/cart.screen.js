@@ -284,7 +284,7 @@ export const CartScreen = ({ navigation }) => {
           <PaymentButton
             disabled={deliveryError ? true : false}
             onPress={() => {
-              const amount = Number((fullPrice + delivery).toFixed(1)) * 100;
+              const amount = Number((fullPrice + delivery).toFixed(1));
               goToCheckout(amount);
             }}
           >

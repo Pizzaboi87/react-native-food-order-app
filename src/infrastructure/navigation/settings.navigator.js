@@ -3,13 +3,13 @@ import { SettingsScreen } from "../../screens/settings/settings.screen";
 import { FavouritesScreen } from "../../screens/favourites/favourites.screen";
 import { PersonalDataScreen } from "../../screens/personal-data/personal-data.screen";
 import { DeliveryAddressScreen } from "../../screens/delivery-address/delivery-address.screen";
+import { PasswordChangeScreen } from "../../screens/password-change/password-change.screen";
 import { ChangePictureNavigator } from "./change-picture.navigator";
 import {
   createStackNavigator,
   CardStyleInterpolators,
 } from "@react-navigation/stack";
 import { theme } from "../theme";
-import { PasswordChangeScreen } from "../../screens/password-change/password-change.screen";
 
 const SettingsStack = createStackNavigator();
 
