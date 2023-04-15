@@ -44,7 +44,7 @@ import {
 export const CartScreen = ({ navigation }) => {
   const { cart, setCart } = useContext(CartContext);
   const { useLoadImage } = useContext(UserImageContext);
-  const { uid } = useContext(AuthenticationContext);
+  const { uid, currentUser } = useContext(AuthenticationContext);
 
   const [isLoading, setIsLoading] = useState(false);
   const [restaurant, setRestaurant] = useState({});
@@ -147,6 +147,22 @@ export const CartScreen = ({ navigation }) => {
     const item = newCart[index].order;
     newCart[index].order = { ...item, quantity: item.quantity + 1 };
     setCart(newCart);
+  };
+
+  const goToCheckout = (amount) => {
+    navigation.navigate("Checkout", {
+      amount: amount,
+      userName: `${userPersonalData.firstName} ${userPersonalData.lastName}`,
+      phone: userPersonalData.phone,
+      address: {
+        city: userAddress.city,
+        line1: `${userAddress.number}. ${userAddress.floor}/${userAddress.door}`,
+        postal_code: userAddress.zip,
+        state: userAddress.state,
+      },
+      email: currentUser.email,
+      uid: uid,
+    });
   };
 
   return (
@@ -265,7 +281,13 @@ export const CartScreen = ({ navigation }) => {
               </Button>
             </Card.Content>
           </OrderCard>
-          <PaymentButton disabled={deliveryError ? true : false}>
+          <PaymentButton
+            disabled={deliveryError ? true : false}
+            onPress={() => {
+              const amount = Number((fullPrice + delivery).toFixed(1)) * 100;
+              goToCheckout(amount);
+            }}
+          >
             Continue To Payment
           </PaymentButton>
         </OrderContainer>

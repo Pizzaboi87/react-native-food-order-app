@@ -6,6 +6,7 @@ import {
   CardStyleInterpolators,
 } from "@react-navigation/stack";
 import { theme } from "../theme";
+import { CheckoutScreen } from "../../screens/checkout/checkout.screen";
 
 const CartStack = createStackNavigator();
 
@@ -30,6 +31,7 @@ export const CartNavigator = () => {
         name="Change Address"
         component={DeliveryAddressScreen}
       />
+      <CartStack.Screen name="Checkout" component={CheckoutScreen} />
     </CartStack.Navigator>
   );
 };
