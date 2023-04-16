@@ -46,69 +46,78 @@ export const CartScreen = ({ navigation }) => {
   const { useLoadImage } = useContext(UserImageContext);
   const { uid, currentUser } = useContext(AuthenticationContext);
 
-  const [isLoading, setIsLoading] = useState(false);
-  const [restaurant, setRestaurant] = useState({});
-  const [userAddress, setUserAddress] = useState({});
-  const [userPersonalData, setUserPersonalData] = useState({});
-  const [distance, setDistance] = useState("");
-  const [deliveryError, setDeliveryError] = useState(false);
-  const [dataError, setDataError] = useState(false);
+  const [order, setOrder] = useState({
+    restaurant: {},
+    address: {},
+    user: {},
+    distance: 0,
+  });
+  const [status, setStatus] = useState({
+    isLoading: false,
+    dataError: false,
+    showError: false,
+  });
 
   let fullPrice = 0;
   let delivery = 0;
 
   const isCorrectAddress =
-    userAddress.street &&
-    userAddress.number &&
-    userAddress.floor &&
-    userAddress.door &&
-    userAddress.city;
+    order.address.street &&
+    order.address.number &&
+    order.address.floor &&
+    order.address.door &&
+    order.address.city;
 
-  const isCorrectName = userPersonalData.firstName && userPersonalData.lastName;
+  const isCorrectName = order.user.firstName && order.user.lastName;
 
   useLoadImage(uid);
 
   const fetchData = async (id) => {
-    setIsLoading(true);
+    setStatus({ isLoading: true, dataError: false, showError: false });
     const [place, personalData, address] = await Promise.all([
       getDataFromDatabase("restaurant", id.slice(0, -2), id),
       getUserData("personalData"),
       getUserData("address"),
     ]);
-    if (!address && !personalData) {
-      setIsLoading(false);
-      setRestaurant(place);
-      setDataError(true);
-      setDeliveryError(true);
-    } else if (!address) {
-      setIsLoading(false);
-      setRestaurant(place);
-      setUserPersonalData(personalData);
-      setDataError(true);
-      setDeliveryError(true);
-    } else if (!personalData) {
-      setIsLoading(false);
-      setRestaurant(place);
-      setUserAddress(address);
-      setDataError(true);
-      setDeliveryError(true);
-    } else {
-      setRestaurant(place);
-      setUserAddress(address);
-      setUserPersonalData(personalData);
-      setIsLoading(false);
-      try {
-        setDistance(
-          await getDistance(
-            `(${address.city}+${address.street})`.split(/[\s,-]+/).join("+"),
-            place.address.split(/[\s,-]+/).join("+")
-          )
-        );
-        setDeliveryError(false);
-      } catch (err) {
-        setDataError(true);
-        setDeliveryError(true);
+
+    if (place) {
+      setOrder((prevOrder) => ({ ...prevOrder, restaurant: place }));
+      if (personalData && address) {
+        setOrder((prevOrder) => ({
+          ...prevOrder,
+          address: address,
+          user: personalData,
+        }));
+        try {
+          const formattedAddress = `${address.city}+${address.street}`
+            .split(/[\s,-]+/)
+            .join("+");
+          const formattedRestaurantAddress = place.address
+            .split(/[\s,-]+/)
+            .join("+");
+          const distance = await getDistance(
+            formattedAddress,
+            formattedRestaurantAddress
+          );
+          setOrder((prevOrder) => ({
+            ...prevOrder,
+            distance: distance,
+          }));
+          setStatus({ ...status, isLoading: false });
+        } catch (err) {
+          setStatus({ ...status, dataError: true, showError: true });
+        }
+      } else if (personalData && !address) {
+        setOrder((prevOrder) => ({ ...prevOrder, user: personalData }));
+        setStatus({ isLoading: false, dataError: true, showError: true });
+      } else if (address && !personalData) {
+        setOrder((prevOrder) => ({ ...prevOrder, address: address }));
+        setStatus({ isLoading: false, dataError: true, showError: true });
+      } else {
+        setStatus({ isLoading: false, dataError: true, showError: true });
       }
+    } else {
+      setStatus({ isLoading: false, dataError: true, showError: true });
     }
   };
 
@@ -128,7 +137,9 @@ export const CartScreen = ({ navigation }) => {
     });
   };
 
-  const isTooFar = distance > 50;
+  const isTooFar = order.distance > 50;
+
+  console.log(status);
 
   const minusQuantity = (index) => {
     const newCart = [...cart];
@@ -152,13 +163,13 @@ export const CartScreen = ({ navigation }) => {
   const goToCheckout = (amount) => {
     navigation.navigate("Checkout", {
       amount: amount,
-      userName: `${userPersonalData.firstName} ${userPersonalData.lastName}`,
-      phone: userPersonalData.phone,
+      userName: `${order.user.firstName} ${order.user.lastName}`,
+      phone: order.user.phone,
       address: {
-        city: userAddress.city,
-        line1: `${userAddress.number}. ${userAddress.floor}/${userAddress.door}`,
-        postal_code: userAddress.zip,
-        state: userAddress.state,
+        city: order.address.city,
+        line1: `${order.address.number}. ${order.address.floor}/${order.address.door}`,
+        postal_code: order.address.zip,
+        state: order.address.state,
       },
       email: currentUser.email,
       uid: uid,
@@ -181,7 +192,7 @@ export const CartScreen = ({ navigation }) => {
             <GifMessage>Your cart is still empty.</GifMessage>
           </FadeInView>
         </GifContainer>
-      ) : isLoading ? (
+      ) : status.isLoading ? (
         <Loading />
       ) : isTooFar ? (
         <GifContainer>
@@ -200,14 +211,16 @@ export const CartScreen = ({ navigation }) => {
             message={
               "Your delivery details are not valid,\nplease change them in Settings!"
             }
-            visible={dataError}
-            setVisible={setDataError}
+            visible={status.showError}
+            setVisible={() =>
+              setStatus((prevVisible) => ({ ...prevVisible, showError: false }))
+            }
           />
-          <OrderCard onPress={() => openDetails(restaurant)}>
+          <OrderCard onPress={() => openDetails(order.restaurant)}>
             <OrderTitle title="Restaurant" />
             <Card.Content>
-              <OrderText>{restaurant.name}</OrderText>
-              <OrderText>{restaurant.address}</OrderText>
+              <OrderText>{order.restaurant.name}</OrderText>
+              <OrderText>{order.restaurant.address}</OrderText>
             </Card.Content>
           </OrderCard>
           <OrderCard>
@@ -218,7 +231,7 @@ export const CartScreen = ({ navigation }) => {
                 const { product, quantity, price } = item.order;
                 const partPrice = price * quantity;
                 fullPrice += partPrice;
-                delivery = fullPrice > 20 ? 0 : distance * 0.2;
+                delivery = fullPrice > 20 ? 0 : order.distance * 0.2;
 
                 return (
                   <OrderDetailsContainer key={`${product}-${price}`}>
@@ -255,7 +268,7 @@ export const CartScreen = ({ navigation }) => {
               <OrderText>
                 <OrderTextBold>Name: </OrderTextBold>
                 {isCorrectName ? (
-                  `${userPersonalData.firstName} ${userPersonalData.lastName}`
+                  `${order.user.firstName} ${order.user.lastName}`
                 ) : (
                   <OrderTextError>Missing name</OrderTextError>
                 )}
@@ -263,15 +276,15 @@ export const CartScreen = ({ navigation }) => {
               <OrderText>
                 <OrderTextBold>Address: </OrderTextBold>
                 {isCorrectAddress ? (
-                  `${userAddress.street} ${userAddress.number}. ${userAddress.floor}/${userAddress.door}, ${userAddress.city}`
+                  `${order.address.street} ${order.address.number}. ${order.address.floor}/${order.address.door}, ${order.address.city}`
                 ) : (
                   <OrderTextError>Missing address</OrderTextError>
                 )}
               </OrderText>
               <OrderText>
                 <OrderTextBold>Phone: </OrderTextBold>
-                {userPersonalData.phone ? (
-                  `${userPersonalData.phone}`
+                {order.user.phone ? (
+                  `${order.user.phone}`
                 ) : (
                   <OrderTextError>Missing phone number</OrderTextError>
                 )}
@@ -282,7 +295,7 @@ export const CartScreen = ({ navigation }) => {
             </Card.Content>
           </OrderCard>
           <PaymentButton
-            disabled={deliveryError ? true : false}
+            disabled={status.dataError ? true : false}
             onPress={() => {
               const amount = Number((fullPrice + delivery).toFixed(1));
               goToCheckout(amount);
