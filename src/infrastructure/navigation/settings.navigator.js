@@ -1,4 +1,5 @@
 import React from "react";
+import { theme } from "../theme";
 import { SettingsScreen } from "../../screens/settings/settings.screen";
 import { FavouritesScreen } from "../../screens/favourites/favourites.screen";
 import { PersonalDataScreen } from "../../screens/personal-data/personal-data.screen";
@@ -9,7 +10,6 @@ import {
   createStackNavigator,
   CardStyleInterpolators,
 } from "@react-navigation/stack";
-import { theme } from "../theme";
 
 const SettingsStack = createStackNavigator();
 

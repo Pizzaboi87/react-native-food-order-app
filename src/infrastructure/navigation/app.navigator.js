@@ -53,12 +53,17 @@ export const AppNavigator = () => {
               <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
               <Tab.Screen name="Map" component={MapScreen} />
               <Tab.Screen name="Search" component={FoodSearchScreen} />
-              <Tab.Screen name="Cart" component={CartNavigator} />
+              <Tab.Screen
+                name="Cart"
+                component={CartNavigator}
+                options={{ unmountOnBlur: true }}
+              />
               <Tab.Screen
                 name="Settings"
                 component={SettingsNavigator}
                 options={{
                   tabBarButton: () => null,
+                  unmountOnBlur: true,
                 }}
               />
             </Tab.Navigator>
