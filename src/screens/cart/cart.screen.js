@@ -150,7 +150,7 @@ export const CartScreen = ({ navigation }) => {
         <Gif.Container>
           <FadeInView>
             <Gif.Title>Empty Cart</Gif.Title>
-            <Gif.Image source={require("../../../assets/noorder.gif")} />
+            <Gif.Picture source={require("../../../assets/noorder.gif")} />
             <Gif.Message>Your cart is still empty.</Gif.Message>
           </FadeInView>
         </Gif.Container>
@@ -160,7 +160,7 @@ export const CartScreen = ({ navigation }) => {
         <Gif.Container>
           <FadeInView>
             <Gif.Title>Sad News...</Gif.Title>
-            <Gif.Image source={require("../../../assets/sad.gif")} />
+            <Gif.Picture source={require("../../../assets/sad.gif")} />
             <Gif.Message>
               {"The selected restaurant\nis too far from your address."}
             </Gif.Message>

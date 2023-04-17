@@ -16,7 +16,7 @@ export const FavouritesScreen = ({ navigation }) => {
     <Gif.Container>
       <FadeInView>
         <Gif.Title>No Favourites</Gif.Title>
-        <Gif.Image source={require("../../../assets/nofavourite.gif")} />
+        <Gif.Picture source={require("../../../assets/nofavourite.gif")} />
         <Gif.Message>You don't have any favourites yet.</Gif.Message>
       </FadeInView>
     </Gif.Container>

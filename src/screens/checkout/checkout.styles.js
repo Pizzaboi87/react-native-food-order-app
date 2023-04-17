@@ -1,6 +1,6 @@
 import styled from "styled-components/native";
 import { ScrollView } from "react-native";
-import { Image as Gif } from "../../helpers/gif-plus-text/gif-plus-text.helper";
+import { Picture as Gif } from "../../helpers/gif-plus-text/gif-plus-text.helper";
 
 export const Container = styled(ScrollView).attrs({
   contentContainerStyle: {

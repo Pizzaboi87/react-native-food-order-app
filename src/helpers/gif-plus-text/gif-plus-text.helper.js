@@ -27,7 +27,7 @@ export const Message = styled(StyledText).attrs({
   font-size: ${(props) => props.theme.fontSizes.title};
 `;
 
-export const Image = styled(Image)`
+export const Picture = styled(Image)`
   width: 200px;
   height: 200px;
   margin: 0 auto;

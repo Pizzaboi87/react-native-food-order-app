@@ -58,7 +58,7 @@ export const RestaurantsScreen = ({ navigation }) => {
         <Gif.Container>
           <FadeInView>
             <Gif.Title>Search Error</Gif.Title>
-            <Gif.Image source={require("../../../assets/error.gif")} />
+            <Gif.Picture source={require("../../../assets/error.gif")} />
             <Gif.Message>
               {
                 "It seems all food disappeared...\nor you tried a wrong keyword."

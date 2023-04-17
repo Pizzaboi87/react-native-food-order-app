@@ -2,7 +2,7 @@ import styled from "styled-components/native";
 import { theme } from "../../infrastructure/theme";
 import { StyledText } from "../../helpers/typography/text.helper";
 import { ScrollView } from "react-native";
-import { Image as Gif } from "../../helpers/gif-plus-text/gif-plus-text.helper";
+import { Picture as Gif } from "../../helpers/gif-plus-text/gif-plus-text.helper";
 import { TextInput, Button } from "react-native-paper";
 import PhoneInput from "react-native-phone-number-input";
 

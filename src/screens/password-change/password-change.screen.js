@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Image as Gif } from "../../helpers/gif-plus-text/gif-plus-text.helper";
+import { Picture as Gif } from "../../helpers/gif-plus-text/gif-plus-text.helper";
 import { DialogWindow } from "../../components/dialog-modal/dialog-modal.component";
 import { updateUserPassword } from "../../services/firebase/firebase-config.service";
 import {
