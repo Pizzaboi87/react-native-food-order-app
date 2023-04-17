@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { View } from "react-native";
-import { Gif } from "../../helpers/gif-plus-text/gif-plus-text.helper";
+import { Image as Gif } from "../../helpers/gif-plus-text/gif-plus-text.helper";
 import {
   addAddressToUser,
   getUserData,

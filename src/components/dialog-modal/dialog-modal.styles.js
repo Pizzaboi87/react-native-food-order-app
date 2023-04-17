@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import { Gif } from "../../helpers/gif-plus-text/gif-plus-text.helper";
+import { Image as Gif } from "../../helpers/gif-plus-text/gif-plus-text.helper";
 import { StyledText } from "../../helpers/typography/text.helper";
 import { Button, Dialog } from "react-native-paper";
 import { theme } from "../../infrastructure/theme";

@@ -3,12 +3,7 @@ import { ListOfRestaurants } from "../../components/restaurant-list/restaurant-l
 import { FavouritesContext } from "../../services/favourites/favourites.context";
 import { FavouritesContainer } from "./favourites.styles";
 import { FadeInView } from "../../animations/fade.animation";
-import {
-  GifContainer,
-  GifMessage,
-  Gif,
-  GifTitle,
-} from "../../helpers/gif-plus-text/gif-plus-text.helper";
+import * as Gif from "../../helpers/gif-plus-text/gif-plus-text.helper";
 
 export const FavouritesScreen = ({ navigation }) => {
   const { favourites } = useContext(FavouritesContext);
@@ -18,12 +13,12 @@ export const FavouritesScreen = ({ navigation }) => {
       <ListOfRestaurants navigation={navigation} data={favourites} />
     </FavouritesContainer>
   ) : (
-    <GifContainer>
+    <Gif.Container>
       <FadeInView>
-        <GifTitle>No Favourites</GifTitle>
-        <Gif source={require("../../../assets/nofavourite.gif")} />
-        <GifMessage>You don't have any favourites yet.</GifMessage>
+        <Gif.Title>No Favourites</Gif.Title>
+        <Gif.Image source={require("../../../assets/nofavourite.gif")} />
+        <Gif.Message>You don't have any favourites yet.</Gif.Message>
       </FadeInView>
-    </GifContainer>
+    </Gif.Container>
   );
 };

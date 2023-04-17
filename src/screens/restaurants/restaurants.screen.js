@@ -12,12 +12,7 @@ import { AvatarImage } from "../../components/user-avatar/user-avatar.component"
 import { IndicatorContainer, Loading } from "./restaurants.styles";
 import { FadeInView } from "../../animations/fade.animation";
 import { TouchableOpacity } from "react-native";
-import {
-  Gif,
-  GifContainer,
-  GifMessage,
-  GifTitle,
-} from "../../helpers/gif-plus-text/gif-plus-text.helper";
+import * as Gif from "../../helpers/gif-plus-text/gif-plus-text.helper";
 
 export const RestaurantsScreen = ({ navigation }) => {
   const { restaurants, error } = useContext(RestaurantsContext);
@@ -60,17 +55,17 @@ export const RestaurantsScreen = ({ navigation }) => {
           <Loading />
         </IndicatorContainer>
       ) : !!error || !!locationError ? (
-        <GifContainer>
+        <Gif.Container>
           <FadeInView>
-            <GifTitle>Search Error</GifTitle>
-            <Gif source={require("../../../assets/error.gif")} />
-            <GifMessage>
+            <Gif.Title>Search Error</Gif.Title>
+            <Gif.Image source={require("../../../assets/error.gif")} />
+            <Gif.Message>
               {
                 "It seems all food disappeared...\nor you tried a wrong keyword."
               }
-            </GifMessage>
+            </Gif.Message>
           </FadeInView>
-        </GifContainer>
+        </Gif.Container>
       ) : (
         <ListOfRestaurants navigation={navigation} data={restaurants} />
       )}

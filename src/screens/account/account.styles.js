@@ -2,7 +2,7 @@ import styled from "styled-components/native";
 import { Button, TextInput, ActivityIndicator } from "react-native-paper";
 import { theme } from "../../infrastructure/theme";
 import { StyledText } from "../../helpers/typography/text.helper";
-import { Gif } from "../../helpers/gif-plus-text/gif-plus-text.helper";
+import { Image as Gif } from "../../helpers/gif-plus-text/gif-plus-text.helper";
 
 export const AccountBackground = styled.ImageBackground.attrs({
   source: require("../../../assets/home_bg.jpg"),

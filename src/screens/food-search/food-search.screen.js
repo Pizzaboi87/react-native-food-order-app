@@ -14,12 +14,7 @@ import { SearchContainerRestaurant } from "../../components/search/search.styles
 import { ButtonContainer } from "./food-search.styles";
 import { theme } from "../../infrastructure/theme";
 import { FadeInView } from "../../animations/fade.animation";
-import {
-  GifContainer,
-  GifMessage,
-  GifTitle,
-  Gif,
-} from "../../helpers/gif-plus-text/gif-plus-text.helper";
+import * as Gif from "../../helpers/gif-plus-text/gif-plus-text.helper";
 
 export const FoodSearchScreen = ({ navigation }) => {
   const { useLoadImage } = useContext(UserImageContext);
@@ -137,17 +132,17 @@ export const FoodSearchScreen = ({ navigation }) => {
         </TouchableOpacity>
       </SearchContainerRestaurant>
       {error ? (
-        <GifContainer>
+        <Gif.Container>
           <FadeInView>
-            <GifTitle>Search Error</GifTitle>
-            <Gif source={require("../../../assets/error.gif")} />
-            <GifMessage>
+            <Gif.Title>Search Error</Gif.Title>
+            <Gif.Image source={require("../../../assets/error.gif")} />
+            <Gif.Message>
               {
                 "It seems all food disappeared...\nor you tried a wrong keyword."
               }
-            </GifMessage>
+            </Gif.Message>
           </FadeInView>
-        </GifContainer>
+        </Gif.Container>
       ) : (
         <ScrollView>
           <ButtonContainer>{buttonList}</ButtonContainer>
