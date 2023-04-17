@@ -47,10 +47,13 @@ export const CartScreen = ({ navigation }) => {
   const { uid, currentUser } = useContext(AuthenticationContext);
 
   const [order, setOrder] = useState({
+    currentUser: currentUser,
     restaurant: {},
     address: {},
     user: {},
+    uid: uid,
     distance: 0,
+    amount: 0,
   });
   const [status, setStatus] = useState({
     isLoading: false,
@@ -61,14 +64,14 @@ export const CartScreen = ({ navigation }) => {
   let fullPrice = 0;
   let delivery = 0;
 
+  const isTooFar = order.distance > 50;
+  const isCorrectName = order.user.firstName && order.user.lastName;
   const isCorrectAddress =
     order.address.street &&
     order.address.number &&
     order.address.floor &&
     order.address.door &&
     order.address.city;
-
-  const isCorrectName = order.user.firstName && order.user.lastName;
 
   useLoadImage(uid);
 
@@ -137,10 +140,6 @@ export const CartScreen = ({ navigation }) => {
     });
   };
 
-  const isTooFar = order.distance > 50;
-
-  console.log(status);
-
   const minusQuantity = (index) => {
     const newCart = [...cart];
     const item = newCart[index].order;
@@ -161,19 +160,8 @@ export const CartScreen = ({ navigation }) => {
   };
 
   const goToCheckout = (amount) => {
-    navigation.navigate("Checkout", {
-      amount: amount,
-      userName: `${order.user.firstName} ${order.user.lastName}`,
-      phone: order.user.phone,
-      address: {
-        city: order.address.city,
-        line1: `${order.address.number}. ${order.address.floor}/${order.address.door}`,
-        postal_code: order.address.zip,
-        state: order.address.state,
-      },
-      email: currentUser.email,
-      uid: uid,
-    });
+    setOrder((prevOrder) => ({ ...prevOrder, amount: amount }));
+    navigation.navigate("Checkout", { order: order });
   };
 
   return (

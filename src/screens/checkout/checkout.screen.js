@@ -5,6 +5,22 @@ import { PaymentButton } from "../cart/cart.styles";
 import { DialogWindow } from "../../components/dialog-modal/dialog-modal.component";
 import { CartContext } from "../../services/cart/cart.context";
 
+/*const goToCheckout = (amount) => {
+  navigation.navigate("Checkout", {
+    amount: amount,
+    userName: `${order.user.firstName} ${order.user.lastName}`,
+    phone: order.user.phone,
+    address: {
+      city: order.address.city,
+      line1: `${order.address.number}. ${order.address.floor}/${order.address.door}`,
+      postal_code: order.address.zip,
+      state: order.address.state,
+    },
+    email: currentUser.email,
+    uid: uid,
+  });
+};*/
+
 export const CheckoutScreen = ({ navigation, route }) => {
   const { amount, userName, phone, address, email, uid } = route.params;
 
