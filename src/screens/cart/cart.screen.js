@@ -12,34 +12,8 @@ import {
   getDataFromDatabase,
   getUserData,
 } from "../../services/firebase/firebase-config.service";
-import {
-  Gif,
-  GifContainer,
-  GifMessage,
-  GifTitle,
-} from "../../helpers/gif-plus-text/gif-plus-text.helper";
-import {
-  AvatarContainer,
-  HeaderContainer,
-  MainTitle,
-  Loading,
-  OrderContainer,
-  PlusIcon,
-  MinusIcon,
-  OrderCard,
-  OrderTitle,
-  OrderTextBold,
-  OrderText,
-  HorizontalLine,
-  PaymentButton,
-  OrderDetailsContainer,
-  OrderProduct,
-  OrderQuantity,
-  OrderPrice,
-  OrderTotal,
-  DeliveryPrice,
-  OrderTextError,
-} from "./cart.styles";
+import * as Gif from "../../helpers/gif-plus-text/gif-plus-text.helper";
+import * as Style from "./cart.styles";
 
 export const CartScreen = ({ navigation }) => {
   const { cart, setCart } = useContext(CartContext);
@@ -166,34 +140,34 @@ export const CartScreen = ({ navigation }) => {
 
   return (
     <SafeArea>
-      <HeaderContainer>
-        <MainTitle>Your Order</MainTitle>
-        <AvatarContainer onPress={() => navigation.navigate("Settings")}>
+      <Style.HeaderContainer>
+        <Style.MainTitle>Your Order</Style.MainTitle>
+        <Style.AvatarContainer onPress={() => navigation.navigate("Settings")}>
           <AvatarImage size={55} />
-        </AvatarContainer>
-      </HeaderContainer>
+        </Style.AvatarContainer>
+      </Style.HeaderContainer>
       {!cart.length ? (
-        <GifContainer>
+        <Gif.Container>
           <FadeInView>
-            <GifTitle>Empty Cart</GifTitle>
-            <Gif source={require("../../../assets/noorder.gif")} />
-            <GifMessage>Your cart is still empty.</GifMessage>
+            <Gif.Title>Empty Cart</Gif.Title>
+            <Gif.Image source={require("../../../assets/noorder.gif")} />
+            <Gif.Message>Your cart is still empty.</Gif.Message>
           </FadeInView>
-        </GifContainer>
+        </Gif.Container>
       ) : status.isLoading ? (
-        <Loading />
+        <Style.Loading />
       ) : isTooFar ? (
-        <GifContainer>
+        <Gif.Container>
           <FadeInView>
-            <GifTitle>Sad News...</GifTitle>
-            <Gif source={require("../../../assets/sad.gif")} />
-            <GifMessage>
+            <Gif.Title>Sad News...</Gif.Title>
+            <Gif.Image source={require("../../../assets/sad.gif")} />
+            <Gif.Message>
               {"The selected restaurant\nis too far from your address."}
-            </GifMessage>
+            </Gif.Message>
           </FadeInView>
-        </GifContainer>
+        </Gif.Container>
       ) : (
-        <OrderContainer>
+        <Style.OrderContainer>
           <DialogWindow
             variant="go"
             message={
@@ -204,15 +178,15 @@ export const CartScreen = ({ navigation }) => {
               setStatus((prevVisible) => ({ ...prevVisible, showError: false }))
             }
           />
-          <OrderCard onPress={() => openDetails(order.restaurant)}>
-            <OrderTitle title="Restaurant" />
+          <Style.OrderCard onPress={() => openDetails(order.restaurant)}>
+            <Style.OrderTitle title="Restaurant" />
             <Card.Content>
-              <OrderText>{order.restaurant.name}</OrderText>
-              <OrderText>{order.restaurant.address}</OrderText>
+              <Style.OrderText>{order.restaurant.name}</Style.OrderText>
+              <Style.OrderText>{order.restaurant.address}</Style.OrderText>
             </Card.Content>
-          </OrderCard>
-          <OrderCard>
-            <OrderTitle title="Order" />
+          </Style.OrderCard>
+          <Style.OrderCard>
+            <Style.OrderTitle title="Order" />
 
             <Card.Content>
               {cart.map((item, index) => {
@@ -222,67 +196,71 @@ export const CartScreen = ({ navigation }) => {
                 delivery = fullPrice > 20 ? 0 : order.distance * 0.2;
 
                 return (
-                  <OrderDetailsContainer key={`${product}-${price}`}>
-                    <OrderProduct>
-                      <OrderText>{product}</OrderText>
-                    </OrderProduct>
-                    <OrderQuantity>
-                      <MinusIcon onPress={() => minusQuantity(index)} />
-                      <OrderText>{quantity}</OrderText>
-                      <PlusIcon onPress={() => plusQuantity(index)} />
-                    </OrderQuantity>
-                    <OrderPrice>
-                      <OrderTextBold>{partPrice}€</OrderTextBold>
-                    </OrderPrice>
-                  </OrderDetailsContainer>
+                  <Style.OrderDetailsContainer key={`${product}-${price}`}>
+                    <Style.OrderProduct>
+                      <Style.OrderText>{product}</Style.OrderText>
+                    </Style.OrderProduct>
+                    <Style.OrderQuantity>
+                      <Style.MinusIcon onPress={() => minusQuantity(index)} />
+                      <Style.OrderText>{quantity}</Style.OrderText>
+                      <Style.PlusIcon onPress={() => plusQuantity(index)} />
+                    </Style.OrderQuantity>
+                    <Style.OrderPrice>
+                      <Style.OrderTextBold>{partPrice}€</Style.OrderTextBold>
+                    </Style.OrderPrice>
+                  </Style.OrderDetailsContainer>
                 );
               })}
-              <DeliveryPrice>
-                <OrderTextBold>Delivery:</OrderTextBold>
-                <OrderTextBold>{Number(delivery.toFixed(1))}€</OrderTextBold>
-              </DeliveryPrice>
-              <HorizontalLine />
-              <OrderTotal>
-                <OrderTextBold>Total:</OrderTextBold>
-                <OrderTextBold>
+              <Style.DeliveryPrice>
+                <Style.OrderTextBold>Delivery:</Style.OrderTextBold>
+                <Style.OrderTextBold>
+                  {Number(delivery.toFixed(1))}€
+                </Style.OrderTextBold>
+              </Style.DeliveryPrice>
+              <Style.HorizontalLine />
+              <Style.OrderTotal>
+                <Style.OrderTextBold>Total:</Style.OrderTextBold>
+                <Style.OrderTextBold>
                   {Number((fullPrice + delivery).toFixed(1))}€
-                </OrderTextBold>
-              </OrderTotal>
+                </Style.OrderTextBold>
+              </Style.OrderTotal>
             </Card.Content>
-          </OrderCard>
-          <OrderCard>
-            <OrderTitle title="Delivery Address" />
+          </Style.OrderCard>
+          <Style.OrderCard>
+            <Style.OrderTitle title="Delivery Address" />
             <Card.Content>
-              <OrderText>
-                <OrderTextBold>Name: </OrderTextBold>
+              <Style.OrderText>
+                <Style.OrderTextBold>Name: </Style.OrderTextBold>
                 {isCorrectName ? (
                   `${order.user.firstName} ${order.user.lastName}`
                 ) : (
-                  <OrderTextError>Missing name</OrderTextError>
+                  <Style.OrderTextError>Missing name</Style.OrderTextError>
                 )}
-              </OrderText>
-              <OrderText>
-                <OrderTextBold>Address: </OrderTextBold>
+              </Style.OrderText>
+              <Style.OrderText>
+                <Style.OrderTextBold>Address: </Style.OrderTextBold>
                 {isCorrectAddress ? (
                   `${order.address.street} ${order.address.number}. ${order.address.floor}/${order.address.door}, ${order.address.city}`
                 ) : (
-                  <OrderTextError>Missing address</OrderTextError>
+                  <Style.OrderTextError>Missing address</Style.OrderTextError>
                 )}
-              </OrderText>
-              <OrderText>
-                <OrderTextBold>Phone: </OrderTextBold>
+              </Style.OrderText>
+              <Style.OrderText>
+                <Style.OrderTextBold>Phone: </Style.OrderTextBold>
                 {order.user.phone ? (
                   `${order.user.phone}`
                 ) : (
-                  <OrderTextError>Missing phone number</OrderTextError>
+                  <Style.OrderTextError>
+                    Missing phone number
+                  </Style.OrderTextError>
                 )}
-              </OrderText>
+              </Style.OrderText>
               <Button onPress={() => navigation.navigate("Change Address")}>
                 Change Address
               </Button>
             </Card.Content>
-          </OrderCard>
-          <PaymentButton
+          </Style.OrderCard>
+          <Style.PaymentButton
             disabled={status.dataError ? true : false}
             onPress={() => {
               const amount = Number((fullPrice + delivery).toFixed(1));
@@ -290,8 +268,8 @@ export const CartScreen = ({ navigation }) => {
             }}
           >
             Continue To Payment
-          </PaymentButton>
-        </OrderContainer>
+          </Style.PaymentButton>
+        </Style.OrderContainer>
       )}
     </SafeArea>
   );
