@@ -8,18 +8,20 @@ import { AvatarImage } from "../../components/user-avatar/user-avatar.component"
 import { DialogWindow } from "../../components/dialog-modal/dialog-modal.component";
 import { Button, Card } from "react-native-paper";
 import { FadeInView } from "../../animations/fade.animation";
+import * as Gif from "../../helpers/gif-plus-text/gif-plus-text.helper";
+import * as Style from "./cart.styles";
 import {
   getDataFromDatabase,
   getUserData,
 } from "../../services/firebase/firebase-config.service";
-import * as Gif from "../../helpers/gif-plus-text/gif-plus-text.helper";
-import * as Style from "./cart.styles";
 
 export const CartScreen = ({ navigation }) => {
   const { cart, setCart } = useContext(CartContext);
   const { useLoadImage } = useContext(UserImageContext);
   const { uid, currentUser } = useContext(AuthenticationContext);
 
+  const [fullPrice, setFullPrice] = useState(0);
+  const [delivery, setDelivery] = useState(0);
   const [order, setOrder] = useState({
     currentUser: currentUser,
     restaurant: {},
@@ -34,9 +36,6 @@ export const CartScreen = ({ navigation }) => {
     dataError: false,
     showError: false,
   });
-
-  let fullPrice = 0;
-  let delivery = 0;
 
   const isTooFar = order.distance > 50;
   const isCorrectName = order.user.firstName && order.user.lastName;
@@ -133,10 +132,27 @@ export const CartScreen = ({ navigation }) => {
     setCart(newCart);
   };
 
-  const goToCheckout = (amount) => {
-    setOrder((prevOrder) => ({ ...prevOrder, amount: amount }));
+  const goToCheckout = () => {
     navigation.navigate("Checkout", { order: order });
   };
+
+  useEffect(() => {
+    let newFullPrice = 0;
+    cart.forEach((item) => {
+      const { quantity, price } = item.order;
+      const partPrice = price * quantity;
+      newFullPrice += partPrice;
+    });
+    setFullPrice(newFullPrice);
+    setDelivery(newFullPrice > 20 ? 0 : order.distance * 0.2);
+  }, [cart, order.distance]);
+
+  useEffect(() => {
+    setOrder((prevOrder) => ({
+      ...prevOrder,
+      amount: (fullPrice + delivery).toFixed(1),
+    }));
+  }, [fullPrice, delivery]);
 
   return (
     <SafeArea>
@@ -192,9 +208,6 @@ export const CartScreen = ({ navigation }) => {
               {cart.map((item, index) => {
                 const { product, quantity, price } = item.order;
                 const partPrice = price * quantity;
-                fullPrice += partPrice;
-                delivery = fullPrice > 20 ? 0 : order.distance * 0.2;
-
                 return (
                   <Style.OrderDetailsContainer key={`${product}-${price}`}>
                     <Style.OrderProduct>
@@ -262,10 +275,7 @@ export const CartScreen = ({ navigation }) => {
           </Style.OrderCard>
           <Style.PaymentButton
             disabled={status.dataError ? true : false}
-            onPress={() => {
-              const amount = Number((fullPrice + delivery).toFixed(1));
-              goToCheckout(amount);
-            }}
+            onPress={goToCheckout}
           >
             Continue To Payment
           </Style.PaymentButton>

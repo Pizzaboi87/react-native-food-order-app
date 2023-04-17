@@ -20,9 +20,69 @@ import { CartContext } from "../../services/cart/cart.context";
     uid: uid,
   });
 };*/
+/*const data = {
+  address: {
+    city: "Berwyn",
+    door: "2",
+    floor: "1",
+    number: "2125",
+    state: "IL",
+    street: "Clinton Ave",
+    zip: "60402",
+  },
+  amount: 0,
+  currentUser: {
+    _redirectEventId: undefined,
+    apiKey: "AIzaSyDmfc3QRM3nHNMO6SHCthlm8p3dr5UcF3g",
+    appName: "[DEFAULT]",
+    createdAt: "1679610027832",
+    displayName: "Pepe",
+    email: "deakpeter1987@gmail.com",
+    emailVerified: true,
+    isAnonymous: false,
+    lastLoginAt: "1681760383052",
+    phoneNumber: undefined,
+    photoURL: undefined,
+    providerData: [Array],
+    stsTokenManager: [Object],
+    tenantId: undefined,
+    uid: "uRLUOPZ8mFNFjT4Cz8RfhESBYtg1",
+  },
+  distance: "14.7",
+  restaurant: {
+    address: "24 South Michigan Avenue, Chicago",
+    business_status: "OPERATIONAL",
+    geometry: { location: [Object], viewport: [Object] },
+    icon: "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+    name: "The Gage",
+    opening_hours: [
+      [Array],
+      [Array],
+      [Array],
+      [Array],
+      [Array],
+      [Array],
+      [Array],
+    ],
+    photo: "https://peterweiser.com/mealstogo/chicago/chicago08.jpg",
+    place_id: "chicago08",
+    rating: 4.5,
+    user_ratings_total: 2771,
+  },
+  uid: "uRLUOPZ8mFNFjT4Cz8RfhESBYtg1",
+  user: { firstName: "Peter", lastName: "Weiser", phone: "+36702066450" },
+};*/
 
 export const CheckoutScreen = ({ navigation, route }) => {
-  const { amount, userName, phone, address, email, uid } = route.params;
+  const { order } = route.params;
+  console.log(order);
+  const userName = `${order.user.firstName} ${order.user.lastName}`;
+  const address = {
+    city: order.address.city,
+    line1: `${order.address.number}. ${order.address.floor}/${order.address.door}`,
+    postal_code: order.address.zip,
+    state: order.address.state,
+  };
 
   const { initPaymentSheet, presentPaymentSheet } = useStripe();
   const { setCart } = useContext(CartContext);
@@ -41,12 +101,12 @@ export const CheckoutScreen = ({ navigation, route }) => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            amount: (amount * 100).toFixed(0),
+            amount: (order.amount * 100).toFixed(0),
             userName: userName,
-            phone: phone,
+            phone: order.user.phone,
             address: address,
-            email: email,
-            uid: uid,
+            email: order.currentUser.email,
+            uid: order.uid,
           }),
         }
       );
@@ -120,7 +180,7 @@ export const CheckoutScreen = ({ navigation, route }) => {
         {"To finalize your food order,\nplease click on the button below."}
       </PayMessage>
       <PaymentButton disabled={!loading} onPress={openPaymentSheet}>
-        Pay {amount}€
+        Pay {order.amount}€
       </PaymentButton>
       <DialogWindow
         variant="done"
