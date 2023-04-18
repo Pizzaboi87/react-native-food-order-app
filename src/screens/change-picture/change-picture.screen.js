@@ -1,15 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import * as ImagePicker from "expo-image-picker";
+import * as Style from "./change-picture.styles";
 import { DialogWindow } from "../../components/dialog-modal/dialog-modal.component";
 import { AuthenticationContext } from "../../services/authentication/authentication.context";
 import { UserImageContext } from "../../services/user-image/user-image.context";
-import {
-  ButtonText,
-  TitleText,
-  CameraButton,
-  PictureMenuContainer,
-  UploadButton,
-} from "./change-picture.styles";
 
 export const ChangePictureScreen = ({ navigation }) => {
   const { uid } = useContext(AuthenticationContext);
@@ -39,16 +33,16 @@ export const ChangePictureScreen = ({ navigation }) => {
   };
 
   return (
-    <PictureMenuContainer>
-      <TitleText variant="title">
+    <Style.PictureMenuContainer>
+      <Style.TitleText variant="title">
         {"Choose the source\n of the image!"}
-      </TitleText>
-      <CameraButton onPress={() => navigation.navigate("Camera")}>
-        <ButtonText variant="title">Camera</ButtonText>
-      </CameraButton>
-      <UploadButton onPress={pickImageAsync}>
-        <ButtonText variant="title">Upload</ButtonText>
-      </UploadButton>
+      </Style.TitleText>
+      <Style.CameraButton onPress={() => navigation.navigate("Camera")}>
+        <Style.ButtonText variant="title">Camera</Style.ButtonText>
+      </Style.CameraButton>
+      <Style.UploadButton onPress={pickImageAsync}>
+        <Style.ButtonText variant="title">Upload</Style.ButtonText>
+      </Style.UploadButton>
       <DialogWindow
         variant="error"
         message="You didn't choose any photo."
@@ -71,6 +65,6 @@ export const ChangePictureScreen = ({ navigation }) => {
         navigation={navigation}
         whereTo="My Settings"
       />
-    </PictureMenuContainer>
+    </Style.PictureMenuContainer>
   );
 };

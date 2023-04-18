@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { AuthenticationContext } from "../../services/authentication/authentication.context";
+import { signInWithGoogle } from "../../services/firebase/firebase-config.service";
 import { StyledText } from "../../helpers/typography/text.helper";
 import {
   AccountBackground,
@@ -15,7 +16,6 @@ import {
   Buttons,
   JustTextButton,
 } from "../account/account.styles";
-import { signInWithGoogle } from "../../services/firebase/firebase-config.service";
 
 export const LoginScreen = ({ navigation }) => {
   const { onLogin, error, setError, isLoading } = useContext(

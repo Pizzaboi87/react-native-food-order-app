@@ -8,18 +8,7 @@ import { AvatarImage } from "../../components/user-avatar/user-avatar.component"
 import { DialogWindow } from "../../components/dialog-modal/dialog-modal.component";
 import { getUserData } from "../../services/firebase/firebase-config.service";
 import { useFocusEffect } from "@react-navigation/native";
-import {
-  createIcon,
-  SettingsItem,
-  AvatarContainer,
-  HeartIcon,
-  DoorIcon,
-  UserText,
-  AddressIcon,
-  PersonalIcon,
-  OrdersIcon,
-  PasswordIcon,
-} from "./settings.styles";
+import * as Style from "./settings.styles";
 
 export const SettingsScreen = ({ navigation }) => {
   const { onSignOut, uid } = useContext(AuthenticationContext);
@@ -27,12 +16,12 @@ export const SettingsScreen = ({ navigation }) => {
   const [userName, setUserName] = useState("");
   const [visible, setVisible] = useState(false);
 
-  const heartIcon = createIcon(HeartIcon);
-  const doorIcon = createIcon(DoorIcon);
-  const personalIcon = createIcon(PersonalIcon);
-  const addressIcon = createIcon(AddressIcon);
-  const ordersIcon = createIcon(OrdersIcon);
-  const passwordIcon = createIcon(PasswordIcon);
+  const heartIcon = Style.createIcon(Style.HeartIcon);
+  const doorIcon = Style.createIcon(Style.DoorIcon);
+  const personalIcon = Style.createIcon(Style.PersonalIcon);
+  const addressIcon = Style.createIcon(Style.AddressIcon);
+  const ordersIcon = Style.createIcon(Style.OrdersIcon);
+  const passwordIcon = Style.createIcon(Style.PasswordIcon);
 
   useFocusEffect(
     useCallback(() => {
@@ -50,7 +39,7 @@ export const SettingsScreen = ({ navigation }) => {
 
   return (
     <SafeArea>
-      <AvatarContainer>
+      <Style.AvatarContainer>
         <FadeInView>
           <TouchableOpacity
             onPress={() => navigation.navigate("Change Profile Image")}
@@ -58,34 +47,34 @@ export const SettingsScreen = ({ navigation }) => {
             <AvatarImage size={150} />
           </TouchableOpacity>
         </FadeInView>
-        <UserText variant="title">{userName}</UserText>
-      </AvatarContainer>
+        <Style.UserText variant="title">{userName}</Style.UserText>
+      </Style.AvatarContainer>
       <ScrollView>
-        <SettingsItem
+        <Style.SettingsItem
           title="Favourites"
           description="Check your favourites"
           left={heartIcon}
           onPress={() => navigation.navigate("My Favourite Restaurants")}
         />
-        <SettingsItem
+        <Style.SettingsItem
           title="Previous Orders"
           description="Check your previous orders"
           left={ordersIcon}
           onPress={() => setVisible(true)}
         />
-        <SettingsItem
+        <Style.SettingsItem
           title="Delivery Address"
           description="Edit your delivery address"
           left={addressIcon}
           onPress={() => navigation.navigate("Delivery Address")}
         />
-        <SettingsItem
+        <Style.SettingsItem
           title="Personal Details"
           description="Edit your personal details"
           left={personalIcon}
           onPress={() => navigation.navigate("Personal Details")}
         />
-        <SettingsItem
+        <Style.SettingsItem
           title="Change Password"
           description="Change your password"
           left={passwordIcon}
@@ -97,7 +86,11 @@ export const SettingsScreen = ({ navigation }) => {
           visible={visible}
           setVisible={setVisible}
         />
-        <SettingsItem title="Logout" left={doorIcon} onPress={onSignOut} />
+        <Style.SettingsItem
+          title="Logout"
+          left={doorIcon}
+          onPress={onSignOut}
+        />
       </ScrollView>
     </SafeArea>
   );

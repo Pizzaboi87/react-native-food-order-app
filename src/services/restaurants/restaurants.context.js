@@ -1,3 +1,4 @@
+import { LocationContext } from "../location/location.context";
 import React, {
   useState,
   createContext,
@@ -5,7 +6,6 @@ import React, {
   useContext,
   useCallback,
 } from "react";
-import { LocationContext } from "../location/location.context";
 import {
   findBranchByValue,
   getDataFromDatabase,

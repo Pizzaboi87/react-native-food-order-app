@@ -4,14 +4,7 @@ import { AuthenticationContext } from "../../services/authentication/authenticat
 import { UserImageContext } from "../../services/user-image/user-image.context";
 import { TouchableOpacity } from "react-native";
 import { Camera, CameraType } from "expo-camera";
-import {
-  ProfileCamera,
-  FlipButton,
-  CameraScreenContainer,
-  CameraText,
-  TakeAPicButton,
-  ButtonContainer,
-} from "./camera.styles";
+import * as Style from "./camera.styles";
 
 export const CameraScreen = ({ navigation }) => {
   const [photoDone, setPhotoDone] = useState(false);
@@ -43,20 +36,20 @@ export const CameraScreen = ({ navigation }) => {
 
   if (permission && permission.status === "granted") {
     return (
-      <CameraScreenContainer>
-        <ProfileCamera
+      <Style.CameraScreenContainer>
+        <Style.ProfileCamera
           ref={(camera) => (cameraRef.current = camera)}
           type={type}
         >
-          <ButtonContainer>
+          <Style.ButtonContainer>
             <TouchableOpacity onPress={toggleCameraType}>
-              <FlipButton />
+              <Style.FlipButton />
             </TouchableOpacity>
             <TouchableOpacity onPress={takeAPicture}>
-              <TakeAPicButton />
+              <Style.TakeAPicButton />
             </TouchableOpacity>
-          </ButtonContainer>
-        </ProfileCamera>
+          </Style.ButtonContainer>
+        </Style.ProfileCamera>
         <DialogWindow
           variant="error"
           message="An error happened during saving process."
@@ -73,15 +66,15 @@ export const CameraScreen = ({ navigation }) => {
           navigation={navigation}
           whereTo="My Settings"
         />
-      </CameraScreenContainer>
+      </Style.CameraScreenContainer>
     );
   } else {
     return (
-      <CameraScreenContainer>
-        <CameraText variant="title">
+      <Style.CameraScreenContainer>
+        <Style.CameraText variant="title">
           Need your permission to use the camera.
-        </CameraText>
-      </CameraScreenContainer>
+        </Style.CameraText>
+      </Style.CameraScreenContainer>
     );
   }
 };

@@ -1,20 +1,9 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Portal, Dialog } from "react-native-paper";
 import { CartContext } from "../../services/cart/cart.context";
 import { DialogWindow } from "../dialog-modal/dialog-modal.component";
-import {
-  ControlContainer,
-  ControlText,
-  DescriptionText,
-  DialogContainer,
-  ControlButton,
-  QuantityText,
-  CartButton,
-  MinusIcon,
-  PlusIcon,
-} from "./foodselector.styles";
-import { useState } from "react";
 import { getOpenStatus } from "../../helpers/get-open-status/get-open.status.helper";
+import * as Style from "./foodselector.styles";
 
 export const FoodSelector = ({
   visible,
@@ -48,33 +37,33 @@ export const FoodSelector = ({
 
   return (
     <Portal>
-      <DialogContainer visible={visible} onDismiss={hideDialog}>
+      <Style.DialogContainer visible={visible} onDismiss={hideDialog}>
         <Dialog.Title>
-          <ControlText>{name}</ControlText>
+          <Style.ControlText>{name}</Style.ControlText>
         </Dialog.Title>
 
         <Dialog.Content>
-          <DescriptionText>{description}</DescriptionText>
+          <Style.DescriptionText>{description}</Style.DescriptionText>
         </Dialog.Content>
 
-        <ControlContainer>
-          <ControlButton onPress={remove}>
-            <MinusIcon />
-          </ControlButton>
-          <QuantityText>{quantity}</QuantityText>
-          <ControlButton onPress={add}>
-            <PlusIcon />
-          </ControlButton>
-          <CartButton
+        <Style.ControlContainer>
+          <Style.ControlButton onPress={remove}>
+            <Style.MinusIcon />
+          </Style.ControlButton>
+          <Style.QuantityText>{quantity}</Style.QuantityText>
+          <Style.ControlButton onPress={add}>
+            <Style.PlusIcon />
+          </Style.ControlButton>
+          <Style.CartButton
             disabled={hasOrder && isOpen ? false : true}
             onPress={() => order(id, name, price, quantity)}
           >
             {isOpen
               ? `Add To Cart - ${price * quantity}€`
               : "Restaurant is Closed"}
-          </CartButton>
-        </ControlContainer>
-      </DialogContainer>
+          </Style.CartButton>
+        </Style.ControlContainer>
+      </Style.DialogContainer>
       <DialogWindow
         variant="done"
         message="The product has been added to the cart."

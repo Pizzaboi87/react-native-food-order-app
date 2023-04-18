@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
+import { getDatabase, get, ref as rtdbref, child } from "firebase/database";
 import {
   getFirestore,
   doc,
@@ -22,7 +23,6 @@ import {
   reauthenticateWithCredential,
   EmailAuthProvider,
 } from "firebase/auth";
-import { getDatabase, get, ref as rtdbref, child } from "firebase/database";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDmfc3QRM3nHNMO6SHCthlm8p3dr5UcF3g",

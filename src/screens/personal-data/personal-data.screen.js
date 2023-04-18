@@ -1,14 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { View } from "react-native";
 import { DialogWindow } from "../../components/dialog-modal/dialog-modal.component";
-import {
-  Container,
-  CorrectedGif,
-  DataInput,
-  PhoneNumber,
-  Submit,
-  Title,
-} from "./personal-data.styles";
+import * as Style from "./personal-data.styles";
 import {
   setUserPersonalData,
   getUserData,
@@ -83,11 +76,11 @@ export const PersonalDataScreen = ({ navigation }) => {
   };
 
   return (
-    <Container>
-      <CorrectedGif source={require("../../../assets/thinking.gif")} />
-      <Title variant="title">Edit Your Personal Details</Title>
+    <Style.Container>
+      <Style.CorrectedGif source={require("../../../assets/thinking.gif")} />
+      <Style.Title variant="title">Edit Your Personal Details</Style.Title>
       <View>
-        <DataInput
+        <Style.DataInput
           width={300}
           label="First Name"
           name="firstName"
@@ -99,7 +92,7 @@ export const PersonalDataScreen = ({ navigation }) => {
           onChangeText={(name) => handleDataChange("firstName", name)}
         />
 
-        <DataInput
+        <Style.DataInput
           width={300}
           label="Last Name"
           name="lastName"
@@ -111,7 +104,7 @@ export const PersonalDataScreen = ({ navigation }) => {
           onChangeText={(name) => handleDataChange("lastName", name)}
         />
 
-        <DataInput
+        <Style.DataInput
           width={300}
           label="Nickname"
           name="nickName"
@@ -123,7 +116,7 @@ export const PersonalDataScreen = ({ navigation }) => {
           onChangeText={(name) => handleDataChange("nickName", name)}
         />
 
-        <PhoneNumber
+        <Style.PhoneNumber
           ref={phoneInput}
           placeholder={
             personal.phone
@@ -134,13 +127,13 @@ export const PersonalDataScreen = ({ navigation }) => {
           layout="first"
           value={personal.phone}
           defaultCode="HU"
-          textContentType="telephoneNumber"
+          textContentType="teleStyle.phoneNumber"
           onChangeFormattedText={(text) => {
             handlePhoneChange(text);
           }}
         />
 
-        <Submit onPress={submitPersonalData}>Submit</Submit>
+        <Style.Submit onPress={submitPersonalData}>Submit</Style.Submit>
       </View>
       <DialogWindow
         variant="go"
@@ -169,6 +162,6 @@ export const PersonalDataScreen = ({ navigation }) => {
         setVisible={setPersonalDone}
         navigation={navigation}
       />
-    </Container>
+    </Style.Container>
   );
 };

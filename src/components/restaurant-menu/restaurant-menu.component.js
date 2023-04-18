@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { theme } from "../../infrastructure/theme";
 import { FoodSelector } from "../foodselector/foodselector.component";
+import { getDataFromDatabase } from "../../services/firebase/firebase-config.service";
 import {
   LayoutAnimation,
   TouchableOpacity,
@@ -15,8 +16,6 @@ import {
   DescriptionText,
   PriceText,
 } from "../../screens/restaurant-details/restaurant-details.styles";
-import { useEffect } from "react";
-import { getDataFromDatabase } from "../../services/firebase/firebase-config.service";
 
 export const RestaurantMenu = ({ menu, id, restaurantObject }) => {
   if (Platform.OS === "android") {

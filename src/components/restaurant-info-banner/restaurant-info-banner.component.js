@@ -2,22 +2,13 @@ import React, { useEffect, useState } from "react";
 import star from "../../../assets/star";
 import open from "../../../assets/open";
 import close from "../../../assets/close";
+import { TouchableOpacity } from "react-native";
 import { getDataFromDatabase } from "../../services/firebase/firebase-config.service";
-import { Icon, SVG } from "../restaurant-info-card/restaurant-info-card.styles";
-import { Loading } from "../../screens/restaurants/restaurants.styles";
 import { StyledText } from "../../helpers/typography/text.helper";
 import { getOpenStatus } from "../../helpers/get-open-status/get-open.status.helper";
-import { TouchableOpacity } from "react-native";
-import {
-  CardContent,
-  DetailText,
-  DetailTextBold,
-  DetailTextUp,
-  DetailsContainer,
-  RestaurantCard,
-  RestaurantImage,
-  SmallContainer,
-} from "./restaurant-info-banner.styles";
+import { Icon, SVG } from "../restaurant-info-card/restaurant-info-card.styles";
+import { Loading } from "../../screens/restaurants/restaurants.styles";
+import * as Style from "./restaurant-info-banner.styles";
 
 export const RestaurantInfoBanner = ({ id, navigation }) => {
   const [restaurant, setRestaurant] = useState({});
@@ -53,25 +44,27 @@ export const RestaurantInfoBanner = ({ id, navigation }) => {
   }, [id]);
 
   return (
-    <RestaurantCard>
+    <Style.RestaurantCard>
       {isLoading ? (
         <Loading />
       ) : (
         <TouchableOpacity onPress={openDetails}>
-          <CardContent>
-            <DetailsContainer>
-              <DetailTextBold>{restaurant.name}</DetailTextBold>
-              <DetailText>{restaurant.address}</DetailText>
-              <SmallContainer>
+          <Style.CardContent>
+            <Style.DetailsContainer>
+              <Style.DetailTextBold>{restaurant.name}</Style.DetailTextBold>
+              <Style.DetailText>{restaurant.address}</Style.DetailText>
+              <Style.SmallContainer>
                 {ratingArray.map((_, index) => (
                   <SVG
                     xml={star}
                     key={`star-${restaurant.place_id}-${index}`}
                   />
                 ))}
-                <DetailTextUp>({restaurant.user_ratings_total})</DetailTextUp>
-              </SmallContainer>
-              <SmallContainer>
+                <Style.DetailTextUp>
+                  ({restaurant.user_ratings_total})
+                </Style.DetailTextUp>
+              </Style.SmallContainer>
+              <Style.SmallContainer>
                 {restaurant.business_status === "CLOSED_TEMPORARILY" ? (
                   <StyledText variant="error">TEMPORARILY CLOSED</StyledText>
                 ) : openStatus === "open" ? (
@@ -80,12 +73,12 @@ export const RestaurantInfoBanner = ({ id, navigation }) => {
                   <SVG xml={close} />
                 )}
                 <Icon source={{ uri: restaurant.icon }} />
-              </SmallContainer>
-            </DetailsContainer>
-            <RestaurantImage source={{ uri: restaurant.photo }} />
-          </CardContent>
+              </Style.SmallContainer>
+            </Style.DetailsContainer>
+            <Style.RestaurantImage source={{ uri: restaurant.photo }} />
+          </Style.CardContent>
         </TouchableOpacity>
       )}
-    </RestaurantCard>
+    </Style.RestaurantCard>
   );
 };

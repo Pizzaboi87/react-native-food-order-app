@@ -9,17 +9,10 @@ import { AuthenticationContext } from "../../services/authentication/authenticat
 import { Search } from "../../components/search/search.component";
 import { SearchContainerMap } from "../../components/search/search.styles";
 import { AvatarImage } from "../../components/user-avatar/user-avatar.component";
-import {
-  Map,
-  MapContainer,
-  Item,
-  CompactImage,
-  CompactWebView,
-  Name,
-} from "./map.styles";
+import * as Style from "./map.styles";
 
 const isAndroid = Platform.OS === "android";
-const Image = isAndroid ? CompactWebView : CompactImage;
+const Image = isAndroid ? Style.CompactWebView : Style.CompactImage;
 
 const RestaurantMap = ({ navigation }) => {
   const { location } = useContext(LocationContext);
@@ -40,14 +33,14 @@ const RestaurantMap = ({ navigation }) => {
   useLoadImage(uid);
 
   return (
-    <MapContainer>
+    <Style.MapContainer>
       <SearchContainerMap>
         <Search icon="map" />
         <TouchableOpacity onPress={() => navigation.navigate("Settings")}>
           <AvatarImage size={55} />
         </TouchableOpacity>
       </SearchContainerMap>
-      <Map
+      <Style.Map
         region={{
           latitude: lat,
           longitude: lng,
@@ -73,18 +66,18 @@ const RestaurantMap = ({ navigation }) => {
                   })
                 }
               >
-                <Item>
+                <Style.Item>
                   <Image source={{ uri: restaurant.photo }} />
-                  <Name center variant="caption" numberOfLines={3}>
+                  <Style.Name center variant="caption" numberOfLines={3}>
                     {restaurant.name}
-                  </Name>
-                </Item>
+                  </Style.Name>
+                </Style.Item>
               </Callout>
             </Marker>
           );
         })}
-      </Map>
-    </MapContainer>
+      </Style.Map>
+    </Style.MapContainer>
   );
 };
 
@@ -92,20 +85,20 @@ export const MapScreen = ({ navigation }) => {
   const { error } = useContext(LocationContext);
   if (error) {
     return (
-      <MapContainer>
+      <Style.MapContainer>
         <SearchContainerMap>
           <Search icon="map" />
           <TouchableOpacity onPress={() => navigation.navigate("Settings")}>
             <AvatarImage size={55} />
           </TouchableOpacity>
         </SearchContainerMap>
-        <Map
+        <Style.Map
           region={{
             latitude: 0,
             longitude: 0,
           }}
         />
-      </MapContainer>
+      </Style.MapContainer>
     );
   } else {
     return <RestaurantMap navigation={navigation} />;

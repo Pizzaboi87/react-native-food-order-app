@@ -1,18 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { View } from "react-native";
 import { Picture as Gif } from "../../helpers/gif-plus-text/gif-plus-text.helper";
+import { DialogWindow } from "../../components/dialog-modal/dialog-modal.component";
+import * as Style from "./delivery-address.styles";
 import {
   addAddressToUser,
   getUserData,
 } from "../../services/firebase/firebase-config.service";
-import {
-  DataInput,
-  Container,
-  Title,
-  RowView,
-  Submit,
-} from "./delivery-address.styles";
-import { DialogWindow } from "../../components/dialog-modal/dialog-modal.component";
 
 export const DeliveryAddressScreen = ({ navigation }) => {
   const [missingError, setMissingError] = useState(false);
@@ -59,12 +53,12 @@ export const DeliveryAddressScreen = ({ navigation }) => {
   };
 
   return (
-    <Container>
+    <Style.Container>
       <Gif source={require("../../../assets/wait.gif")} />
-      <Title variant="title">Edit Your Delivery Address</Title>
+      <Style.Title variant="title">Edit Your Delivery Address</Style.Title>
       <View>
-        <RowView>
-          <DataInput
+        <Style.RowView>
+          <Style.DataInput
             width={205}
             label="City"
             name="city"
@@ -77,7 +71,7 @@ export const DeliveryAddressScreen = ({ navigation }) => {
               handleAddressChange("city", city, regexLetters)
             }
           />
-          <DataInput
+          <Style.DataInput
             width={95}
             label="State"
             value={address.state}
@@ -89,9 +83,9 @@ export const DeliveryAddressScreen = ({ navigation }) => {
               handleAddressChange("state", state, regexLetters)
             }
           />
-        </RowView>
-        <RowView>
-          <DataInput
+        </Style.RowView>
+        <Style.RowView>
+          <Style.DataInput
             width={95}
             label="ZIP"
             value={address.zip}
@@ -103,7 +97,7 @@ export const DeliveryAddressScreen = ({ navigation }) => {
               handleAddressChange("zip", zip, regexNumbers)
             }
           />
-          <DataInput
+          <Style.DataInput
             width={205}
             label="Street"
             value={address.street}
@@ -115,9 +109,9 @@ export const DeliveryAddressScreen = ({ navigation }) => {
               handleAddressChange("street", street, regexLetters)
             }
           />
-        </RowView>
-        <RowView>
-          <DataInput
+        </Style.RowView>
+        <Style.RowView>
+          <Style.DataInput
             width={95}
             label="Number"
             value={address.number}
@@ -129,7 +123,7 @@ export const DeliveryAddressScreen = ({ navigation }) => {
               handleAddressChange("number", number, regexNumbers)
             }
           />
-          <DataInput
+          <Style.DataInput
             width={95}
             label="Floor"
             value={address.floor}
@@ -141,7 +135,7 @@ export const DeliveryAddressScreen = ({ navigation }) => {
               handleAddressChange("floor", floor, regexNumbers)
             }
           />
-          <DataInput
+          <Style.DataInput
             width={95}
             label="Door"
             value={address.door}
@@ -153,9 +147,9 @@ export const DeliveryAddressScreen = ({ navigation }) => {
               handleAddressChange("door", door, regexNumbers)
             }
           />
-        </RowView>
+        </Style.RowView>
       </View>
-      <Submit onPress={submitAddress}>Submit</Submit>
+      <Style.Submit onPress={submitAddress}>Submit</Style.Submit>
       <DialogWindow
         variant="go"
         message="Please fill out every input field!"
@@ -177,6 +171,6 @@ export const DeliveryAddressScreen = ({ navigation }) => {
         setVisible={setAddressDone}
         navigation={navigation}
       />
-    </Container>
+    </Style.Container>
   );
 };

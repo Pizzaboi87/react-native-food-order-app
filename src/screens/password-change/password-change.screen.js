@@ -2,12 +2,7 @@ import React, { useState } from "react";
 import { Picture as Gif } from "../../helpers/gif-plus-text/gif-plus-text.helper";
 import { DialogWindow } from "../../components/dialog-modal/dialog-modal.component";
 import { updateUserPassword } from "../../services/firebase/firebase-config.service";
-import {
-  Container,
-  ChangeButton,
-  PasswordInput,
-  Title,
-} from "./password-change.styles";
+import * as Style from "./password-change.styles";
 
 export const PasswordChangeScreen = ({ navigation }) => {
   const [changeSuccess, setChangeSuccess] = useState(false);
@@ -49,10 +44,10 @@ export const PasswordChangeScreen = ({ navigation }) => {
   };
 
   return (
-    <Container>
+    <Style.Container>
       <Gif source={require("../../../assets/mouse.gif")} />
-      <Title variant="title">Change Your Password</Title>
-      <PasswordInput
+      <Style.Title variant="title">Change Your Password</Style.Title>
+      <Style.PasswordInput
         width={300}
         label="Current Password"
         name="pwc"
@@ -64,7 +59,7 @@ export const PasswordChangeScreen = ({ navigation }) => {
         onChangeText={(currentPW) => handleDataChange("currentPW", currentPW)}
       />
 
-      <PasswordInput
+      <Style.PasswordInput
         width={300}
         label="New Password"
         name="newPW1"
@@ -76,7 +71,7 @@ export const PasswordChangeScreen = ({ navigation }) => {
         onChangeText={(newPW1) => handleDataChange("newPW1", newPW1)}
       />
 
-      <PasswordInput
+      <Style.PasswordInput
         width={300}
         label="Repeat New Password"
         name="newPW2"
@@ -87,7 +82,7 @@ export const PasswordChangeScreen = ({ navigation }) => {
         secureTextEntry
         onChangeText={(newPW2) => handleDataChange("newPW2", newPW2)}
       />
-      <ChangeButton onPress={changePassword}>Submit</ChangeButton>
+      <Style.ChangeButton onPress={changePassword}>Submit</Style.ChangeButton>
 
       <DialogWindow
         variant="error"
@@ -126,6 +121,6 @@ export const PasswordChangeScreen = ({ navigation }) => {
         setVisible={setChangeSuccess}
         navigation={navigation}
       />
-    </Container>
+    </Style.Container>
   );
 };
