@@ -202,6 +202,12 @@ export const addFavouriteToUser = async (favourite) => {
   });
 };
 
+export const addOrderToHistory = async (order) => {
+  editUserDocument(auth.currentUser, {
+    orderHistory: arrayUnion(order),
+  });
+};
+
 export const removeFavouriteFromUser = async (value) => {
   try {
     const listDocRef = doc(db, "users", auth.currentUser.uid);

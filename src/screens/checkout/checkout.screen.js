@@ -1,14 +1,22 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useStripe } from "@stripe/stripe-react-native";
 import { DialogWindow } from "../../components/dialog-modal/dialog-modal.component";
+import { addOrderToHistory } from "../../services/firebase/firebase-config.service";
 import { CartContext } from "../../services/cart/cart.context";
 import { BigGif, Container, PayMessage } from "./checkout.styles";
 import { PaymentButton } from "../cart/cart.styles";
 
 export const CheckoutScreen = ({ navigation, route }) => {
   const { order } = route.params;
+  const { initPaymentSheet, presentPaymentSheet } = useStripe();
+  const { cart, setCart } = useContext(CartContext);
+  const [loading, setLoading] = useState(false);
+  const [successful, setSuccessful] = useState(false);
+  const [failed, setFailed] = useState(false);
+  const [paymentError, setPaymentError] = useState("");
 
   const userName = `${order.user.firstName} ${order.user.lastName}`;
+
   const address = {
     city: order.address.city,
     line1: `${order.address.number}. ${order.address.floor}/${order.address.door}`,
@@ -16,12 +24,16 @@ export const CheckoutScreen = ({ navigation, route }) => {
     state: order.address.state,
   };
 
-  const { initPaymentSheet, presentPaymentSheet } = useStripe();
-  const { setCart } = useContext(CartContext);
-  const [loading, setLoading] = useState(false);
-  const [successful, setSuccessful] = useState(false);
-  const [failed, setFailed] = useState(false);
-  const [paymentError, setPaymentError] = useState("");
+  const orderDetails = {
+    cart: cart,
+    amount: order.amount,
+    time: new Date().toLocaleString(),
+  };
+
+  const uploadSuccessfulOrder = async () => {
+    await addOrderToHistory(orderDetails);
+    setCart([]);
+  };
 
   const fetchPaymentSheetParams = async () => {
     try {
@@ -89,14 +101,14 @@ export const CheckoutScreen = ({ navigation, route }) => {
         setFailed(true);
         setPaymentError(error.message);
       } else {
-        setFailed(false);
         setSuccessful(true);
-        setCart([]);
+        setFailed(false);
+        uploadSuccessfulOrder();
       }
-    } catch (error) {
+    } catch (err) {
       setSuccessful(false);
       setFailed(true);
-      setPaymentError(error.message);
+      setPaymentError(err.message);
     }
   };
 
