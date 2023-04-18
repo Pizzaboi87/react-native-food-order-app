@@ -2,19 +2,9 @@ import React, { useContext, useState } from "react";
 import { AuthenticationContext } from "../../services/authentication/authentication.context";
 import { DialogWindow } from "../../components/dialog-modal/dialog-modal.component";
 import { StyledText } from "../../helpers/typography/text.helper";
-import {
-  AccountBackground,
-  AccountCover,
-  AccountContainer,
-  RegisterButton,
-  AuthInput,
-  Title,
-  ErrorContainer,
-  ButtonContainer,
-  Loading,
-  Buttons,
-  JustTextButton,
-} from "../account/account.styles";
+import * as Account from "../../helpers/account-styles/account-styles.helper";
+import * as Common from "../../helpers/common-button/common-button.helper";
+import * as Style from "./registration.styles";
 
 export const RegistrationScreen = ({ navigation }) => {
   const { onRegister, error, setError, isLoading, checkEmail, setCheckEmail } =
@@ -25,11 +15,11 @@ export const RegistrationScreen = ({ navigation }) => {
   const [nickName, setNickName] = useState("");
 
   return (
-    <AccountBackground>
-      <AccountCover>
-        <AccountContainer>
-          <Title>Sign-Up Your New Account</Title>
-          <AuthInput
+    <Account.Background>
+      <Account.Cover>
+        <Account.Container>
+          <Common.Title>Sign-Up Your New Account</Common.Title>
+          <Common.AuthInput
             label="your nickname"
             value={nickName}
             textContentType="nickname"
@@ -39,7 +29,7 @@ export const RegistrationScreen = ({ navigation }) => {
             onFocus={() => setError(null)}
             onChangeText={(userNickName) => setNickName(userNickName)}
           />
-          <AuthInput
+          <Common.AuthInput
             label="email address"
             value={email}
             textContentType="emailAddress"
@@ -49,7 +39,7 @@ export const RegistrationScreen = ({ navigation }) => {
             onFocus={() => setError(null)}
             onChangeText={(userEmail) => setEmail(userEmail)}
           />
-          <AuthInput
+          <Common.AuthInput
             label="password"
             value={password}
             textContentType="password"
@@ -59,7 +49,7 @@ export const RegistrationScreen = ({ navigation }) => {
             onFocus={() => setError(null)}
             onChangeText={(userPassword) => setPassword(userPassword)}
           />
-          <AuthInput
+          <Common.AuthInput
             label="repeat password"
             value={repeatedPassword}
             textContentType="password"
@@ -72,14 +62,14 @@ export const RegistrationScreen = ({ navigation }) => {
             }
           />
           {error && (
-            <ErrorContainer>
+            <Style.ErrorContainer>
               <StyledText variant="error">{error}</StyledText>
-            </ErrorContainer>
+            </Style.ErrorContainer>
           )}
-          <ButtonContainer>
+          <Common.ButtonContainer>
             {!isLoading ? (
-              <Buttons>
-                <RegisterButton
+              <Style.Buttons>
+                <Style.RegisterButton
                   onPress={() =>
                     onRegister(
                       nickName,
@@ -92,22 +82,22 @@ export const RegistrationScreen = ({ navigation }) => {
                   mode="contained"
                 >
                   register
-                </RegisterButton>
-                <JustTextButton
+                </Style.RegisterButton>
+                <Common.JustTextButton
                   onPress={() => {
                     setError(null);
                     navigation.goBack();
                   }}
                 >
                   back
-                </JustTextButton>
-              </Buttons>
+                </Common.JustTextButton>
+              </Style.Buttons>
             ) : (
-              <Loading />
+              <Style.Loading />
             )}
-          </ButtonContainer>
-        </AccountContainer>
-      </AccountCover>
+          </Common.ButtonContainer>
+        </Account.Container>
+      </Account.Cover>
       <DialogWindow
         variant="go"
         message={"Before we continue...\nPlease check your mailbox!"}
@@ -116,6 +106,6 @@ export const RegistrationScreen = ({ navigation }) => {
         navigation={navigation}
         whereTo="Main"
       />
-    </AccountBackground>
+    </Account.Background>
   );
 };

@@ -1,17 +1,9 @@
 import React, { useState } from "react";
 import { sendPasswordReset } from "../../services/firebase/firebase-config.service";
 import { DialogWindow } from "../../components/dialog-modal/dialog-modal.component";
-import {
-  AccountBackground,
-  AccountCover,
-  AccountContainer,
-  AuthInput,
-  Title,
-  ButtonContainer,
-  EmailButton,
-  Buttons,
-  JustTextButton,
-} from "../account/account.styles";
+import * as Account from "../../helpers/account-styles/account-styles.helper";
+import * as Common from "../../helpers/common-button/common-button.helper";
+import * as Style from "./password-reset.styles";
 
 export const PasswordResetScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
@@ -19,11 +11,11 @@ export const PasswordResetScreen = ({ navigation }) => {
   const [error, setError] = useState("noError");
 
   return (
-    <AccountBackground>
-      <AccountCover>
-        <AccountContainer>
-          <Title>Reset Your Password</Title>
-          <AuthInput
+    <Account.Background>
+      <Account.Cover>
+        <Account.Container>
+          <Common.Title>Reset Your Password</Common.Title>
+          <Common.AuthInput
             label="email address"
             value={email}
             textContentType="emailAddress"
@@ -32,26 +24,26 @@ export const PasswordResetScreen = ({ navigation }) => {
             keyboardType="email-address"
             onChangeText={(userEmail) => setEmail(userEmail)}
           />
-          <ButtonContainer>
-            <Buttons>
-              <EmailButton
+          <Common.ButtonContainer>
+            <Style.Buttons>
+              <Style.EmailButton
                 onPress={() =>
                   sendPasswordReset(email, setEmailPopup, setError)
                 }
               >
                 Password Reset
-              </EmailButton>
+              </Style.EmailButton>
 
-              <JustTextButton
+              <Common.JustTextButton
                 onPress={() => {
                   navigation.goBack();
                 }}
               >
                 back
-              </JustTextButton>
-            </Buttons>
-          </ButtonContainer>
-        </AccountContainer>
+              </Common.JustTextButton>
+            </Style.Buttons>
+          </Common.ButtonContainer>
+        </Account.Container>
         <DialogWindow
           variant={error !== "noError" ? "error" : "done"}
           message={error !== "noError" ? error : "Password reset email sent!"}
@@ -60,7 +52,7 @@ export const PasswordResetScreen = ({ navigation }) => {
           navigation={navigation}
           whereTo="Main"
         />
-      </AccountCover>
-    </AccountBackground>
+      </Account.Cover>
+    </Account.Background>
   );
 };

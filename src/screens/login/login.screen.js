@@ -2,20 +2,9 @@ import React, { useContext, useState } from "react";
 import { AuthenticationContext } from "../../services/authentication/authentication.context";
 import { signInWithGoogle } from "../../services/firebase/firebase-config.service";
 import { StyledText } from "../../helpers/typography/text.helper";
-import {
-  AccountBackground,
-  AccountCover,
-  AccountContainer,
-  AuthInput,
-  Title,
-  ErrorContainer,
-  ButtonContainer,
-  Loading,
-  GoogleButton,
-  EmailButton,
-  Buttons,
-  JustTextButton,
-} from "../account/account.styles";
+import * as Account from "../../helpers/account-styles/account-styles.helper";
+import * as Common from "../../helpers/common-button/common-button.helper";
+import * as Style from "./login.style";
 
 export const LoginScreen = ({ navigation }) => {
   const { onLogin, error, setError, isLoading } = useContext(
@@ -25,11 +14,11 @@ export const LoginScreen = ({ navigation }) => {
   const [password, setPassword] = useState("");
 
   return (
-    <AccountBackground>
-      <AccountCover>
-        <AccountContainer>
-          <Title>Sign-In To Your Account</Title>
-          <AuthInput
+    <Account.Background>
+      <Account.Cover>
+        <Account.Container>
+          <Common.Title>Sign-In To Your Account</Common.Title>
+          <Common.AuthInput
             label="email address"
             value={email}
             textContentType="emailAddress"
@@ -39,7 +28,7 @@ export const LoginScreen = ({ navigation }) => {
             onFocus={() => setError(null)}
             onChangeText={(userEmail) => setEmail(userEmail)}
           />
-          <AuthInput
+          <Common.AuthInput
             label="password"
             value={password}
             textContentType="password"
@@ -50,40 +39,42 @@ export const LoginScreen = ({ navigation }) => {
             onChangeText={(userPassword) => setPassword(userPassword)}
           />
           {error && (
-            <ErrorContainer>
+            <Style.ErrorContainer>
               <StyledText variant="error">{error}</StyledText>
-            </ErrorContainer>
+            </Style.ErrorContainer>
           )}
-          <ButtonContainer>
+          <Common.ButtonContainer>
             {!isLoading ? (
-              <Buttons>
-                <EmailButton onPress={() => onLogin(email, password)}>
+              <Style.Buttons>
+                <Style.EmailButton onPress={() => onLogin(email, password)}>
                   sign-in with email
-                </EmailButton>
+                </Style.EmailButton>
 
-                <GoogleButton onPress={() => signInWithGoogle()}>
+                <Style.GoogleButton onPress={() => signInWithGoogle()}>
                   sign-in with Google
-                </GoogleButton>
+                </Style.GoogleButton>
 
-                <JustTextButton onPress={() => navigation.navigate("Reset")}>
+                <Common.JustTextButton
+                  onPress={() => navigation.navigate("Reset")}
+                >
                   Forgot your password?
-                </JustTextButton>
+                </Common.JustTextButton>
 
-                <JustTextButton
+                <Common.JustTextButton
                   onPress={() => {
                     setError(null);
                     navigation.goBack();
                   }}
                 >
                   back
-                </JustTextButton>
-              </Buttons>
+                </Common.JustTextButton>
+              </Style.Buttons>
             ) : (
-              <Loading />
+              <Style.Loading />
             )}
-          </ButtonContainer>
-        </AccountContainer>
-      </AccountCover>
-    </AccountBackground>
+          </Common.ButtonContainer>
+        </Account.Container>
+      </Account.Cover>
+    </Account.Background>
   );
 };

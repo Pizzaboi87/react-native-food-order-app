@@ -1,35 +1,29 @@
 import React from "react";
 import { View } from "react-native";
-import {
-  AccountBackground,
-  AccountCover,
-  AccountContainer,
-  LoginButton,
-  RegisterButton,
-  MainTitle,
-  AnimationWrapper,
-  WelcomeGif,
-} from "./account.styles";
+import * as Account from "../../helpers/account-styles/account-styles.helper";
+import * as Style from "./account.styles";
 
 export const AccountScreen = ({ navigation }) => {
   return (
-    <AccountBackground>
-      <AccountCover>
-        <AnimationWrapper>
-          <WelcomeGif source={require("../../../assets/surprise.gif")} />
-        </AnimationWrapper>
+    <Account.Background>
+      <Account.Cover>
+        <Style.AnimationWrapper>
+          <Style.WelcomeGif source={require("../../../assets/surprise.gif")} />
+        </Style.AnimationWrapper>
         <View>
-          <MainTitle variant="label">Pizzaboi App</MainTitle>
-          <AccountContainer>
-            <LoginButton onPress={() => navigation.navigate("Login")}>
+          <Style.MainTitle variant="label">Pizzaboi App</Style.MainTitle>
+          <Account.Container>
+            <Style.LoginButton onPress={() => navigation.navigate("Login")}>
               sign-in
-            </LoginButton>
-            <RegisterButton onPress={() => navigation.navigate("Register")}>
+            </Style.LoginButton>
+            <Style.RegisterButton
+              onPress={() => navigation.navigate("Register")}
+            >
               sign-up
-            </RegisterButton>
-          </AccountContainer>
+            </Style.RegisterButton>
+          </Account.Container>
         </View>
-      </AccountCover>
-    </AccountBackground>
+      </Account.Cover>
+    </Account.Background>
   );
 };
