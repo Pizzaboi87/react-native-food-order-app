@@ -1,9 +1,8 @@
 import React from "react";
 import styled from "styled-components/native";
 import { theme } from "../../infrastructure/theme";
-import { List } from "react-native-paper";
+import { List, ActivityIndicator } from "react-native-paper";
 import { StyledText } from "../../helpers/typography/text.helper";
-import { ActivityIndicator } from "react-native";
 
 export const DetailsContainer = styled.ScrollView`
   background-color: ${(props) => props.theme.colors.ui.background};

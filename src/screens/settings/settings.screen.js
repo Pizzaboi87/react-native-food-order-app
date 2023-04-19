@@ -5,7 +5,6 @@ import { UserImageContext } from "../../services/user-image/user-image.context";
 import { SafeArea } from "../../helpers/safe-area/safe-area.helper";
 import { FadeInView } from "../../animations/fade.animation";
 import { AvatarImage } from "../../components/user-avatar/user-avatar.component";
-import { DialogWindow } from "../../components/dialog-modal/dialog-modal.component";
 import { getUserData } from "../../services/firebase/firebase-config.service";
 import { useFocusEffect } from "@react-navigation/native";
 import * as Style from "./settings.styles";
@@ -14,7 +13,6 @@ export const SettingsScreen = ({ navigation }) => {
   const { onSignOut, uid } = useContext(AuthenticationContext);
   const { useLoadImage } = useContext(UserImageContext);
   const [userName, setUserName] = useState("");
-  const [visible, setVisible] = useState(false);
 
   const heartIcon = Style.createIcon(Style.HeartIcon);
   const doorIcon = Style.createIcon(Style.DoorIcon);
@@ -60,7 +58,7 @@ export const SettingsScreen = ({ navigation }) => {
           title="Previous Orders"
           description="Check your previous orders"
           left={ordersIcon}
-          onPress={() => setVisible(true)}
+          onPress={() => navigation.navigate("Previous Orders")}
         />
         <Style.SettingsItem
           title="Delivery Address"
@@ -79,12 +77,6 @@ export const SettingsScreen = ({ navigation }) => {
           description="Change your password"
           left={passwordIcon}
           onPress={() => navigation.navigate("Change Password")}
-        />
-        <DialogWindow
-          variant="wait"
-          message="This will be the previous orders menu"
-          visible={visible}
-          setVisible={setVisible}
         />
         <Style.SettingsItem
           title="Logout"

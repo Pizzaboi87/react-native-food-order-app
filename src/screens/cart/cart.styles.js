@@ -1,14 +1,9 @@
 import styled from "styled-components/native";
 import { StyledText } from "../../helpers/typography/text.helper";
-import { Button, Card } from "react-native-paper";
+import { Button, Card, ActivityIndicator } from "react-native-paper";
 import { theme } from "../../infrastructure/theme";
 import { AntDesign } from "@expo/vector-icons";
-import {
-  ActivityIndicator,
-  TouchableOpacity,
-  ScrollView,
-  StyleSheet,
-} from "react-native";
+import { TouchableOpacity, ScrollView, StyleSheet } from "react-native";
 
 export const HeaderContainer = styled.View`
   padding-top: ${(props) => props.theme.sizes[2]}
@@ -33,7 +28,9 @@ export const Loading = styled(ActivityIndicator).attrs({
   animating: true,
   color: theme.colors.ui.brand,
   size: 50,
-})``;
+})`
+  margin: 0 auto;
+`;
 
 export const OrderContainer = styled(ScrollView).attrs({
   contentContainerStyle: {

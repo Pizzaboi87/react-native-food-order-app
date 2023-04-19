@@ -5,6 +5,7 @@ import { FavouritesScreen } from "../../screens/favourites/favourites.screen";
 import { PersonalDataScreen } from "../../screens/personal-data/personal-data.screen";
 import { DeliveryAddressScreen } from "../../screens/delivery-address/delivery-address.screen";
 import { PasswordChangeScreen } from "../../screens/password-change/password-change.screen";
+import { PreviousOrdersScreen } from "../../screens/previous-orders/previous-orders.screen";
 import { ChangePictureNavigator } from "./change-picture.navigator";
 import {
   createStackNavigator,
@@ -33,6 +34,10 @@ export const SettingsNavigator = () => {
       <SettingsStack.Screen
         name="My Favourite Restaurants"
         component={FavouritesScreen}
+      />
+      <SettingsStack.Screen
+        name="Previous Orders"
+        component={PreviousOrdersScreen}
       />
       <SettingsStack.Screen
         name="Delivery Address"
