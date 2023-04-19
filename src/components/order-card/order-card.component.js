@@ -18,7 +18,7 @@ export const OrderCard = ({ amount, cart, time, navigation }) => {
   };
 
   useEffect(() => {
-    const id = cart[0].id;
+    const placeId = cart[0].id;
     const fetchData = async (id) => {
       try {
         await getDataFromDatabase("restaurant", id.slice(0, -2), id).then(
@@ -34,8 +34,8 @@ export const OrderCard = ({ amount, cart, time, navigation }) => {
         console.log("error", error);
       }
     };
-    fetchData(id);
-  }, []);
+    fetchData(placeId);
+  }, [cart]);
 
   return (
     <Style.OrderCard>

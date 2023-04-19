@@ -23,7 +23,7 @@ export const CartScreen = ({ navigation }) => {
   const [fullPrice, setFullPrice] = useState(0);
   const [delivery, setDelivery] = useState(0);
   const [order, setOrder] = useState({
-    currentUser: currentUser,
+    email: currentUser.email,
     restaurant: {},
     address: {},
     user: {},
@@ -105,7 +105,7 @@ export const CartScreen = ({ navigation }) => {
       }
     });
     return unsubscribe;
-  }, [navigation, cart]);
+  });
 
   const openDetails = (item) => {
     navigation.navigate("RestaurantDetail", {
@@ -171,7 +171,9 @@ export const CartScreen = ({ navigation }) => {
           </FadeInView>
         </Gif.Container>
       ) : status.isLoading ? (
-        <Style.Loading />
+        <Style.LoadContainer>
+          <Style.Loading />
+        </Style.LoadContainer>
       ) : isTooFar ? (
         <Gif.Container>
           <FadeInView>

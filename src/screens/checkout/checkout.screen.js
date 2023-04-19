@@ -49,7 +49,7 @@ export const CheckoutScreen = ({ navigation, route }) => {
             userName: userName,
             phone: order.user.phone,
             address: address,
-            email: order.currentUser.email,
+            email: order.email,
             uid: order.uid,
           }),
         }
@@ -114,7 +114,7 @@ export const CheckoutScreen = ({ navigation, route }) => {
 
   useEffect(() => {
     initializePaymentSheet();
-  }, []);
+  });
 
   return (
     <Container>

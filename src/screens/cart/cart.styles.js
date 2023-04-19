@@ -32,6 +32,11 @@ export const Loading = styled(ActivityIndicator).attrs({
   margin: 0 auto;
 `;
 
+export const LoadContainer = styled.View`
+  flex: 1;
+  justify-content: center;
+`;
+
 export const OrderContainer = styled(ScrollView).attrs({
   contentContainerStyle: {
     alignItems: "center",
