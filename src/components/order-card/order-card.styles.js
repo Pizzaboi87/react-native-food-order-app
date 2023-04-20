@@ -15,6 +15,10 @@ export const OrderView = styled.View`
   align-items: center;
 `;
 
+export const OrderContainer = styled.View`
+  max-width: 60%;
+`;
+
 export const TextNormal = styled.Text`
   font-size: ${(props) => props.theme.fontSizes.body};
 `;

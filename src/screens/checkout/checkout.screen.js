@@ -114,7 +114,7 @@ export const CheckoutScreen = ({ navigation, route }) => {
 
   useEffect(() => {
     initializePaymentSheet();
-  });
+  }, []);
 
   return (
     <Container>

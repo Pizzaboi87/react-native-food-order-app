@@ -41,7 +41,7 @@ export const OrderCard = ({ amount, cart, time, navigation }) => {
     <Style.OrderCard>
       <Card.Content>
         <Style.OrderView>
-          <View>
+          <Style.OrderContainer>
             <Style.TextWithMargin>{time.slice(0, -3)}</Style.TextWithMargin>
             <Style.TextBold>
               From: <Text>{restaurant.name}</Text>
@@ -61,7 +61,7 @@ export const OrderCard = ({ amount, cart, time, navigation }) => {
                 );
               })}
             </View>
-          </View>
+          </Style.OrderContainer>
           <TouchableOpacity onPress={openDetails}>
             <Style.RestaurantImage source={{ uri: `${restaurant.photo}` }} />
           </TouchableOpacity>
