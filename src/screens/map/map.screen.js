@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Platform, TouchableOpacity } from "react-native";
 import { theme } from "../../infrastructure/theme";
-import { Marker, Callout } from "react-native-maps";
+import { Marker, Callout, PROVIDER_GOOGLE } from "react-native-maps";
 import { LocationContext } from "../../services/location/location.context";
 import { UserImageContext } from "../../services/user-image/user-image.context";
 import { RestaurantsContext } from "../../services/restaurants/restaurants.context";
@@ -41,6 +41,7 @@ const RestaurantMap = ({ navigation }) => {
         </TouchableOpacity>
       </SearchContainerMap>
       <Style.Map
+        provider={PROVIDER_GOOGLE}
         region={{
           latitude: lat,
           longitude: lng,
@@ -93,6 +94,7 @@ export const MapScreen = ({ navigation }) => {
           </TouchableOpacity>
         </SearchContainerMap>
         <Style.Map
+          provider={PROVIDER_GOOGLE}
           region={{
             latitude: 0,
             longitude: 0,
