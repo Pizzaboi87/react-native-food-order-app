@@ -63,8 +63,9 @@ export const signInWithGoogle = async () => {
   const googleCredential = auth.GoogleAuthProvider.credential(idToken);
 
   const user_sign_in = await auth().signInWithCredential(googleCredential);
-
-  editUserDocument(auth().currentUser);
+  editUserDocument(auth().currentUser, {
+    displayName: user_sign_in.additionalUserInfo.profile.name,
+  });
 
   return user_sign_in;
 };
