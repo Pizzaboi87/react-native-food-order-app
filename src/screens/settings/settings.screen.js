@@ -10,7 +10,7 @@ import { useFocusEffect } from "@react-navigation/native";
 import * as Style from "./settings.styles";
 
 export const SettingsScreen = ({ navigation }) => {
-  const { onSignOut, uid } = useContext(AuthenticationContext);
+  const { onSignOut, uid, currentUser } = useContext(AuthenticationContext);
   const { useLoadImage } = useContext(UserImageContext);
   const [userName, setUserName] = useState("");
 
@@ -45,7 +45,12 @@ export const SettingsScreen = ({ navigation }) => {
             <AvatarImage size={150} />
           </TouchableOpacity>
         </FadeInView>
-        <Style.UserText variant="title">{userName}</Style.UserText>
+        <Style.UserText variant="title">
+          {currentUser.displayName !== "undefined undefined" &&
+          currentUser.displayName !== "undefined"
+            ? currentUser.displayName
+            : userName}
+        </Style.UserText>
       </Style.AvatarContainer>
       <ScrollView>
         <Style.SettingsItem

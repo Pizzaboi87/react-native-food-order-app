@@ -1,7 +1,7 @@
 import firestore from "@react-native-firebase/firestore";
 import auth from "@react-native-firebase/auth";
 import storage from "@react-native-firebase/storage";
-import database, { firebase } from "@react-native-firebase/database";
+import database from "@react-native-firebase/database";
 import { GoogleSignin } from "@react-native-google-signin/google-signin";
 import { CLIENT } from "@env";
 
@@ -95,8 +95,8 @@ export const registerWithEmail = async (email, password, nickName) => {
 
 export const signOutUser = async () => {
   try {
-    await GoogleSignin.revokeAccess();
     await GoogleSignin.signOut();
+    await GoogleSignin.revokeAccess();
   } catch (error) {
     console.log(error);
   }
@@ -171,10 +171,7 @@ export const storeImage = async (imageUri, imageUrl) => {
   const response = await fetch(imageUri);
   const blob = await response.blob();
   const storageRef = storage().ref(imageUrl);
-  const metadata = {
-    contentType: "image/jpeg",
-  };
-  await storageRef.put(blob, metadata);
+  return storageRef.put(blob);
 };
 
 export const loadStoredImage = async (imageUrl) => {

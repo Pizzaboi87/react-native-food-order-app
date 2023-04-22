@@ -80,9 +80,6 @@ export const AuthenticationContextProvider = ({ children }) => {
     signOutUser();
   };
 
-  //console.log("CurrentUser: ", currentUser);
-  //console.log("UID: ", uid);
-
   return (
     <AuthenticationContext.Provider
       value={{
