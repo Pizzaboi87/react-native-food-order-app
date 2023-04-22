@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Navigation } from "./src/infrastructure/navigation";
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
 import { ThemeProvider } from "styled-components";
@@ -9,6 +9,7 @@ import { AuthenticationContextProvider } from "./src/services/authentication/aut
 import { CartContextProvider } from "./src/services/cart/cart.context";
 import { STRIPE_PUBLIC_KEY } from "@env";
 import { StripeProvider } from "@stripe/stripe-react-native";
+import "expo-dev-client";
 
 export default function App() {
   const fontsLoaded = useCustomFonts();

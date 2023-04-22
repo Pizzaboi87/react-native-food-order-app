@@ -1,51 +1,19 @@
-import { initializeApp } from "firebase/app";
-import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
-import { getDatabase, get, ref as rtdbref, child } from "firebase/database";
-import {
-  getFirestore,
-  doc,
-  getDoc,
-  setDoc,
-  updateDoc,
-  arrayUnion,
-} from "firebase/firestore";
-import {
-  getAuth,
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-  signOut,
-  sendEmailVerification,
-  updateProfile,
-  GoogleAuthProvider,
-  signInWithPopup,
-  sendPasswordResetEmail,
-  updatePassword,
-  reauthenticateWithCredential,
-  EmailAuthProvider,
-} from "firebase/auth";
+import firestore from "@react-native-firebase/firestore";
+import auth from "@react-native-firebase/auth";
+import storage from "@react-native-firebase/storage";
+import database, { firebase } from "@react-native-firebase/database";
+import { GoogleSignin } from "@react-native-google-signin/google-signin";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyDmfc3QRM3nHNMO6SHCthlm8p3dr5UcF3g",
-  authDomain: "mealstogo-2680a.firebaseapp.com",
-  databaseURL:
-    "https://mealstogo-2680a-default-rtdb.europe-west1.firebasedatabase.app/",
-  projectId: "mealstogo-2680a",
-  storageBucket: "mealstogo-2680a.appspot.com",
-  messagingSenderId: "1035111378933",
-  appId: "1:1035111378933:web:32706dabfe671489033abc",
-};
-
-const app = initializeApp(firebaseConfig);
-export const db = getFirestore();
-export const auth = getAuth(app);
-const storage = getStorage();
-const googleProvider = new GoogleAuthProvider();
-
-googleProvider.setCustomParameters({
-  prompt: "select_account",
+GoogleSignin.configure({
+  webClientId:
+    "1035111378933-h7479g0o6fe9p9tct1eumq788qv96r8t.apps.googleusercontent.com",
 });
 
-export const signInWithGoogle = () => signInWithPopup(auth, googleProvider);
+const db = firebase
+  .app()
+  .database(
+    "https://mealstogo-2680a-default-rtdb.europe-west1.firebasedatabase.app/"
+  );
 
 export const editUserDocument = async (
   userAuth,
@@ -54,21 +22,21 @@ export const editUserDocument = async (
   if (!userAuth) {
     return;
   }
-  const userDocRef = doc(db, "users", userAuth.uid);
-  const userSnapShot = await getDoc(userDocRef);
+  const userDocRef = firestore().doc(`users/${userAuth.uid}`);
+  const userSnapShot = await userDocRef.get();
 
-  if (!userSnapShot.exists()) {
+  if (!userSnapShot.exists) {
     const { displayName, email } = userAuth;
     const createdAt = new Date();
 
-    await setDoc(userDocRef, {
+    await userDocRef.set({
       displayName,
       email,
       createdAt,
       ...additionalInformation,
     });
   } else {
-    await updateDoc(userDocRef, {
+    await userDocRef.update({
       ...additionalInformation,
     });
   }
@@ -76,10 +44,10 @@ export const editUserDocument = async (
 };
 
 export const getUserData = async (data) => {
-  const userDocRef = doc(db, "users", auth.currentUser.uid);
-  const userSnapShot = await getDoc(userDocRef);
+  const userDocRef = firestore().doc(`users/${auth().currentUser.uid}`);
+  const userSnapShot = await userDocRef.get();
 
-  if (userSnapShot.exists()) {
+  if (userSnapShot.exists) {
     const userData = userSnapShot.data()[data];
     return userData;
   } else {
@@ -87,43 +55,70 @@ export const getUserData = async (data) => {
   }
 };
 
+export const signInWithGoogle = async () => {
+  await GoogleSignin.hasPlayServices({
+    showPlayServicesUpdateDialog: true,
+  });
+  const { idToken } = await GoogleSignin.signIn();
+  const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+
+  const user_sign_in = await auth().signInWithCredential(googleCredential);
+
+  editUserDocument(auth().currentUser);
+
+  return user_sign_in;
+};
+
 export const signInWithEmail = async (email, password) => {
   if (!email || !password) {
     return;
   }
-  return await signInWithEmailAndPassword(auth, email, password);
+  try {
+    const userCredential = await auth().signInWithEmailAndPassword(
+      email,
+      password
+    );
+    return userCredential.user;
+  } catch (error) {
+    console.error("Failed to sign in with email and password", error);
+    throw error;
+  }
 };
 
 export const registerWithEmail = async (email, password, nickName) => {
   if (!email || !password) {
     return;
   }
-  const userCredential = await createUserWithEmailAndPassword(
-    auth,
+  const userCredential = await auth().createUserWithEmailAndPassword(
     email,
     password
   );
-  await updateProfile(userCredential.user, { displayName: nickName });
-  await sendEmailVerification(userCredential.user);
+  await auth().currentUser.updateProfile({ displayName: nickName });
+  await auth().currentUser.sendEmailVerification();
   return userCredential;
 };
 
 export const signOutUser = async () => {
-  return await signOut(auth);
+  try {
+    await GoogleSignin.revokeAccess();
+    await GoogleSignin.signOut();
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const sendPasswordReset = async (email, setEmailPopup, setError) => {
   try {
-    await sendPasswordResetEmail(auth, email);
+    await auth().sendPasswordResetEmail(email);
     setError("noError");
     setEmailPopup(true);
   } catch (err) {
     setEmailPopup(true);
-    switch (err.message) {
-      case "Firebase: Error (auth/invalid-email).":
+    switch (err.code) {
+      case "auth/invalid-email":
         setError("Invalid email address.");
         break;
-      case "Firebase: Error (auth/user-not-found).":
+      case "auth/user-not-found":
         setError("Email address is not registered.");
         break;
       default:
@@ -140,13 +135,15 @@ export const updateUserPassword = (
   setChangeFail,
   setAuthenticationFail
 ) => {
-  const user = auth.currentUser;
-  const email = auth.currentUser.email;
-  const credential = EmailAuthProvider.credential(email, currentPassword);
+  const user = auth().currentUser;
+  const email = auth().currentUser.email;
+  const credential = auth.EmailAuthProvider.credential(email, currentPassword);
 
-  reauthenticateWithCredential(user, credential)
+  user
+    .reauthenticateWithCredential(credential)
     .then(() => {
-      updatePassword(user, newPassword)
+      user
+        .updatePassword(newPassword)
         .then(() => {
           setChangeSuccess(true);
         })
@@ -167,9 +164,8 @@ export const addAddressToUser = async (
   setAddressWrong
 ) => {
   try {
-    await editUserDocument(auth.currentUser, { address }).then(
-      setAddressDone(true)
-    );
+    await editUserDocument(auth().currentUser, { address });
+    setAddressDone(true);
   } catch (error) {
     setAddressWrong(true);
     console.log(error);
@@ -179,17 +175,17 @@ export const addAddressToUser = async (
 export const storeImage = async (imageUri, imageUrl) => {
   const response = await fetch(imageUri);
   const blob = await response.blob();
-  const storageRef = ref(storage, imageUrl);
+  const storageRef = storage().ref(imageUrl);
   const metadata = {
     contentType: "image/jpeg",
   };
-  uploadBytes(storageRef, blob, metadata);
+  await storageRef.put(blob, metadata);
 };
 
 export const loadStoredImage = async (imageUrl) => {
-  const storageRef = ref(storage, imageUrl);
+  const storageRef = storage().ref(imageUrl);
   try {
-    const url = await getDownloadURL(storageRef, 500);
+    const url = await storageRef.getDownloadURL();
     return url;
   } catch (error) {
     return;
@@ -197,28 +193,35 @@ export const loadStoredImage = async (imageUrl) => {
 };
 
 export const addFavouriteToUser = async (favourite) => {
-  editUserDocument(auth.currentUser, {
-    favourites: arrayUnion(favourite),
+  const currentUser = auth().currentUser;
+  const userDocRef = firestore().doc(`users/${currentUser.uid}`);
+
+  await userDocRef.update({
+    favourites: firestore.FieldValue.arrayUnion(favourite),
   });
 };
 
 export const addOrderToHistory = async (order) => {
-  editUserDocument(auth.currentUser, {
-    orderHistory: arrayUnion(order),
+  const currentUser = auth().currentUser;
+  const userDocRef = firestore().doc(`users/${currentUser.uid}`);
+
+  await userDocRef.update({
+    orderHistory: firestore.FieldValue.arrayUnion(order),
   });
 };
 
 export const removeFavouriteFromUser = async (value) => {
   try {
-    const listDocRef = doc(db, "users", auth.currentUser.uid);
-    const listSnapshot = await getDoc(listDocRef);
+    const listDocRef = firestore()
+      .collection("users")
+      .doc(auth().currentUser.uid);
+    const listSnapshot = await listDocRef.get();
     const favourites = listSnapshot.data().favourites;
     const index = favourites.indexOf(value);
-
     if (index > -1) {
       const updatedFavourites = [...favourites];
       updatedFavourites.splice(index, 1);
-      await updateDoc(listDocRef, {
+      await listDocRef.update({
         favourites: updatedFavourites,
       });
     } else {
@@ -229,34 +232,37 @@ export const removeFavouriteFromUser = async (value) => {
   }
 };
 
-export const getDataFromDatabase = async (database, city, restaurantId) => {
-  if (auth.currentUser) {
-    try {
-      const dbRef = rtdbref(getDatabase());
-      const snapshot = await get(
-        child(dbRef, `${database}/${city}/${restaurantId}`)
-      );
-      if (snapshot.exists()) {
-        const data = snapshot.val();
-        return data;
-      } else {
-        console.log("No data available");
-        return null;
-      }
-    } catch (error) {
-      console.error(error);
+export const getDataFromDatabase = async (
+  database,
+  city = "",
+  restaurantId = ""
+) => {
+  if (!auth().currentUser || !database || !city || !restaurantId) {
+    return null;
+  }
+
+  try {
+    const dbRef = db.ref(`${database}/${city}/${restaurantId}`);
+    const snapshot = await dbRef.once("value");
+
+    if (snapshot.exists()) {
+      const data = snapshot.val();
+      return data;
+    } else {
+      console.log("No data available");
       return null;
     }
-  } else {
-    return;
+  } catch (error) {
+    console.log("Error:", error);
+    return null;
   }
 };
 
 export const findBranchByValue = async (value) => {
-  if (auth.currentUser) {
+  if (auth().currentUser) {
     try {
-      const dbRef = rtdbref(getDatabase());
-      const snapshot = await get(child(dbRef, "coordinates"));
+      const dbRef = db.ref("coordinates");
+      const snapshot = await dbRef.once("value");
       if (snapshot.exists()) {
         const branches = snapshot.val();
         let result = null;
@@ -285,14 +291,15 @@ export const setUserPersonalData = async (
   setPersonalError
 ) => {
   try {
-    await editUserDocument(auth.currentUser, {
+    await editUserDocument(auth().currentUser, {
       displayName: personalData.nickName,
       personalData: {
         firstName: personalData.firstName,
         lastName: personalData.lastName,
         phone: personalData.phone,
       },
-    }).then(setPersonalDone(true));
+    });
+    setPersonalDone(true);
   } catch (error) {
     setPersonalError(true);
     console.log(error);

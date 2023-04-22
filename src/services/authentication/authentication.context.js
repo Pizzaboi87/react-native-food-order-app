@@ -2,8 +2,12 @@ import React, { createContext, useState } from "react";
 import {
   signInWithEmail,
   registerWithEmail,
+  signInWithGoogle,
   signOutUser,
+  editUserDocument,
 } from "../firebase/firebase-config.service";
+import androidAuth from "@react-native-firebase/auth";
+import { GoogleSignin } from "@react-native-google-signin/google-signin";
 
 export const AuthenticationContext = createContext();
 export const AuthenticationContextProvider = ({ children }) => {
@@ -13,12 +17,27 @@ export const AuthenticationContextProvider = ({ children }) => {
   const [uid, setUid] = useState(null);
   const [checkEmail, setCheckEmail] = useState(false);
 
+  const googleSignIn = () => {
+    setIsLoading(true);
+    signInWithGoogle()
+      .then((userObject) => {
+        const user = userObject.user;
+        setCurrentUser(user);
+        setUid(user.uid);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setIsLoading(false);
+        setError(err.message);
+      });
+  };
+
   const onLogin = (email, password) => {
     setIsLoading(true);
     signInWithEmail(email, password)
       .then((userCredential) => {
-        const user = userCredential.user;
-        if (!userCredential.user.emailVerified) {
+        const user = userCredential;
+        if (!userCredential.emailVerified) {
           setError("Please verify your email address.");
           setIsLoading(false);
           return;
@@ -55,11 +74,14 @@ export const AuthenticationContextProvider = ({ children }) => {
     }
   };
 
-  const onSignOut = () => {
+  const onSignOut = async () => {
     setCurrentUser(null);
     setUid(null);
     signOutUser();
   };
+
+  //console.log("CurrentUser: ", currentUser);
+  //console.log("UID: ", uid);
 
   return (
     <AuthenticationContext.Provider
@@ -75,6 +97,7 @@ export const AuthenticationContextProvider = ({ children }) => {
         onSignOut,
         checkEmail,
         setCheckEmail,
+        googleSignIn,
       }}
     >
       {children}
