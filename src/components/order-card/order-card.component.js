@@ -63,7 +63,9 @@ export const OrderCard = ({ amount, cart, time, navigation }) => {
             </View>
           </Style.OrderContainer>
           <TouchableOpacity onPress={openDetails}>
-            <Style.RestaurantImage source={{ uri: `${restaurant.photo}` }} />
+            {restaurant.photo && (
+              <Style.RestaurantImage source={{ uri: `${restaurant.photo}` }} />
+            )}
           </TouchableOpacity>
         </Style.OrderView>
         <Style.ReOrderButton

@@ -3,17 +3,11 @@ import auth from "@react-native-firebase/auth";
 import storage from "@react-native-firebase/storage";
 import database, { firebase } from "@react-native-firebase/database";
 import { GoogleSignin } from "@react-native-google-signin/google-signin";
+import { CLIENT } from "@env";
 
 GoogleSignin.configure({
-  webClientId:
-    "1035111378933-h7479g0o6fe9p9tct1eumq788qv96r8t.apps.googleusercontent.com",
+  webClientId: CLIENT,
 });
-
-const db = firebase
-  .app()
-  .database(
-    "https://mealstogo-2680a-default-rtdb.europe-west1.firebasedatabase.app/"
-  );
 
 export const editUserDocument = async (
   userAuth,

@@ -12,7 +12,7 @@ export const ListOfRestaurants = ({ navigation, data }) => {
 
   return (
     <RestaurantList
-      data={data}
+      data={data.reverse()}
       renderItem={({ item }) => {
         return (
           <TouchableOpacity
