@@ -19,7 +19,7 @@ export const CameraScreen = ({ navigation }) => {
     if (!permission || permission.status !== "granted") {
       requestPermission();
     }
-  }, [permission, requestPermission]);
+  }, []);
 
   const toggleCameraType = () => {
     setType((current) =>
