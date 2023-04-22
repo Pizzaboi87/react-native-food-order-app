@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { UserImageContext } from "../../services/user-image/user-image.context";
-import { UserPhoto, UserAvatar } from "./user-avatar.styles";
 import { AuthenticationContext } from "../../services/authentication/authentication.context";
+import { UserPhoto, UserAvatar } from "./user-avatar.styles";
 
 export const AvatarImage = ({ size }) => {
   const { userImage } = useContext(UserImageContext);

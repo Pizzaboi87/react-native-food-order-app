@@ -57,6 +57,7 @@
     "@react-native/eslint-config": "^0.72.1",
     "@types/styled-components": "^5.1.26",
     "eslint": "^8.36.0",
+    "eslint-plugin-ft-flow": "^2.0.3",
     "prettier": "^2.8.4"
   },
   "private": true

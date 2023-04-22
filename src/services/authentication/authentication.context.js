@@ -4,10 +4,7 @@ import {
   registerWithEmail,
   signInWithGoogle,
   signOutUser,
-  editUserDocument,
 } from "../firebase/firebase-config.service";
-import androidAuth from "@react-native-firebase/auth";
-import { GoogleSignin } from "@react-native-google-signin/google-signin";
 
 export const AuthenticationContext = createContext();
 export const AuthenticationContextProvider = ({ children }) => {

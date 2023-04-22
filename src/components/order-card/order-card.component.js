@@ -3,8 +3,8 @@ import { Card, Text } from "react-native-paper";
 import { View, TouchableOpacity } from "react-native";
 import { getDataFromDatabase } from "../../services/firebase/firebase-config.service";
 import { CartContext } from "../../services/cart/cart.context";
-import * as Style from "./order-card.styles";
 import { getOpenStatus } from "../../helpers/get-open-status/get-open.status.helper";
+import * as Style from "./order-card.styles";
 
 export const OrderCard = ({ amount, cart, time, navigation }) => {
   const [restaurant, setRestaurant] = useState({});

@@ -1,12 +1,12 @@
 import React from "react";
 import { CartScreen } from "../../screens/cart/cart.screen";
 import { DeliveryAddressScreen } from "../../screens/delivery-address/delivery-address.screen";
+import { CheckoutScreen } from "../../screens/checkout/checkout.screen";
+import { theme } from "../theme";
 import {
   createStackNavigator,
   CardStyleInterpolators,
 } from "@react-navigation/stack";
-import { theme } from "../theme";
-import { CheckoutScreen } from "../../screens/checkout/checkout.screen";
 
 const CartStack = createStackNavigator();
 
