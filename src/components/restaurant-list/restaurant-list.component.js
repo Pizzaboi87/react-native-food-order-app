@@ -5,7 +5,7 @@ import { RestaurantInfoCard } from "../restaurant-info-card/restaurant-info-card
 export const ListOfRestaurants = ({ navigation, data }) => {
   return (
     <RestaurantList
-      data={data}
+      data={data.reverse()}
       renderItem={({ item }) => {
         return (
           <RestaurantInfoCard
