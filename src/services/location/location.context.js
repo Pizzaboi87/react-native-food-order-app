@@ -9,11 +9,13 @@ export const LocationContextProvider = ({ children }) => {
   const [error, setError] = useState(null);
 
   const locationRequest = async (searchTerm) => {
+    console.log(searchTerm);
     const coordinateObject = await getDataFromDatabase(
       "coordinates",
       `${searchTerm}`,
       ""
     );
+    console.log(coordinateObject);
     return coordinateObject;
   };
 

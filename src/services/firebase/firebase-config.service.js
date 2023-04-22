@@ -233,16 +233,17 @@ export const removeFavouriteFromUser = async (value) => {
 };
 
 export const getDataFromDatabase = async (
-  database,
-  city = "",
-  restaurantId = ""
+  firstBranch,
+  secondBranch,
+  thirdBranch
 ) => {
-  if (!auth().currentUser || !database || !city || !restaurantId) {
+  if (!auth().currentUser) {
     return null;
   }
-
   try {
-    const dbRef = db.ref(`${database}/${city}/${restaurantId}`);
+    const dbRef = database().ref(
+      `${firstBranch}/${secondBranch}/${thirdBranch}`
+    );
     const snapshot = await dbRef.once("value");
 
     if (snapshot.exists()) {
@@ -261,7 +262,7 @@ export const getDataFromDatabase = async (
 export const findBranchByValue = async (value) => {
   if (auth().currentUser) {
     try {
-      const dbRef = db.ref("coordinates");
+      const dbRef = database().ref("coordinates");
       const snapshot = await dbRef.once("value");
       if (snapshot.exists()) {
         const branches = snapshot.val();
