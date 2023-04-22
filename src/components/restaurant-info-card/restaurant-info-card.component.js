@@ -9,13 +9,19 @@ import { Favourite } from "../favourites/favourites.component";
 import { FadeInView } from "../../animations/fade.animation";
 import * as Style from "./restaurant-info-card.styles";
 
-export const RestaurantInfoCard = ({ restaurant, distance }) => {
+export const RestaurantInfoCard = ({ restaurant, distance, navigation }) => {
   const ratingArray = Array.from(new Array(Math.floor(restaurant.rating)));
   const result = getOpenStatus(restaurant.opening_hours);
   const isTooFar = distance > 50;
 
+  const openDetails = () => {
+    navigation.navigate("RestaurantDetail", {
+      restaurant: restaurant,
+    });
+  };
+
   return (
-    <Style.RestaurantCard>
+    <Style.RestaurantCard onPress={openDetails}>
       <View>
         <Favourite restaurant={restaurant} />
         <FadeInView>

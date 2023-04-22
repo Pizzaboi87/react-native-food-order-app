@@ -10,7 +10,7 @@ export const FavouritesBar = ({ onDetail }) => {
   return (
     <FavouritesWrapper>
       <Title variant="caption">
-        {favourites
+        {favourites?.length
           ? "My Favourite Restaurants"
           : "You don't have favourites yet."}
       </Title>
