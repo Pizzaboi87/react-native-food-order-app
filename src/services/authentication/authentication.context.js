@@ -75,9 +75,9 @@ export const AuthenticationContextProvider = ({ children }) => {
   };
 
   const onSignOut = async () => {
+    signOutUser();
     setCurrentUser(null);
     setUid(null);
-    signOutUser();
   };
 
   return (

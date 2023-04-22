@@ -95,8 +95,9 @@ export const registerWithEmail = async (email, password, nickName) => {
 
 export const signOutUser = async () => {
   try {
-    await GoogleSignin.signOut();
     await GoogleSignin.revokeAccess();
+    await auth().signOut();
+    await GoogleSignin.signOut();
   } catch (error) {
     console.log(error);
   }
