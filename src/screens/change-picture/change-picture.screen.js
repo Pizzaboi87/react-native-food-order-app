@@ -16,7 +16,7 @@ export const ChangePictureScreen = ({ navigation }) => {
     if (!status || status !== "granted") {
       requestPermission();
     }
-  }, [status, requestPermission]);
+  }, []);
 
   const pickImageAsync = async () => {
     const result = await ImagePicker.launchImageLibraryAsync({
