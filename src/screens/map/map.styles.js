@@ -7,6 +7,12 @@ export const MapContainer = styled.View`
   flex: 1;
 `;
 
+export const LoadContainer = styled.View`
+  flex: 1;
+  justify-content: center;
+  background-color: ${(props) => props.theme.colors.ui.background};
+`;
+
 export const Map = styled(MapView)`
   width: 100%;
   height: 100%;
