@@ -73,7 +73,9 @@ export const signInWithEmail = async (email, password) => {
       email,
       password
     );
-    return userCredential.user;
+    const user = userCredential.user;
+    await editUserDocument(user, { displayName: user.displayName });
+    return user;
   } catch (error) {
     console.error("Failed to sign in with email and password", error);
     throw error;

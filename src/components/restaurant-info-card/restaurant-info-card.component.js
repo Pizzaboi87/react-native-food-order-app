@@ -15,9 +15,13 @@ export const RestaurantInfoCard = ({ restaurant, distance, navigation }) => {
   const isTooFar = distance > 50;
 
   const openDetails = () => {
-    navigation.navigate("RestaurantDetail", {
-      restaurant: restaurant,
-    });
+    if (!distance) {
+      navigation.navigate("RestaurantDetail", {
+        restaurant: restaurant,
+      });
+    } else {
+      return null;
+    }
   };
 
   return (
