@@ -1,8 +1,10 @@
+import { MAPS_API_KEY } from '@env';
+
 export const getDistance = async (orig, dest) => {
   const calcCoord = async (address) => {
     try {
       const response = await fetch(
-        `https://geocode.maps.co/search?q=${address}`
+        `https://geocode.maps.co/search?q=${address}&api_key=${MAPS_API_KEY}`
       );
       const jsonData = await response.json();
       const { lat, lon } = jsonData[0];
@@ -28,9 +30,9 @@ export const getDistance = async (orig, dest) => {
   const a =
     Math.sin(dLat / 2) * Math.sin(dLat / 2) +
     Math.sin(dLon / 2) *
-      Math.sin(dLon / 2) *
-      Math.cos(radLat1) *
-      Math.cos(radLat2);
+    Math.sin(dLon / 2) *
+    Math.cos(radLat1) *
+    Math.cos(radLat2);
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
   const distance = Number(R * c).toFixed(1);
 

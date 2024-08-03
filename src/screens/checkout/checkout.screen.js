@@ -38,7 +38,7 @@ export const CheckoutScreen = ({ navigation, route }) => {
   const fetchPaymentSheetParams = async () => {
     try {
       const response = await fetch(
-        "https://pizzaboi.cyclic.app/payment-sheet",
+        "https://pizzaboi-app-server.vercel.app/payment-sheet",
         {
           method: "post",
           headers: {
